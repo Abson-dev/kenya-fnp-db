@@ -1,0 +1,48 @@
+county_code,county_name,soil_zone
+KE001,Mombasa,1.0
+KE002,Kwale,2.0
+KE003,Kilifi,2.0
+KE004,Tana River,2.0
+KE005,Lamu,2.0
+KE006,Taita Taveta,2.0
+KE007,Garissa,2.0
+KE008,Wajir,2.0
+KE009,Mandera,2.0
+KE010,Marsabit,2.0
+KE011,Isiolo,2.0
+KE012,Meru,0.0
+KE013,Tharaka-Nithi,2.0
+KE014,Embu,0.0
+KE015,Kitui,2.0
+KE016,Machakos,2.0
+KE017,Makueni,2.0
+KE018,Nyandarua,0.0
+KE019,Nyeri,0.0
+KE020,Kirinyaga,0.0
+KE021,Murang'a,0.0
+KE022,Kiambu,0.0
+KE023,Turkana,2.0
+KE024,West Pokot,0.0
+KE025,Samburu,2.0
+KE026,Trans Nzoia,0.0
+KE027,Uasin Gishu,0.0
+KE028,Elgeyo-Marakwet,0.0
+KE029,Nandi,0.0
+KE030,Baringo,0.0
+KE031,Laikipia,0.0
+KE032,Nakuru,0.0
+KE033,Narok,0.0
+KE034,Kajiado,2.0
+KE035,Kericho,0.0
+KE036,Bomet,0.0
+KE037,Kakamega,0.0
+KE038,Vihiga,0.0
+KE039,Bungoma,0.0
+KE040,Busia,1.0
+KE041,Siaya,1.0
+KE042,Kisumu,1.0
+KE043,Homa Bay,1.0
+KE044,Migori,1.0
+KE045,Kisii,0.0
+KE046,Nyamira,0.0
+KE047,Nairobi,1.0
