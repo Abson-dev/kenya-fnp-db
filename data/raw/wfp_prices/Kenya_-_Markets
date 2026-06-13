@@ -1,0 +1,281 @@
+market_id,market,countryiso3,admin1,admin2,latitude,longitude
+184,Nairobi,KEN,Nairobi,Nairobi,-1.28,36.82
+185,Eldoret town (Uasin Gishu),KEN,Rift Valley,Uasin Gishu,0.52,35.28
+186,Kisumu,KEN,Nyanza,Kisumu,-0.1,34.75
+187,Kitui,KEN,Eastern,Kitui,-1.37,38.02
+188,Lodwar (Turkana),KEN,Rift Valley,Turkana,3.12,35.6
+189,Mandera,KEN,North Eastern,Mandera,3.94,41.86
+190,Marsabit,KEN,Eastern,Marsabit,2.33,37.98
+191,Mombasa,KEN,Coast,Mombasa,-4.05,39.67
+1850,Nakuru,KEN,Rift Valley,Nakuru,-0.28,36.07
+1851,Marigat (Baringo),KEN,Rift Valley,Baringo,0.46,35.96
+1852,Kilifi,KEN,Coast,Kilifi,-3.63,39.85
+1853,Kajiado,KEN,Rift Valley,Kajiado,-1.84,36.79
+1854,Hola (Tana River),KEN,,,,
+1855,Garissa,KEN,North Eastern,Garissa,-0.46,39.65
+3243,Dadaab town,KEN,North Eastern,Garissa,0.06,40.31
+3244,Kalobeyei (Village 1),KEN,Rift Valley,Turkana,3.77,34.73
+3245,Mogadishu (Kakuma),KEN,Rift Valley,Turkana,3.72,34.85
+3246,Kalobeyei (Village 2),KEN,Rift Valley,Turkana,3.76,34.75
+3247,Kalobeyei (Village 3),KEN,Rift Valley,Turkana,3.75,34.76
+3248,Kakuma 2,KEN,Rift Valley,Turkana,3.75,34.82
+3249,Kakuma 4,KEN,Rift Valley,Turkana,3.74,34.81
+3250,HongKong (Kakuma),KEN,Rift Valley,Turkana,3.75,34.84
+3251,Kakuma 3,KEN,Rift Valley,Turkana,3.77,34.82
+3252,Dagahaley (Daadab),KEN,North Eastern,Garissa,0.19,40.29
+3253,Ethiopia (Kakuma),KEN,Rift Valley,Turkana,3.72,34.85
+3254,Hagadera (Daadab),KEN,North Eastern,Garissa,0.01,40.37
+3255,IFO (Daadab),KEN,North Eastern,Garissa,0.11,40.32
+3256,Kakuma town,KEN,Rift Valley,Turkana,3.71,34.86
+3258,Kalokol,KEN,Rift Valley,Turkana,3.54,35.86
+3259,Bura fafi,KEN,North Eastern,Garissa,-1.5,40.05
+3260,Warable,KEN,North Eastern,Garissa,-0.67,39.82
+3262,Isiolo town,KEN,Eastern,Isiolo,0.35,37.58
+3263,El Wak,KEN,North Eastern,Mandera,2.81,40.93
+3264,Lochodo,KEN,Rift Valley,Turkana,3.08,35.51
+3266,Rhamu,KEN,North Eastern,Mandera,3.93,41.22
+3267,Takaba (Mandera),KEN,North Eastern,Mandera,3.39,40.23
+3268,Kuno,KEN,North Eastern,Garissa,-0.04,39.06
+3269,Moyale town,KEN,Eastern,Moyale,3.51,39.05
+3271,Wajir town,KEN,North Eastern,Wajir,1.75,40.06
+3355,Marigat town (Baringo),KEN,Rift Valley,Baringo,0.47,35.98
+3356,Garissa town (Garissa),KEN,North Eastern,Garissa,-0.46,39.64
+3357,Mandera town,KEN,North Eastern,Mandera,3.94,41.85
+3358,Marsabit town,KEN,Eastern,Marsabit,2.33,37.99
+3359,Hola town,KEN,Coast,Tana River,-1.5,40.03
+3360,Lodwar town,KEN,Rift Valley,Turkana,3.12,35.6
+4233,Mzizima,KEN,Coast,Mombasa,-4.05,39.67
+4234,Maboksini,KEN,Coast,Mombasa,-4.06,39.67
+4235,Junda (Mombasa),KEN,Coast,Mombasa,-4.01,39.68
+4236,Moroto (Mombasa),KEN,Coast,Mombasa,-4.03,39.66
+4237,Ugatuzi,KEN,Coast,Mombasa,-3.98,39.7
+4238,Bangladesh (Mombasa),KEN,Coast,Mombasa,-4.01,39.63
+4239,Kalahari (Mombasa),KEN,Coast,Mombasa,-4.03,39.63
+4240,Owino Uhuru,KEN,Coast,Mombasa,-4.01,39.62
+4241,Bokole,KEN,Coast,Mombasa,-4.02,39.61
+4242,Shonda (Mombasa),KEN,Coast,Mombasa,-4.11,39.65
+4243,Mtongwe,KEN,Coast,Mombasa,-4.1,39.64
+4244,Shauri Yako,KEN,Coast,Mombasa,-4.04,39.69
+4245,Kisumu Ndogo (Mombasa),KEN,Coast,Mombasa,-4.04,39.69
+4246,Matopeni,KEN,Coast,Mombasa,-4.06,39.66
+4525,Lpus,KEN,Rift Valley,Samburu,0.89,37.06
+4526,Kisima,KEN,Rift Valley,Samburu,0.95,36.77
+4527,Lekuru ,KEN,Rift Valley,Samburu,0.86,36.81
+4528,Lengusaka,KEN,Rift Valley,Samburu,0.88,37.32
+4529,Loibor ,KEN,Rift Valley,Samburu,1.13,36.56
+4530,Loidokume ,KEN,Rift Valley,Samburu,1.24,36.83
+4531,Lolkuniyani,KEN,Rift Valley,Samburu,1.06,37.23
+4532,Loosuk,KEN,Rift Valley,Samburu,1.02,36.58
+4533,Maralal,KEN,Rift Valley,Samburu,1.1,36.7
+4534,Nkorika ,KEN,Rift Valley,Samburu,1.27,36.65
+4535,Suguta,KEN,Rift Valley,Samburu,0.83,36.69
+4536,Wamba,KEN,Rift Valley,Samburu,0.98,37.32
+4624,Mathare (Nairobi),KEN,Nairobi,Nairobi,-1.26,36.86
+4625,Kawangware (Nairobi),KEN,Nairobi,Nairobi,-1.28,36.74
+4626,Kangemi (Nairobi),KEN,Nairobi,Nairobi,-1.27,36.74
+4627,Kibra (Nairobi),KEN,Nairobi,Nairobi,-1.32,36.78
+4628,Dandora (Nairobi),KEN,Nairobi,Nairobi,-1.25,36.9
+4629,Mukuru (Nairobi),KEN,Nairobi,Nairobi,-1.3,36.88
+5664,Illbissil Food Market (Kajiado),KEN,Rift Valley,Kajiado,-2.1,36.79
+5665,Tala Centre Market (Machakos),KEN,Eastern,Machakos,-1.27,37.32
+5666,Kathonzweni (Makueni),KEN,Eastern,Makueni,-1.91,37.73
+5667,Makueni,KEN,Eastern,Makueni,-1.81,37.62
+5668,Kaanwa (Tharaka Nithi),KEN,Eastern,Meru South,-0.32,37.72
+5669,Wakulima (Nakuru),KEN,Rift Valley,Nakuru,-0.3,36.08
+5670,Karatina (Nyeri),KEN,Central,Nyeri,-0.48,37.13
+5671,Kibuye (Kisumu),KEN,Nyanza,Kisumu,-0.09,34.77
+5672,Kongowea (Mombasa),KEN,Coast,Mombasa,-4.06,39.66
+5697,Kitengela (Kajiado),KEN,Nairobi,Nairobi,-1.29,36.86
+5698,Wakulima (Nairobi),KEN,Nairobi,Nairobi,-1.29,36.83
+5891,Kabarnet (Baringo),KEN,Rift Valley,Baringo,0.49,35.74
+5892,Kitui town (Kitui),KEN,Eastern,Kitui,-1.36,38.01
+5893,Vanga (Kwale),KEN,Coast,Kwale,-4.66,39.22
+5894,Lokichar (Turkana),KEN,Rift Valley,Turkana,2.38,35.65
+5896,Lomut (West Pokot),KEN,Rift Valley,West Pokot,1.44,35.57
+5897,Makutano (West Pokot),KEN,Rift Valley,West Pokot,1.25,35.08
+6109,Kalobeyei town,KEN,Rift Valley,Turkana,3.77,34.62
+6218,Laisamis Town,KEN,Eastern,Marsabit,1.58,37.8
+6219,Maikona,KEN,Eastern,Marsabit,2.92,37.63
+6220,Merille Town,KEN,Eastern,Marsabit,1.42,37.72
+6221,Illaut ,KEN,Rift Valley,Samburu,1.87,37.25
+6222,North Horr,KEN,Eastern,Marsabit,3.32,37.07
+6223,Kalacha,KEN,Eastern,Marsabit,3.13,37.43
+6224,Korr,KEN,Eastern,Marsabit,2.01,37.5
+6225,Kargi,KEN,Eastern,Marsabit,2.49,37.56
+6226,Loyangalani,KEN,Eastern,Marsabit,2.76,36.72
+6227,Dukana,KEN,Eastern,Marsabit,4,37.27
+6228,Turbi,KEN,Eastern,Marsabit,3.3,38.38
+6229,Sololo,KEN,Eastern,Moyale,3.56,38.65
+6352,Wote town (Makueni),KEN,Eastern,Makueni,-1.79,37.63
+6644,Griftu,KEN,North Eastern,Wajir,2,39.75
+6645,Eldas,KEN,North Eastern,Wajir,2.49,39.57
+6646,Sarman,KEN,North Eastern,Wajir,2.54,39.95
+6647,Tarbaj,KEN,North Eastern,Wajir,2.21,40.12
+6648,Buna,KEN,North Eastern,Wajir,2.79,39.5
+6649,Danaba,KEN,North Eastern,Wajir,3.34,39.79
+6650,Bute,KEN,North Eastern,Wajir,3.36,39.42
+6651,Habaswein,KEN,North Eastern,Wajir,1.02,39.49
+6652,Burder,KEN,North Eastern,Wajir,1.19,40.45
+6653,Kursin,KEN,North Eastern,Wajir,1.1,40.26
+6654,Machesa,KEN,North Eastern,Wajir,1.01,40.27
+6655,Lagbogol,KEN,North Eastern,Wajir,1.29,39.84
+6656,Hadado,KEN,North Eastern,Wajir,1.53,39.43
+6657,Arbajahan,KEN,North Eastern,Wajir,2.07,39.01
+6658,Garseqoftu,KEN,North Eastern,Wajir,1.81,39.16
+6837,Ileret,KEN,Eastern,Marsabit,4.31,36.23
+6838,Sieslucho,KEN,Rift Valley,Administrative unit not available,4.4,36.22
+6887,Kaleng,KEN,Rift Valley,Turkana,4.37,35.55
+6888,Lowarengak,KEN,Rift Valley,Turkana,4.28,35.89
+6889,Lobulono,KEN,Rift Valley,Turkana,4.53,35.37
+6890,Kaikor,KEN,Rift Valley,Turkana,4.52,35.42
+6891,Lokichoggio,KEN,Rift Valley,Turkana,4.2,34.36
+6892,Lokipoto,KEN,Rift Valley,Turkana,3.18,34.67
+6893,Lokiriama,KEN,Rift Valley,Turkana,2.76,34.88
+6894,Lorugum,KEN,Rift Valley,Turkana,2.88,35.25
+6895,Kalemunyang,KEN,Rift Valley,Turkana,2.74,35.37
+6896,Nakukulas,KEN,Rift Valley,Turkana,2.2,35.81
+6897,Lokori,KEN,Rift Valley,Turkana,1.95,36.03
+6898,Katilia,KEN,Rift Valley,Turkana,2.14,36.14
+6899,Naakalei,KEN,Rift Valley,Turkana,2.54,36.22
+6900,Katilu,KEN,Rift Valley,Turkana,2.27,35.43
+6901,Kerio,KEN,Rift Valley,Turkana,3,36.06
+6902,Lokitaung,KEN,Rift Valley,Turkana,4.27,35.75
+6903,Letea,KEN,Rift Valley,Turkana,3.52,35.75
+6904,Kibish,KEN,Rift Valley,Turkana,4.57,35.31
+10352,Jarajara,KEN,North Eastern,Garissa,-0.04,39.01
+10353,Saka Town,KEN,Coast,Tana River,-0.14,39.33
+10354,Alango Arba,KEN,North Eastern,Garissa,-0.1,39.99
+10355,Damajale,KEN,North Eastern,Garissa,0.1,40.78
+10356,Mathaxgesi,KEN,North Eastern,Garissa,0.16,40.43
+10357,Saretho,KEN,North Eastern,Garissa,-0.03,40.13
+10358,Dertu,KEN,North Eastern,Garissa,0.28,39.8
+10359,Liboi,KEN,North Eastern,Garissa,0.35,40.87
+10360,Korakora,KEN,North Eastern,Garissa,-0.61,39.78
+10361,Nanigi,KEN,North Eastern,Garissa,-0.85,39.87
+10362,Alinjugur,KEN,North Eastern,Garissa,-0.03,40.46
+10363,Hara (Garissa),KEN,North Eastern,Ijara,-1.85,40.23
+10364,Korisa,KEN,North Eastern,Ijara,-1.9,40.25
+10365,Kotile,KEN,North Eastern,Ijara,-1.97,40.21
+10366,Masalani,KEN,Coast,Tana River,-1.7,40.17
+10367,Baraki,KEN,North Eastern,Garissa,0.65,39.58
+10368,Benane,KEN,Eastern,Isiolo,0.5,38.66
+10369,Shanta Abak,KEN,North Eastern,Garissa,0.46,39.74
+10370,Maalamin,KEN,North Eastern,Garissa,0.38,39.35
+10371,Modogashe,KEN,Eastern,Isiolo,0.73,39.17
+10372,Kiwanja,KEN,Eastern,Meru North,0.44,37.6
+10373,Leparua,KEN,Eastern,Isiolo,0.3,37.44
+10374,Biliqo,KEN,Eastern,Isiolo,0.9,38.48
+10375,Bulesa Bulesa,KEN,Eastern,Isiolo,0.96,38.54
+10376,Kipsing CENTER,KEN,Eastern,Isiolo,0.6,37.25
+10377,Malka GALLA,KEN,Eastern,Isiolo,1.27,38.8
+10378,Merti CENTER,KEN,Eastern,Isiolo,1.07,38.67
+10379,Ngaremara,KEN,Eastern,Meru North,0.5,37.64
+10380,Oldonyiro,KEN,Eastern,Isiolo,0.62,36.99
+10381,Kinna,KEN,Eastern,Isiolo,0.32,38.21
+10382,Kulamawe,KEN,Eastern,Isiolo,0.57,38.2
+10383,Boji,KEN,Eastern,Isiolo,0.57,38.34
+10384,Garbatulla,KEN,Eastern,Isiolo,0.53,38.51
+10385,Iresaboru Centre,KEN,Eastern,Isiolo,0.99,38.88
+10386,Malkadaka,KEN,Eastern,Isiolo,0.84,38.5
+10387,Sericho Center,KEN,Eastern,Isiolo,1.13,39.1
+10388,Bale,KEN,Coast,Kilifi,-3.44,39.76
+10389,Dzikunze,KEN,Coast,Kilifi,-3.25,39.75
+10390,Kachororoni,KEN,Coast,Kilifi,-3.48,39.75
+10391,Kaembeni,KEN,Coast,Kilifi,-3.33,39.79
+10392,Matanomanne,KEN,Coast,Kilifi,-3.4,39.78
+10393,Alungu,KEN,North Eastern,Mandera,3.05,41.06
+10394,Suq Jini,KEN,North Eastern,Mandera,3.15,41.18
+10395,Warankara,KEN,North Eastern,Mandera,3.41,41.01
+10396,Shimbir Fatuma,KEN,North Eastern,Mandera,3.03,40.51
+10397,Wargadud,KEN,North Eastern,Mandera,3.18,40.87
+10398,Banissa,KEN,North Eastern,Mandera,3.94,40.34
+10399,Kiliwaheri,KEN,North Eastern,Mandera,3.92,40.01
+10400,Ashabito,KEN,North Eastern,Mandera,3.55,40.87
+10401,Kargi South Horr,KEN,Eastern,Marsabit,2.1,36.92
+10402,Ngurunit,KEN,Rift Valley,Samburu,1.74,37.31
+10403,Kamboe,KEN,Eastern,Marsabit,2.11,37.89
+10404,Loglogo,KEN,Eastern,Marsabit,1.99,37.92
+10405,Sololo Mukutano,KEN,Eastern,Moyale,3.51,38.65
+10406,Walda,KEN,Eastern,Moyale,3.45,38.52
+10407,Dambala Fachana,KEN,Eastern,Moyale,3.51,38.75
+10408,Dirib,KEN,Eastern,Marsabit,2.29,38.06
+10409,Dub Goba,KEN,Eastern,Marsabit,2.33,38.03
+10410,Songa,KEN,Eastern,Marsabit,2.25,38
+10411,Karare,KEN,Eastern,Marsabit,2.21,37.89
+10412,Kiltamany,KEN,Rift Valley,Samburu,0.65,37.48
+10413,Laresoro,KEN,Rift Valley,Samburu,0.71,37.64
+10414,Lerata,KEN,Rift Valley,Samburu,0.78,37.52
+10415,Marti E Pareu,KEN,Rift Valley,Samburu,1.54,37.31
+10416,Ndonyowasi,KEN,Rift Valley,Samburu,1.36,37.44
+10417,Ngilai,KEN,Rift Valley,Samburu,1.15,37.26
+10418,Swari,KEN,Rift Valley,Samburu,1.1,37.07
+10419,Waso,KEN,Rift Valley,Samburu,1.13,37.6
+10420,Westgate,KEN,Eastern,Isiolo,0.58,37.43
+10421,Archers Post,KEN,Rift Valley,Samburu,0.64,37.67
+10422,Lkuasi,KEN,Rift Valley,Samburu,1.15,37.02
+10423,Lodungokwe,KEN,Rift Valley,Samburu,0.87,37
+10424,Barsaloi,KEN,Rift Valley,Samburu,1.34,36.86
+10425,Simale,KEN,Rift Valley,Samburu,2.11,36.78
+10426,Baragoi,KEN,Rift Valley,Samburu,1.65,37.03
+10427,Latakweny,KEN,Rift Valley,Samburu,1.55,37.1
+10428,Lesirkan,KEN,Rift Valley,Samburu,1.78,36.97
+10429,Marti,KEN,Rift Valley,Samburu,1.78,36.79
+10430,Masikita,KEN,Rift Valley,Samburu,1.61,36.95
+10431,Nachola,KEN,Rift Valley,Samburu,1.8,36.7
+10432,Opiroi,KEN,Rift Valley,Samburu,1.16,36.81
+10433,Tuum,KEN,Rift Valley,Samburu,2.15,36.77
+10434,Lolkunono,KEN,Rift Valley,Samburu,1.08,36.6
+10435,Porro,KEN,Rift Valley,Samburu,1.22,36.6
+10436,Sura Adoru,KEN,Rift Valley,Samburu,0.79,36.9
+10437,Kirimon,KEN,Rift Valley,Samburu,0.74,36.88
+10438,Bangale,KEN,Coast,Tana River,-0.72,39.02
+10439,Bilbil,KEN,Coast,Tana River,-1.01,39.79
+10440,Boka,KEN,Coast,Tana River,-0.34,38.78
+10441,Adele Center,KEN,Coast,Tana River,-0.47,39.61
+10442,Bura,KEN,Coast,Tana River,-1.19,39.84
+10443,Charidende,KEN,Coast,Tana River,-0.78,39.67
+10444,Hara (Tana River),KEN,Coast,Tana River,-1.86,40.07
+10445,Makere,KEN,Coast,Tana River,-1.33,40.01
+10446,Waldena,KEN,Coast,Tana River,-1.61,39.03
+10447,Wayu,KEN,Coast,Tana River,-1.53,39.58
+10448,Garsen,KEN,Coast,Tana River,-2.27,40.11
+10449,Minjila,KEN,Coast,Tana River,-2.32,40.11
+10450,Kipini,KEN,Coast,Tana River,-2.53,40.53
+10451,Tarasaa,KEN,Coast,Tana River,-2.44,40.17
+10452,Lorengipi,KEN,Rift Valley,Turkana,2.58,34.99
+10453,Namoruputh,KEN,Rift Valley,Turkana,2.84,35.04
+10454,Turkwel Centre,KEN,Rift Valley,Turkana,2.92,35.4
+10455,Urum,KEN,Rift Valley,Turkana,2.95,34.7
+10456,Loturerei,KEN,Rift Valley,Turkana,2.93,35.61
+10457,Alemsekon,KEN,Rift Valley,Turkana,3.53,34.82
+10458,Eliye Centre,KEN,Rift Valley,Turkana,3.24,36.02
+10459,Elelea,KEN,Rift Valley,Turkana,2.1,36.16
+10460,Aposta,KEN,Rift Valley,Turkana,4.06,34.52
+10461,Kaakelai,KEN,Rift Valley,Turkana,4.52,35.59
+10464,Kaeris,KEN,Rift Valley,Turkana,3.98,35.48
+10465,Kalemgorok,KEN,Rift Valley,Turkana,2.14,35.5
+10466,Kang'akipur,KEN,Rift Valley,Turkana,2.38,36.04
+10467,Kasuroi,KEN,Rift Valley,Turkana,2.48,35.66
+10468,Kataboi,KEN,Rift Valley,Turkana,3.75,35.83
+10469,Kokuro,KEN,Rift Valley,Turkana,4.62,35.71
+10489,Lokangae,KEN,Rift Valley,Turkana,4.1,34.9
+10490,Lokapel,KEN,Rift Valley,Turkana,2.37,35.42
+10491,Lokwii,KEN,Rift Valley,Turkana,1.98,36.1
+10492,Lolupe,KEN,Rift Valley,Turkana,3.54,35.25
+10493,Lopur,KEN,Rift Valley,Turkana,3.86,34.82
+10494,Lotubae,KEN,Rift Valley,Turkana,2.02,36.13
+10495,Morulem,KEN,Rift Valley,Turkana,1.98,36.13
+10496,Naduat,KEN,Rift Valley,Turkana,3.51,35.19
+10497,Nakinomet,KEN,Rift Valley,Turkana,4.58,35.4
+10498,Napak,KEN,Rift Valley,Turkana,4.56,35.39
+10499,Todonyang,KEN,Rift Valley,Turkana,4.44,35.93
+10500,Kimalel Center,KEN,Rift Valley,Baringo,0.47,35.9
+10501,Koriema,KEN,Rift Valley,Baringo,0.46,35.86
+10502,Loboi Center,KEN,Rift Valley,Baringo,0.36,36.06
+10503,Lororo Centre,KEN,Rift Valley,Baringo,0.44,36
+10504,Amaya,KEN,Rift Valley,Baringo,0.77,36.41
+10505,Chemolingot,KEN,Rift Valley,Baringo,0.99,35.97
+10506,Nginyang,KEN,Rift Valley,Baringo,0.95,36.02
+10507,Kibwezi,KEN,Eastern,Makueni,-2.41,37.97
+10508,Mtito Andei,KEN,Coast,Taita Taveta,-2.69,38.16
+10509,Emali,KEN,Eastern,Makueni,-2.08,37.47

@@ -1,0 +1,286 @@
+# =====================================================================
+# Kenya Soil / Food / Nutrition / Policy database - source registry
+# Single source of truth for the acquisition pipeline.
+# Author: Aboubacar HEMA
+#
+# access types:
+#   open_api       - REST/CKAN/S3/programmatic, fully automatable
+#   open_download  - direct file URL, automatable
+#   dashboard      - browser dashboard, scrape/manual export
+#   registration   - free account required before download (manual gate)
+#   agreement      - data-use agreement / formal request (manual gate)
+#
+# Every entry records the original publisher and (where used) the mirror,
+# so provenance can be reconstructed as the bundle document requires.
+# =====================================================================
+
+project:
+  name: kenya_fnp_db
+  iso3: KEN
+  admin1_label: county
+  admin2_label: sub_county
+  expected_admin1: 47
+  expected_admin2: 290
+  crs: EPSG:4326
+  author: Aboubacar HEMA
+
+layers:
+
+  # ---------------------------------------------------------------
+  # LAYER 1 - base geography and denominators
+  # ---------------------------------------------------------------
+  geography:
+    cod_ab:
+      title: Kenya subnational administrative boundaries (COD-AB)
+      publisher: OCHA / HDX
+      access: open_api
+      handler: hdx_dataset
+      hdx_dataset: cod-ab-ken
+      formats: [shp, gdb, gazetteer]
+      license: see HDX dataset page
+      role: master spatial key (admin0/1/2)
+      url: https://data.humdata.org/dataset/cod-ab-ken
+
+    kphc_2019_vol1:
+      title: 2019 Kenya Population and Housing Census - Volume I (by county and sub-county)
+      publisher: KNBS
+      access: open_download
+      handler: http_file
+      url: https://www.knbs.or.ke/wp-content/uploads/2023/09/2019-Kenya-population-and-Housing-Census-Volume-1-Population-By-County-And-Sub-County.pdf
+      role: population / households / area / density denominators
+      note: PDF tables; parse to CSV in interim step
+
+    census_ke_ag:
+      title: Census.ke 2019 agriculture-related census extracts
+      publisher: KNBS (via Census.ke mirror)
+      mirror: census.ke
+      access: open_download
+      handler: http_file
+      url: https://census.ke/no/dataset/table-2-25-hectares-of-agricultural-land-and-farming-hoholds-for-production-county-and-sub-county
+      role: farming-household and agricultural-land denominators
+      note: mirror, not primary publisher - record extraction date
+
+  # ---------------------------------------------------------------
+  # LAYER 2 - soil nutrient and soil health
+  # ---------------------------------------------------------------
+  soil:
+    soilgrids:
+      title: ISRIC SoilGrids 250 m
+      publisher: ISRIC
+      access: open_api
+      handler: soilgrids_wcs
+      base_url: https://maps.isric.org/mapserv
+      rest_url: https://rest.isric.org/soilgrids/v2.0
+      properties: [phh2o, soc, ocs, nitrogen, cec, bdod, cfvo, sand, silt, clay]
+      depths: ["0-5cm", "5-15cm", "15-30cm", "30-60cm", "60-100cm", "100-200cm"]
+      license: CC BY 4.0
+      role: national gridded soil-health backbone (zonal stats)
+
+    kensoter:
+      title: KENSOTER 2.0 (Kenya soil and terrain database, 1:1M)
+      publisher: ISRIC
+      access: open_download
+      handler: http_file
+      url: https://files.isric.org/public/soter/KENSOTER_ver2.zip
+      license: CC BY 3.0
+      role: Kenya-specific legacy soil classes and properties
+
+    kenya_soil_mirror:
+      title: ICPAC/SODMA Kenya - Soil (Kenya Soil Survey legacy polygons)
+      publisher: Kenya Soil Survey (via ICPAC/SODMA mirror)
+      mirror: sodma-dev.okfn.org
+      access: open_download
+      handler: ckan_resource
+      url: https://sodma-dev.okfn.org/dataset/kenya-soil
+      formats: [zip, csv, geojson]
+      license: unspecified
+      role: legacy Kenya soil polygons (interpretive classes)
+
+    afsis_chem:
+      title: AfSIS Soil Chemistry (Phase I, spectra + reference chemistry)
+      publisher: AfSIS / ICRAF
+      access: open_api
+      handler: aws_s3
+      bucket: afsis
+      prefix: ""
+      anonymous: true
+      license: ODbL
+      role: Africa-wide calibration / ML training / validation
+
+    soilhive_ocp:
+      title: SoilHive OCP Kenya clusters (0-20 cm points)
+      publisher: SoilHive / OCP
+      access: agreement
+      handler: manual
+      url: https://soilhive.ag/datasets/48
+      variables: [ph, n, p, k, fe, zn, cec, oc, ca, mg, clay, sand, cu, s]
+      role: micronutrient enrichment (Zn, Fe, P, K)
+      note: metadata open, data by request - see MANUAL_DATASETS.md
+
+  # ---------------------------------------------------------------
+  # LAYER 3 - food composition, availability, prices
+  # ---------------------------------------------------------------
+  food:
+    kfct_2018:
+      title: Kenya Food Composition Tables 2018
+      publisher: FAO / Government of Kenya
+      access: open_download
+      handler: http_file
+      url: https://www.fao.org/food-composition/tables-and-databases/detail/kenya-food-composition-tables/en
+      license: free access (PDF + electronic file)
+      role: nutrient-composition backbone (522 foods, 142 recipes)
+
+    kilimostat:
+      title: KilimoSTAT (Ministry of Agriculture open data)
+      publisher: Ministry of Agriculture and Livestock Development, Kenya
+      access: open_api
+      handler: kilimostat_api
+      url: https://statistics.kilimo.go.ke/en/2_4/
+      license: CC BY 4.0
+      role: official Kenya agriculture statistics (crop, livestock, prices)
+
+    faostat:
+      title: FAOSTAT (Kenya country-year series)
+      publisher: FAO
+      access: open_api
+      handler: faostat_bulk
+      base_url: https://bulks-faostat.fao.org/production
+      domains: [QCL, QV, FBS, FO, PP, RFN, RL]
+      area_code: 114   # Kenya
+      license: CC BY 4.0
+      role: long-run national time-series backbone
+
+    wfp_prices:
+      title: WFP Kenya food prices
+      publisher: WFP (via HDX)
+      access: open_api
+      handler: hdx_dataset
+      hdx_dataset: wfp-food-prices-for-kenya
+      license: see HDX dataset page
+      role: observed market-price backbone (monthly)
+
+    wb_rtfp:
+      title: World Bank Real-Time Food Prices - Kenya
+      publisher: World Bank (DEC / microdata catalog 6167)
+      access: open_api
+      handler: http_file
+      url: https://microdata.worldbank.org/index.php/catalog/6167
+      datahub: https://datacatalogfiles.worldbank.org/ddh-published/0061507/DR0094248/WLD_RTFP_country_2026-05.csv
+      role: modeled gap-filled market prices (233 markets, 2007-2026)
+      note: prefer the DataHub bulk CSV; filter to KEN
+
+    fsd_food:
+      title: Kenya Food Systems Dashboard (food side)
+      publisher: GAIN / Ministry of Agriculture
+      access: dashboard
+      handler: manual
+      url: https://fsd.kilimo.go.ke/
+      role: contextual affordability / diets / system drivers
+
+  # ---------------------------------------------------------------
+  # LAYER 4 - body nutrient and health
+  # ---------------------------------------------------------------
+  health:
+    kdhs_2022:
+      title: Kenya Demographic and Health Survey 2022
+      publisher: KNBS / DHS Program
+      access: registration
+      handler: dhs_rdhs
+      survey_ids: [KE2022DHS]
+      catalog: https://microdata.worldbank.org/index.php/catalog/5911
+      role: current anthropometry and anemia (national + county)
+      note: free DHS account + dataset approval - see MANUAL_DATASETS.md
+
+    knms_2011:
+      title: Kenya National Micronutrient Survey 2011
+      publisher: KNBS / Ministry of Health
+      access: agreement
+      handler: manual
+      url: https://statistics.knbs.or.ke/nada/index.php/catalog/study/KEN-KNBS-KNMS-2011-v1.0
+      role: richest micronutrient biomarkers (ferritin, RBP, iodine, Zn, folate)
+      note: documentation open, microdata by request
+
+    mics_2000:
+      title: Kenya MICS 2000 (MICS2)
+      publisher: KNBS / UNICEF
+      access: registration
+      handler: manual
+      url: https://statistics.knbs.or.ke/nada/index.php/catalog/44
+      role: historical child/women indicators
+
+    nipfn:
+      title: NIPFN nutrition dashboard
+      publisher: KNBS
+      access: dashboard
+      handler: manual
+      url: https://nipfn.knbs.or.ke/
+      role: rapid policy-facing indicator extraction
+
+    wb_hnp:
+      title: World Bank Health Nutrition and Population statistics
+      publisher: World Bank
+      access: open_api
+      handler: worldbank_api
+      country: KEN
+      indicators:
+        - SH.ANM.ALLW.ZS      # anemia, women of reproductive age
+        - SH.ANM.CHLD.ZS      # anemia, children
+        - SH.STA.STNT.ZS      # stunting under 5
+        - SH.STA.WAST.ZS      # wasting under 5
+        - SN.ITK.DEFC.ZS      # prevalence of undernourishment
+      license: CC BY 4.0
+      role: clean annual country-year panel
+
+  # ---------------------------------------------------------------
+  # LAYER 5 - food-system, fortification, policy
+  # ---------------------------------------------------------------
+  policy:
+    faolex:
+      title: FAOLEX Kenya legal and policy corpus
+      publisher: FAO
+      access: open_api
+      handler: faolex_api
+      country: KEN
+      url: https://www.fao.org/faolex/en/
+      role: legal/policy document backbone
+
+    gfdx:
+      title: Global Fortification Data Exchange (Kenya)
+      publisher: GFDx (GAIN / FFI / IGN / Micronutrient Forum)
+      access: open_download
+      handler: gfdx_download
+      url: https://www.fortificationdata.org/
+      foods: [maize flour, oil, rice, salt, wheat flour]
+      role: structured fortification status and program performance
+
+    aspire:
+      title: World Bank ASPIRE (Kenya social protection)
+      publisher: World Bank
+      access: open_download
+      handler: http_file
+      url: https://www.worldbank.org/en/data/datatopics/aspire
+      role: social-protection covariates
+
+    asti:
+      title: ASTI agricultural R&D data (FAO 2004-2023)
+      publisher: FAO / IFPRI ASTI
+      access: open_download
+      handler: http_file
+      url: https://openknowledge.fao.org/handle/20.500.14283/cd9439en
+      role: agricultural research capacity (expenditure, FTE researchers)
+
+    fortification_refs:
+      title: Kenya fortification references (MoH + KEBS)
+      publisher: Ministry of Health Kenya / KEBS
+      access: dashboard
+      handler: manual
+      url: https://nutrition.health.go.ke/programmes/micronutrient-deficiency-control/food-fortification/
+      role: mandatory fortification nutrients (wheat, maize, fats/oils)
+
+    action_plan:
+      title: Kenya Food Systems and Land Use Action Plan 2024-2030
+      publisher: Government of Kenya / AGRA
+      access: open_download
+      handler: http_file
+      url: https://agra.org/wp-content/uploads/2025/06/KENYA-FOOD-SYSTEMS-AND-LAND-USE-ACTION-PLAN-OCTOBER-2023_FA-22.11.2023.pdf
+      role: policy-coding strategy document

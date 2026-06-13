@@ -1,0 +1,21 @@
+# Kenya FNP database pipeline - Python dependencies
+# Author: Aboubacar HEMA
+
+# core
+requests>=2.31
+PyYAML>=6.0
+pandas>=2.0
+duckdb>=1.0
+
+# geospatial (crosswalk enrichment, SoilGrids zonal stats, COD-AB read)
+geopandas>=0.14
+rasterio>=1.3
+rasterstats>=0.19
+shapely>=2.0
+pyproj>=3.6
+
+# optional helpers used by individual handlers / transforms
+# rdhs is R-only; KDHS automation happens in R (see MANUAL_DATASETS.md)
+openpyxl>=3.1          # read KNBS / KilimoSTAT spreadsheets
+pdfplumber>=0.10       # parse census Volume I PDF tables
+tabula-py>=2.9         # alternative PDF table extraction (needs Java)

@@ -1,0 +1,2837 @@
+
+
+ 
+ 
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+     
+
+ 
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+<head>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script defer="defer" type="text/javascript" src="https://rum.hlx.page/.rum/@adobe/helix-rum-js@%5E2/dist/micro.js" data-routing="env=prod,tier=publish,ams=World Bank"></script>
+<link rel="shortcut icon" href="/content/dam/wbr-redesign/logos/wbg-favicon.png" type="image/png"/>
+    <meta name="viewport" content="width=device-width"/>
+    
+    <!--<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>-->
+    
+    
+    <meta name="keywords" content="China(CN), India(IN), poverty"/>
+    <meta name="description" content="Short Description"/> 
+    <meta name="language" content="en"/>
+    
+    <meta property="og:title" content="ASPIRE: The Atlas of Social Protection Indicators of Resilience and Equity"/>
+<meta property="og:site_name" content="World Bank"/>
+<meta property="og:description" content="Short Description"/>
+<meta property="og:type" content="article"/>
+<meta property="og:test" content="https://www.worldbank.org/content/dam/wbr/share-logo/social-share.jpg"/>
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image" content="https://www.worldbank.org/content/dam/wbr/share-logo/social-share.jpg"/>
+<meta property="og:url" content="https://www.worldbank.org/en/data/datatopics/aspire"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="World Bank"/>
+<meta name="twitter:title" content="ASPIRE: The Atlas of Social Protection Indicators of Resilience and Equity"/>
+<meta name="twitter:description" content="Short Description"/>
+<meta name="twitter:image:src" content="https://www.worldbank.org/content/dam/wbr/share-logo/social-share.jpg"/>
+<meta name="dcterms.title" content="ASPIRE: The Atlas of Social Protection Indicators of Resilience and Equity" />
+<meta name="dcterms.type" content="Text/HTML" />
+<meta name="dcterms.identifier" content="https://www.worldbank.org/en/data/datatopics/aspire"/>
+<meta name="dcterms.language" content="en" /> 
+
+
+    <link rel="canonical" href="https://www.worldbank.org/en/data/datatopics/aspire"/>
+    
+
+
+
+    
+
+    <style type="text/css">@font-face {font-family:Open Sans;font-style:normal;font-weight:300;src:url(/cf-fonts/s/open-sans/5.0.20/vietnamese/300/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:300;src:url(/cf-fonts/s/open-sans/5.0.20/greek-ext/300/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:300;src:url(/cf-fonts/s/open-sans/5.0.20/greek/300/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:300;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic-ext/300/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:300;src:url(/cf-fonts/s/open-sans/5.0.20/latin/300/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:300;src:url(/cf-fonts/s/open-sans/5.0.20/latin-ext/300/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:300;src:url(/cf-fonts/s/open-sans/5.0.20/hebrew/300/normal.woff2);unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:300;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic/300/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:300;src:url(/cf-fonts/s/open-sans/5.0.20/greek/300/italic.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:300;src:url(/cf-fonts/s/open-sans/5.0.20/latin-ext/300/italic.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:300;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic/300/italic.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:300;src:url(/cf-fonts/s/open-sans/5.0.20/latin/300/italic.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:300;src:url(/cf-fonts/s/open-sans/5.0.20/vietnamese/300/italic.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:300;src:url(/cf-fonts/s/open-sans/5.0.20/hebrew/300/italic.woff2);unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:300;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic-ext/300/italic.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:300;src:url(/cf-fonts/s/open-sans/5.0.20/greek-ext/300/italic.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:400;src:url(/cf-fonts/s/open-sans/5.0.20/greek-ext/400/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:400;src:url(/cf-fonts/s/open-sans/5.0.20/greek/400/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:400;src:url(/cf-fonts/s/open-sans/5.0.20/vietnamese/400/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:400;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic/400/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:400;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic-ext/400/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:400;src:url(/cf-fonts/s/open-sans/5.0.20/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:400;src:url(/cf-fonts/s/open-sans/5.0.20/hebrew/400/normal.woff2);unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:400;src:url(/cf-fonts/s/open-sans/5.0.20/latin-ext/400/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:400;src:url(/cf-fonts/s/open-sans/5.0.20/vietnamese/400/italic.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:400;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic-ext/400/italic.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:400;src:url(/cf-fonts/s/open-sans/5.0.20/greek/400/italic.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:400;src:url(/cf-fonts/s/open-sans/5.0.20/greek-ext/400/italic.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:400;src:url(/cf-fonts/s/open-sans/5.0.20/latin-ext/400/italic.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:400;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic/400/italic.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:400;src:url(/cf-fonts/s/open-sans/5.0.20/hebrew/400/italic.woff2);unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:400;src:url(/cf-fonts/s/open-sans/5.0.20/latin/400/italic.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:600;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic/600/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:600;src:url(/cf-fonts/s/open-sans/5.0.20/latin-ext/600/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:600;src:url(/cf-fonts/s/open-sans/5.0.20/hebrew/600/normal.woff2);unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:600;src:url(/cf-fonts/s/open-sans/5.0.20/greek/600/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:600;src:url(/cf-fonts/s/open-sans/5.0.20/latin/600/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:600;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic-ext/600/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:600;src:url(/cf-fonts/s/open-sans/5.0.20/greek-ext/600/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:600;src:url(/cf-fonts/s/open-sans/5.0.20/vietnamese/600/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:600;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic/600/italic.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:600;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic-ext/600/italic.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:600;src:url(/cf-fonts/s/open-sans/5.0.20/hebrew/600/italic.woff2);unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:600;src:url(/cf-fonts/s/open-sans/5.0.20/latin/600/italic.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:600;src:url(/cf-fonts/s/open-sans/5.0.20/greek/600/italic.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:600;src:url(/cf-fonts/s/open-sans/5.0.20/latin-ext/600/italic.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:600;src:url(/cf-fonts/s/open-sans/5.0.20/greek-ext/600/italic.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:600;src:url(/cf-fonts/s/open-sans/5.0.20/vietnamese/600/italic.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:700;src:url(/cf-fonts/s/open-sans/5.0.20/latin-ext/700/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:700;src:url(/cf-fonts/s/open-sans/5.0.20/vietnamese/700/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:700;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic-ext/700/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:700;src:url(/cf-fonts/s/open-sans/5.0.20/greek-ext/700/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:700;src:url(/cf-fonts/s/open-sans/5.0.20/hebrew/700/normal.woff2);unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:700;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic/700/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:700;src:url(/cf-fonts/s/open-sans/5.0.20/greek/700/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:700;src:url(/cf-fonts/s/open-sans/5.0.20/latin/700/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:700;src:url(/cf-fonts/s/open-sans/5.0.20/latin/700/italic.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:700;src:url(/cf-fonts/s/open-sans/5.0.20/greek/700/italic.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:700;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic-ext/700/italic.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:700;src:url(/cf-fonts/s/open-sans/5.0.20/latin-ext/700/italic.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:700;src:url(/cf-fonts/s/open-sans/5.0.20/vietnamese/700/italic.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:700;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic/700/italic.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:700;src:url(/cf-fonts/s/open-sans/5.0.20/greek-ext/700/italic.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:700;src:url(/cf-fonts/s/open-sans/5.0.20/hebrew/700/italic.woff2);unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:800;src:url(/cf-fonts/s/open-sans/5.0.20/latin/800/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:800;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic-ext/800/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:800;src:url(/cf-fonts/s/open-sans/5.0.20/greek/800/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:800;src:url(/cf-fonts/s/open-sans/5.0.20/vietnamese/800/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:800;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic/800/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:800;src:url(/cf-fonts/s/open-sans/5.0.20/hebrew/800/normal.woff2);unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:800;src:url(/cf-fonts/s/open-sans/5.0.20/greek-ext/800/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Open Sans;font-style:normal;font-weight:800;src:url(/cf-fonts/s/open-sans/5.0.20/latin-ext/800/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:800;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic-ext/800/italic.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:800;src:url(/cf-fonts/s/open-sans/5.0.20/greek-ext/800/italic.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:800;src:url(/cf-fonts/s/open-sans/5.0.20/greek/800/italic.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:800;src:url(/cf-fonts/s/open-sans/5.0.20/cyrillic/800/italic.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:800;src:url(/cf-fonts/s/open-sans/5.0.20/latin-ext/800/italic.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:800;src:url(/cf-fonts/s/open-sans/5.0.20/latin/800/italic.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:800;src:url(/cf-fonts/s/open-sans/5.0.20/vietnamese/800/italic.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Open Sans;font-style:italic;font-weight:800;src:url(/cf-fonts/s/open-sans/5.0.20/hebrew/800/italic.woff2);unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;font-display:swap;}</style>
+
+
+    <title>ASPIRE: The Atlas of Social Protection Indicators of Resilience and Equity</title>
+
+    <script src="/etc/designs/wbrrdesign/clientlibs-wbrredsign/js/jquery-3.6.0.min.js"></script>
+
+<link rel="stylesheet" href="/etc/designs/wbrrdesign/clientlibs-datatopics.css" type="text/css">
+
+    
+    <script src="/etc/designs/wbr/components/wbgajax.js"></script>
+
+    
+    
+
+
+    
+    
+
+
+<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName("script")[0];
+a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0058/1350.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+
+
+    
+    
+    
+
+    
+    
+    <script src="//assets.adobedtm.com/223f6e2cf7c9/3eb6c9b72a93/launch-7bc0cdc67098.min.js"></script>
+    
+    
+    
+    
+    
+    
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+         if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+         n.queue=[];t=b.createElement(e);t.async=!0;
+         t.src=v;s=b.getElementsByTagName(e)[0];
+         s.parentNode.insertBefore(t,s)}(window, document,'script',
+                                         'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '394489841005929');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=394489841005929&ev=PageView&noscript=1"/></noscript>
+    <!-- End Facebook Pixel Code -->
+
+
+    <script>
+
+        targetPageParams = function(){
+
+            return ["a=1", "b=2", "c=checkdata"];
+
+        };
+
+
+    </script>    
+ 
+
+    
+</head>
+
+
+
+    
+
+
+
+
+ 
+
+
+
+ 
+
+
+ 
+
+    
+
+
+
+
+
+
+
+<body>
+    <div id="wbg-aem-target" class="wbg-aem-target"></div>
+    <div class="ajax-div" style="display:none;">    
+        <img class="ajax-loader" alt="Loading" src="/content/dam/wbr-redesign/logos/ajax.gif">
+    </div>
+
+
+    
+
+
+
+
+
+<link href="/etc/designs/wbr/clientlibs/css/home-banner.css" type="text/css" rel="stylesheet">
+
+
+<script>
+function wb_survey_yes(url) {
+	wb_note_setcookie('wb_note','1',1);
+	$('#survey').hide();
+	window.open(url,'_blank');
+}
+
+function wb_note_setcookie(cname, cvalue, exdays) {
+	var d = new Date();
+	d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	var expires = "expires="+d.toUTCString();
+	document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function wb_close() {
+	document.getElementById('wb_banner').style.display = 'none';
+	wb_banner_setcookie("wb_banner","1",1);
+};
+
+</script>
+<script>jQuery(document).ready(function($) {
+			var wb_note = document.cookie.replace(/(?:(?:^|.*;\s*)wb_note\s*\=\s*([^;]*).*$)|^.*$/, '$1');
+			if(wb_note != 1) {			
+				$("#banner").show();
+				$('.delete_icon a').click(function() {
+					wb_note_setcookie('wb_note','1',1);
+					$('#banner').hide();					
+				});				
+			}
+		});</script>
+
+
+
+
+     
+
+
+
+
+    
+
+
+    
+     
+
+    
+	<!--<div data-ajax-component-wbg data-url="/wbg/aem/service/liveeventservicespring" data-ajax-query-parameters='language=en&pageName=/data/datatopics/aspire/en' ></div>-->
+    
+
+
+
+
+
+ 
+
+
+
+    
+
+    <div class="ipar iparsys parsys"><div class="header parbase section">
+
+
+
+ 
+
+
+
+
+
+
+    
+<header>
+
+        <nav class="navbar navbar-default">
+            
+            
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="https://www.worldbank.org/" class="navbar-brand g01v1-logo hidden-xs"><img title="logo" alt="logo" src="/content/dam/wbr/logo/logo-wb-header-en.svg" class="img-responsive"> </a>
+                    <a href="https://www.worldbank.org/" class="navbar-brand g01v1-logo hidden-lg hidden-md hidden-sm"><img title="logo" alt="logo" src="/content/dam/wbr/logo-1/logo-db.svg" class="img-responsive"> </a>
+                </div><!-- End Logo Section -->
+                
+                <a class="datalink" href="/" data-reactid="9">Data</a>
+                
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="data-menu ">
+                    <nav class="nav navbar-nav">
+                        <li><a href="https://databank.worldbank.org/home.aspx" class="nav-item hidden-sm hidden-xs">Databank</a></li>
+                        <li><a href="https://microdata.worldbank.org/index.php/home" class="nav-item hidden-sm hidden-xs">Microdata</a></li>
+                        <li><a href="https://datacatalog.worldbank.org/" class="nav-item hidden-sm hidden-xs">Datacatalog</a></li>
+                        <li class="megamenu">
+                            
+                            <span class="navbarmenu dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Menu</span></span>
+                            
+                            <ul class="dropdown-menu globa-dropdown-search">
+                                <div class="box">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="dropdownBox">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="https://databank.worldbank.org/home.aspx" class="nav-item hidden-lg hidden-md">Databank</a>
+                                                            <a href="https://microdata.worldbank.org/index.php/home" class="nav-item hidden-lg hidden-md">Microdata</a>
+                                                            <a href="https://datacatalog.worldbank.org/" class="nav-item hidden-lg hidden-md">Datacatalog</a>
+                                                        </li>
+                                                        <li>Browse by</li>
+                                                        <li>
+                                                            <a href="https://data.worldbank.org/country">Country</a>
+                                                            <a href="https://data.worldbank.org/indicator">Indicator</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                
+                                                <hr>
+                                                <div class="colGroup">
+                                                    <div class="row">
+                                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                                            <div class="mega-menu-list">
+                                                                <h5><a href="https://data.worldbank.org/about">About Us</a></h5>
+                                                                <ul>
+                                                                    
+                                                                    <li><a href="https://data.worldbank.org/about/get-started">Get Started</a></li>
+                                                                    
+                                                                    <li><a href="https://data.worldbank.org/about/faq">FAQ</a></li>
+                                                                    
+                                                                    <li><a href="https://datahelpdesk.worldbank.org/">Help Desk</a></li>
+                                                                    
+                                                                    <li><a href="https://data.worldbank.org/about/contact">Contact</a></li>
+                                                                    
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                                            <div class="mega-menu-list">
+                                                                <h5><a href="https://data.worldbank.org/about/data-programs">Data Programs</a></h5>
+                                                                <ul>
+                                                                    
+                                                                    <li><a href="https://data.worldbank.org/about/data-programs#statcap">Improving Statistical Capacity</a></li>
+                                                                    
+                                                                    <li><a href="https://data.worldbank.org/about/data-programs#icp">International Comparison Program & Purchasing Power Parity</a></li>
+                                                                    
+                                                                    <li><a href="https://data.worldbank.org/about/data-programs#ihsn">International Household Survey Network (IHSN)</a></li>
+                                                                    
+                                                                    <li><a href="https://data.worldbank.org/about/data-programs#jedh">Joint External Debt Hub</a></li>
+                                                                    
+                                                                    <li><a href="https://data.worldbank.org/about/data-programs#ogd-toolkit">Open Data Toolkit</a></li>
+                                                                    
+                                                                    <li><a href="https://data.worldbank.org/about/data-programs#qeds">Quarterly External Debt Statistics</a></li>
+                                                                    
+                                                                    <li><a href="https://data.worldbank.org/about/data-programs#statcap">Trust Fund for Statistical Capacity Building</a></li>
+                                                                    
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12">
+                                                            <div class="mega-menu-list">
+                                                                <h5><a href="https://data.worldbank.org/products">Products</a></h5>
+                                                                <ul>
+                                                                    
+                                                                    <li><a href="https://datatopics.worldbank.org/world-development-indicators/">World Development Indicators</a></li>
+                                                                    
+                                                                    <li><a href="https://data.worldbank.org/products/ids">International Debt Statistics</a></li>
+                                                                    
+                                                                    <li><a href="https://data.worldbank.org/products/data-books">Other Books and Reports</a></li>
+                                                                    
+                                                                    <li><a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/906519">Country & Lending Groups</a></li>
+                                                                    
+                                                                    <li><a href="https://data.worldbank.org/products/tools">Data Portals and Tools</a></li>
+                                                                    
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-2 col-sm-5 col-xs-12">
+                                                            <hr class="visible-sm">
+                                                            <div class="mega-menu-list">
+                                                                <h5>
+                                                                    <li><a href="https://datatopics.worldbank.org/sdgs/">Development Goals</a></li>
+                                                                    
+                                                                    <li><a href="https://data.worldbank.org/summary-terms-of-use">Terms of Use</a></li>
+                                                                    
+                                                                    <li><a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/889386">For Developers</a></li>
+                                                                    </h5>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </ul>
+                        </li>
+                    </nav>
+                </div>
+            </div>
+        </nav>
+
+</header>
+                
+
+<div class="row full-row-white-components" style="padding: 16px 0px 12px 0px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="heading-v1">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            
+                            <h1></h1>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6col-sm-12 col-xs-12">
+                <div class="data-nav-components">
+                    <div class="dropdown">
+                        <button class=" data-nav-mobile dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            
+<span class="dropdown-lable"> Home</span>
+
+        
+                        </button>
+                        <div class="data-nav-menu dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <ul>
+
+                                
+                                <li class="data-nav-menu-list"><a href="https://www.worldbank.org/en/data/datatopics/aspire" class="active"> Home</a></li>
+                                
+                                <li class="data-nav-menu-list"><a href="https://www.worldbank.org/en/data/datatopics/aspire/about">About ASPIRE</a></li>
+                                
+                                <li class="data-nav-menu-list"><a href="https://www.worldbank.org/en/data/datatopics/aspire/documentation">Data sources and methodology </a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<div class="db_banner section">
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+</div>
+<div class="section"><div class="new"></div>
+</div><div class="iparys_inherited"><div class="ipar iparsys parsys"></div>
+</div>
+</div>
+
+    <div class="lang-toggler language_toggler parbase"><div class="breadcrumb-section breadcrumb_05" 123style="">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+			  </div><!-- End Page Title -->
+    
+    </div>
+</div>
+</div>
+
+
+<div class="clearix"></div>
+<script>
+
+$(document).ready(function() {
+    
+    var cuurpage = "/content/data/datatopics/aspire/en";
+    var pageLocale = "en";
+    
+    var activeLink =$(".breadcrumb_redesign li" ).first().children("a").attr('href');
+    
+    if (typeof activeLink !== 'undefined'){
+        $(".lp__megamenu li.lp__megamenu_list a, .lp__megamenu li.lp__megamenu_list").removeClass("active");
+        
+        //adedd for D&R to Highlight menu 
+        if(cuurpage.indexOf('publication/documents-reports') !== -1 && (cuurpage.indexOf("http") !== -1 || cuurpage.indexOf("https") !== -1)){
+            activeLink = "/" + activeLink.split("/").slice(3).join("/");                
+        }//end
+        $(".lp__megamenu li.lp__megamenu_list").each(function(index, obj) {
+            if ($(this).children("a").attr('href') == activeLink){
+                $(this).children("a").addClass("active");
+            }
+        });
+    }
+    
+    var isCPF = "false";
+    
+    var activeLink = "";
+    
+    if (isCPF == "true" && typeof activeLink !== 'undefined'){		
+        $(".lp__megamenu li.lp__megamenu_list a, .lp__megamenu li.lp__megamenu_list").removeClass("active");
+        $(".lp__megamenu li.lp__megamenu_list").each(function(index, obj) {
+            
+            if ($(this).children("a").text().toLowerCase().trim() == activeLink.toLowerCase().trim())
+            {
+                $(this).addClass("active");
+                $(this).children("a").addClass("active");
+            }
+        });
+    }
+
+
+        var activeLink1 =$(".breadcrumb_redesign li" ).first().children("a").attr('href');
+        
+        if (typeof activeLink1 !== 'undefined'){
+            $(".navbar-collapse>.navbar-nav>li.mega-menu>a, .navbar-collapse>.navbar-nav>li.mega-menu").removeClass("active");
+            
+            //adedd for D&R to Highlight menu 
+            if(cuurpage.indexOf('publication/documents-reports') !== -1 && (cuurpage.indexOf("http") !== -1 || cuurpage.indexOf("https") !== -1)){
+                activeLink1 = "/" + activeLink1.split("/").slice(3).join("/");                
+            }//end
+            $(".navbar-collapse>.navbar-nav>li.mega-menu").each(function(index, obj) {
+                if ($(this).children("a").attr('href') == activeLink1){
+                    $(this).children("a").addClass("active");
+                }
+            });
+        }
+
+        
+        if (isCPF == "true" && typeof activeLink !== 'undefined'){        
+            $(".navbar-collapse>.navbar-nav>li.mega-menu>a, .navbar-collapse>.navbar-nav>li.mega-menu").removeClass("active");
+            $(".navbar-collapse>.navbar-nav>li.mega-menu").each(function(index, obj) {
+                
+                if ($(this).children("a").text().toLowerCase().trim() == activeLink.toLowerCase().trim())
+                {
+                    $(this).addClass("active");
+                    $(this).children("a").addClass("active");
+                }
+            });
+        }
+        
+    });
+
+ 
+
+</script>
+
+
+</div>
+
+    <div class="ipar1 iparsys parsys"><div class="section"><div class="new"></div>
+</div><div class="iparys_inherited"><div class="ipar1 iparsys parsys"></div>
+</div>
+</div>
+
+    
+
+    
+
+
+	<script>
+        /*function langLocationMover(){
+            var cloned = $( ".lang-toggler.language_toggler.parbase" ).clone();
+            $( ".lang-toggler.language_toggler.parbase" ).empty();
+            $(cloned).appendTo( "header" );
+        }
+        langLocationMover();*/
+    </script>
+        
+
+
+
+    
+ 
+
+<div class="par parsys"><div class="redesign_banner parbase section">
+
+
+
+
+
+
+
+
+
+
+<div class="hero-v1-section ">
+    <div class="hero-container-fixed_no">
+    <div class="hero-img"  style="background-image: url(/content/dam/photos/1440x600/2020/jun/20150817-Senegal-Bobo-4440.jpg);">
+        <!--<img class="img-responsive" src="/content/dam/photos/1440x600/2020/jun/20150817-Senegal-Bobo-4440.jpg" alt="image" title="image">-->
+        <span class="img-gradient"></span>
+    </div>  
+    <div class="container hero-container">  
+        <div class="row">
+
+                <div class="hero-img-overlay col-lg-10 col-md-10 col-sm-12 col-xs-12" style=" background:none; ">
+
+                    <h1 class="hero-title">ASPIRE: The Atlas of Social Protection Indicators of Resilience and Equity</h1>
+                    <h3 class="hero-description"></h3>
+                    
+                </div>
+
+            </div>   
+        </div>
+    </div>
+</div>
+    </div>
+<div class="supergrid parbase section">
+
+
+
+
+    
+    <div class="row full-row-gray-components" style="padding: 32px 0px 0px 0px; background-color:">
+    
+
+        
+        <div class="container">
+            	<div class="dropdown-deck-wrapper">
+            <div class="par parsys"><div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row ">
+
+		    <div class="col-md-12  colsplit" id="">
+	        
+			<div class=" ">
+				<div class="grid_12_par_0 parsys">
+    
+
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+
+
+
+
+<div class="redesign_static_content section">
+
+ 
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+<section id ="">
+    <div class="c14v1-body c14v1-body-covid c14v1-body-text flipboard-keep " >
+        
+        <p>The Atlas of Social Protection Indicators of Resilience and Equity (ASPIRE) is the World Bank's premier compilation of indicators to analyze the scope and performance of SP programs. Developed by the&nbsp;<a href="https://www.worldbank.org/en/topic/socialprotection">Social Protection and Labor Global Practice</a>, ASPIRE provides indicators for 140 countries on social assistance, social insurance and labor market programs based on program-level administrative data and national household survey data. While all efforts are made to ensure cross-country comparability, users should be aware of&nbsp;<a href="https://www.worldbank.org/en/data/datatopics/aspire/documentation">ASPIRE indicators caveats</a>.</p>
+</div></section>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".c14v1-body table").find("td").find("div.c14v1-full").closest("td").addClass("width30");
+    });
+</script>
+
+
+
+
+
+
+<div class="clearfix"></div>
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+			</div>
+			
+		    </div>
+		    
+</div>
+<div class="clearfix"></div>
+
+
+	<div style="margin-bottom: 36px"></div>
+
+
+
+</div>
+<div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row ">
+
+		    <div class="col-md-12  colsplit" id="">
+	        
+			<div class=" ">
+				<div class="grid_12_par_0 parsys">
+    
+
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+</div>
+
+
+
+</div>
+
+			</div>
+			
+		    </div>
+		    
+</div>
+<div class="clearfix"></div>
+
+
+	<div style="margin-bottom: 0px"></div>
+
+
+
+</div>
+
+</div>
+
+            </div>
+        </div>     
+    </div>
+    
+
+
+    </div>
+<div class="supergrid parbase section">
+
+
+
+
+    
+    <div class="row full-row-gray-components" style="padding: 0px 0px 0px 0px; background-color:">
+    
+
+        
+        <div class="container">
+            	<div class="white-box-shadow dropdown-deck-wrapper mrg-b-0">
+            <div class="par parsys"><div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row ">
+
+		    <div class="col-md-4  colsplit" id="">
+	        
+			<div class=" center-right-border">
+				<div class="grid_4_par_0 parsys">
+    
+
+
+<div style="padding-left:0px;padding-right:20px;" class="remove-padding-grid" >
+    
+    
+
+
+
+
+<div class="dataportal_dropdown section">
+
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+<div class="primary-inverse-dropdown vertical">
+    <div class="row">
+        
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <h3>Explore Data Dashboards</h3>
+
+        </div>
+        
+
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <div class="row">
+                
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="btn-group primary-dropdown-group poverty-dropdown">                                            
+                        <button class="primary-dropdown-item dropdown-toggle" title="Country Region" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="filter-option">Select Region</span>
+                        </button>
+
+                        
+                        <ul class="dropdown-menu primary-dropdown-listitem">
+                            
+                                <li><a title="East Asia & Pacific" href="https://www.worldbank.org/en/data/datatopics/aspire/region/east-asia-and-pacific">East Asia & Pacific</a></li>
+                    
+                                <li><a title="Europe & Central Asia" href="https://www.worldbank.org/en/data/datatopics/aspire/region/europe-and-central-asia">Europe & Central Asia</a></li>
+                    
+                                <li><a title="Latin America & Caribbean" href="https://www.worldbank.org/en/data/datatopics/aspire/region/latin-america-and-caribbean">Latin America & Caribbean</a></li>
+                    
+                                <li><a title="Middle East & North Africa" href="https://www.worldbank.org/en/data/datatopics/aspire/region/middle-east-and-north-africa">Middle East & North Africa</a></li>
+                    
+                                <li><a title="South Asia" href="https://www.worldbank.org/en/data/datatopics/aspire/region/south-asia">South Asia</a></li>
+                    
+                                <li><a title="Sub-Saharan Africa" href="https://www.worldbank.org/en/data/datatopics/aspire/region/sub-saharan-africa">Sub-Saharan Africa</a></li>
+                    
+                        </ul>
+                                                   
+                    </div>
+                    
+                </div>
+                
+   
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="btn-group primary-dropdown-group poverty-dropdown">                                            
+                        <button class="primary-dropdown-item dropdown-toggle" title="Country Region" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="filter-option">Select Country</span>
+                        </button>
+
+                        
+                        <ul class="dropdown-menu primary-dropdown-listitem">
+                            
+                                <li><a title="Afghanistan" href="https://www.worldbank.org/en/data/datatopics/aspire/country/afghanistan">Afghanistan</a></li>
+                    
+                                <li><a title="Angola" href="https://www.worldbank.org/en/data/datatopics/aspire/country/angola">Angola</a></li>
+                    
+                                <li><a title="Albania" href="https://www.worldbank.org/en/data/datatopics/aspire/country/albania">Albania</a></li>
+                    
+                                <li><a title="Argentina" href="https://www.worldbank.org/en/data/datatopics/aspire/country/argentina">Argentina</a></li>
+                    
+                                <li><a title="Armenia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/armenia">Armenia</a></li>
+                    
+                                <li><a title="Azerbaijan" href="https://www.worldbank.org/en/data/datatopics/aspire/country/azerbaijan">Azerbaijan</a></li>
+                    
+                                <li><a title="Benin" href="https://www.worldbank.org/en/data/datatopics/aspire/country/benin">Benin</a></li>
+                    
+                                <li><a title="Burkina Faso" href="https://www.worldbank.org/en/data/datatopics/aspire/country/burkina-faso">Burkina Faso</a></li>
+                    
+                                <li><a title="Bangladesh" href="https://www.worldbank.org/en/data/datatopics/aspire/country/bangladesh">Bangladesh</a></li>
+                    
+                                <li><a title="Bulgaria" href="https://www.worldbank.org/en/data/datatopics/aspire/country/bulgaria">Bulgaria</a></li>
+                    
+                                <li><a title="Bosnia and Herzegovina" href="https://www.worldbank.org/en/data/datatopics/aspire/country/bosnia-and-herzegovina">Bosnia and Herzegovina</a></li>
+                    
+                                <li><a title="Belarus" href="https://www.worldbank.org/en/data/datatopics/aspire/country/belarus">Belarus</a></li>
+                    
+                                <li><a title="Belize" href="https://www.worldbank.org/en/data/datatopics/aspire/country/belize">Belize</a></li>
+                    
+                                <li><a title="Bolivia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/bolivia">Bolivia</a></li>
+                    
+                                <li><a title="Brazil" href="https://www.worldbank.org/en/data/datatopics/aspire/country/brazil">Brazil</a></li>
+                    
+                                <li><a title="Bhutan" href="https://www.worldbank.org/en/data/datatopics/aspire/country/bhutan">Bhutan</a></li>
+                    
+                                <li><a title="Botswana" href="https://www.worldbank.org/en/data/datatopics/aspire/country/botswana">Botswana</a></li>
+                    
+                                <li><a title="Central African Republic" href="https://www.worldbank.org/en/data/datatopics/aspire/country/central-african-republic">Central African Republic</a></li>
+                    
+                                <li><a title="Chile" href="https://www.worldbank.org/en/data/datatopics/aspire/country/chile">Chile</a></li>
+                    
+                                <li><a title="China" href="https://www.worldbank.org/en/data/datatopics/aspire/country/china">China</a></li>
+                    
+                                <li><a title="Cote d'Ivoire" href="https://www.worldbank.org/en/data/datatopics/aspire/country/cote-divoire">Cote d'Ivoire</a></li>
+                    
+                                <li><a title="Cameroon" href="https://www.worldbank.org/en/data/datatopics/aspire/country/cameroon">Cameroon</a></li>
+                    
+                                <li><a title="Congo, Dem. Rep." href="https://www.worldbank.org/en/data/datatopics/aspire/country/congo-dem-rep">Congo, Dem. Rep.</a></li>
+                    
+                                <li><a title="Congo, Rep." href="https://www.worldbank.org/en/data/datatopics/aspire/country/congo-rep">Congo, Rep.</a></li>
+                    
+                                <li><a title="Colombia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/colombia">Colombia</a></li>
+                    
+                                <li><a title="Comoros" href="https://www.worldbank.org/en/data/datatopics/aspire/country/comoros">Comoros</a></li>
+                    
+                                <li><a title="Cabo Verde" href="https://www.worldbank.org/en/data/datatopics/aspire/country/cabo-verde">Cabo Verde</a></li>
+                    
+                                <li><a title="Costa Rica" href="https://www.worldbank.org/en/data/datatopics/aspire/country/costa-rica">Costa Rica</a></li>
+                    
+                                <li><a title="Djibouti" href="https://www.worldbank.org/en/data/datatopics/aspire/country/djibouti">Djibouti</a></li>
+                    
+                                <li><a title="Dominica" href="https://www.worldbank.org/en/data/datatopics/aspire/country/dominica">Dominica</a></li>
+                    
+                                <li><a title="Dominican Republic" href="https://www.worldbank.org/en/data/datatopics/aspire/country/dominican-republic">Dominican Republic</a></li>
+                    
+                                <li><a title="Ecuador" href="https://www.worldbank.org/en/data/datatopics/aspire/country/ecuador">Ecuador</a></li>
+                    
+                                <li><a title="Egypt, Arab Rep." href="https://www.worldbank.org/en/data/datatopics/aspire/country/egypt-arab-rep">Egypt, Arab Rep.</a></li>
+                    
+                                <li><a title="Ethiopia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/ethiopia">Ethiopia</a></li>
+                    
+                                <li><a title="Fiji" href="https://www.worldbank.org/en/data/datatopics/aspire/country/fiji">Fiji</a></li>
+                    
+                                <li><a title="Gabon" href="https://www.worldbank.org/en/data/datatopics/aspire/country/gabon">Gabon</a></li>
+                    
+                                <li><a title="Georgia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/georgia">Georgia</a></li>
+                    
+                                <li><a title="Ghana" href="https://www.worldbank.org/en/data/datatopics/aspire/country/ghana">Ghana</a></li>
+                    
+                                <li><a title="Guinea" href="https://www.worldbank.org/en/data/datatopics/aspire/country/guinea">Guinea</a></li>
+                    
+                                <li><a title="Gambia, The" href="https://www.worldbank.org/en/data/datatopics/aspire/country/gambia-the">Gambia, The</a></li>
+                    
+                                <li><a title="Guatemala" href="https://www.worldbank.org/en/data/datatopics/aspire/country/guatemala">Guatemala</a></li>
+                    
+                                <li><a title="Honduras" href="https://www.worldbank.org/en/data/datatopics/aspire/country/honduras">Honduras</a></li>
+                    
+                                <li><a title="Croatia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/croatia">Croatia</a></li>
+                    
+                                <li><a title="Haiti" href="https://www.worldbank.org/en/data/datatopics/aspire/country/haiti">Haiti</a></li>
+                    
+                                <li><a title="Hungary" href="https://www.worldbank.org/en/data/datatopics/aspire/country/hungary">Hungary</a></li>
+                    
+                                <li><a title="Indonesia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/indonesia">Indonesia</a></li>
+                    
+                                <li><a title="India" href="https://www.worldbank.org/en/data/datatopics/aspire/country/india">India</a></li>
+                    
+                                <li><a title="Iraq" href="https://www.worldbank.org/en/data/datatopics/aspire/country/iraq">Iraq</a></li>
+                    
+                                <li><a title="Jamaica" href="https://www.worldbank.org/en/data/datatopics/aspire/country/jamaica">Jamaica</a></li>
+                    
+                                <li><a title="Jordan" href="https://www.worldbank.org/en/data/datatopics/aspire/country/jordan">Jordan</a></li>
+                    
+                                <li><a title="Kazakhstan" href="https://www.worldbank.org/en/data/datatopics/aspire/country/kazakhstan">Kazakhstan</a></li>
+                    
+                                <li><a title="Kenya" href="https://www.worldbank.org/en/data/datatopics/aspire/country/kenya">Kenya</a></li>
+                    
+                                <li><a title="Kyrgyz Republic" href="https://www.worldbank.org/en/data/datatopics/aspire/country/kyrgyz-republic">Kyrgyz Republic</a></li>
+                    
+                                <li><a title="Cambodia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/cambodia">Cambodia</a></li>
+                    
+                                <li><a title="Kiribati" href="https://www.worldbank.org/en/data/datatopics/aspire/country/kiribati">Kiribati</a></li>
+                    
+                                <li><a title="Lao PDR" href="https://www.worldbank.org/en/data/datatopics/aspire/country/lao-pdr">Lao PDR</a></li>
+                    
+                                <li><a title="Liberia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/liberia">Liberia</a></li>
+                    
+                                <li><a title="Sri Lanka" href="https://www.worldbank.org/en/data/datatopics/aspire/country/sri-lanka">Sri Lanka</a></li>
+                    
+                                <li><a title="Lesotho" href="https://www.worldbank.org/en/data/datatopics/aspire/country/lesotho">Lesotho</a></li>
+                    
+                                <li><a title="Lithuania" href="https://www.worldbank.org/en/data/datatopics/aspire/country/lithuania">Lithuania</a></li>
+                    
+                                <li><a title="Latvia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/latvia">Latvia</a></li>
+                    
+                                <li><a title="Morocco" href="https://www.worldbank.org/en/data/datatopics/aspire/country/morocco">Morocco</a></li>
+                    
+                                <li><a title="Moldova" href="https://www.worldbank.org/en/data/datatopics/aspire/country/moldova">Moldova</a></li>
+                    
+                                <li><a title="Madagascar" href="https://www.worldbank.org/en/data/datatopics/aspire/country/madagascar">Madagascar</a></li>
+                    
+                                <li><a title="Maldives" href="https://www.worldbank.org/en/data/datatopics/aspire/country/maldives">Maldives</a></li>
+                    
+                                <li><a title="Mexico" href="https://www.worldbank.org/en/data/datatopics/aspire/country/mexico">Mexico</a></li>
+                    
+                                <li><a title="Marshall Islands" href="https://www.worldbank.org/en/data/datatopics/aspire/country/marshall-islands">Marshall Islands</a></li>
+                    
+                                <li><a title="Mali" href="https://www.worldbank.org/en/data/datatopics/aspire/country/mali">Mali</a></li>
+                    
+                                <li><a title="Myanmar" href="https://www.worldbank.org/en/data/datatopics/aspire/country/myanmar">Myanmar</a></li>
+                    
+                                <li><a title="Montenegro" href="https://www.worldbank.org/en/data/datatopics/aspire/country/montenegro">Montenegro</a></li>
+                    
+                                <li><a title="Mongolia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/mongolia">Mongolia</a></li>
+                    
+                                <li><a title="Mozambique" href="https://www.worldbank.org/en/data/datatopics/aspire/country/mozambique">Mozambique</a></li>
+                    
+                                <li><a title="Mauritania" href="https://www.worldbank.org/en/data/datatopics/aspire/country/mauritania">Mauritania</a></li>
+                    
+                                <li><a title="Mauritius" href="https://www.worldbank.org/en/data/datatopics/aspire/country/mauritius">Mauritius</a></li>
+                    
+                                <li><a title="Malawi" href="https://www.worldbank.org/en/data/datatopics/aspire/country/malawi">Malawi</a></li>
+                    
+                                <li><a title="Malaysia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/malaysia">Malaysia</a></li>
+                    
+                                <li><a title="Namibia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/namibia">Namibia</a></li>
+                    
+                                <li><a title="Niger" href="https://www.worldbank.org/en/data/datatopics/aspire/country/niger">Niger</a></li>
+                    
+                                <li><a title="Nigeria" href="https://www.worldbank.org/en/data/datatopics/aspire/country/nigeria">Nigeria</a></li>
+                    
+                                <li><a title="Nicaragua" href="https://www.worldbank.org/en/data/datatopics/aspire/country/nicaragua">Nicaragua</a></li>
+                    
+                                <li><a title="Nepal" href="https://www.worldbank.org/en/data/datatopics/aspire/country/nepal">Nepal</a></li>
+                    
+                                <li><a title="Pakistan" href="https://www.worldbank.org/en/data/datatopics/aspire/country/pakistan">Pakistan</a></li>
+                    
+                                <li><a title="Panama" href="https://www.worldbank.org/en/data/datatopics/aspire/country/panama">Panama</a></li>
+                    
+                                <li><a title="Peru" href="https://www.worldbank.org/en/data/datatopics/aspire/country/peru">Peru</a></li>
+                    
+                                <li><a title="Philippines" href="https://www.worldbank.org/en/data/datatopics/aspire/country/philippines">Philippines</a></li>
+                    
+                                <li><a title="Papua New Guinea" href="https://www.worldbank.org/en/data/datatopics/aspire/country/papua-new-guinea">Papua New Guinea</a></li>
+                    
+                                <li><a title="Poland" href="https://www.worldbank.org/en/data/datatopics/aspire/country/poland">Poland</a></li>
+                    
+                                <li><a title="Paraguay" href="https://www.worldbank.org/en/data/datatopics/aspire/country/paraguay">Paraguay</a></li>
+                    
+                                <li><a title="West Bank and Gaza" href="https://www.worldbank.org/en/data/datatopics/aspire/country/west-bank-and-gaza">West Bank and Gaza</a></li>
+                    
+                                <li><a title="Romania" href="https://www.worldbank.org/en/data/datatopics/aspire/country/romania">Romania</a></li>
+                    
+                                <li><a title="Russian Federation" href="https://www.worldbank.org/en/data/datatopics/aspire/country/russian-federation">Russian Federation</a></li>
+                    
+                                <li><a title="Rwanda" href="https://www.worldbank.org/en/data/datatopics/aspire/country/rwanda">Rwanda</a></li>
+                    
+                                <li><a title="Sudan" href="https://www.worldbank.org/en/data/datatopics/aspire/country/sudan">Sudan</a></li>
+                    
+                                <li><a title="Senegal" href="https://www.worldbank.org/en/data/datatopics/aspire/country/senegal">Senegal</a></li>
+                    
+                                <li><a title="Solomon Islands" href="https://www.worldbank.org/en/data/datatopics/aspire/country/solomon-islands">Solomon Islands</a></li>
+                    
+                                <li><a title="Sierra Leone" href="https://www.worldbank.org/en/data/datatopics/aspire/country/sierra-leone">Sierra Leone</a></li>
+                    
+                                <li><a title="El Salvador" href="https://www.worldbank.org/en/data/datatopics/aspire/country/el-salvador">El Salvador</a></li>
+                    
+                                <li><a title="Serbia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/serbia">Serbia</a></li>
+                    
+                                <li><a title="South Sudan" href="https://www.worldbank.org/en/data/datatopics/aspire/country/south-sudan">South Sudan</a></li>
+                    
+                                <li><a title="Slovak Republic" href="https://www.worldbank.org/en/data/datatopics/aspire/country/slovak-republic">Slovak Republic</a></li>
+                    
+                                <li><a title="Eswatini" href="https://www.worldbank.org/en/data/datatopics/aspire/country/eswatini">Eswatini</a></li>
+                    
+                                <li><a title="Syrian Arab Republic" href="https://www.worldbank.org/en/data/datatopics/aspire/country/syrian-arab-republic">Syrian Arab Republic</a></li>
+                    
+                                <li><a title="Chad" href="https://www.worldbank.org/en/data/datatopics/aspire/country/chad">Chad</a></li>
+                    
+                                <li><a title="Togo" href="https://www.worldbank.org/en/data/datatopics/aspire/country/togo">Togo</a></li>
+                    
+                                <li><a title="Thailand" href="https://www.worldbank.org/en/data/datatopics/aspire/country/thailand">Thailand</a></li>
+                    
+                                <li><a title="Tajikistan" href="https://www.worldbank.org/en/data/datatopics/aspire/country/tajikistan">Tajikistan</a></li>
+                    
+                                <li><a title="Timor-Leste" href="https://www.worldbank.org/en/data/datatopics/aspire/country/timor-leste">Timor-Leste</a></li>
+                    
+                                <li><a title="Tonga" href="https://www.worldbank.org/en/data/datatopics/aspire/country/tonga">Tonga</a></li>
+                    
+                                <li><a title="Tunisia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/tunisia">Tunisia</a></li>
+                    
+                                <li><a title="Turkey" href="https://www.worldbank.org/en/data/datatopics/aspire/country/turkey">Turkey</a></li>
+                    
+                                <li><a title="Tanzania" href="https://www.worldbank.org/en/data/datatopics/aspire/country/tanzania">Tanzania</a></li>
+                    
+                                <li><a title="Uganda" href="https://www.worldbank.org/en/data/datatopics/aspire/country/uganda">Uganda</a></li>
+                    
+                                <li><a title="Ukraine" href="https://www.worldbank.org/en/data/datatopics/aspire/country/ukraine">Ukraine</a></li>
+                    
+                                <li><a title="Uruguay" href="https://www.worldbank.org/en/data/datatopics/aspire/country/uruguay">Uruguay</a></li>
+                    
+                                <li><a title="Uzbekistan" href="https://www.worldbank.org/en/data/datatopics/aspire/country/uzbekistan">Uzbekistan</a></li>
+                    
+                                <li><a title="Vietnam" href="https://www.worldbank.org/en/data/datatopics/aspire/country/vietnam">Vietnam</a></li>
+                    
+                                <li><a title="Samoa" href="https://www.worldbank.org/en/data/datatopics/aspire/country/samoa">Samoa</a></li>
+                    
+                                <li><a title="Kosovo" href="https://www.worldbank.org/en/data/datatopics/aspire/country/kosovo">Kosovo</a></li>
+                    
+                                <li><a title="Yemen, Rep." href="https://www.worldbank.org/en/data/datatopics/aspire/country/yemen-rep">Yemen, Rep.</a></li>
+                    
+                                <li><a title="South Africa" href="https://www.worldbank.org/en/data/datatopics/aspire/country/south africa">South Africa</a></li>
+                    
+                                <li><a title="Zambia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/zambia">Zambia</a></li>
+                    
+                                <li><a title="Zimbabwe" href="https://www.worldbank.org/en/data/datatopics/aspire/country/zimbabwe">Zimbabwe</a></li>
+                    
+                                <li><a title="Burundi" href="https://www.worldbank.org/en/data/datatopics/aspire/country/burundi">Burundi</a></li>
+                    
+                                <li><a title="Czech Republic" href="https://www.worldbank.org/en/data/datatopics/aspire/country/czech-republic">Czech Republic</a></li>
+                    
+                                <li><a title="Estonia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/estonia">Estonia</a></li>
+                    
+                                <li><a title="Micronesia, Fed. Sts." href="https://www.worldbank.org/en/data/datatopics/aspire/country/micronesia-fed-sts">Micronesia, Fed. Sts.</a></li>
+                    
+                                <li><a title="Guinea-Bissau" href="https://www.worldbank.org/en/data/datatopics/aspire/country/guinea-bissau">Guinea-Bissau</a></li>
+                    
+                                <li><a title="Grenada" href="https://www.worldbank.org/en/data/datatopics/aspire/country/grenada">Grenada</a></li>
+                    
+                                <li><a title="Kuwait" href="https://www.worldbank.org/en/data/datatopics/aspire/country/kuwait">Kuwait</a></li>
+                    
+                                <li><a title="Lebanon" href="https://www.worldbank.org/en/data/datatopics/aspire/country/lebanon">Lebanon</a></li>
+                    
+                                <li><a title="St. Lucia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/st-lucia">St. Lucia</a></li>
+                    
+                                <li><a title="North Macedonia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/north-macedonia">North Macedonia</a></li>
+                    
+                                <li><a title="Palau" href="https://www.worldbank.org/en/data/datatopics/aspire/country/palau">Palau</a></li>
+                    
+                                <li><a title="Saudi Arabia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/saudi-arabia">Saudi Arabia</a></li>
+                    
+                                <li><a title="Somalia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/somalia">Somalia</a></li>
+                    
+                                <li><a title="Slovenia" href="https://www.worldbank.org/en/data/datatopics/aspire/country/slovenia">Slovenia</a></li>
+                    
+                                <li><a title="Seychelles" href="https://www.worldbank.org/en/data/datatopics/aspire/country/seychelles">Seychelles</a></li>
+                    
+                                <li><a title="Trinidad and Tobago" href="https://www.worldbank.org/en/data/datatopics/aspire/country/trinidad-and-tobago">Trinidad and Tobago</a></li>
+                    
+                                <li><a title="Venezuela, RB" href="https://www.worldbank.org/en/data/datatopics/aspire/country/venezuela-rb">Venezuela, RB</a></li>
+                    
+                        </ul>
+                                                   
+                    </div>
+                    
+                </div>
+                
+
+
+                 
+            </div>
+        </div>
+	</div>
+    
+    <div class="row"> 
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+            <div class="btn-group-horizontal">
+                
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script>		
+    var code = ""; 
+
+    if(code != "" && code != undefined) {        
+        $.each($(".poverty-dropdown"), function() { 
+            var _btn = $(this).find('.filter-option');
+            var btnLabel = $(_btn).text();
+
+            $.each($(this).find("a"), function() {  
+                var path = $(this).attr("href");
+                var label = $(this).text();
+
+                if(path.indexOf(code) !== -1) {                    
+                    $(_btn).text(label);
+                }
+            });
+        });
+    }
+</script>		
+
+
+</div>
+
+
+
+
+
+
+
+<div class="create_query parbase section">
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="btn-group-horizontal">
+        
+                
+
+        <a href="https://www.worldbank.org/en/data/datatopics/aspire/region/income-group-comparison" title="" class="btn-default btn-lg primary-light-blue-btn">Income Group Comparison</a>
+        
+         
+    </div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+			</div>
+			
+		    </div>
+		    
+		    <div class="col-md-4  colsplit" id="">
+	        
+			<div class=" ">
+				<div class="grid_4_par_1 parsys">
+    
+
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+
+
+
+
+<div class="aspire_database section">
+
+
+
+
+ 
+
+ 
+
+
+
+<script type="text/javascript" src="/etc/designs/wbrrdesign/clientlibs-doingbusiness/js/kendo.all.min.js"></script>
+
+
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+    
+    <div class="btn-group-horizontal">
+        
+        
+        <h3>
+            Access the ASPIRE Database</h3>
+    </div>
+    <ul>
+        
+        
+        <div class="btn-group-horizontal " >
+            <li><a target="_blank" class="btn btn-default btn-lg primary-light-blue-btn aspirewidth" href="https://databank.worldbank.org/source/1229">Build Your Own Report</a>
+
+            </li>
+        </div>
+        
+
+        
+        <div class="btn-group-horizontal " >
+            <li><a target="_blank" class="btn btn-default btn-lg primary-light-blue-btn aspirewidth" href="/en/data/datatopics/aspire/indicator-glance">INDICATORS AT A GLANCE</a>
+
+            </li>
+        </div>
+        
+
+        
+        <div class="btn-group-horizontal " >
+            <li><a target="_blank" class="btn btn-default btn-lg primary-light-blue-btn aspirewidth" href="https://ddh-openapi.worldbank.org/resources/DR0087109/download">DOWNLOAD DATABASE</a>
+
+            </li>
+        </div>
+        
+
+        
+        
+    </ul>
+
+
+</div>
+<style>
+    .aspirewidth {
+        
+        width: 100%;
+    }
+    
+</style></div>
+
+
+
+</div>
+
+
+
+</div>
+
+			</div>
+			
+		    </div>
+		    
+		    <div class="col-md-4  colsplit" id="">
+	        
+			<div class="center-left-border ">
+				<div class="grid_4_par_2 parsys">
+    
+
+
+<div style="padding-left:20px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+
+
+
+
+<div class="list_navigation section">
+
+
+   
+
+
+
+ 
+  
+
+
+
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+        
+        <div class ="_loop_list_navigation  section"><div class = "_list_nav_img_vertical"><a href="https://www.worldbank.org/en/topic/socialprotection/publication/state-of-social-protection-2025-2-billion-person-challenge"><img src="/content/dam/photos/419x440/2025/mar/SSP-resized.png" alt="State Of Social Protection Report 2025 Cover Image" title="State Of Social Protection Report 2025 Cover Image"/></a>
+        </div>	
+        <div class="_loop_list_nav_content"><h4><a href="https://www.worldbank.org/en/topic/socialprotection/publication/state-of-social-protection-2025-2-billion-person-challenge">The State of Social Protection Report 2025</a></h4><div class="blurb-text"><p>This report advances strengthening social protection and labor systems across low- and middle-income countries and discusses avenues to gradually close the coverage and adequacy gap for the world’s poorest.</p>
+</div><div class="_list_link">
+        </div></div></div></div>
+    
+</div>  
+
+<style>
+    #CQ TABLE {
+        display: inline-block;
+    }
+</style>
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+			</div>
+			
+		    </div>
+		    
+</div>
+<div class="clearfix"></div>
+
+
+	<div style="margin-bottom: 0px"></div>
+
+
+
+</div>
+
+</div>
+
+            </div>
+        </div>     
+    </div>
+    
+
+
+    </div>
+<div class="supergrid parbase section">
+
+
+
+
+    
+    <div class="row full-row-gray-components" style="padding: 0px 0px 0px 0px; background-color:">
+    
+
+        
+        <div class="container">
+            	<div class="">
+            <div class="par parsys"><div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row ">
+
+</div>
+<div class="clearfix"></div>
+
+
+	<div style="margin-bottom: 36px"></div>
+
+
+
+</div>
+<div class="multi_indepth parbase section"> 
+ 
+
+
+
+
+ 
+
+ 
+ 
+
+
+
+
+
+
+
+
+<script src="/etc/designs/wbr/components/playvideo.js"></script>
+
+<script src="/etc/designs/wbrrdesign/components/audiotracking.js"></script>
+
+
+<div class="wbgindepth">
+    <section class="row _loop_slide_2">
+        
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="card-v3-section">
+                <div class="card-wrapper _loop_indepth_card_wrapper">
+                    <div class="card-img">
+                        
+                        
+                        
+                        
+                        <a data-customlink='nl:body content' data-text="Image" href="https://www.worldbank.org/en/data/datatopics/aspire/indicator/social-expenditure" target="">
+                            <img class="img-responsive" src="/content/dam/photos/780x439/2020/sep-2/aspire-expenditure.jpg" title="Image" alt="Image"></a>			
+                        
+                        
+                    </div>
+                    <!--End Of Image Div -->
+                    <!-- Feature Image Ends -->  
+                    
+                    <div class="card-content ">
+                        
+                        <h4>
+                            
+                            <a data-customlink='nl:body content' data-text="Social Protection Expenditure" href="https://www.worldbank.org/en/data/datatopics/aspire/indicator/social-expenditure" target="">
+                                Social Protection Expenditure
+                            </a>
+                            
+                        </h4>
+                        <!--title ends -->
+                        <!-- Body Content starts -->
+                        <p class="card-description">
+                             
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="card-v3-section">
+                <div class="card-wrapper _loop_indepth_card_wrapper">
+                    <div class="card-img">
+                        
+                        
+                        
+                        
+                        <a data-customlink='nl:body content' data-text="Image" href="https://www.worldbank.org/en/data/datatopics/aspire/indicator/performance" target="">
+                            <img class="img-responsive" src="/content/dam/photos/780x439/2020/sep-2/aspire-sp-performance.jpg" title="Image" alt="Image"></a>			
+                        
+                        
+                    </div>
+                    <!--End Of Image Div -->
+                    <!-- Feature Image Ends -->  
+                    
+                    <div class="card-content ">
+                        
+                        <h4>
+                            
+                            <a data-customlink='nl:body content' data-text="Social Protection Performance" href="https://www.worldbank.org/en/data/datatopics/aspire/indicator/performance" target="">
+                                Social Protection Performance
+                            </a>
+                            
+                        </h4>
+                        <!--title ends -->
+                        <!-- Body Content starts -->
+                        <p class="card-description">
+                             
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+</div>
+
+
+
+<style>
+.card-content.card-content-center {
+    text-align: center;
+    padding-top: 16px;
+}</style></div>
+
+</div>
+
+            </div>
+        </div>     
+    </div>
+    
+
+
+    </div>
+<div class="supergrid parbase section">
+
+
+
+
+    
+    <div class="row full-row-gray-components" style="padding: 64px 0px 0px 0px; background-color:">
+    
+
+        
+        <div class="container">
+            	<div class="white-box-shadow">
+            <div class="par parsys"><div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row ">
+
+		    <div class="col-md-12  colsplit" id="">
+	        
+			<div class=" ">
+				<div class="grid_12_par_0 parsys">
+    
+
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+
+
+
+<hr class="hidden-lg hidden-md">
+
+
+
+<div class="redesign_static_content section">
+
+ 
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<hr>
+
+
+<div class="tab parbase section">
+ 
+
+ 
+
+    
+
+
+
+
+<section id="tabOffsetWrapper">
+    <tab>
+        <tab-nav>
+            <div class="_loop_wrapper">
+                <div class="_loop_scroller _loop_scroller-left"> &laquo; </div>
+                <div class="_loop_scroller _loop_scroller-right"> &raquo; </div>
+                <ul class="_loop_list">                    
+                    
+                    <li><a data-customlink="tb:body content" onclick="_satellite.track('dynamicdata');" data-wbgtabidtabheader="1" class='_loop_tab_active' href="#1">SOCIAL ASSISTANCE COVERAGE</a></li>
+                    
+                    <li><a data-customlink="tb:body content" onclick="_satellite.track('dynamicdata');" data-wbgtabidtabheader="2" class="" href="#2">SOCIAL ASSISTANCE BENEFICIARY INCIDENCE</a></li>
+                    
+                    <li><a data-customlink="tb:body content" onclick="_satellite.track('dynamicdata');" data-wbgtabidtabheader="3" class="" href="#3">SOCIAL ASSISTANCE ADEQUACY</a></li>
+                    
+                </ul>
+            </div>
+        </tab-nav>
+        <tab-content>
+            
+            <ul class="_loop_tab_content_list" id="context">
+                
+                <li class="tab_wbr _loop_tab_active" data-wbgtabidtabcontent="1">
+                    <div class="tab-0 parsys"><div class="embedcode section">
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+<div class="embed">
+<script type='text/javascript' src='https://dataviz.worldbank.org/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 100%; height: 525;'><object class='tableauViz' width=100% height='525' style='display:none;'><param name='host_url' value='https%3A%2F%2Fdataviz.worldbank.org%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='HP1_Homepagemaps&#47;SACoverage' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='showAppBanner' value='false' /></object></div>
+
+
+</div>   
+
+
+
+
+
+<div class="clearfix"></div>
+
+
+<!-- script for photogallery -->
+
+<script>
+$(window).on("load", function() {
+$('#flickr').removeAttr('style');
+$('#flickr img').addClass('img-responsive');
+if ($("#flickr").find(".photo-gallery-img").length === 0)
+$("#flickr a").wrap('<div class="photo-gallery-img col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>');
+//$('#flickr img').css("width", "100%");
+$("#flickr").wrap('<div class="row"></div>');
+//$('#flickr').children('.photo-gallery-img').last().remove();
+$("#flickr").children(".photo-gallery-img:visible").eq(8).remove();
+$("#flickr").children("a:visible").eq(8).remove();
+$("#id_v4").click(function() {
+window.location.href = $(this).attr('cusyep');
+});
+$("#id_c07v4").click(function() {
+window.location.href = $(this).attr('cusyep');
+});
+$(".photo-gallery-img img").removeAttr("width").removeAttr("height");
+console.log("Flicker loader done");
+});
+</script>
+
+<!-- script for photogallery end--></div>
+
+</div>
+
+                </li>
+                
+                <li class="tab_wbr " data-wbgtabidtabcontent="2">
+                    <div class="tab-1 parsys"><div class="embedcode section">
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+<div class="embed">
+<script type='text/javascript' src='https://dataviz.worldbank.org/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 100%; height: 525;'><object class='tableauViz' width='100%' height='525' style='display:none;'><param name='host_url' value='https%3A%2F%2Fdataviz.worldbank.org%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='HP1_Homepagemaps&#47;SABeneficiaryIncidence' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='showAppBanner' value='false' /></object></div>
+
+
+</div>   
+
+
+
+
+
+<div class="clearfix"></div>
+
+
+<!-- script for photogallery -->
+
+<script>
+$(window).on("load", function() {
+$('#flickr').removeAttr('style');
+$('#flickr img').addClass('img-responsive');
+if ($("#flickr").find(".photo-gallery-img").length === 0)
+$("#flickr a").wrap('<div class="photo-gallery-img col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>');
+//$('#flickr img').css("width", "100%");
+$("#flickr").wrap('<div class="row"></div>');
+//$('#flickr').children('.photo-gallery-img').last().remove();
+$("#flickr").children(".photo-gallery-img:visible").eq(8).remove();
+$("#flickr").children("a:visible").eq(8).remove();
+$("#id_v4").click(function() {
+window.location.href = $(this).attr('cusyep');
+});
+$("#id_c07v4").click(function() {
+window.location.href = $(this).attr('cusyep');
+});
+$(".photo-gallery-img img").removeAttr("width").removeAttr("height");
+console.log("Flicker loader done");
+});
+</script>
+
+<!-- script for photogallery end--></div>
+
+</div>
+
+                </li>
+                
+                <li class="tab_wbr " data-wbgtabidtabcontent="3">
+                    <div class="tab-2 parsys"><div class="embedcode section">
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+<div class="embed">
+<script type='text/javascript' src='https://dataviz.worldbank.org/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 100%; height: 525px;'><object class='tableauViz' width='100%' height='525' style='display:none;'><param name='host_url' value='https%3A%2F%2Fdataviz.worldbank.org%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='HP1_Homepagemaps&#47;SAAdequacy' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='showAppBanner' value='false' /></object></div>
+
+
+</div>   
+
+
+
+
+
+<div class="clearfix"></div>
+
+
+<!-- script for photogallery -->
+
+<script>
+$(window).on("load", function() {
+$('#flickr').removeAttr('style');
+$('#flickr img').addClass('img-responsive');
+if ($("#flickr").find(".photo-gallery-img").length === 0)
+$("#flickr a").wrap('<div class="photo-gallery-img col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>');
+//$('#flickr img').css("width", "100%");
+$("#flickr").wrap('<div class="row"></div>');
+//$('#flickr').children('.photo-gallery-img').last().remove();
+$("#flickr").children(".photo-gallery-img:visible").eq(8).remove();
+$("#flickr").children("a:visible").eq(8).remove();
+$("#id_v4").click(function() {
+window.location.href = $(this).attr('cusyep');
+});
+$("#id_c07v4").click(function() {
+window.location.href = $(this).attr('cusyep');
+});
+$(".photo-gallery-img img").removeAttr("width").removeAttr("height");
+console.log("Flicker loader done");
+});
+</script>
+
+<!-- script for photogallery end--></div>
+
+</div>
+
+                </li>
+                
+            </ul>
+        </tab-content>  
+        
+    </tab>
+</section>
+
+
+
+
+
+
+<script>
+    $(document).on("ready", function(e) {
+        var tabStripContainer;        
+        
+            //script to remove the unwanted tabs
+            $("tab tab-content ul li div div.section").each(function() {
+                if ($(this).attr('class').indexOf('new') < 0) {                    
+                    var childDiv = $(this).children("div").attr('class');
+                    var childDivId = $(this).children("div").attr('id');
+                    var childDivEdit = $(this).children("span").attr('class');
+                    var childDivInnerId = $(this).children("div").children("div").attr('id');
+                    var childDivInnerClass = $(this).children("div").children("div").attr('class');
+                    if (typeof childDiv == "undefined" && typeof childDivId == "undefined" && typeof childDivInnerId == "undefined" && typeof childDivInnerClass == "undefined") {
+                        if (typeof childDivEdit == "undefined") {                            
+                            var l = $(this).prev();
+                            var k = l.get(0);
+                            if (typeof k !== "undefined") {
+                                if (typeof l.attr("class") == "undefined") {
+                                    if ((k.tagName == "HR" || k.tagName == "hr")) {
+                                        l.remove();
+                                    }
+                                }
+                            }
+                            
+                            $(this).remove();
+                        }
+                    }
+                }
+            });
+                              
+    });
+</script>    
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+			</div>
+			
+		    </div>
+		    
+</div>
+<div class="clearfix"></div>
+
+
+	<div style="margin-bottom: 0px"></div>
+
+
+
+</div>
+
+</div>
+
+            </div>
+        </div>     
+    </div>
+    
+
+
+    </div>
+<div class="supergrid parbase section">
+
+
+
+
+    
+    <div class="row full-row-gray-components" style="padding: 32px 0px 32px 0px; background-color:">
+    
+
+        
+        <div class="container">
+            	<div class="white-box-shadow">
+            <div class="par parsys"><div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row ">
+
+		    <div class="col-md-8  colsplit" id="">
+	        
+			<div class=" ">
+				<div class="grid_8_par_0 parsys">
+    
+
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+
+
+
+
+<div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row ">
+
+		    <div class="col-md-6  colsplit" id="">
+	        
+			<div class=" ">
+				<div class="grid_6_par_0 parsys">
+    
+
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+
+
+
+
+<div class="redesign_related section">
+
+
+
+
+
+
+
+
+
+<!--<script src="/etc/designs/wbrrdesign/components/redesign_related.js"></script>
+-->
+  
+<div class="related-v1-section  "> 
+    <h4 class='h4'>RELATED LINKS</h4>
+
+    <div class="related-v1-wrapper">
+        <ul>
+            
+                        <li class="1"><a data-customlink="nl:body content" data-text="Social Protection" href="https://www.worldbank.org/en/topic/socialprotection">Social Protection</a>                        
+                            
+            </li>
+            
+                        <li class="1"><a data-customlink="nl:body content" data-text="ADePT Social Protection" href="https://www.adeptanalytics.org/">ADePT Social Protection</a>                        
+                            
+            </li>
+            
+                        <li class="1"><a data-customlink="nl:body content" data-text="Pensions" href="https://www.worldbank.org/en/topic/pensions">Pensions</a>                        
+                            
+            </li>
+            
+                        <li class="1"><a data-customlink="nl:body content" data-text="Jobs Knowledge Platform" href="https://www.worldbank.org/en/topic/jobsanddevelopment">Jobs Knowledge Platform</a>                        
+                            
+            </li>
+            
+                        <li class="1"><a data-customlink="nl:body content" data-text="Poverty" href="https://www.worldbank.org/en/topic/poverty">Poverty</a>                        
+                            
+            </li>
+            
+                        <li class="1"><a data-customlink="nl:body content" data-text="Socio-Economic Database for Latin America and the Caribbean" href="https://www.cedlas.econo.unlp.edu.ar/wp/en/estadisticas/sedlac/">Socio-Economic Database for Latin America and the Caribbean</a>                        
+                            
+            </li>
+            
+        </ul>
+    </div>
+    
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+			</div>
+			
+		    </div>
+		    
+		    <div class="col-md-6  colsplit" id="">
+	        
+			<div class=" ">
+				<div class="grid_6_par_1 parsys">
+    
+
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+
+
+
+
+<div class="redesign_related section">
+
+
+
+
+
+
+
+
+
+<!---->
+  
+<div class="related-v1-section  "> 
+    <h4 class='h4'>OTHER INTERNATIONAL DATABASES</h4>
+
+    <div class="related-v1-wrapper">
+        <ul>
+            
+                        <li class="1"><a data-customlink="nl:body content" data-text="Luxembourg Income Study" href="https://www.lisdatacenter.org/">Luxembourg Income Study</a>                        
+                            
+            </li>
+            
+                        <li class="1"><a data-customlink="nl:body content" data-text="Microdata Catalog" href="https://microdata.worldbank.org/index.php/home">Microdata Catalog</a>                        
+                            
+            </li>
+            
+                        <li class="1"><a data-customlink="nl:body content" data-text="LSMS Dataset" href="https://surveys.worldbank.org/lsms">LSMS Dataset</a>                        
+                            
+            </li>
+            
+                        <li class="1"><a data-customlink="nl:body content" data-text="OECD SOCX database" href="https://www.oecd.org/social/expenditure.htm">OECD SOCX database</a>                        
+                            
+            </li>
+            
+                        <li class="1"><a data-customlink="nl:body content" data-text="International Household Survey Network" href="https://www.ihsn.org/">International Household Survey Network</a>                        
+                            
+            </li>
+            
+                        <li class="1"><a data-customlink="nl:body content" data-text="Economic Research Forum" href="https://erf.org.eg/">Economic Research Forum</a>                        
+                            
+            </li>
+            
+        </ul>
+    </div>
+    
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+			</div>
+			
+		    </div>
+		    
+</div>
+<div class="clearfix"></div>
+
+
+	<div style="margin-bottom: 36px"></div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+			</div>
+			
+		    </div>
+		    
+		    <div class="col-md-4  colsplit" id="">
+	        
+			<div class=" ">
+				<div class="grid_4_par_1 parsys">
+    
+
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+
+
+
+
+<div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row ">
+
+		    <div class="col-md-12  colsplit" id="">
+	        
+			<div class=" ">
+				<div class="grid_12_par_0 parsys">
+    
+
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+
+
+
+<hr class="hidden-lg hidden-md">
+
+
+
+<div class="redesign_related section">
+
+
+
+
+
+
+
+
+
+<!---->
+  
+<div class="related-v1-section  "> 
+    <h4 class='h4'>CONTACT US</h4>
+
+    <div class="related-v1-wrapper">
+        <ul>
+            
+                        <li class="1"><a data-customlink="nl:body content" data-text="aspire@worldbank.org" href="mailto:aspire@worldbank.org">aspire@worldbank.org</a>                        
+                            
+            </li>
+            
+        </ul>
+    </div>
+    
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+			</div>
+			
+		    </div>
+		    
+</div>
+<div class="clearfix"></div>
+
+
+	<div style="margin-bottom: 36px"></div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+			</div>
+			
+		    </div>
+		    
+</div>
+<div class="clearfix"></div>
+
+
+	<div style="margin-bottom: 0px"></div>
+
+
+
+</div>
+
+</div>
+
+            </div>
+        </div>     
+    </div>
+    
+
+
+    </div>
+
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+<footer>
+    <div class="full-row-footer-components">
+        <div class="container">
+            <div class="footer">
+                <div class="footer-top">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                            <div class="footer-menu-item">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <ul>
+                                            <li><a href="https://www.worldbank.org/en/about">About</a></li>
+                                            <li><a href="https://data.worldbank.org">Data</a></li>
+                                            <li><a href="https://www.worldbank.org/en/research">Research and Publications</a></li>
+                                            <li><a href="https://olc.worldbank.org">Learning</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <ul>
+                                            <li><a href="https://www.worldbank.org/en/news">News</a></li>
+                                            <li><a href="https://projects.worldbank.org/?lang=en">Projects and Operations</a></li>
+                                            <li><a href="https://www.worldbank.org/en/where-we-work">Countries</a></li>
+                                            <li><a href="https://www.worldbank.org/en/topic">Topics</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End left column footer menu section -->
+                        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                            <hr class="visible-sm visible-xs">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                                    <div class="social-icon">
+                                        <h4> follow us</h4>
+                                        <ul>
+                                            <li>
+                                                <a href="https://www.facebook.com/worldbank" class="social-icon-img" data-customlink="sm:footer" data-text="facebook"><img src="/content/dam/wbr-redesign/icons/fb.svg" alt="Image" class="img-responsive"></a>
+                                            </li>
+                                            <li>
+                                                <a href="https://x.com/worldbank" class="social-icon-img" data-customlink="sm:footer" data-text="twitter"><img src="/content/dam/wbr-redesign/icons/twitter.svg" alt="Image" class="img-responsive"></a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.linkedin.com/company/the-world-bank" class="social-icon-img" data-customlink="sm:footer" data-text="linkedln"><img src="/content/dam/wbr-redesign/icons/linkedln.svg" alt="Image" class="img-responsive"></a>
+                                            </li>
+                                            <li>
+                                                <a href="https://instagram.com/worldbank/" class="social-icon-img" data-customlink="sm:footer" data-text="instagram"><img src="/content/dam/wbr-redesign/icons/instagram.svg" alt="Image" class="img-responsive"></a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.youtube.com/user/WorldBank" class="social-icon-img" data-customlink="sm:footer" data-text="youtube"><img src="/content/dam/wbr-redesign/icons/youtube.svg" alt="Image" class="img-responsive"></a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.flickr.com/photos/worldbank" class="social-icon-img" data-customlink="sm:footer" data-text="flickr"><img src="/content/dam/wbr-redesign/icons/flickr.svg" alt="Image" class="img-responsive"></a>
+                                            </li>
+											<li>
+                                                <a href="https://www.whatsapp.com/channel/0029VaeLyAgAojYvg7Wbr91k" class="social-icon-img" data-customlink="sm:footer" data-text="whatsapp"><img src="/content/dam/wbr-redesign/icons/whatsup.svg" alt="Image" class="img-responsive"></a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                                    <!--<hr class="visible-md visible-xs">-->
+                                    <div class="lp__footer_newsletter">
+					<div class="lp__footersearch_section">
+						<div class="h6">newsletter</div>
+						
+						<a href="https://www.worldbank.org/en/newsletter-subscription" class="lp__btn lp__newsletter_btn lp__solid_lightblue_btn lp__cta_btn">SUBSCRIBE HERE</a>
+				</div>
+			</div>
+                                    <!-- Begin Language toggler -->
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <!-- Begin Language toggler -->
+                                            <div class="lang-switch-wrapper">
+                                                <span>This Site in:</span>
+                                                <div class="lang-switch">
+                                                    <ul>
+                                                        <li class="dropdown dropup">
+														  <a href="https://www.worldbank.org/" class="dropdown-toggle lang-lable" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">English <img src="/etc/designs/wbr/clientlibs-beta/img/angle-down.svg"></a>
+														  <ul class="dropdown-menu dropdown-item">
+															<li><a href="https://www.bancomundial.org/">Español</a></li>
+															<li><a href="https://www.banquemondiale.org/">Français</a></li>
+															<li><a href="https://www.albankaldawli.org/">عربي</a></li>
+															<li><a href="https://www.vsemirnyjbank.org/">Русский</a></li>
+															<li><a href="https://www.shihang.org/">中文</a></li>
+														    <li><a href="https://www.worldbank.org//en/language-resources">View All »</a></li>
+														  </ul>
+													</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <!-- End Language toggler -->
+                                        </div>
+                                    </div>
+                                    <!-- End Language toggler -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End right column footer follow and newsletter section -->
+                    </div>
+                </div>
+                <!-- End footer top row -->
+                <div class="footer-bottom">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="list-inline">
+                                <ul>
+                                    <li>
+                                        <a class="disclaimer" href="https://www.worldbank.org/en/about/legal">Legal</a>
+										<a class="disclaimer" href="https://www.worldbank.org/en/about/legal/privacy-notice">Privacy Notice</a>
+										<a class="disclaimer" href="https://www.worldbank.org/en/who-we-are/site-accessibility">Site Accessibility</a>
+                                        <a class="disclaimer" href="https://www.worldbank.org//en/access-to-information">Access to Information</a>
+                                        <a class="disclaimer" href="https://www.worldbank.org/en/about/careers">Jobs</a>
+                                        <a class="disclaimer" href="https://www.worldbank.org/en/about/contacts">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End disclaimer-->
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="footer-fraud"><ul><li>
+							<a class="disclaimer" href="https://www.worldbank.org/en/about/legal/scams">SCAM ALERTS</a>
+							<a class="disclaimer" href="https://www.worldbank.org//fraudandcorruption?clear">File a Complaint</a></li></ul></div>
+                        </div>
+                        <!-- End disclaimer and copy right -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End footer Bottom row -->
+    <div class="full-row-footer-black-components">
+        <div class="container">
+            <div class="footer">
+                <div class="row">
+                    <div class="footer-bottom-left">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <ul>
+                                <li>
+                                    <a href="https://www.worldbank.org/ext/en/home/">
+                                        <img src="/content/dam/wbr-redesign/logos/logo-wbg-footer-en.svg" title="The World Bank Working for a World Free of Poverty" alt="The World Bank Working for a World Free of Poverty"></a>
+                                </li>
+                                <li>
+                                    <a class="wbg-partnership" title="International Bank for Reconstruction and Development" href="https://www.worldbank.org//en/who-we-are/ibrd">IBRD</a>
+                                    <a class="wbg-partnership" title="International Development Association" href="https://ida.worldbank.org/en/home">IDA</a>
+                                    <a class="wbg-partnership" title="International Finance Corporation" href="https://www.ifc.org/en/home">IFC</a>
+                                    <a class="wbg-partnership" title="Multilateral Investment Guarantee Agency" href="https://www.miga.org/">MIGA</a>
+                                    <a class="wbg-partnership" title="International Centre for Settlement of Investment Disputes" href="https://icsid.worldbank.org/">ICSID</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End logo and Wbg partnership -->
+                    <div class="footer-bottom-right">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="footer-copy-right">
+                                ©
+                                <script language="JavaScript">
+                                    <!-- Begin
+                                    var time = new Date();
+                                    var year = time.getYear();
+                                    if (year < 2000)
+                                        year = year + 1900;
+                                    document.write(year); // End -->
+                                </script>
+                                The World Bank Group, All Rights Reserved.
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- End dropdown and fraud  -->
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+
+   	
+   <!-- <div class="floating-bars">
+        <a class="btn btn-help-to-improve " href='https://blogs.worldbank.org/voices/bold-new-worldbankorg'>Welcome</a>
+        <button type="button" class="btn btn-talk-to-help  hidden-xs hidden-sm" data-toggle="modal" data-target="#squarespaceModal" id="feedbut1">
+            Feedback Survey
+        </button>
+        <button type="button" class="btn btn-talk-to-help hidden-md hidden-lg" onclick="window.location='https://www.worldbank.org/en/home-page/feedback'" id="feedbut1">
+            Feedback Survey
+        </button>
+    </div>-->
+    
+
+
+
+      <script src="/etc/designs/wbrrdesign/clientlibs-datatopics.js"></script>
+
+
+    <script>
+        $(function() {
+            $('[data-ajax-component-banner]').each(function() {
+                var $this = $(this),
+                    url = $this.data('url'),
+                    queryParams = $this.data('ajax-query-parameters');
+                url = url+"?";
+                if (queryParams) {
+                    url +=  queryParams;
+                }
+                $.get(url).success(function(data) {
+                    $this.replaceWith(data);
+                });
+            });
+ 		});
+    </script>    
+	    
+
+
+    
+
+
+
+
+
+<script type="text/javascript">
+var appInsights=window.appInsights||function(a){
+  function b(a){c[a]=function(){var b=arguments;c.queue.push(function(){c[a].apply(c,b)})}}var c={config:a},d=document,e=window;setTimeout(function(){var b=d.createElement("script");b.src=a.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js",d.getElementsByTagName("script")[0].parentNode.appendChild(b)});try{c.cookie=d.cookie}catch(a){}c.queue=[];for(var f=["Event","Exception","Metric","PageView","Trace","Dependency"];f.length;)b("track"+f.pop());if(b("setAuthenticatedUserContext"),b("clearAuthenticatedUserContext"),b("startTrackEvent"),b("stopTrackEvent"),b("startTrackPage"),b("stopTrackPage"),b("flush"),!a.disableExceptionTracking){f="onerror",b("_"+f);var g=e[f];e[f]=function(a,b,d,e,h){var i=g&&g(a,b,d,e,h);return!0!==i&&c["_"+f](a,b,d,e,h),i}}return c
+  }({
+      instrumentationKey:"2ddee9f8-57ef-4c0e-8810-a2f743116654"
+  });
+
+window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
+</script>
+
+
+
+		
+ 
+
+    
+
+
+
+
+
+<script type="text/javascript" src="/etc/designs/wbg/clientlib/js/WebStatsUtil.js?q=nocache"></script>
+
+
+
+
+
+
+
+<script>   
+    
+    var filters = [], queryParamValue,section=[],sFilters="",sSection="";
+    var query_string = window.location.search;
+    var paramMap = {
+        'displayconttype_exact': 'type',
+        'topic_exact': 'topic',
+        'admreg_exact':'region',
+        'count_exact':'country',
+        'strdate':'startdate',
+        'enddate':'enddate',
+        'lang_exact':'language',
+        'tf':'timeframe',
+        'docty_exact':'document type',
+        'lang_spoken_exact':'languages spoken',
+        'job_title_exact':'role',
+        'unit_exact':'unit',
+        'first_name_AlphaBucket_exact':'first name',
+        'surname_AlphaBucket_exact':'last name',
+        'sector_exact':'sector',
+        'status_exact':'status',
+        'majdocty_exact':'major document type',
+        'majtheme_exact':'theme',
+        'teratopic_exact':'topic'
+        
+    };
+    
+    if(query_string){
+        var queryPair = query_string.slice(1).split('&');
+        for (var i = 0; i < queryPair.length; i++) {
+            queryParamValue = queryPair[i].split('=')[1];
+            
+            queryParamName = queryPair[i].split('=')[0];
+            
+            if((typeof paramMap[queryParamName]!='undefined')  && (queryParamName!='lang_exact') && (queryParamName!='pastevents') && (queryParamName!='futureevents') && (queryParamName!='srt') && (queryParamName!='qterm') && (queryParamName!='x')&&(queryParamName!='y')){
+                
+                
+                section.push(paramMap[queryParamName]);
+                
+                
+            }
+            
+            
+            if((queryParamName!='qterm') && (queryParamName!='futureevents') && (queryParamName!='pastevents') && (queryParamName!='srt') && (queryParamName!='os') && (queryParamName!='x') && (queryParamName!='lang_exact') &&(queryParamName!='y')){
+                if(queryParamValue != ''){
+                    filters.push(queryParamValue);
+                }
+            }
+        }
+        sFilters = filters.join(':');
+        sSection = section.join(':');
+        
+        sSection = decodeURIComponent(sSection);
+        
+        sSection = sSection.replace(new RegExp("\\+","g"),' ');
+        
+        //s.eVar50= section;
+        
+        sFilters = decodeURIComponent(sFilters);
+        
+        sFilters = sFilters.replace(new RegExp("\\+","g"),' ');
+        //s.list1 =filters;
+    } 
+</script> 
+
+
+
+<script> 
+    var wbgData = wbgData || {};
+    wbgData.page = {
+        pageInfo: {
+            pageName: "content:data:datatopics:aspire:en",
+            pageCategory: "content page",
+            pageUid: "bd7e00d8-48ab-4c0d-9e62-f9329366fede", 
+            pageFirstPub: "07-10-2019", 
+            pageLastMod: "10-09-2025", 
+            contentType:"Data",
+            topicTag:"poverty",
+            hier1:"decdg~other~aspire: the atlas of social protection indicators of resilience and equity",
+            channel:"DEC ASPIRE EXT",
+            webpackage:"",
+            
+        },
+        sectionInfo: {
+            siteSection: "other",
+            subsectionP2:"aspire: the atlas of social protection indicators of resilience and equity",
+            subsectionP3:"",
+            subsectionP4:"",
+            subsectionP5:""
+            
+        }
+    },
+        wbgData.site = {
+            siteInfo: {
+                siteLanguage: "en", 
+                siteCountry: "china:india", 
+                siteEnv: "prod", 
+                siteRegion:"",
+                siteType:"Statistical Performance Index",
+            },
+            
+            techInfo: {
+                cmsType: "AEM",
+                bussVPUnit: "DECDG",
+                bussUnit: "DECDG",
+                bussUserGroup: "External",
+                bussAgency: "ibrd"
+            }
+            
+			  
+            
+            
+        }
+        
+        
+        
+         
+            
+            
+            
+            
+            
+                
+</script>
+
+
+<script type="text/javascript">
+    var wbgDataOld = {};
+    wbgDataOld.page= {
+        pageInfo: {
+            pageName: "content:data>datatopics>aspire>en",
+            pageTitle:"ASPIRE: The Atlas of Social Protection Indicators of Resilience and Equity",
+            pageDate:"2020/07/16",
+            hier1: "decdg~other~aspire: the atlas of social protection indicators of resilience and equity", 
+            hier2: "wbg~en~english~other~aspire: the atlas of social protection indicators of resilience and equity",
+            channel:"DEC ASPIRE EXT"
+            
+        },
+        docInfo: {
+            docAuthor: "",//Document author  						  
+            docDate:"",//Document date					  
+            docRegion:"",//Region								  
+            docCountry:"" 
+        },
+        
+        teragramInfo: {													 	
+            teragramTopic:"",  										  
+            teragramKeyword:""	
+        },
+        siteInfo: {
+            siteSection:"other",                                 
+            subSection1:"other~aspire: the atlas of social protection indicators of resilience and equity",						      
+            subSection2:"other~aspire: the atlas of social protection indicators of resilience and equity",              
+            subSection3:"other~aspire: the atlas of social protection indicators of resilience and equity",              
+            siteLanguage:"English",                                        
+            siteRank:"1",											  
+            contentType:"other"   										  
+        },
+        packageInfo:{
+            
+            webpackage:""
+            
+        },
+        
+        
+        
+           
+            vpuInfo: {
+                vpuLegacy:"DECDG",											 
+                    vpu:"DECDG"													 
+            },
+                
+    }
+    
+    
+    
+    
+    
+    
+    var opsAanalytics ={
+        "projectId" :"NODATA", 
+        "upi":"NODATA",
+        "pageName":"other", 
+        "tabName":"other", 
+        "serverDate":"",  
+        "clientDate":new Date().getTime(), 
+        "totalResponseTime":"",
+        "pageUrl":(document.URL).replace("https://","").replace("http://",""),
+        "userAgent" :navigator.userAgent,
+        "server":"www.worldbank.org", 
+        "appId":"wbgext", 
+        "key1":"aspire: the atlas of social protection indicators of resilience and equity",
+        "key2":"",
+        "key3":"",
+        "key4":"",
+        "key5":"",
+        "key6":"Anonymous",
+        "key7":"",
+        "key8":"",
+        "key9":"", 
+        "key10":""
+    };
+    
+    
+    
+</script>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+    
+    <style>
+        button.editMode {
+            border: 0px;
+            line-height: 16px;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            font-size: 12px;
+            padding: 10px 22px;
+            position: fixed;
+            right: 5%;
+            float: right;
+            background-color: #39beea;
+            top: 64px;
+            z-index: 1111;
+            right: 98px;
+        }
+    </style>    
+
+    <script>
+        function togglePreviewMode(){
+            var previewURL = window.location.href;
+            previewURL = previewURL.replace("/content","/cf#/content");
+            previewURL = previewURL.replace("?wcmmode=disabled","");
+            //previewURL = previewURL.replace("http","https");
+            window.open(previewURL, "_self"); 
+            }
+   </script> 
+
+    <input type="hidden" name="wcmmode" class="WCMmode" value="DISABLED">
+
+
+		<script type="text/javascript">_satellite.pageBottom();</script>
+
+        
+
+
+
+
+<div class="cloudservices servicecomponents">
+</div>
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+    
+
+</html>

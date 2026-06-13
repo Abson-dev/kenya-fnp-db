@@ -1,0 +1,49 @@
+# =====================================================================
+# Kenya FNP database pipeline - .gitignore
+# Author: Aboubacar HEMA
+#
+# CRITICAL: downloaded data is never committed. It is large, and several
+# sources prohibit redistribution (DHS microdata, KNMS and SoilHive under
+# data-use agreements). The repo ships the CODE that fetches the data, not
+# the data itself. Folder structure is preserved via .gitkeep files.
+# =====================================================================
+
+# --- acquired data (never commit) ---
+data/raw/*
+data/external/*
+data/interim/*
+data/processed/*
+data/db/*
+!data/raw/.gitkeep
+!data/external/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+!data/db/.gitkeep
+
+# --- run logs and provenance manifests ---
+logs/*
+!logs/.gitkeep
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# --- environments / secrets ---
+.env
+.venv/
+venv/
+env/
+
+# DHS / rdhs credentials must never be committed
+.rdhs.json
+*credentials*
+*secret*
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
