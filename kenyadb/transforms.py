@@ -217,11 +217,95 @@ def _first_table(base: Path, source: str):
     return None, None
 
 
+def _strip_hxl(df: pd.DataFrame) -> pd.DataFrame:
+    """Drop a leading HXL tag row if present. WFP HDX CSVs put machine tags
+    (#date, #adm1+name, #value+price ...) in the first data row, which would
+    otherwise become a bogus observation and force numeric columns to text."""
+    if df.empty:
+        return df
+    first = df.iloc[0].astype(str)
+    if (first.str.startswith("#").mean() > 0.5):
+        df = df.iloc[1:].reset_index(drop=True)
+    return df
+
+
+def _coerce(df: pd.DataFrame, numeric=(), dates=()) -> pd.DataFrame:
+    for c in numeric:
+        if c in df.columns:
+            df[c] = pd.to_numeric(df[c], errors="coerce")
+    for c in dates:
+        if c in df.columns:
+            df[c] = pd.to_datetime(df[c], errors="coerce")
+    return df
+
+
+def _assign_county_by_point(df: pd.DataFrame, base: Path) -> pd.DataFrame:
+    """Assign each row to a county by point-in-polygon on its lat/lon, using the
+    COD-AB county layer. This is how WFP/WB market prices (tagged by province,
+    not county) get a correct county key. Rows without coordinates, or all rows
+    if geopandas/boundaries are unavailable, are returned with empty county
+    fields rather than failing."""
+    lat = next((c for c in df.columns if c.lower() in ("latitude", "lat")), None)
+    lon = next((c for c in df.columns if c.lower() in ("longitude", "lon", "lng")), None)
+    if lat is None or lon is None:
+        return df
+    try:
+        import geopandas as gpd  # type: ignore
+        from .crosswalk import find_admin_layers
+    except Exception:  # noqa: BLE001
+        return df
+    layers = find_admin_layers(base / "data" / "raw")
+    adm = layers.get("adm1") or layers.get("adm2")
+    if not adm:
+        print("[transform] prices: no county layer for spatial join; leaving county blank")
+        return df
+    counties = (gpd.read_file(adm["path"], layer=adm["layer"]) if adm["layer"]
+                else gpd.read_file(adm["path"])).to_crs("EPSG:4326")
+    name_col = adm["adm1_name"] or next(
+        (c for c in counties.columns if "name" in c.lower() or "county" in c.lower()), None)
+    if name_col is None:
+        return df
+    df = df.copy()
+    coords = df[[lon, lat]].apply(pd.to_numeric, errors="coerce")
+    valid = coords.notna().all(axis=1)
+    pts = gpd.GeoDataFrame(
+        df.loc[valid].copy(),
+        geometry=gpd.points_from_xy(coords.loc[valid, lon], coords.loc[valid, lat]),
+        crs="EPSG:4326",
+    ).to_crs(32737)  # UTM 37S for a stable nearest-county assignment
+    cty = counties.to_crs(32737)[[name_col, "geometry"]]
+    joined = gpd.sjoin_nearest(pts, cty, how="left", max_distance=20000)
+    joined = joined[~joined.index.duplicated(keep="first")]
+    df["county_name"] = ""
+    df.loc[joined.index, "county_name"] = joined[name_col].astype(str).values
+    df["county_norm"] = df["county_name"].map(lambda x: norm(x) if isinstance(x, str) else "")
+    matched = (df["county_norm"] != "").sum()
+    print(f"[transform] prices: spatial county assignment matched {matched}/{len(df)} rows")
+    return df
+
+
+def _attach_county_code(df: pd.DataFrame, base: Path) -> pd.DataFrame:
+    """Add canonical county_code from the crosswalk where county_norm is set."""
+    xwalk = _crosswalk(base)
+    if xwalk is None or "county_norm" not in df.columns:
+        return df
+    cmap = (xwalk.drop_duplicates("county_norm").set_index("county_norm")["county_code"])
+    df = df.copy()
+    df["county_code"] = df["county_norm"].map(cmap)
+    return df
+
+
 def prices(base: Path) -> list[Path]:
     written = []
 
     wfp_df, wfp_f = _first_table(base, "wfp_prices")
     if wfp_df is not None:
+        wfp_df = _strip_hxl(wfp_df)
+        wfp_df = _coerce(wfp_df,
+                         numeric=("price", "usdprice", "latitude", "longitude"),
+                         dates=("date",))
+        wfp_df = _assign_county_by_point(wfp_df, base)
+        wfp_df = _attach_county_code(wfp_df, base)
         out = _out(base, "food", "prices_wfp_observed")
         wfp_df.to_csv(out, index=False)
         written.append(out)
@@ -229,10 +313,15 @@ def prices(base: Path) -> list[Path]:
 
     wb_df, wb_f = _first_table(base, "wb_rtfp")
     if wb_df is not None:
+        wb_df = _strip_hxl(wb_df)
         ccol = next((c for c in wb_df.columns
                      if c.lower() in ("iso3", "country", "adm0_code", "countryiso3")), None)
         if ccol is not None:
             wb_df = wb_df[wb_df[ccol].astype(str).str.upper().str.contains("KEN")]
+        wb_df = _coerce(wb_df, numeric=("Open", "High", "Low", "Close", "Inflation"),
+                        dates=("date",))
+        wb_df = _assign_county_by_point(wb_df, base)
+        wb_df = _attach_county_code(wb_df, base)
         out = _out(base, "food", "prices_wb_modeled")
         wb_df.to_csv(out, index=False)
         written.append(out)
