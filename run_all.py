@@ -27,6 +27,7 @@ from pathlib import Path
 
 from kenyadb import crosswalk, pipeline, transforms
 from kenyadb import build_db as builder
+from kenyadb.utils import extract
 
 BASE = Path(__file__).resolve().parent
 CONFIG = BASE / "config" / "sources.yaml"
@@ -56,6 +57,11 @@ def main() -> None:
             args.config, BASE,
             layers=args.layer, only_open=args.only_open, dry_run=args.dry_run,
         )
+
+    # Unzip downloaded archives (COD-AB shapefiles, KENSOTER, etc.) so the
+    # crosswalk and transforms can see the files inside them.
+    if not args.dry_run:
+        extract.extract_all(BASE / "data" / "raw")
 
     # Master crosswalk (county seed always; sub-county enrichment if COD-AB present)
     crosswalk.build(BASE / "data" / "raw", BASE / "data" / "processed")

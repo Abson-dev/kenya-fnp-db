@@ -12,9 +12,11 @@ from __future__ import annotations
 
 import glob
 import json
+import re
 from pathlib import Path
 
 import pandas as pd
+import yaml
 
 from .crosswalk import COUNTIES, norm
 
@@ -28,6 +30,98 @@ def _out(base: Path, layer: str, name: str) -> Path:
 def _crosswalk(base: Path) -> pd.DataFrame | None:
     p = base / "data" / "processed" / "crosswalk_admin.csv"
     return pd.read_csv(p, dtype=str) if p.exists() else None
+
+
+# --- generic ingester for manual / gated drops ------------------------------
+# Sources owned by a dedicated transform (skip here to avoid duplicate tables).
+_DEDICATED = {"wb_rtfp", "wfp_prices"}
+
+
+def _attach_county(df: pd.DataFrame, xwalk: pd.DataFrame | None) -> pd.DataFrame:
+    """If df has a column whose values look like Kenyan counties, attach the
+    canonical county_code / county_name from the crosswalk. Non-destructive:
+    returns df unchanged when no county column is detected."""
+    if xwalk is None or df.empty:
+        return df
+    counties = set(xwalk["county_norm"]) - {""}
+    best_col, best_hits = None, 0
+    for c in df.columns:
+        try:
+            vals = df[c].dropna().astype(str).map(norm)
+        except Exception:  # noqa: BLE001
+            continue
+        hits = vals.isin(counties).sum()
+        if hits > best_hits:
+            best_col, best_hits = c, hits
+    # require at least a third of rows (or 20 rows) to match before joining
+    if best_col is None or best_hits < min(20, max(1, len(df) // 3)):
+        return df
+    cmap = (xwalk.drop_duplicates("county_norm")
+            .set_index("county_norm")[["county_code", "county_name"]])
+    keys = df[best_col].astype(str).map(norm)
+    df = df.copy()
+    df["county_code"] = keys.map(cmap["county_code"])
+    df["county_name"] = keys.map(cmap["county_name"])
+    return df
+
+
+def _route_layer(source: str, layer_of: dict) -> str:
+    """Map an external folder name to its layer, tolerating small naming
+    differences (e.g. folder 'fortification' -> key 'fortification_refs')."""
+    if source in layer_of:
+        return layer_of[source]
+    s = re.sub(r"[^a-z0-9]", "", source.lower())
+    for k, layer in layer_of.items():
+        ks = re.sub(r"[^a-z0-9]", "", k.lower())
+        if s and (s == ks or ks.startswith(s) or s.startswith(ks)):
+            return layer
+    return "core"
+
+
+def ingest_external(base: Path, config_path: Path | None = None) -> list[Path]:
+    """Ingest every CSV / XLSX dropped under data/external/<source>/ into the
+    right layer schema, joining to the crosswalk when a county column is found.
+
+    This is what makes the manual gated drops usable: obtain a dashboard export
+    or county fact-sheet table, drop it in data/external/<source>/, and it
+    becomes <layer>.<source>__<file> on the next build. Survey microdata
+    (.DTA / .SAV) is intentionally NOT handled here - those need dedicated
+    survey transforms, not a raw dump.
+    """
+    cfg_path = config_path or (base / "config" / "sources.yaml")
+    try:
+        cfg = yaml.safe_load(open(cfg_path, encoding="utf-8"))
+        layer_of = {k: layer for layer, srcs in cfg["layers"].items() for k in srcs}
+    except Exception:  # noqa: BLE001
+        layer_of = {}
+
+    ext = base / "data" / "external"
+    if not ext.exists():
+        return []
+    xwalk = _crosswalk(base)
+    written: list[Path] = []
+    for sdir in sorted(p for p in ext.iterdir() if p.is_dir()):
+        source = sdir.name
+        if source in _DEDICATED:
+            continue
+        layer = _route_layer(source, layer_of)
+        files = sorted(sdir.rglob("*.csv")) + sorted(sdir.rglob("*.xlsx"))
+        for f in files:
+            try:
+                df = (pd.read_excel(f) if f.suffix == ".xlsx"
+                      else pd.read_csv(f, low_memory=False))
+            except Exception as exc:  # noqa: BLE001
+                print(f"[ingest] could not read external/{source}/{f.name}: {exc}")
+                continue
+            df = _attach_county(df, xwalk)
+            stem = re.sub(r"[^0-9a-zA-Z]+", "_", f.stem).strip("_").lower()
+            out = _out(base, layer, f"{source}__{stem}")
+            df.to_csv(out, index=False)
+            written.append(out)
+            joined = "county-joined" if "county_code" in df.columns else "no county join"
+            print(f"[ingest] {layer}.{source}__{stem} ({len(df)} rows, {joined}) "
+                  f"<- external/{source}/{f.name}")
+    return written
 
 
 # --- health: World Bank HNP JSON -> tidy country-year panel -----------------
@@ -64,6 +158,14 @@ def wb_hnp_panel(base: Path) -> Path | None:
 
 # --- food: filter FAOSTAT normalised zips to Kenya --------------------------
 def faostat_kenya(base: Path, area_code: int = 114) -> Path | None:
+    """Filter each FAOSTAT normalised zip to Kenya (area code 114).
+
+    A FAOSTAT zip holds the main data CSV plus small Flags/ItemGroup metadata
+    CSVs, so we open the archive and read the largest member (the data file)
+    rather than assuming the first entry.
+    """
+    import zipfile
+
     raw = base / "data" / "raw" / "faostat"
     zips = sorted(raw.glob("*_normalized.zip"))
     if not zips:
@@ -71,10 +173,18 @@ def faostat_kenya(base: Path, area_code: int = 114) -> Path | None:
     frames = []
     for z in zips:
         try:
-            df = pd.read_csv(z, compression="zip", encoding="latin-1", low_memory=False)
-        except Exception:  # noqa: BLE001
+            with zipfile.ZipFile(z) as zf:
+                members = [m for m in zf.infolist() if m.filename.lower().endswith(".csv")]
+                if not members:
+                    continue
+                main = max(members, key=lambda m: m.file_size)
+                with zf.open(main) as fh:
+                    df = pd.read_csv(fh, encoding="latin-1", low_memory=False)
+        except Exception as exc:  # noqa: BLE001
+            print(f"[transform] faostat: could not read {z.name}: {exc}")
             continue
-        col = next((c for c in df.columns if c.lower() in ("area code", "area_code")), None)
+        col = next((c for c in df.columns
+                    if c.lower().replace(" ", "_") in ("area_code", "areacode")), None)
         if col is None:
             continue
         ken = df[df[col] == area_code].copy()
@@ -85,62 +195,82 @@ def faostat_kenya(base: Path, area_code: int = 114) -> Path | None:
     out_df = pd.concat(frames, ignore_index=True)
     out = _out(base, "food", "faostat_kenya")
     out_df.to_csv(out, index=False)
-    print(f"[transform] food.faostat_kenya ({len(out_df)} rows) -> {out.name}")
+    print(f"[transform] food.faostat_kenya ({len(out_df)} rows, {len(frames)} domains) -> {out.name}")
     return out
 
 
 # --- food: WFP + World Bank prices into separate but linkable tables --------
+def _first_table(base: Path, source: str):
+    """Return (DataFrame, path) for the first csv/xlsx found for `source`,
+    searching both data/raw/<source>/ and the manual data/external/<source>/."""
+    for parent in ("raw", "external"):
+        d = base / "data" / parent / source
+        if not d.exists():
+            continue
+        for f in sorted(d.rglob("*.csv")) + sorted(d.rglob("*.xlsx")):
+            try:
+                df = (pd.read_excel(f) if f.suffix == ".xlsx"
+                      else pd.read_csv(f, low_memory=False))
+                return df, f
+            except Exception as exc:  # noqa: BLE001
+                print(f"[transform] could not read {f.name}: {exc}")
+    return None, None
+
+
 def prices(base: Path) -> list[Path]:
     written = []
-    wfp_dir = base / "data" / "raw" / "wfp_prices"
-    wfp_csv = next(iter(sorted(wfp_dir.glob("*.csv"))), None) if wfp_dir.exists() else None
-    if wfp_csv is not None:
-        try:
-            df = pd.read_csv(wfp_csv, low_memory=False)
-            out = _out(base, "food", "prices_wfp_observed")
-            df.to_csv(out, index=False)
-            written.append(out)
-            print(f"[transform] food.prices_wfp_observed ({len(df)} rows) -> {out.name}")
-        except Exception as exc:  # noqa: BLE001
-            print(f"[transform] wfp prices skipped: {exc}")
 
-    wb_dir = base / "data" / "raw" / "wb_rtfp"
-    wb_csv = next(iter(sorted(wb_dir.glob("*.csv"))), None) if wb_dir.exists() else None
-    if wb_csv is not None:
-        try:
-            df = pd.read_csv(wb_csv, low_memory=False)
-            ccol = next((c for c in df.columns if c.lower() in ("iso3", "country", "adm0_code")), None)
-            if ccol is not None:
-                df = df[df[ccol].astype(str).str.upper().str.contains("KEN")]
-            out = _out(base, "food", "prices_wb_modeled")
-            df.to_csv(out, index=False)
-            written.append(out)
-            print(f"[transform] food.prices_wb_modeled ({len(df)} rows) -> {out.name}")
-        except Exception as exc:  # noqa: BLE001
-            print(f"[transform] wb prices skipped: {exc}")
+    wfp_df, wfp_f = _first_table(base, "wfp_prices")
+    if wfp_df is not None:
+        out = _out(base, "food", "prices_wfp_observed")
+        wfp_df.to_csv(out, index=False)
+        written.append(out)
+        print(f"[transform] food.prices_wfp_observed ({len(wfp_df)} rows, {wfp_f.name}) -> {out.name}")
+
+    wb_df, wb_f = _first_table(base, "wb_rtfp")
+    if wb_df is not None:
+        ccol = next((c for c in wb_df.columns
+                     if c.lower() in ("iso3", "country", "adm0_code", "countryiso3")), None)
+        if ccol is not None:
+            wb_df = wb_df[wb_df[ccol].astype(str).str.upper().str.contains("KEN")]
+        out = _out(base, "food", "prices_wb_modeled")
+        wb_df.to_csv(out, index=False)
+        written.append(out)
+        print(f"[transform] food.prices_wb_modeled ({len(wb_df)} rows, {wb_f.name}) -> {out.name}")
     return written
 
 
 # --- soil: SoilGrids zonal statistics by county -----------------------------
 def soilgrids_zonal(base: Path) -> Path | None:
-    """Zonal mean of each SoilGrids coverage per county polygon. Requires the
-    COD-AB admin layer and rasterio/rasterstats; skips cleanly otherwise."""
+    """Zonal mean of each SoilGrids coverage per county polygon. Uses the same
+    content-based boundary detection as the crosswalk, so it no longer depends
+    on COD-AB file naming. Requires rasterio/rasterstats; skips cleanly otherwise."""
     tifs = sorted((base / "data" / "raw" / "soilgrids").glob("*.tif"))
-    cod_dir = base / "data" / "raw" / "cod_ab"
-    if not tifs or not cod_dir.exists():
+    if not tifs:
         return None
     try:
         import geopandas as gpd  # type: ignore
         from rasterstats import zonal_stats  # type: ignore
-    except Exception:  # noqa: BLE001
-        print("[transform] soilgrids_zonal skipped: geopandas/rasterstats not installed")
+        from .crosswalk import find_admin_layers
+    except Exception as exc:  # noqa: BLE001
+        print(f"[transform] soilgrids_zonal skipped: {exc} (install rasterstats/rasterio)")
         return None
-    adm1 = next(iter(glob.glob(str(cod_dir / "**" / "*adm1*.shp"), recursive=True)
-                      + glob.glob(str(cod_dir / "**" / "*ADM1*.shp"), recursive=True)), None)
-    if adm1 is None:
+
+    layers = find_admin_layers(base / "data" / "raw")
+    adm1 = layers.get("adm1") or layers.get("adm2")  # prefer counties, fall back
+    if not adm1:
+        print("[transform] soilgrids_zonal: no county boundary layer detected under "
+              "data/raw/cod_ab (need ~47 features)")
         return None
-    gdf = gpd.read_file(adm1).to_crs("EPSG:4326")
-    name_col = next((c for c in gdf.columns if "adm1" in c.lower() and "name" in c.lower()), None)
+
+    gdf = (gpd.read_file(adm1["path"], layer=adm1["layer"]) if adm1["layer"]
+           else gpd.read_file(adm1["path"])).to_crs("EPSG:4326")
+    name_col = adm1["adm1_name"] or next(
+        (c for c in gdf.columns if "name" in c.lower() or "county" in c.lower()), None)
+    if name_col is None:
+        print("[transform] soilgrids_zonal: county name column not found")
+        return None
+
     result = gdf[[name_col]].rename(columns={name_col: "county_name"}).copy()
     for tif in tifs:
         stats = zonal_stats(gdf, str(tif), stats=["mean"], nodata=-32768)
@@ -148,14 +278,64 @@ def soilgrids_zonal(base: Path) -> Path | None:
     result["county_norm"] = result["county_name"].map(norm)
     out = _out(base, "soil", "soilgrids_zonal_county")
     result.to_csv(out, index=False)
-    print(f"[transform] soil.soilgrids_zonal_county ({len(result)} rows) -> {out.name}")
+    print(f"[transform] soil.soilgrids_zonal_county ({len(result)} rows, "
+          f"{len(tifs)} coverages) -> {out.name}")
     return out
 
 
+def _present(raw: Path, source: str, patterns: list[str]) -> bool:
+    d = raw / source
+    if not d.exists():
+        return False
+    return any(next(d.rglob(p), None) is not None for p in patterns)
+
+
 def run_all(base: Path) -> None:
+    """Run every transform and report, per layer, whether its input was found.
+
+    A transform that finds no input prints exactly which folder and file
+    pattern it looked for, so a --build-only run tells you what still needs to
+    be downloaded or unzipped rather than failing silently.
+    """
     print("[transform] running normalisation transforms")
-    wb_hnp_panel(base)
-    faostat_kenya(base)
-    prices(base)
-    soilgrids_zonal(base)
-    print("[transform] done (missing inputs were skipped)")
+    raw = base / "data" / "raw"
+
+    checks = [
+        ("health.wb_hnp_panel", "wb_hnp", ["*.json"], wb_hnp_panel),
+        ("food.faostat_kenya", "faostat", ["*_normalized.zip"], faostat_kenya),
+        ("soil.soilgrids_zonal_county", "soilgrids", ["*.tif"], soilgrids_zonal),
+    ]
+    for label, source, patterns, fn in checks:
+        if _present(raw, source, patterns):
+            try:
+                if fn(base) is None:
+                    print(f"[transform] {label}: input present but produced no rows "
+                          f"(check column names / contents in data/raw/{source})")
+            except Exception as exc:  # noqa: BLE001
+                print(f"[transform] {label}: error {type(exc).__name__}: {exc}")
+        else:
+            print(f"[transform] {label}: SKIP - no input at "
+                  f"data/raw/{source}/ matching {patterns}")
+
+    # prices read two sources independently, from raw OR the manual external drop
+    def _has(source: str) -> bool:
+        for parent in ("raw", "external"):
+            d = base / "data" / parent / source
+            if d.exists() and (next(d.rglob("*.csv"), None) or next(d.rglob("*.xlsx"), None)):
+                return True
+        return False
+
+    wfp_ok, wb_ok = _has("wfp_prices"), _has("wb_rtfp")
+    if wfp_ok or wb_ok:
+        prices(base)
+    if not wfp_ok:
+        print("[transform] food.prices_wfp_observed: SKIP - no file in "
+              "data/raw/wfp_prices/ (run: python run_all.py --layer food)")
+    if not wb_ok:
+        print("[transform] food.prices_wb_modeled: SKIP - no file in data/external/wb_rtfp/ "
+              "(manual download - see MANUAL_DATASETS.md)")
+
+    # generic ingestion of any other manual / gated drops
+    ingest_external(base)
+
+    print("[transform] done")

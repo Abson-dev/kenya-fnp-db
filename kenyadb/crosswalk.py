@@ -1,18 +1,15 @@
 """Master county / sub-county crosswalk.
 
-The bundle document's central design rule: keep ONE master county and
-sub-county crosswalk derived from COD-AB plus census names and codes, and
-append every later table to that crosswalk rather than merging table-to-table.
-This module builds that crosswalk.
+Design rule from the bundle document: keep ONE master county and sub-county
+crosswalk derived from COD-AB plus census names/codes, and append every later
+table to it rather than merging table-to-table.
 
-Strategy:
-  1. Seed with the canonical 47 KNBS counties (codes 1-47), which are stable.
-  2. If a COD-AB admin-2 layer has been downloaded, enrich the crosswalk with
-     the 290 sub-counties and their pcodes, joining on a normalised county name.
-  3. Emit data/processed/crosswalk_admin.csv as the join key for all layers.
-
-Reading the COD-AB geometry needs geopandas; when it is not installed the
-county-level seed is still produced so the rest of the pipeline can proceed.
+Boundary-layer detection is content-based, not filename-based: COD-AB releases
+name their layers inconsistently, so instead of guessing from file names we
+read each vector under data/raw/cod_ab and classify it by feature count
+(about 47 features = counties = admin1, about 290 = sub-counties = admin2) and
+by its attribute columns. find_admin_layers() is shared with the SoilGrids
+zonal-statistics transform so both use the same detected boundaries.
 
 Author: Aboubacar HEMA
 """
@@ -38,77 +35,145 @@ COUNTIES: list[tuple[int, str]] = [
     (44, "Migori"), (45, "Kisii"), (46, "Nyamira"), (47, "Nairobi"),
 ]
 
+# Expected feature counts and tolerance bands.
+ADM1_TARGET, ADM2_TARGET = 47, 290
+ADM1_BAND, ADM2_BAND = (40, 60), (240, 340)
+
 
 def norm(name: str) -> str:
-    """Normalise a county/sub-county name for joins: lowercase, strip accents
-    of apostrophes, collapse separators."""
-    s = name.strip().lower()
-    s = s.replace("\u2019", "'")
+    s = str(name).strip().lower().replace("\u2019", "'")
     s = re.sub(r"[^a-z0-9]+", " ", s)
     return s.strip()
 
 
-def _find_codab_admin2(raw_dir: Path) -> Path | None:
-    """Locate a downloaded COD-AB admin-2 vector file (shp/gpkg)."""
-    cod_dir = raw_dir / "cod_ab"
+def _candidate_vectors(cod_dir: Path) -> list[tuple[Path, str | None]]:
+    """Return (path, layer) pairs for every readable vector under cod_dir.
+    For File Geodatabases the layers are enumerated; for flat files layer=None.
+    """
+    out: list[tuple[Path, str | None]] = []
     if not cod_dir.exists():
-        return None
-    patterns = ["*adm2*.shp", "*ADM2*.shp", "*adm2*.gpkg", "*ADM2*.gpkg",
-                "*adm2*.json", "*adm2*.geojson"]
-    for pat in patterns:
-        hits = sorted(cod_dir.rglob(pat))
-        if hits:
-            return hits[0]
+        return out
+    flat: list[Path] = []
+    for ext in ("*.shp", "*.geojson", "*.json", "*.gpkg"):
+        flat += list(cod_dir.rglob(ext))
+    out += [(p, None) for p in flat]
+    for gdb in cod_dir.rglob("*.gdb"):
+        if gdb.is_dir():
+            try:
+                import fiona  # type: ignore
+                for lyr in fiona.listlayers(str(gdb)):
+                    out.append((gdb, lyr))
+            except Exception:  # noqa: BLE001
+                out.append((gdb, None))
+    return out
+
+
+def _classify(n: int) -> str | None:
+    if ADM1_BAND[0] <= n <= ADM1_BAND[1]:
+        return "adm1"
+    if ADM2_BAND[0] <= n <= ADM2_BAND[1]:
+        return "adm2"
     return None
 
 
+def _guess_cols(gdf):
+    """Return (adm1_name, adm2_name, adm1_code, adm2_code) best-guess columns."""
+    cols = list(gdf.columns)
+
+    def pick(preds):
+        for c in cols:
+            cl = c.lower()
+            if any(p(cl) for p in preds):
+                return c
+        return None
+
+    adm1_name = pick([lambda c: "adm1" in c and ("en" in c or "name" in c),
+                      lambda c: c in ("county", "county_nam", "counties")])
+    adm2_name = pick([lambda c: "adm2" in c and ("en" in c or "name" in c),
+                      lambda c: c in ("subcounty", "sub_county", "scounty", "sub_count")])
+    adm1_code = pick([lambda c: "adm1" in c and ("pcode" in c or "code" in c)])
+    adm2_code = pick([lambda c: "adm2" in c and ("pcode" in c or "code" in c)])
+    return adm1_name, adm2_name, adm1_code, adm2_code
+
+
+def find_admin_layers(raw_dir: Path, cod_source: str = "cod_ab") -> dict:
+    """Inspect every COD-AB vector and return the best admin1 / admin2 layers.
+
+    Returns {'adm1': {...}, 'adm2': {...}} where each value carries path, layer,
+    feature count and detected columns. Missing levels are absent from the dict.
+    """
+    import geopandas as gpd  # type: ignore
+
+    cod_dir = Path(raw_dir) / cod_source
+    found: dict[str, dict] = {}
+    print(f"[crosswalk] scanning {cod_dir} for boundary layers")
+    for path, layer in _candidate_vectors(cod_dir):
+        try:
+            gdf = gpd.read_file(path, layer=layer) if layer else gpd.read_file(path)
+        except Exception:  # noqa: BLE001
+            continue
+        n = len(gdf)
+        level = _classify(n)
+        if level is None:
+            continue
+        tag = f"{path.name}" + (f"::{layer}" if layer else "")
+        target = ADM1_TARGET if level == "adm1" else ADM2_TARGET
+        prev = found.get(level)
+        if prev is None or abs(n - target) < abs(prev["count"] - target):
+            a1n, a2n, a1c, a2c = _guess_cols(gdf)
+            found[level] = {"path": str(path), "layer": layer, "count": n,
+                            "adm1_name": a1n, "adm2_name": a2n,
+                            "adm1_code": a1c, "adm2_code": a2c}
+            print(f"[crosswalk]   {tag}: {n} features -> {level}")
+    return found
+
+
 def build(raw_dir: Path, out_dir: Path) -> Path:
+    out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     out = out_dir / "crosswalk_admin.csv"
 
     rows: list[dict] = []
-    admin2 = _find_codab_admin2(raw_dir)
     enriched = False
+    try:
+        import geopandas as gpd  # type: ignore
 
-    if admin2 is not None:
-        try:
-            import geopandas as gpd  # type: ignore
-
-            gdf = gpd.read_file(admin2)
-            # Try to guess the county / sub-county / pcode columns.
-            cols = {c.lower(): c for c in gdf.columns}
-            c_name = next((cols[c] for c in cols if "adm1" in c and "name" in c
-                           or c in ("county", "adm1_en")), None)
-            s_name = next((cols[c] for c in cols if "adm2" in c and "name" in c
-                           or c in ("subcounty", "sub_county", "adm2_en")), None)
-            c_code = next((cols[c] for c in cols if "adm1" in c and ("pcode" in c or "code" in c)), None)
-            s_code = next((cols[c] for c in cols if "adm2" in c and ("pcode" in c or "code" in c)), None)
-            if c_name and s_name:
-                for _, r in gdf.iterrows():
-                    cn = str(r[c_name])
-                    rows.append({
-                        "county_code": str(r[c_code]) if c_code else "",
-                        "county_name": cn,
-                        "county_norm": norm(cn),
-                        "subcounty_code": str(r[s_code]) if s_code else "",
-                        "subcounty_name": str(r[s_name]),
-                        "subcounty_norm": norm(str(r[s_name])),
-                        "source": "COD-AB admin2",
-                    })
-                enriched = True
-        except Exception as exc:  # noqa: BLE001
-            print(f"[crosswalk] could not read COD-AB admin2 ({exc}); using county seed")
+        layers = find_admin_layers(raw_dir)
+        adm2 = layers.get("adm2")
+        if adm2 and adm2["adm2_name"]:
+            gdf = (gpd.read_file(adm2["path"], layer=adm2["layer"])
+                   if adm2["layer"] else gpd.read_file(adm2["path"]))
+            cn, sn = adm2["adm1_name"], adm2["adm2_name"]
+            cc, sc = adm2["adm1_code"], adm2["adm2_code"]
+            for _, r in gdf.iterrows():
+                county = str(r[cn]) if cn else ""
+                rows.append({
+                    "county_code": str(r[cc]) if cc else "",
+                    "county_name": county,
+                    "county_norm": norm(county),
+                    "subcounty_code": str(r[sc]) if sc else "",
+                    "subcounty_name": str(r[sn]),
+                    "subcounty_norm": norm(str(r[sn])),
+                    "source": f"COD-AB ({Path(adm2['path']).name})",
+                })
+            enriched = bool(rows)
+            if not enriched:
+                print("[crosswalk] adm2 layer found but yielded no rows")
+        else:
+            print("[crosswalk] no admin2 layer detected (need ~290 features with a "
+                  "sub-county name column); falling back to county seed")
+    except ImportError:
+        print("[crosswalk] geopandas not installed; using county seed")
+    except Exception as exc:  # noqa: BLE001
+        print(f"[crosswalk] boundary read failed ({exc}); using county seed")
 
     if not enriched:
         for code, name in COUNTIES:
             rows.append({
-                "county_code": f"KE{code:02d}",
-                "county_name": name,
-                "county_norm": norm(name),
-                "subcounty_code": "",
-                "subcounty_name": "",
-                "subcounty_norm": "",
-                "source": "KNBS county seed (run geography layer to add sub-counties)",
+                "county_code": f"KE{code:02d}", "county_name": name,
+                "county_norm": norm(name), "subcounty_code": "",
+                "subcounty_name": "", "subcounty_norm": "",
+                "source": "KNBS county seed",
             })
 
     with open(out, "w", newline="", encoding="utf-8") as fh:
@@ -116,7 +181,7 @@ def build(raw_dir: Path, out_dir: Path) -> Path:
         writer.writeheader()
         writer.writerows(rows)
 
-    n_counties = len({r["county_norm"] for r in rows})
+    n_counties = len({r["county_norm"] for r in rows if r["county_norm"]})
     print(f"[crosswalk] wrote {out} ({len(rows)} rows, {n_counties} counties, "
           f"{'sub-county enriched' if enriched else 'county seed only'})")
     return out

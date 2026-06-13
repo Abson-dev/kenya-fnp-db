@@ -145,7 +145,8 @@ layers:
       access: open_api
       handler: faostat_bulk
       base_url: https://bulks-faostat.fao.org/production
-      domains: [QCL, QV, FBS, FO, PP, RFN, RL]
+      manifest: https://bulks-faostat.fao.org/production/datasets_E.xml
+      domains: [QCL, QV, FBS, FO, PP, RFN, RL]   # resolved to URLs via manifest
       area_code: 114   # Kenya
       license: CC BY 4.0
       role: long-run national time-series backbone
@@ -161,13 +162,17 @@ layers:
 
     wb_rtfp:
       title: World Bank Real-Time Food Prices - Kenya
-      publisher: World Bank (DEC / microdata catalog 6167)
-      access: open_api
-      handler: http_file
-      url: https://microdata.worldbank.org/index.php/catalog/6167
-      datahub: https://datacatalogfiles.worldbank.org/ddh-published/0061507/DR0094248/WLD_RTFP_country_2026-05.csv
-      role: modeled gap-filled market prices (233 markets, 2007-2026)
-      note: prefer the DataHub bulk CSV; filter to KEN
+      publisher: World Bank (DEC / Microdata Library)
+      access: registration
+      handler: manual
+      url: https://microdata.worldbank.org/index.php/catalog/study/WLD_2021_RTFP_v02_M
+      role: modeled gap-filled market prices (233 markets, 2007-present)
+      note: >-
+        No stable direct CSV. Open the Real Time Food Prices study, use Get
+        Microdata to download the Kenya file (KEN_2021_RTFP_v02_M) or the global
+        by-country file (WLD_2021_RTFP-CTRY_v02_M), then drop the CSV in
+        data/external/wb_rtfp/ and re-run --build-only. The prices transform
+        reads it and filters to KEN.
 
     fsd_food:
       title: Kenya Food Systems Dashboard (food side)

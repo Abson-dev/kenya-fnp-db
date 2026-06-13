@@ -92,7 +92,15 @@ def hdx_dataset(meta: dict, ctx: Ctx) -> None:
         rurl = res.get("download_url") or res.get("url")
         if not rurl:
             continue
-        name = _safe(res.get("name") or Path(urlparse(rurl).path).name)
+        # Prefer the URL's filename (carries the real extension, e.g. .csv);
+        # fall back to the resource label plus its declared format.
+        url_name = Path(urlparse(rurl).path).name
+        fmt = (res.get("format") or "").lower().strip()
+        if url_name and "." in url_name:
+            name = _safe(url_name)
+        else:
+            base = _safe(res.get("name") or "resource")
+            name = f"{base}.{fmt}" if fmt else base
         out = ctx.raw_dir / ctx.source_key / name
         try:
             path = io.http_download(rurl, out)
@@ -122,7 +130,13 @@ def ckan_resource(meta: dict, ctx: Ctx) -> None:
         rurl = res.get("url")
         if not rurl:
             continue
-        name = _safe(res.get("name") or Path(urlparse(rurl).path).name)
+        url_name = Path(urlparse(rurl).path).name
+        fmt = (res.get("format") or "").lower().strip()
+        if url_name and "." in url_name:
+            name = _safe(url_name)
+        else:
+            base = _safe(res.get("name") or "resource")
+            name = f"{base}.{fmt}" if fmt else base
         out = ctx.raw_dir / ctx.source_key / name
         try:
             path = io.http_download(rurl, out)
@@ -234,21 +248,49 @@ def aws_s3(meta: dict, ctx: Ctx) -> None:
 # food
 # ---------------------------------------------------------------------------
 def faostat_bulk(meta: dict, ctx: Ctx) -> None:
-    """Download FAOSTAT normalised bulk zips per domain. Kenya (area 114) is
-    filtered out of the normalised CSV during the transform step."""
-    base = meta["base_url"]
+    """Download FAOSTAT normalised bulk zips by dataset code.
+
+    FAOSTAT bulk files are named descriptively (Production_Crops_Livestock_...),
+    not by code, so we read the official manifest (datasets_E.xml) which maps
+    each DatasetCode to its current FileLocation. This is resilient to FAO
+    renaming files. Kenya (area 114) is filtered out of each zip in the
+    transform step.
+    """
     if ctx.dry_run:
         _record_status(ctx, meta, "skipped",
-                       f"dry-run: would fetch {len(meta['domains'])} FAOSTAT domains")
+                       f"dry-run: would resolve {len(meta['domains'])} FAOSTAT codes via manifest")
         return
+    manifest_url = meta.get("manifest", "https://bulks-faostat.fao.org/production/datasets_E.xml")
+    try:
+        import requests
+        r = requests.get(manifest_url, timeout=120, headers={"User-Agent": io.USER_AGENT})
+        r.raise_for_status()
+        root = ET.fromstring(r.content)
+    except Exception as exc:  # noqa: BLE001
+        _record_status(ctx, meta, "failed", f"manifest fetch: {exc}")
+        return
+    # map DatasetCode -> FileLocation
+    code_to_url = {}
+    for ds in root.findall("Dataset"):
+        code = (ds.findtext("DatasetCode") or "").strip()
+        loc = (ds.findtext("FileLocation") or "").strip()
+        if code and loc:
+            code_to_url[code] = loc
+    got = 0
     for dom in meta["domains"]:
-        url = f"{base}/{dom}_E_All_Data_(Normalized).zip"
+        url = code_to_url.get(dom)
+        if not url:
+            _record_status(ctx, meta, "failed", f"code {dom} not in manifest")
+            continue
         out = ctx.raw_dir / ctx.source_key / f"{dom}_normalized.zip"
         try:
             path = io.http_download(url, out)
-            _record_file(ctx, meta, path, message=f"FAOSTAT domain {dom}")
+            _record_file(ctx, meta, path, message=f"FAOSTAT {dom} <- {Path(url).name}")
+            got += 1
         except Exception as exc:  # noqa: BLE001
             _record_status(ctx, meta, "failed", f"domain {dom}: {exc}")
+    if got == 0:
+        _record_status(ctx, meta, "failed", "no FAOSTAT domains downloaded")
 
 
 def kilimostat_api(meta: dict, ctx: Ctx) -> None:

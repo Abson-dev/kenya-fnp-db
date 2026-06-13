@@ -66,6 +66,19 @@ data-use agreement.
 These points are the primary micronutrient enrichment for the soil layer, since
 SoilGrids does not provide Zn / Fe / P / K national rasters.
 
+## World Bank Real-Time Food Prices (registration) - data/external/wb_rtfp/
+
+The modeled price series has no stable direct download URL.
+
+1. Open the Real Time Food Prices study on the World Bank Microdata Library
+   (WLD_2021_RTFP_v02_M).
+2. Use Get Microdata to download either the Kenya file (KEN_2021_RTFP_v02_M) or
+   the global by-country file (WLD_2021_RTFP-CTRY_v02_M).
+3. Drop the CSV in data/external/wb_rtfp/ and run python run_all.py --build-only.
+
+The prices transform reads it and filters to KEN, writing food.prices_wb_modeled
+alongside the observed WFP prices in food.prices_wfp_observed.
+
 ## Dashboards (manual export) - data/external/<source>/
 
 These are browser dashboards. Export the relevant tables, then drop the CSVs in
