@@ -18,6 +18,10 @@ Retail staple prices from the World Food Programme are normalised to a per-kilog
 
 Counties are grouped into soil-health zones by k-means on standardised topsoil properties, with the number of zones (k=3) selected by the silhouette criterion.
 
+## Policy layer
+
+The Food Systems and Land Use Action Plan 2024-2030 contributes national policy context and a small county signal. The 7-year budget is summarised by critical transition, and the agricultural growth series is retained as context. The Plan also names four counties with a stunting figure (Kilifi, West Pokot, Samburu, Kisumu); these are joined to the county table and placed beside the soil and price profile as an external, illustrative check. With four counties this is not an inferential analysis and is not used as a model input.
+
 ## Planned extension
 
-County anthropometry and anaemia from the 2022 Kenya Demographic and Health Survey will be appended to the county table to estimate the soil to nutrition pathway. Current soil-price associations are descriptive: soil quality, market access and prices are jointly determined, so they are reported with robust standard errors and not interpreted causally.
+County anthropometry and anaemia from the 2022 Kenya Demographic and Health Survey will be appended to the county table to estimate the soil to nutrition pathway, with the four Action Plan county figures serving as an external check on the survey aggregates. Current soil-price associations are descriptive: soil quality, market access and prices are jointly determined, so they are reported with robust standard errors and not interpreted causally.

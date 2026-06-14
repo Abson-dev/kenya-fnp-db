@@ -58,6 +58,27 @@ def main() -> None:
     else:
         print("  -> skipped (need maize price + soil columns, or statsmodels)")
 
+    print("[analysis] policy layer (Action Plan)")
+    budget = A.policy_budget_by_transition(con)
+    if not budget.empty:
+        budget.to_csv(OUT / "policy_budget_by_transition.csv", index=False)
+        A.barh(budget, "critical_transition", "cost_kes_millions",
+               "Action Plan 2024-2030 budget by critical transition",
+               OUT / "policy_budget_by_transition.png", xlabel="KES millions")
+        print(f"  -> budget by transition ({len(budget)} transitions, "
+              f"total {budget['cost_kes_millions'].sum():,.0f} KES m)")
+    growth = A.policy_ag_growth(con)
+    if not growth.empty:
+        growth.to_csv(OUT / "policy_ag_growth.csv", index=False)
+        print(f"  -> agricultural growth series ({len(growth)} years)")
+    cross = A.policy_nutrition_cross_check(table)
+    if not cross.empty:
+        cross.round(2).to_csv(OUT / "policy_nutrition_vs_soil.csv", index=False)
+        print(f"  -> Action Plan stunting vs soil/price for {len(cross)} named "
+              "counties (illustrative external check)")
+    elif "stunting_actionplan" not in table.columns:
+        print("  -> no policy county nutrition in the database (build the policy layer)")
+
     if not args.no_maps:
         print("[analysis] maps")
         gdf = A.county_geometry(BASE)
@@ -109,12 +130,23 @@ def _write_methods(path: Path, table, meta) -> None:
         f"Counties are grouped into soil-health zones by k-means on standardised "
         f"topsoil properties, with the number of zones (k={k}) selected by the "
         "silhouette criterion.\n\n"
+        "## Policy layer\n\n"
+        "The Food Systems and Land Use Action Plan 2024-2030 contributes national "
+        "policy context and a small county signal. The 7-year budget is summarised "
+        "by critical transition, and the agricultural growth series is retained as "
+        "context. The Plan also names four counties with a stunting figure "
+        "(Kilifi, West Pokot, Samburu, Kisumu); these are joined to the county "
+        "table and placed beside the soil and price profile as an external, "
+        "illustrative check. With four counties this is not an inferential "
+        "analysis and is not used as a model input.\n\n"
         "## Planned extension\n\n"
         "County anthropometry and anaemia from the 2022 Kenya Demographic and "
         "Health Survey will be appended to the county table to estimate the soil "
-        "to nutrition pathway. Current soil-price associations are descriptive: "
-        "soil quality, market access and prices are jointly determined, so they "
-        "are reported with robust standard errors and not interpreted causally.\n",
+        "to nutrition pathway, with the four Action Plan county figures serving as "
+        "an external check on the survey aggregates. Current soil-price "
+        "associations are descriptive: soil quality, market access and prices are "
+        "jointly determined, so they are reported with robust standard errors and "
+        "not interpreted causally.\n",
         encoding="utf-8",
     )
 

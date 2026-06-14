@@ -9,6 +9,9 @@ dataset plus the first set of publication-oriented outputs:
   3. soil-health typology (k-means county clustering, k chosen by silhouette)
   4. price geography (county median price and volatility, mapped)
   5. an exploratory, explicitly associational soil-price model (scaffold)
+  6. policy context from the Action Plan (budget by critical transition,
+     agricultural growth) and an illustrative county cross-check of the four
+     stunting figures the Plan names against the soil and price layers
 
 The soil-to-nutrition pathway that motivates the bundle needs county nutrition
 outcomes from KDHS 2022, which is still a pending manual gate; build_county_table
@@ -125,9 +128,63 @@ def build_county_table(con) -> pd.DataFrame:
     prices = wfp_price_summary(con)
     if not prices.empty:
         table = table.merge(prices, on="county_norm", how="left")
+    # Policy layer: the Action Plan names four counties with a stunting figure.
+    # Sparse (4 of 47), so it serves as an external check, not a model input.
+    ap = policy_county_nutrition(con)
+    if not ap.empty:
+        table = table.merge(ap, on="county_code", how="left")
     # KDHS county nutrition outcomes (stunting, wasting, anaemia) join here once
     # the survey is ingested:  table = table.merge(kdhs_county, on="county_norm")
     return table.sort_values("county_code").reset_index(drop=True)
+
+
+# --------------------------------------------------------------------------
+# policy layer (Action Plan)
+# --------------------------------------------------------------------------
+def _has_table(con, schema: str, name: str) -> bool:
+    q = ("select count(*) from information_schema.tables "
+         "where table_schema = ? and table_name = ?")
+    return con.execute(q, [schema, name]).fetchone()[0] > 0
+
+
+def policy_county_nutrition(con) -> pd.DataFrame:
+    """County child-nutrition figures cited in the Action Plan, one column per
+    indicator (only stunting is given at county level). Returns an empty frame
+    if the policy table is absent."""
+    tbl = "action_plan__action_plan_county_nutrition"
+    if not _has_table(con, "policy", tbl):
+        return pd.DataFrame()
+    df = con.execute(f"select county_code, indicator, value_pct from policy.{tbl}").df()
+    if df.empty:
+        return pd.DataFrame()
+    wide = (df.pivot_table(index="county_code", columns="indicator",
+                           values="value_pct", aggfunc="first")
+              .reset_index())
+    wide.columns = ["county_code"] + [f"{c.lower()}_actionplan" for c in wide.columns[1:]]
+    return wide
+
+
+def policy_budget_by_transition(con) -> pd.DataFrame:
+    """Action Plan 7-year budget summed by critical transition (KES millions)."""
+    tbl = "action_plan__action_plan_budget_7yr"
+    if not _has_table(con, "policy", tbl):
+        return pd.DataFrame()
+    return con.execute(f"""
+        select critical_transition,
+               round(sum(cost_kes_millions), 1) as cost_kes_millions
+        from policy.{tbl}
+        group by critical_transition
+        order by cost_kes_millions desc
+    """).df()
+
+
+def policy_ag_growth(con) -> pd.DataFrame:
+    """Agricultural sector growth series (%) from the Action Plan."""
+    tbl = "action_plan__action_plan_ag_growth"
+    if not _has_table(con, "policy", tbl):
+        return pd.DataFrame()
+    return con.execute(
+        f"select year, ag_sector_growth_pct from policy.{tbl} order by year").df()
 
 
 def descriptive_stats(table: pd.DataFrame) -> pd.DataFrame:
@@ -219,3 +276,41 @@ def soil_price_model(table: pd.DataFrame, price_col: str = "maize_price_median")
         return None
     formula = f"{price_col} ~ " + " + ".join(feats)
     return smf.ols(formula, data=d).fit(cov_type="HC3")
+
+
+# --------------------------------------------------------------------------
+# policy figures and the soil <-> Action-Plan-nutrition cross-check
+# --------------------------------------------------------------------------
+def barh(df: pd.DataFrame, label_col: str, value_col: str, title: str, out: Path,
+         xlabel: str = "", color: str = "#2E75B6"):
+    """Horizontal bar chart (used for the budget-by-transition figure)."""
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    d = df.sort_values(value_col)
+    fig, ax = plt.subplots(1, 1, figsize=(8, 0.6 * len(d) + 1.5))
+    ax.barh(d[label_col].astype(str), d[value_col], color=color)
+    for y, v in enumerate(d[value_col]):
+        ax.text(v, y, f" {v:,.0f}", va="center", fontsize=9)
+    ax.set_title(title, fontsize=12)
+    ax.set_xlabel(xlabel)
+    ax.spines[["top", "right"]].set_visible(False)
+    fig.tight_layout()
+    out.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(out, dpi=200, bbox_inches="tight")
+    plt.close(fig)
+    return out
+
+
+def policy_nutrition_cross_check(table: pd.DataFrame) -> pd.DataFrame:
+    """Place the four counties the Action Plan names alongside their soil and
+    price profile from the database. With n=4 this is an illustrative external
+    check on the soil and price layers, not an inferential analysis."""
+    if "stunting_actionplan" not in table.columns:
+        return pd.DataFrame()
+    cols = [c for c in ("county_name", "stunting_actionplan", "soc", "phh2o",
+                        "nitrogen", "cec", "maize_price_median", "maize_price_cv")
+            if c in table.columns]
+    out = table.loc[table["stunting_actionplan"].notna(), cols].copy()
+    return out.sort_values("stunting_actionplan", ascending=False).reset_index(drop=True)
