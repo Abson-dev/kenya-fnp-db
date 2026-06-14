@@ -1,124 +1,359 @@
 # Kenya Soil / Food / Nutrition / Policy database
 
-A configuration-driven, provenance-tracked acquisition pipeline that assembles
-the Kenya dataset bundle into a single layered database keyed on a master
-county and sub-county crosswalk.
+A configuration-driven, provenance-tracked acquisition pipeline that assembles the Kenya dataset bundle into a single layered database keyed on a master county and sub-county crosswalk. It is built for county-level profiling and for the soil-to-nutrition analysis at the centre of the bundle.
 
 Author: Aboubacar HEMA
 
+---
+
+## Table of contents
+
+1. [Design in one paragraph](#design-in-one-paragraph)
+2. [Repository layout](#repository-layout)
+3. [The `kenyadb` package](#the-kenyadb-package)
+4. [The `data` directory](#the-data-directory)
+5. [Quick start and CLI](#quick-start-and-cli)
+6. [Pipeline stages](#pipeline-stages)
+7. [Data inventory by layer](#data-inventory-by-layer)
+8. [Acquisition status](#acquisition-status)
+9. [Database schemas and tables](#database-schemas-and-tables)
+10. [Analysis layer](#analysis-layer)
+11. [Validation](#validation)
+12. [Provenance and reproducibility](#provenance-and-reproducibility)
+13. [Extending the pipeline](#extending-the-pipeline)
+14. [Requirements](#requirements)
+15. [Caveats carried from the bundle](#caveats-carried-from-the-bundle)
+
+---
+
 ## Design in one paragraph
 
-The bundle is treated as a layered system, not one monolithic table. A master
-county / sub-county crosswalk (from COD-AB plus the 2019 census) is the spine,
-and every later indicator is appended to that crosswalk rather than merged
-table-to-table. Soil, food, health and policy each form a thematic schema.
-Heavy artefacts (rasters, survey microdata, strategy PDFs) stay on disk as
-files; the database holds the tabular indicators, the crosswalk, the flattened
-source registry, and a full provenance ledger that records publisher, mirror,
-licence, checksum and extraction date for every object. That mirrors the
-integration rules in the bundle document: three parallel keys (spatial,
-denominator, provenance) and a strict separation between gridded predictions,
-legacy polygons, measured points, survey microdata and policy text.
+The bundle is treated as a layered system, not one monolithic table. A master county and sub-county crosswalk (from COD-AB boundaries, enriched by the 2019 census) is the spine, and every later indicator is appended to that crosswalk rather than merged table-to-table. Soil, food, health and policy each form a thematic schema. Heavy artefacts (rasters, survey microdata, strategy PDFs) stay on disk as files; the database holds the tidy indicators, the crosswalk, the flattened source registry, and a full provenance ledger that records publisher, mirror, licence, checksum and extraction date for every object. This mirrors the integration rules in the bundle document: three parallel keys (spatial, denominator, provenance) and a strict separation between gridded predictions, legacy polygons, measured points, survey microdata and policy text.
 
-## Layout
+---
+
+## Repository layout
 
 ```
 kenya_fnp_db/
-  config/sources.yaml        single source of truth (25 sources, 5 layers)
-  run_all.py                 CLI: acquire -> crosswalk -> build database
-  kenyadb/
-    pipeline.py              walks the registry, dispatches handlers
-    handlers.py              one handler per access method
-    crosswalk.py             master county / sub-county crosswalk
-    build_db.py              assembles the DuckDB database
-    utils/{io,provenance,db}.py
-  data/
-    raw/                     automated downloads (one folder per source)
-    external/                manual / gated drops (DHS, KNMS, MICS, SoilHive...)
-    interim/                 parsed intermediates (census PDF -> CSV, etc.)
-    processed/               normalised, crosswalk-joined outputs
-    db/kenya_fnp.duckdb      the assembled database
-  logs/manifest_*.json       per-run provenance manifest
-  MANUAL_DATASETS.md         step-by-step for the gated sources
+  config/
+    sources.yaml             single source of truth: 25 sources across 5 layers
+  run_all.py                 main CLI: acquire -> extract -> crosswalk -> transform -> build
+  build_action_plan.py       standalone runner for the Action Plan extractor
+  validate.py                read-only consistency checker (writes validation_report.md)
+  analyze.py                 starter analysis: county table, typology, maps, model
+  requirements.txt           Python dependencies (core + optional extractors)
+  MANUAL_DATASETS.md         step-by-step instructions for the gated sources
+  README.md
+  kenyadb/                   the pipeline package (see next section)
+  data/                      all inputs and outputs (git-ignored; see below)
+  logs/                      per-run provenance manifests (manifest_<run_id>.json)
+  analysis/outputs/          analysis artefacts (regenerated by analyze.py)
 ```
 
-## Quick start
+The `data/` and `analysis/outputs/` trees are deliberately excluded from version control: they are large and several sources (DHS, KNMS) may not be redistributed. A collaborator reproduces the data by running the pipeline and completing the manual steps, not by cloning files.
+
+---
+
+## The `kenyadb` package
+
+```
+kenyadb/
+  __init__.py                package marker and version
+  pipeline.py                walks the registry, dispatches each source to its handler,
+                             flushes provenance to a JSON manifest and the database
+  handlers.py                one handler per access method (see table below)
+  crosswalk.py               builds the master county / sub-county crosswalk and the
+                             norm() name-normaliser; content-based boundary detection
+  transforms.py              source-specific normalisers that write crosswalk-joined
+                             CSVs to data/processed/<layer>/ , plus a generic ingester
+  action_plan.py             extracts the Food Systems and Land Use Action Plan PDF
+                             into a structured workbook and policy-layer CSVs
+  build_db.py                assembles the DuckDB database from processed files,
+                             the crosswalk, the registry and the provenance ledger
+  analysis.py                county analytical table, soil typology, choropleths,
+                             exploratory soil-price model
+  validate.py                consistency checks used by the root validate.py runner
+  utils/
+    io.py                    HTTP download, JSON fetch, checksums
+    provenance.py            the Provenance object, ledger schema, manifest writer
+    db.py                    DuckDB connection and spatial-extension helpers
+    extract.py              archive extraction (zip / gdb / shp) before the crosswalk
+```
+
+### Acquisition handlers (`handlers.py`)
+
+| Handler | Used by | Behaviour |
+| --- | --- | --- |
+| `hdx_dataset` | COD-AB, WFP prices | resolve an HDX (CKAN) dataset, download every resource |
+| `http_file` | census, KENSOTER, KFCT, ASPIRE, ASTI | download a single direct file URL |
+| `ckan_resource` | SODMA soil mirror | fetch one CKAN resource by id |
+| `soilgrids_wcs` | SoilGrids | pull 250 m coverages over the Kenya bounding box |
+| `aws_s3` | AfSIS chemistry | list and fetch objects from a public S3 prefix |
+| `faostat_bulk` | FAOSTAT | read the bulk manifest, download the normalised domain zips |
+| `kilimostat_api` | KilimoSTAT | query the Ministry of Agriculture statistics API |
+| `worldbank_api` | WB HNP | pull indicator series from the World Bank API |
+| `faolex_api` | FAOLEX | query the FAO legal and policy corpus |
+| `gfdx_download` | GFDx | download fortification status exports |
+| `dhs_rdhs` | KDHS 2022 | record the manual rdhs recipe (registration gate) |
+| `local_file` | Action Plan | record a user-provided file (checksum + ok) without any network call |
+| `manual` | KNMS, MICS, NIPFN, dashboards | record a manual gate with instructions from the registry |
+
+Network-dependent handlers degrade gracefully: on any error they record a `failed` provenance row instead of crashing, so one dead endpoint never takes down the run.
+
+---
+
+## The `data` directory
+
+Every source has a stable folder name (its registry key). The pipeline reads and writes within this fixed structure.
+
+```
+data/
+  raw/                       automated downloads and locally-provided originals
+    cod_ab/                  COD-AB boundary archives (zip -> *_extracted/)
+    soilgrids/               SoilGrids 250 m coverages over Kenya
+    faostat/                 FAOSTAT domain zips (QCL, QV, FBS, FO, PP, RFN, RL)
+    wfp_prices/              WFP market price CSV from HDX
+    action_plan/             the Action Plan PDF you place here by hand
+    ...                      one folder per source
+  external/                  manual / gated drops, one folder per source
+    kdhs_2022/               DHS Stata recodes (KEKR8xFL, KEIR8xFL) - you add these
+    knms_2011/               KNMS microdata (data-use agreement)
+    wb_rtfp/                 World Bank real-time prices (microdata flow)
+    action_plan/             the 10 policy CSVs written by the Action Plan extractor
+  interim/                   parsed intermediates (e.g. census PDF tables -> CSV)
+  processed/                 normalised, crosswalk-joined outputs, by layer
+    crosswalk_admin.csv      the master spine (47 counties, 290 sub-counties)
+    geography/  soil/  food/  health/  policy/    one tidy CSV per indicator table
+    action_plan/             Action Plan workbook, full text, provenance sidecar
+  db/
+    kenya_fnp.duckdb         the assembled database
+```
+
+What lands in each tier:
+
+- `raw/` holds bytes exactly as published, plus any originals you provide locally (for example the Action Plan PDF). Archives are unpacked here into `<name>_extracted/` before the crosswalk step.
+- `external/` is for sources that cannot be fetched automatically. You drop the files in the matching folder and the pipeline folds them in on the next build. The generic ingester reads any `.csv` / `.xlsx` here; dedicated transforms handle survey microdata.
+- `interim/` holds parsed-but-not-final intermediates (the census PDF parsed to CSV, for instance).
+- `processed/<layer>/` holds the final tidy tables. Anything dropped here as `<name>.csv` or `<name>.parquet` is auto-registered into the database as `<layer>.<name>` on the next build.
+- `db/kenya_fnp.duckdb` is the single-file database. Delete it and rebuild any time with `--build-only`.
+
+---
+
+## Quick start and CLI
 
 ```bash
 pip install -r requirements.txt
 
 python run_all.py --dry-run        # print the full plan, fetch nothing
-python run_all.py --only-open      # fetch the immediately-open sources
-python run_all.py --layer soil     # one layer at a time
-python run_all.py                  # full run (open fetched, gated flagged)
-python run_all.py --build-only     # rebuild DB from whatever is on disk
+python run_all.py --only-open      # fetch only the immediately-open sources
+python run_all.py --layer soil     # restrict to one layer (repeatable)
+python run_all.py                  # full run: open fetched, gated flagged
+python run_all.py --build-only     # rebuild the database from whatever is on disk
+python run_all.py --no-transform   # build without re-running the transforms
+
+python validate.py                 # consistency report -> validation_report.md
+python analyze.py                  # starter analysis -> analysis/outputs/
+python build_action_plan.py        # extract the Action Plan PDF on its own
 ```
 
-Each run writes `logs/manifest_<run_id>.json` and appends to the `provenance`
-table inside the database, so a run is fully reconstructable after the fact.
+CLI flags (`run_all.py`):
 
-## Access reality (the bottlenecks matter)
-
-The bundle splits into four access types. The pipeline automates the first two
-and records the rest as explicit manual gates with instructions.
-
-| Access | Sources | Pipeline behaviour |
-| --- | --- | --- |
-| open_api / open_download | COD-AB, census, SoilGrids, KENSOTER, SODMA soil, AfSIS, KFCT, KilimoSTAT, FAOSTAT, WFP prices, WB real-time prices, WB HNP, GFDx, ASPIRE, ASTI, Action Plan | fetched automatically, checksummed, logged |
-| registration | KDHS 2022, MICS 2000 | manual gate + rdhs recipe |
-| agreement / request | KNMS 2011, SoilHive OCP | manual gate + request instructions |
-| dashboard | Kenya FSD, NIPFN, MoH/KEBS fortification, FAOLEX | manual export, then dropped into data/external/ |
-
-The four most important bottlenecks are KDHS 2022, KNMS 2011, MICS 2000 and
-some SoilHive datasets. See `MANUAL_DATASETS.md`.
-
-## The five layers
-
-1. Geography and denominators - COD-AB admin boundaries (47 counties,
-   290 sub-counties) and 2019 KPHC population, households, area and density.
-   This is the master spatial and denominator key.
-2. Soil - SoilGrids 250 m as the national gridded backbone (SOC, pH, N, CEC,
-   bulk density, texture); KENSOTER and the SODMA legacy polygons for Kenya
-   soil classes; AfSIS and SoilHive points for micronutrient enrichment
-   (Zn, Fe, P, K) and calibration. Kept as three distinct tables, never
-   flattened into one surface.
-3. Food - KFCT 2018 nutrient composition; KilimoSTAT and FAOSTAT for
-   production and supply; WFP (observed) and World Bank (modeled) prices stored
-   in separate but linkable tables, tied to KFCT food items by a documented
-   concordance rather than name matching.
-4. Health - KDHS 2022 for current anthropometry and anemia; KNMS 2011 for the
-   richer biomarkers (ferritin, RBP/vitamin A, iodine, zinc, folate); WB HNP
-   for the clean country-year panel; NIPFN only as a fast dashboard accelerator.
-5. Policy - FAOLEX and the 2024-2030 Action Plan as the document backbone, with
-   GFDx (fortification), ASPIRE (social protection) and ASTI (agricultural R&D)
-   as structured covariate layers.
-
-## Database tables
-
-| Table | Contents |
+| Flag | Effect |
 | --- | --- |
-| core.crosswalk_admin | master county / sub-county join key (codes + normalised names) |
-| core.source_registry | flattened registry: every source, publisher, access, licence, role |
-| provenance | per-object ledger: path, checksum, bytes, status, extracted_at |
-| geography.* food.* soil.* health.* policy.* | normalised indicators registered from data/processed/<layer>/ |
+| `--dry-run` | resolve and print the plan, perform no downloads or build |
+| `--only-open` | fetch only `open_api` / `open_download` sources, skip the gated ones |
+| `--layer NAME` | limit to a layer (`geography`, `soil`, `food`, `health`, `policy`); repeatable |
+| `--build-only` | skip acquisition, rebuild the database from files already on disk |
+| `--no-transform` | skip the transform step during the build |
+| `--config PATH` | use an alternate `sources.yaml` |
+| `--db PATH` | write the database to an alternate path |
 
-DuckDB is the default engine: no server, native CSV / Parquet / GeoPackage
-reads, and a spatial extension for the geometry joins. To use PostGIS instead,
-point the loaders at a libpq connection; the table layout is identical.
+Each run writes `logs/manifest_<run_id>.json` and updates the `provenance` table inside the database, so a run is fully reconstructable after the fact.
 
-## Extending it
+---
 
-Add a source by appending an entry to `config/sources.yaml` under the right
-layer with a `handler` value from `kenyadb/handlers.py`. Add a new access
-method by writing a handler and registering it in the `HANDLERS` map. Drop a
-normalised `<name>.csv` into `data/processed/<layer>/` and it is auto-registered
-as `<layer>.<name>` on the next build.
+## Pipeline stages
+
+A full `run_all.py` executes these stages in order:
+
+1. Acquire (`pipeline.run`): walk `sources.yaml`, dispatch each source to its handler, record one provenance row per object.
+2. Extract (`utils/extract.py`): unpack downloaded archives (COD-AB ships as zipped gdb / geojson / shp) into `*_extracted/`.
+3. Crosswalk (`crosswalk.py`): build the 47-county, 290-sub-county spine. Boundary layers are identified by content (feature counts and attributes), not by file name, so the build is robust to inconsistent releases.
+4. Transform (`transforms.py`): normalise each source into a crosswalk-joined table in `data/processed/<layer>/`.
+5. Build (`build_db.py`): load the crosswalk, the flattened registry, every processed table, and the provenance ledger into DuckDB.
+
+### Dedicated transforms
+
+| Transform | Output table | What it does |
+| --- | --- | --- |
+| `faostat_kenya` | `food.faostat_kenya` | reads the largest CSV in each domain zip, filters to Kenya (area code 114) |
+| `prices` | `food.prices_wfp_observed` | strips the HXL tag row, coerces price and date, assigns each market to a county by point-in-polygon |
+| `soilgrids_zonal` | `soil.soilgrids_zonal_county` | county zonal means of every SoilGrids coverage |
+| `wb_hnp_panel` | `health.wb_hnp_panel` | tidies the World Bank HNP indicator series |
+| `kdhs_county` | `health.kdhs_county` | survey-weighted county anthropometry and anaemia from the DHS recodes |
+| `action_plan.run` | 10 `policy.action_plan__*` tables | extracts the Action Plan PDF (see below) |
+| `ingest_external` | `policy.*`, `health.*`, ... | generic ingester for any CSV / XLSX dropped in `data/external/<source>/` |
+
+Market prices are tagged by former province in the source, so a spatial join on market coordinates is what produces the correct county key (100 percent coverage). DHS county estimates use the children recode (KR) for stunting, wasting, underweight and child anaemia and the women recode (IR) for women anaemia, weighting by `v005/1e6` and detecting the county variable by matching its value labels to the crosswalk.
+
+### The Action Plan extractor (`action_plan.py`)
+
+The Food Systems and Land Use Action Plan is a fixed published PDF. Place it in `data/raw/action_plan/`; the module then:
+
+1. records provenance (SHA-256, size, page count),
+2. extracts the full text to `data/processed/action_plan/action_plan_fulltext.txt`,
+3. verifies a set of anchor strings against that text to confirm the curated tables describe the document on disk,
+4. writes the human workbook `Kenya action plan structured.xlsx` to `data/processed/action_plan/`, and
+5. writes 10 tidy CSVs to `data/external/action_plan/` (budget 7-year and 2024, county and national nutrition, agricultural growth and commodities, critical transitions, policy inventory, legislative support, stakeholders), which the ingester folds into the policy layer.
+
+The budget table and appendices use merged, multi-line cells that no general parser reads reliably, so the structured tables are a curated transcription checked by formula (the 7-year plan reconciles to 52,700 KES millions) and cross-checked against the extracted text.
+
+---
+
+## Data inventory by layer
+
+Status legend: **acquired** (in the database and passing checks), **open** (automatable, retrieval in progress), **manual** (registration, agreement or dashboard gate).
+
+### Layer 1 - Geography and denominators
+
+| Key | Dataset | Publisher | Access | Role | Status |
+| --- | --- | --- | --- | --- | --- |
+| `cod_ab` | Administrative boundaries (47 counties, 290 sub-counties) | OCHA / HDX | open_api | master spatial key | acquired |
+| `kphc_2019_vol1` | 2019 Census Volume I (population, households, area) | KNBS | open_download | denominators | open |
+| `census_ke_ag` | 2019 agricultural census extracts | KNBS (Census.ke mirror) | open_download | farming-household denominators | open |
+
+### Layer 2 - Soil
+
+| Key | Dataset | Publisher | Access | Role | Status |
+| --- | --- | --- | --- | --- | --- |
+| `soilgrids` | SoilGrids 250 m (pH, SOC, N, CEC, bulk density, texture) | ISRIC | open_api | national gridded backbone | acquired |
+| `kensoter` | KENSOTER soil and terrain | ISRIC | open_download | legacy soil and terrain | open |
+| `kenya_soil_mirror` | Kenya Soil Survey legacy polygons | Kenya Soil Survey (SODMA mirror) | open_download | national soil classes | open |
+| `afsis_chem` | AfSIS soil chemistry points | AfSIS / ICRAF | open_api | micronutrient enrichment | open |
+| `soilhive_ocp` | SoilHive point clusters | SoilHive / OCP | agreement | measured points (Zn, Fe, P, K) | manual |
+
+### Layer 3 - Food
+
+| Key | Dataset | Publisher | Access | Role | Status |
+| --- | --- | --- | --- | --- | --- |
+| `faostat` | FAOSTAT (7 domains, Kenya) | FAO | open_api | production and supply | acquired |
+| `wfp_prices` | WFP market food prices | WFP / HDX | open_api | observed retail prices | acquired |
+| `kfct_2018` | Kenya Food Composition Tables 2018 | FAO / Government of Kenya | open_download | nutrient composition | open |
+| `kilimostat` | KilimoSTAT agriculture statistics | Ministry of Agriculture | open_api | production and area | open |
+| `wb_rtfp` | Real-Time Food Prices (modeled) | World Bank | registration | modeled prices | manual |
+| `fsd_food` | Kenya Food Systems Dashboard | GAIN / Ministry of Agriculture | dashboard | food-system indicators | manual |
+
+### Layer 4 - Health and nutrition
+
+| Key | Dataset | Publisher | Access | Role | Status |
+| --- | --- | --- | --- | --- | --- |
+| `wb_hnp` | World Bank Health, Nutrition and Population | World Bank | open_api | clean country-year panel | acquired |
+| `kdhs_2022` | Kenya DHS 2022 | KNBS / DHS Program | registration | county anthropometry and anaemia | manual (transform ready) |
+| `knms_2011` | National Micronutrient Survey 2011 | KNBS / Ministry of Health | agreement | richest biomarkers | manual |
+| `mics_2000` | MICS 2000 | KNBS / UNICEF | registration | historical nutrition | manual |
+| `nipfn` | NIPFN nutrition dashboard | KNBS | dashboard | dashboard accelerator | manual |
+
+### Layer 5 - Policy
+
+| Key | Dataset | Publisher | Access | Role | Status |
+| --- | --- | --- | --- | --- | --- |
+| `action_plan` | Food Systems and Land Use Action Plan 2024-2030 | Government of Kenya / AGRA | open_download (local) | policy strategy, structured | acquired |
+| `gfdx` | Global Fortification Data Exchange | GFDx | open_download | fortification status | open |
+| `aspire` | ASPIRE social protection | World Bank | open_download | social-protection covariates | open |
+| `asti` | ASTI agricultural R&D | FAO / IFPRI | open_download | research capacity | open |
+| `faolex` | FAOLEX legal and policy corpus | FAO | open_api | legal and policy backbone | manual |
+| `fortification_refs` | Fortification standards (MoH, KEBS) | Ministry of Health / KEBS | dashboard | mandatory nutrients | manual |
+
+---
+
+## Acquisition status
+
+Acquired and validated: COD-AB boundaries (the 47 / 290 spine), SoilGrids (47 counties, 54 coverages, no nulls), FAOSTAT (98,757 Kenya rows, 7 domains, 1961-2025), WFP prices (26,745 rows, 2006-2026, fully county-joined), World Bank HNP (5 indicators), and the Action Plan (10 policy tables).
+
+In progress (open, retrieval or URL correction pending): census denominators (`kphc_2019_vol1`, `census_ke_ag`), the legacy soil sources (`kensoter`, `kenya_soil_mirror`, `afsis_chem`), and the open policy and food sources (`kfct_2018`, `kilimostat`, `gfdx`, `aspire`, `asti`).
+
+Manual gates: `kdhs_2022` (registration; the `kdhs_county` transform is built and waiting), `knms_2011` and `soilhive_ocp` (agreement), `mics_2000` and `wb_rtfp` (registration), `nipfn`, `fsd_food`, `fortification_refs` and `faolex` (dashboard / portal). See `MANUAL_DATASETS.md` for the per-source steps.
+
+KDHS 2022 is the priority gate: it carries the county anthropometry that turns the soil-to-nutrition analysis into a real estimate. The four county stunting points in the Action Plan (Kilifi 37, West Pokot 34, Samburu 31, Kisumu 9) are an external check on it.
+
+---
+
+## Database schemas and tables
+
+| Schema | Contents |
+| --- | --- |
+| `core.crosswalk_admin` | master county / sub-county join key (codes and normalised names) |
+| `core.source_registry` | flattened registry: every source, publisher, access, licence, role |
+| `provenance` | per-object ledger: layer, source, path, checksum, bytes, status, message, extracted_at |
+| `geography.*` | population, households, area and density denominators |
+| `soil.*` | SoilGrids zonal means and (when acquired) legacy soil and points |
+| `food.*` | FAOSTAT, observed and modeled prices, food composition |
+| `health.*` | WB HNP panel and (when acquired) KDHS county estimates |
+| `policy.*` | Action Plan tables, fortification, social protection, research capacity |
+
+DuckDB is the default engine: no server, native CSV / Parquet / GeoPackage reads, and a spatial extension for the geometry joins. To use PostGIS instead, point the loaders at a libpq connection; the table layout is identical.
+
+---
+
+## Analysis layer
+
+`analyze.py` reads the database read-only and writes to `analysis/outputs/`:
+
+| Output | Contents |
+| --- | --- |
+| `county_analytical_table.csv` | one row per county: 0-30 cm topsoil properties (converted to conventional units) and staple price level and volatility |
+| `table1_descriptives.csv` | summary statistics (a publication Table 1) |
+| `soil_typology.csv` | county soil-health zones (k-means, k by silhouette) |
+| `map_*.png` | choropleths: organic carbon, pH, maize price, price volatility, soil zones |
+| `soil_price_model.txt` | exploratory soil-price regression (robust standard errors) |
+| `METHODS.md` | a short methods note generated alongside the outputs |
+
+SoilGrids mapped units are converted to conventional units (pH, organic carbon in g/kg, CEC in cmol(c)/kg, texture in percent) and the 0-5 / 5-15 / 15-30 cm layers are combined into a thickness-weighted 0-30 cm topsoil value. The soil-price model is framed as associational, not causal: soil quality, market access and prices are jointly determined, so it is reported with robust standard errors. The county nutrition join slot for KDHS is already in place; once that table is built, the soil-to-nutrition pathway becomes the analytical centrepiece.
+
+---
+
+## Validation
+
+`validate.py` runs a read-only consistency check and writes `validation_report.md`:
+
+- crosswalk integrity (47 counties, 290 sub-counties, no duplicate keys),
+- county-name join coverage per table,
+- per-layer sanity checks (SoilGrids completeness, FAOSTAT Kenya-only, price parsing and county coverage, HNP indicators),
+- a provenance summary (counts by status, sources with failures, pending manual gates).
+
+The provenance ledger is cumulative, so a source can appear under historical failures even after it later succeeds; the authoritative signal is the Tables loaded section plus the per-table PASS checks.
+
+---
+
+## Provenance and reproducibility
+
+Every acquisition writes a manifest (`logs/manifest_<run_id>.json`) and appends to the `provenance` table, recording for each object the publisher, the mirror used where applicable, the licence, a content checksum, the byte size, the status and the extraction timestamp. Locally-provided sources (such as the Action Plan) additionally write a `*_provenance.json` sidecar under `data/processed/<source>/`; the build folds these in as authoritative rows, so a `--build-only` run still reports them as acquired. The pipeline and its documentation are under version control; the acquired data are not, for size and licensing reasons.
+
+---
+
+## Extending the pipeline
+
+- Add a source: append an entry to `config/sources.yaml` under the right layer with a `handler` value from `kenyadb/handlers.py`.
+- Add an access method: write a handler in `handlers.py` and register it in the `HANDLERS` map.
+- Add a derived table: drop a normalised `<name>.csv` into `data/processed/<layer>/` and it is auto-registered as `<layer>.<name>` on the next build.
+- Provide a gated file: drop it into `data/external/<source>/`; the generic ingester picks up CSV / XLSX, and survey microdata is handled by a dedicated transform.
+
+---
+
+## Requirements
+
+Core: `duckdb`, `pandas`, `PyYAML`, `requests`, `geopandas`, `rasterio` / `rasterstats`, `matplotlib`, `scikit-learn`, `statsmodels`, `openpyxl`.
+
+Optional extractors (only needed for specific sources):
+
+- `pdfplumber` - full-text extraction and verification for the Action Plan.
+- `pyreadstat` - reading the DHS Stata recodes for the `kdhs_county` transform.
+
+Install everything with `pip install -r requirements.txt`.
+
+---
 
 ## Caveats carried from the bundle
 
-Several sources are mirrors or aggregators (Census.ke, the SODMA soil mirror),
-so the provenance ledger always stores the original publisher, the mirror used,
-the extraction date and the checksum. SoilGrids does not ship Zn / Fe / P / K as
-national rasters, so micronutrients come from the Kenya point datasets. Observed
-and modeled prices live in separate tables. KDHS and KNMS stay distinct
-analytical modules and are never silently merged.
+Several sources are mirrors or aggregators (Census.ke, the SODMA soil mirror), so the provenance ledger always stores the original publisher, the mirror used, the extraction date and the checksum. SoilGrids does not ship Zn / Fe / P / K as national rasters, so micronutrients come from the Kenya point datasets. Observed and modeled prices live in separate tables. KDHS and KNMS stay distinct analytical modules and are never silently merged. Where a source document carries an internal inconsistency (for example the Action Plan 2024 budget, whose printed total differs from the sum of its line items), the figure is preserved as published and the discrepancy is flagged rather than silently corrected.
