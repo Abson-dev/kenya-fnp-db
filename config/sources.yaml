@@ -194,7 +194,11 @@ layers:
       survey_ids: [KE2022DHS]
       catalog: https://microdata.worldbank.org/index.php/catalog/5911
       role: current anthropometry and anemia (national + county)
-      note: free DHS account + dataset approval - see MANUAL_DATASETS.md
+      recodes: [KEKR8xFL, KEIR8xFL]
+      note: free DHS account + dataset approval - see MANUAL_DATASETS.md. Drop the
+        Stata recodes (children KR for anthropometry, women IR for anaemia) in
+        data/external/kdhs_2022/; the kdhs_county transform builds survey-weighted
+        county estimates and joins them to the crosswalk.
 
     knms_2011:
       title: Kenya National Micronutrient Survey 2011
@@ -286,6 +290,9 @@ layers:
       title: Kenya Food Systems and Land Use Action Plan 2024-2030
       publisher: Government of Kenya / AGRA
       access: open_download
-      handler: http_file
+      handler: local_file
+      provided_locally: data/raw/action_plan
       url: https://agra.org/wp-content/uploads/2025/06/KENYA-FOOD-SYSTEMS-AND-LAND-USE-ACTION-PLAN-OCTOBER-2023_FA-22.11.2023.pdf
-      role: policy-coding strategy document
+      processed_by: kenyadb.action_plan
+      role: policy strategy document; structured into budget, county nutrition, policy inventory, legislation and stakeholders
+      note: PDF provided locally in data/raw/action_plan/; the action_plan module verifies it, builds the workbook in data/processed/action_plan/ and the policy-layer CSVs in data/external/action_plan/

@@ -15,11 +15,13 @@ Author: Aboubacar HEMA
 """
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import yaml
 
 from .utils.db import connect, has_spatial
+from .utils.provenance import PROVENANCE_DDL
 
 
 def _load_crosswalk(con, processed_dir: Path) -> None:
@@ -74,6 +76,69 @@ def _register_processed(con, processed_dir: Path) -> None:
             print(f"[db] {layer}.{tbl} registered from {f.name}")
 
 
+_PROV_COLS = ["run_id", "layer", "source_key", "title", "publisher", "mirror",
+              "access", "license", "url", "local_path", "sha256", "bytes",
+              "status", "message", "extracted_at"]
+
+
+def _merge_local_provenance(con, base_dir: Path) -> int:
+    """Fold provenance sidecars written by local extractors (e.g. the
+    action_plan module) into the ledger as authoritative, current rows.
+
+    For each data/processed/<layer>/*_provenance.json, any prior rows for that
+    source_key are removed and one fresh row is inserted, so a locally-provided
+    source reads as acquired even on a --build-only run (which never touches the
+    network and so never refreshes the main Provenance object). This is what
+    flips action_plan from absent/manual to ok in the acquisition report.
+    """
+    con.execute(PROVENANCE_DDL)
+    proc = base_dir / "data" / "processed"
+    if not proc.exists():
+        return 0
+    import pandas as pd
+
+    merged = 0
+    for sc in sorted(proc.glob("*/*_provenance.json")):
+        try:
+            d = json.loads(sc.read_text(encoding="utf-8"))
+        except Exception:  # noqa: BLE001
+            continue
+        sk = d.get("source_key")
+        if not sk:
+            continue
+        n_csv = len(d.get("csv_outputs") or [])
+        anchors = d.get("verification_anchors", 0)
+        verified = anchors - len(d.get("anchors_missing") or [])
+        msg = d.get("message") or (
+            f"local extract: {d.get('pages', '?')} pages, {n_csv} CSV tables, "
+            f"anchors {verified}/{anchors} verified")
+        row = {
+            "run_id": "local",
+            "layer": d.get("layer", "core"),
+            "source_key": sk,
+            "title": d.get("title", sk),
+            "publisher": d.get("publisher", ""),
+            "mirror": None,
+            "access": d.get("access", "local"),
+            "license": d.get("license"),
+            "url": d.get("pdf_path") or d.get("url"),
+            "local_path": d.get("pdf_path"),
+            "sha256": d.get("sha256"),
+            "bytes": d.get("bytes"),
+            "status": "ok" if d.get("sha256") else "manual",
+            "message": msg,
+            "extracted_at": d.get("extracted_at"),
+        }
+        df = pd.DataFrame([row], columns=_PROV_COLS)
+        df["extracted_at"] = pd.to_datetime(df["extracted_at"], utc=True, errors="coerce")
+        con.execute("DELETE FROM provenance WHERE source_key = ?", [sk])
+        con.register("_sc_tmp", df)
+        con.execute("INSERT INTO provenance SELECT * FROM _sc_tmp")
+        con.unregister("_sc_tmp")
+        merged += 1
+    return merged
+
+
 def build(base_dir: Path, config_path: Path, db_path: Path, prov=None) -> Path:
     processed = base_dir / "data" / "processed"
     con = connect(db_path)
@@ -85,6 +150,13 @@ def build(base_dir: Path, config_path: Path, db_path: Path, prov=None) -> Path:
 
     if prov is not None:
         prov.to_duckdb(con)
+
+    # Fold in locally-provided sources (e.g. action_plan) so they read as
+    # acquired regardless of run mode, then report the current ledger.
+    merged = _merge_local_provenance(con, base_dir)
+    if merged:
+        print(f"[db] merged {merged} local provenance record(s)")
+    if prov is not None or merged:
         n = con.execute("SELECT count(*) FROM provenance").fetchone()[0]
         ok = con.execute("SELECT count(*) FROM provenance WHERE status='ok'").fetchone()[0]
         man = con.execute("SELECT count(*) FROM provenance WHERE status='manual'").fetchone()[0]

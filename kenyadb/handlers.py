@@ -407,6 +407,25 @@ def manual(meta: dict, ctx: Ctx) -> None:
     _record_status(ctx, meta, "manual", note)
 
 
+def local_file(meta: dict, ctx: Ctx) -> None:
+    """A source the user provides locally: a file dropped into
+    data/raw/<source>/ or data/external/<source>/ (for example a strategy PDF
+    obtained by hand). If a file is present it is recorded as acquired (ok)
+    with its checksum; otherwise a manual gate is recorded asking for the drop.
+    No network access, so this is safe and stable across runs.
+    """
+    for folder in (ctx.raw_dir / ctx.source_key, ctx.external_dir / ctx.source_key):
+        if folder.exists():
+            files = [p for p in sorted(folder.rglob("*")) if p.is_file()]
+            if files:
+                largest = max(files, key=lambda p: p.stat().st_size)
+                _record_file(ctx, meta, largest,
+                             message=f"provided locally ({len(files)} file(s) under {folder.name}/)")
+                return
+    note = meta.get("note") or f"Provide the file locally in data/raw/{ctx.source_key}/."
+    _record_status(ctx, meta, "manual", note)
+
+
 HANDLERS = {
     "http_file": http_file,
     "hdx_dataset": hdx_dataset,
@@ -419,5 +438,6 @@ HANDLERS = {
     "faolex_api": faolex_api,
     "gfdx_download": gfdx_download,
     "dhs_rdhs": dhs_rdhs,
+    "local_file": local_file,
     "manual": manual,
 }

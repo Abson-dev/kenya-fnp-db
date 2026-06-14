@@ -2,7 +2,7 @@
 
 Author: Aboubacar HEMA
 
-Summary: {'PASS': 9, 'WARN': 2, 'FAIL': 0, 'INFO': 19}
+Summary: {'PASS': 10, 'WARN': 2, 'FAIL': 0, 'INFO': 29}
 
 ## Tables loaded
 [INFO] core.crosswalk_admin
@@ -10,6 +10,16 @@ Summary: {'PASS': 9, 'WARN': 2, 'FAIL': 0, 'INFO': 19}
 [INFO] food.faostat_kenya
 [INFO] food.prices_wfp_observed
 [INFO] health.wb_hnp_panel
+[INFO] policy.action_plan__action_plan_ag_commodities
+[INFO] policy.action_plan__action_plan_ag_growth
+[INFO] policy.action_plan__action_plan_budget_2024
+[INFO] policy.action_plan__action_plan_budget_7yr
+[INFO] policy.action_plan__action_plan_county_nutrition
+[INFO] policy.action_plan__action_plan_critical_transitions
+[INFO] policy.action_plan__action_plan_legislative_support
+[INFO] policy.action_plan__action_plan_national_nutrition
+[INFO] policy.action_plan__action_plan_policy_inventory
+[INFO] policy.action_plan__action_plan_stakeholders
 [INFO] soil.soilgrids_zonal_county
 
 ## Crosswalk integrity
@@ -19,6 +29,7 @@ Summary: {'PASS': 9, 'WARN': 2, 'FAIL': 0, 'INFO': 19}
 
 ## County-name join coverage
 [PASS] food.prices_wfp_observed: 100.0% of rows match a county (col 'county_name')
+[PASS] policy.action_plan__action_plan_county_nutrition: 100.0% of rows match a county (col 'county_name')
 [PASS] soil.soilgrids_zonal_county: 100.0% of rows match a county (col 'county_name')
 
 ## SoilGrids zonal statistics
@@ -45,7 +56,7 @@ Summary: {'PASS': 9, 'WARN': 2, 'FAIL': 0, 'INFO': 19}
 ## Provenance
 [INFO] failed: 49 rows
 [INFO] manual: 30 rows
-[INFO] ok: 285 rows
+[INFO] ok: 283 rows
 [INFO] skipped: 7 rows
 [WARN] sources with failures: census_ke_ag, faostat, kensoter, kenya_soil_mirror, kphc_2019_vol1, soilgrids, wb_rtfp
 [INFO] manual gates pending: faolex, fortification_refs, fsd_food, gfdx, kdhs_2022, kilimostat, knms_2011, mics_2000, nipfn, soilhive_ocp, wb_rtfp

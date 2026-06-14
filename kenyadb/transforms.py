@@ -34,7 +34,7 @@ def _crosswalk(base: Path) -> pd.DataFrame | None:
 
 # --- generic ingester for manual / gated drops ------------------------------
 # Sources owned by a dedicated transform (skip here to avoid duplicate tables).
-_DEDICATED = {"wb_rtfp", "wfp_prices"}
+_DEDICATED = {"wb_rtfp", "wfp_prices", "kdhs_2022"}
 
 
 def _attach_county(df: pd.DataFrame, xwalk: pd.DataFrame | None) -> pd.DataFrame:
@@ -379,6 +379,167 @@ def _present(raw: Path, source: str, patterns: list[str]) -> bool:
     return any(next(d.rglob(p), None) is not None for p in patterns)
 
 
+# --- health: KDHS 2022 recodes -> survey-weighted county estimates ----------
+# DHS standard recode variables. Anthropometry z-scores are stored x100 with
+# sentinel flags (>= 9990) for missing/implausible; anaemia level is coded
+# 1 severe / 2 moderate / 3 mild / 4 not anaemic. These defaults match the
+# Kenya children (KR) and women (IR) recodes; override here if a future recode
+# renames them.
+_KDHS_VARS = {
+    "weight": "v005",          # sample weight (divide by 1e6)
+    "haz": "hw70", "waz": "hw71", "whz": "hw72",   # height/weight z-scores x100
+    "child_anaemia": "hw57",   # child anaemia level (KR)
+    "woman_anaemia": "v457",   # woman anaemia level (IR)
+    "woman_tested": "v042",    # selected/measured for haemoglobin (IR)
+}
+_COUNTY_CANDIDATES = ["v024", "shcounty", "scounty", "county", "hv024", "sdistrict", "sdist"]
+_Z_VALID = 600  # |z*100| plausible bound; DHS flags use >= 9990
+
+
+def _kdhs_files(base: Path):
+    """Return the list of DHS Stata recodes under data/external/kdhs_2022/ or
+    data/raw/kdhs_2022/ (case-insensitive .dta)."""
+    found = []
+    for parent in ("external", "raw"):
+        d = base / "data" / parent / "kdhs_2022"
+        if d.exists():
+            found += [p for p in d.rglob("*") if p.suffix.lower() == ".dta"]
+    return sorted(set(found))
+
+
+def _pick_county_col(meta, cols: set, county_norms: set) -> str | None:
+    """Choose the column whose value labels best match Kenyan county names."""
+    labels = getattr(meta, "variable_value_labels", {}) or {}
+    best, best_hits = None, 0
+    for c in _COUNTY_CANDIDATES:
+        if c not in cols:
+            continue
+        names = {norm(str(v)) for v in labels.get(c, {}).values()}
+        hits = len(names & county_norms)
+        if hits > best_hits:
+            best, best_hits = c, hits
+    return best if best_hits >= 20 else None
+
+
+def _weighted_prevalence(df, flag_col: str, weight_col: str) -> "pd.Series":
+    """Per-county weighted prevalence (%) of a 0/1 flag over valid rows."""
+    valid = df[df[flag_col].notna()]
+    num = valid.assign(_w=valid[weight_col] * valid[flag_col]).groupby("county_norm")["_w"].sum()
+    den = valid.groupby("county_norm").apply(lambda g: (g[weight_col]).sum())
+    return (100.0 * num / den).rename(flag_col)
+
+
+def kdhs_county(base: Path, vars: dict | None = None) -> Path | None:
+    """Survey-weighted county estimates from the KDHS 2022 recodes.
+
+    Reads the children's recode (KR) for anthropometry (stunting, wasting,
+    underweight) and child anaemia, and the women's recode (IR) for women's
+    anaemia, both dropped in data/external/kdhs_2022/. Computes per-county,
+    sample-weighted prevalence, joins to the master crosswalk, and writes
+    data/processed/health/kdhs_county.csv.
+
+    Returns None with a clear message when the recodes or pyreadstat are not
+    available, so the pipeline stays runnable before DHS access is granted.
+    This is the county nutrition core for the soil-to-nutrition analysis; the
+    four county stunting points from the Action Plan are an external check on it.
+    """
+    files = _kdhs_files(base)
+    if not files:
+        return None
+    try:
+        import pyreadstat  # noqa: F401
+    except ImportError:
+        print("[transform] health.kdhs_county: pyreadstat not installed "
+              "(pip install pyreadstat) - cannot read DHS .dta recodes")
+        return None
+    import pyreadstat
+
+    V = {**_KDHS_VARS, **(vars or {})}
+    xwalk = _crosswalk(base)
+    if xwalk is None:
+        print("[transform] health.kdhs_county: crosswalk missing - run the build first")
+        return None
+    county_norms = set(xwalk["county_norm"]) - {""}
+
+    def load(kind_vars: list[str], extra: tuple = ()):
+        """Find a recode containing the needed vars; read those + any optional
+        extras present + weight + county."""
+        for f in files:
+            try:
+                _, meta = pyreadstat.read_dta(str(f), metadataonly=True)
+            except Exception:  # noqa: BLE001
+                continue
+            cols = set(meta.column_names)
+            if not all(v in cols for v in kind_vars):
+                continue
+            ccol = _pick_county_col(meta, cols, county_norms)
+            if ccol is None:
+                print(f"[transform] health.kdhs_county: no county column matched in {f.name} "
+                      f"(looked for {_COUNTY_CANDIDATES})")
+                continue
+            opt = [e for e in extra if e in cols]
+            usecols = list(dict.fromkeys([V["weight"], ccol, *kind_vars, *opt]))
+            df, meta = pyreadstat.read_dta(str(f), usecols=usecols)
+            labels = (meta.variable_value_labels or {}).get(ccol, {})
+            df["county_label"] = df[ccol].map(labels).astype("string")
+            df["county_norm"] = df["county_label"].map(lambda x: norm(x) if isinstance(x, str) else "")
+            df["w"] = df[V["weight"]] / 1_000_000.0
+            return df, f.name
+        return None, None
+
+    # --- children: anthropometry + child anaemia ---------------------------
+    kr, kr_name = load([V["haz"], V["waz"], V["whz"]], extra=(V["child_anaemia"],))
+    parts = []
+    if kr is not None:
+        for z, flag in ((V["haz"], "stunting"), (V["whz"], "wasting"), (V["waz"], "underweight")):
+            kr[flag] = ((kr[z].abs() <= _Z_VALID) & (kr[z] < -200)).where(kr[z].abs() <= _Z_VALID)
+        if V["child_anaemia"] in kr.columns:
+            a = kr[V["child_anaemia"]]
+            kr["child_anaemia"] = a.isin([1, 2, 3]).where(a.isin([1, 2, 3, 4]))
+        n = kr.groupby("county_norm").size().rename("n_children")
+        agg = [n]
+        for flag in ("stunting", "wasting", "underweight",
+                     *( ["child_anaemia"] if "child_anaemia" in kr.columns else [] )):
+            agg.append(_weighted_prevalence(kr, flag, "w"))
+        parts.append(pd.concat(agg, axis=1))
+        print(f"[transform] health.kdhs_county: children from {kr_name} "
+              f"({int(n.sum())} records)")
+
+    # --- women: anaemia ----------------------------------------------------
+    ir, ir_name = load([V["woman_anaemia"]], extra=(V["woman_tested"],))
+    if ir is not None:
+        if V["woman_tested"] in ir.columns:
+            ir = ir[ir[V["woman_tested"]] == 1]
+        a = ir[V["woman_anaemia"]]
+        ir["women_anaemia"] = a.isin([1, 2, 3]).where(a.isin([1, 2, 3, 4]))
+        nw = ir.groupby("county_norm").size().rename("n_women")
+        parts.append(pd.concat([nw, _weighted_prevalence(ir, "women_anaemia", "w")], axis=1))
+        print(f"[transform] health.kdhs_county: women from {ir_name} ({int(nw.sum())} records)")
+
+    if not parts:
+        print("[transform] health.kdhs_county: recodes present but required variables "
+              f"not found (expected {V['haz']}/{V['waz']}/{V['whz']} or {V['woman_anaemia']})")
+        return None
+
+    out_df = pd.concat(parts, axis=1).reset_index()
+    out_df = out_df[out_df["county_norm"].isin(county_norms)]
+    cmap = (xwalk.drop_duplicates("county_norm")
+            .set_index("county_norm")[["county_code", "county_name"]])
+    out_df = out_df.join(cmap, on="county_norm")
+    pct = [c for c in ("stunting", "wasting", "underweight", "child_anaemia", "women_anaemia")
+           if c in out_df.columns]
+    out_df[pct] = out_df[pct].round(1)
+    lead = [c for c in ("county_code", "county_name") if c in out_df.columns]
+    rest = [c for c in out_df.columns if c not in lead + ["county_norm"]]
+    out_df = out_df[lead + rest].sort_values("county_name")
+
+    out = _out(base, "health", "kdhs_county")
+    out_df.to_csv(out, index=False)
+    print(f"[transform] health.kdhs_county ({len(out_df)} counties, "
+          f"indicators: {', '.join(pct)}) -> {out.name}")
+    return out
+
+
 def run_all(base: Path) -> None:
     """Run every transform and report, per layer, whether its input was found.
 
@@ -423,6 +584,19 @@ def run_all(base: Path) -> None:
     if not wb_ok:
         print("[transform] food.prices_wb_modeled: SKIP - no file in data/external/wb_rtfp/ "
               "(manual download - see MANUAL_DATASETS.md)")
+
+    # KDHS 2022 county anthropometry + anaemia (dedicated survey transform;
+    # microdata is .dta, which the generic ingester deliberately skips).
+    if _kdhs_files(base):
+        try:
+            if kdhs_county(base) is None:
+                print("[transform] health.kdhs_county: recodes present but produced no "
+                      "rows (check recode variables / pyreadstat)")
+        except Exception as exc:  # noqa: BLE001
+            print(f"[transform] health.kdhs_county: error {type(exc).__name__}: {exc}")
+    else:
+        print("[transform] health.kdhs_county: SKIP - no .dta recodes in "
+              "data/external/kdhs_2022/ (manual gate - see MANUAL_DATASETS.md)")
 
     # generic ingestion of any other manual / gated drops
     ingest_external(base)
