@@ -1,0 +1,15 @@
+{
+  "source_key": "kphc_2019_vol1",
+  "title": "2019 Kenya Population and Housing Census Volume I",
+  "publisher": "Kenya National Bureau of Statistics",
+  "layer": "geography",
+  "access": "open_download (local)",
+  "pdf_path": "C:\\Users\\AHema\\OneDrive - CGIAR\\Desktop\\2026\\John\\Kenya Dataset Bundle for Soil, Food, Nutrition, and Policy Analysis\\Kenya dataset\\kenya_fnp_db\\data\\raw\\kphc_2019_vol1\\2019-Kenya-population-and-Housing-Census-Volume-1-Population-By-County-And-Sub-County.pdf",
+  "sha256": "740093a7e0d3a2f34bc85bebfe343c3b45e6b8401a394470f191d281b280ae4e",
+  "bytes": 947484,
+  "pages": 49,
+  "text_chars": 97379,
+  "message": "local document: 49 pages, 97379 extractable chars; structured county and sub-county denominators come from the KNBS XLSX tables",
+  "extracted_by": "Aboubacar HEMA",
+  "extracted_at": "2026-06-15T22:05:18.995957+00:00"
+}

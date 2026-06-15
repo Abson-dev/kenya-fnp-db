@@ -1,0 +1,525 @@
+food_code,food_group,food_name,ca_mg,fe_mg,mg_mg,p_mg,k_mg,na_mg,zn_mg,se_mcg
+01001,01 CEREALS AND CEREAL PRODUCTS,"Amaranth, whole grain, dry, raw",162.0,9.5,270.0,397.0,413.0,3.0,2.5,21.0
+01046,01 CEREALS AND CEREAL PRODUCTS,"Amaranth, whole, grain, dry, stewed (without salt)",56.0,3.2,91.0,133.0,139.0,3.0,0.85,7.0
+01002,01 CEREALS AND CEREAL PRODUCTS,"Amaranth, whole grain, flour",161.0,8.9,259.0,405.0,461.0,3.0,2.7,20.0
+01003,01 CEREALS AND CEREAL PRODUCTS,"Biscuit, Savoury",38.0,1.4,27.0,177.0,161.0,637.0,0.83,15.0
+01004,01 CEREALS AND CEREAL PRODUCTS,"Biscuit, Sweet",45.0,1.4,19.0,98.0,158.0,298.0,0.6,10.0
+01005,01 CEREALS AND CEREAL PRODUCTS,"Bread, Brown",56.0,2.6,58.0,134.0,191.0,446.0,1.3,13.0
+01006,01 CEREALS AND CEREAL PRODUCTS,"Bread, Sweet",80.0,1.9,18.0,147.0,227.0,369.0,0.8,20.0
+01007,01 CEREALS AND CEREAL PRODUCTS,"Bread, White",37.0,1.7,27.0,95.0,120.0,466.0,0.8,10.0
+01008,01 CEREALS AND CEREAL PRODUCTS,"Breakfast cereal, flakes of corn, fortified (iron, thiamin, ribiflavin, niacin and folate)",3.2,10.2,13.0,45.0,110.0,1090.0,0.2,5.5
+01009,01 CEREALS AND CEREAL PRODUCTS,"Breakfast cereal, flakes of corn",3.0,0.4,13.0,45.0,110.0,1090.0,0.2,9.0
+01010,01 CEREALS AND CEREAL PRODUCTS,"Breakfast cereal, wheat biscuits, Weetabix type",30.0,7.6,125.0,308.0,392.0,360.0,2.0,5.1
+01011,01 CEREALS AND CEREAL PRODUCTS,"Buns, Currant",90.0,2.5,27.0,100.0,210.0,100.0,0.6,9.0
+01012,01 CEREALS AND CEREAL PRODUCTS,"Cake or cupcake, plain butter cake, commercial",63.0,1.0,14.0,310.0,110.0,480.0,0.5,7.0
+01013,01 CEREALS AND CEREAL PRODUCTS,"Cake, Fruit",75.0,2.0,23.0,106.0,347.0,170.0,0.5,4.0
+01014,01 CEREALS AND CEREAL PRODUCTS,"Cake, Sponge, homemade",140.0,1.4,12.0,246.0,105.0,350.0,0.6,7.0
+01015,01 CEREALS AND CEREAL PRODUCTS,"Cake, Sponge, without fat",70.0,2.0,15.0,137.0,136.0,80.0,0.9,14.0
+01016,01 CEREALS AND CEREAL PRODUCTS,Cakes (Various Fancy Iced),45.0,1.5,10.0,148.0,147.0,250.0,0.3,3.0
+01017,01 CEREALS AND CEREAL PRODUCTS,"Cornflour, from maize starch",12.0,0.7,3.0,24.0,7.0,10.0,0.2,2.0
+01018,01 CEREALS AND CEREAL PRODUCTS,"Maize, grain, white variety, whole, dry, raw",24.0,2.6,75.0,367.0,226.0,12.0,1.88,8.0
+01047,01 CEREALS AND CEREAL PRODUCTS,"Maize, grain, white variety, whole, dry, boiled, drained (without salt)",9.0,0.8,25.0,112.0,59.0,5.0,0.58,3.0
+01048,01 CEREALS AND CEREAL PRODUCTS,"Maize, grain, white variety, whole, dry, stewed (without salt)",9.0,0.8,25.0,118.0,73.0,6.0,0.61,3.0
+01019,01 CEREALS AND CEREAL PRODUCTS,"Maize, grain, yellow variety, whole, dry, raw",7.0,3.9,104.0,216.0,346.0,7.0,2.3,8.5
+01049,01 CEREALS AND CEREAL PRODUCTS,"Maize, grain, yellow variety, whole, dry, boiled, drained (without salt)",4.0,1.3,34.0,66.0,90.0,4.0,0.7,3.0
+01050,01 CEREALS AND CEREAL PRODUCTS,"Maize, grain, yellow variety, whole, dry, boiled (without salt, water included)",3.0,0.9,25.0,50.0,81.0,4.0,0.53,2.0
+01020,01 CEREALS AND CEREAL PRODUCTS,"Maize meal, sifted, fortified, packaged, raw",20.0,3.6,50.0,229.0,150.0,12.0,4.36,0.0
+01021,01 CEREALS AND CEREAL PRODUCTS,"Maize, White, Degermed (Muthokoi)",3.0,0.5,19.0,50.0,90.0,7.0,0.5,0.0
+01022,01 CEREALS AND CEREAL PRODUCTS,"Maize, whole, flour, raw",9.0,2.6,110.0,323.0,258.0,12.0,1.88,9.0
+01023,01 CEREALS AND CEREAL PRODUCTS,"Green Maize, white, whole, grain, fresh, raw",18.0,1.2,39.0,188.0,188.0,8.0,1.95,5.0
+01051,01 CEREALS AND CEREAL PRODUCTS,"Green Maize, white, whole, grain, fresh, boiled, drained (without salt)",17.0,1.1,36.0,167.0,141.0,6.0,1.73,5.0
+01052,01 CEREALS AND CEREAL PRODUCTS,"Green Maize, white, whole, grain, fresh, stewed (without salt)",23.0,1.6,50.0,245.0,244.0,10.0,2.53,7.0
+01024,01 CEREALS AND CEREAL PRODUCTS,"Millet, bulrush, flour",32.0,32.4,84.0,263.0,291.0,4.0,4.14,34.0
+01025,01 CEREALS AND CEREAL PRODUCTS,"Millet, bulrush, grain, dry, raw",32.0,6.3,84.0,427.0,291.0,4.0,4.14,25.0
+01053,01 CEREALS AND CEREAL PRODUCTS,"Millet, bulrush, grain, dry, boiled, drained (without salt)",15.0,2.6,36.0,169.0,97.0,3.0,1.64,11.0
+01054,01 CEREALS AND CEREAL PRODUCTS,"Millet, bulrush, grain, dry, stewed (without salt)",15.0,2.6,36.0,178.0,122.0,3.0,1.73,11.0
+01026,01 CEREALS AND CEREAL PRODUCTS,"Millet, finger, flour",344.0,18.5,154.0,183.0,538.0,2.0,1.7,2.7
+01027,01 CEREALS AND CEREAL PRODUCTS,"Millet, Finger, Grain, Dried, Raw",344.0,11.3,154.0,183.0,538.0,2.0,1.7,15.3
+01028,01 CEREALS AND CEREAL PRODUCTS,Millet Yeast (germinated millet seeds),859.0,27.6,180.0,245.0,81.0,6.0,1.64,15.0
+01029,01 CEREALS AND CEREAL PRODUCTS,"Oat bran, unprocessed, uncooked",54.0,4.4,153.0,491.0,362.0,12.0,3.2,45.0
+01030,01 CEREALS AND CEREAL PRODUCTS,"Pasta, macaroni, plain, dry, raw-imported",21.0,1.9,44.0,148.0,147.6,5.2,0.6,13.0
+01065,01 CEREALS AND CEREAL PRODUCTS,"Pasta, macaroni, plain, dry, imported, boiled, drained (without salt)",10.0,0.6,16.0,57.0,36.0,3.0,0.25,5.0
+01066,01 CEREALS AND CEREAL PRODUCTS,"Pasta, macaroni, plain, dry, imported, boiled in recipe (without salt)",10.0,0.8,18.0,60.0,60.0,4.0,0.25,5.0
+01031,01 CEREALS AND CEREAL PRODUCTS,"Pasta, spaghetti, dried, raw-imported",18.0,1.0,30.0,172.0,142.0,5.0,0.6,12.0
+01063,01 CEREALS AND CEREAL PRODUCTS,"Pasta, spaghetti, dry, imported, boiled, drained (without salt)",8.0,0.3,9.0,56.0,30.0,3.0,0.21,4.0
+01064,01 CEREALS AND CEREAL PRODUCTS,"Pasta, spaghetti, dry, inported, boiled in recipe (without salt)",8.0,0.3,11.0,59.0,49.0,4.0,0.21,4.0
+01032,01 CEREALS AND CEREAL PRODUCTS,"Rice, flour, raw",14.0,0.8,37.0,146.0,155.0,2.0,0.95,12.0
+01033,01 CEREALS AND CEREAL PRODUCTS,"Rice, parboiled, raw",9.0,1.7,26.0,125.0,100.0,6.0,1.06,1.0
+01060,01 CEREALS AND CEREAL PRODUCTS,"Rice, parboiled, boiled (without salt)",5.0,0.6,10.0,43.0,35.0,4.0,0.36,0.0
+01034,01 CEREALS AND CEREAL PRODUCTS,"Rice, white, milled, polished grain, dry, raw",21.0,0.9,23.0,144.0,59.0,17.0,1.32,1.0
+01059,01 CEREALS AND CEREAL PRODUCTS,"Rice, white, milled, polished grain, dry, boiled (without salt)",9.0,0.3,8.0,48.0,20.0,8.0,0.44,0.0
+01035,01 CEREALS AND CEREAL PRODUCTS,"Semolina, raw",16.0,1.6,35.0,102.0,196.0,2.0,1.17,9.0
+01036,01 CEREALS AND CEREAL PRODUCTS,"Scone, plain, commercial",56.0,1.5,15.0,107.0,128.0,800.0,0.7,2.0
+01037,01 CEREALS AND CEREAL PRODUCTS,"Sorghum, Grain, Red, Dried, Raw",10.0,3.0,150.0,296.0,387.0,6.0,1.97,21.0
+01057,01 CEREALS AND CEREAL PRODUCTS,"Sorghum, grain, red, dry, boiled, drained (without salt)",6.0,1.4,63.0,117.0,129.0,4.0,0.78,9.0
+01058,01 CEREALS AND CEREAL PRODUCTS,"Sorghum, grain, red, dry, stewed (without salt)",6.0,1.4,63.0,123.0,162.0,4.0,0.82,9.0
+01038,01 CEREALS AND CEREAL PRODUCTS,"Sorghum, Grain, Red, Flour",10.0,3.0,150.0,296.0,387.0,6.0,1.97,12.0
+01039,01 CEREALS AND CEREAL PRODUCTS,"Sorghum, grain, white, dry, raw",18.0,6.4,101.0,356.0,233.0,6.0,1.69,21.0
+01055,01 CEREALS AND CEREAL PRODUCTS,"Sorghum, grain, white, dry, boiled, drained (without salt)",9.0,2.7,43.0,141.0,78.0,4.0,0.67,9.0
+01056,01 CEREALS AND CEREAL PRODUCTS,"Sorghum, grain, white, dry, stewed (without salt)",9.0,2.7,43.0,148.0,97.0,4.0,0.7,9.0
+01040,01 CEREALS AND CEREAL PRODUCTS,"Sorghum, grain, white, flour",18.0,6.4,101.0,356.0,280.0,4.0,1.69,26.0
+01042,01 CEREALS AND CEREAL PRODUCTS,Wheat Flour-Atta,34.0,3.8,117.0,283.0,331.0,2.0,2.33,39.0
+01043,01 CEREALS AND CEREAL PRODUCTS,"Wheat Flour (refined/fortified/sifted packaged), raw",35.0,5.6,31.0,183.0,129.0,2.0,0.87,0.0
+01044,01 CEREALS AND CEREAL PRODUCTS,"Wheat, whole, flour, raw",39.0,4.0,125.0,315.0,366.0,3.0,3.0,48.0
+01045,01 CEREALS AND CEREAL PRODUCTS,"Wheat, whole, grain, dry, raw",39.0,4.9,122.0,205.0,358.0,2.0,3.0,47.0
+01061,01 CEREALS AND CEREAL PRODUCTS,"Wheat, whole, grain, dry, boiled, drained (without salt)",23.0,2.8,69.0,109.0,161.0,2.0,1.43,26.0
+01062,01 CEREALS AND CEREAL PRODUCTS,"Wheat, whole, grain, dry, stewed (without salt)",23.0,2.8,69.0,115.0,201.0,3.0,1.51,26.0
+02002,"02 STARCHY ROOTS, TUBERS AND BANANAS","Arrowroot, peeled, raw",6.0,1.1,25.0,43.0,685.0,36.0,1.0,1.0
+02003,"02 STARCHY ROOTS, TUBERS AND BANANAS","Banana, BITA 3, dried, flour",30.0,1.2,60.0,100.0,1030.0,4.0,0.62,4.0
+02004,"02 STARCHY ROOTS, TUBERS AND BANANAS","Banana, plantain, green, raw",7.0,0.8,23.0,29.0,322.0,10.0,0.23,1.0
+02005,"02 STARCHY ROOTS, TUBERS AND BANANAS","Beet root, peeled, raw",13.0,0.8,11.0,36.0,298.0,60.0,0.55,0.0
+02021,"02 STARCHY ROOTS, TUBERS AND BANANAS","Beet root, peeled, boiled, drained (without salt)",12.0,62.9,7.0,32.0,135.0,33.0,0.42,0.0
+02022,"02 STARCHY ROOTS, TUBERS AND BANANAS","Beet root, peeled, stewed (without salt)",12.0,0.8,11.0,34.0,281.0,56.0,0.52,0.0
+02007,"02 STARCHY ROOTS, TUBERS AND BANANAS","Cassava, root, white, peeled, raw",33.0,0.9,13.0,21.0,250.0,2.0,0.34,1.0
+02023,"02 STARCHY ROOTS, TUBERS AND BANANAS","Cassava, root, white, peeled, boiled, drained (without salt)",27.0,0.7,10.0,17.0,171.0,1.0,0.26,1.0
+02008,"02 STARCHY ROOTS, TUBERS AND BANANAS","Cassava, root, yellow, peeled, raw",18.0,0.6,9.0,27.0,290.0,2.0,0.34,1.0
+02024,"02 STARCHY ROOTS, TUBERS AND BANANAS","Cassava, root, yellow, peeled, boiled, drained (without salt)",15.0,0.5,7.0,21.0,198.0,1.0,0.26,1.0
+02009,"02 STARCHY ROOTS, TUBERS AND BANANAS","Potato, Irish (English), white variety, peeled, raw",9.0,1.4,19.0,81.0,645.0,6.46,0.32,1.0
+02025,"02 STARCHY ROOTS, TUBERS AND BANANAS","Potato, Irish (English), white variety, peeled, boiled, drained (without salt)",8.0,1.3,17.0,76.0,516.0,5.0,0.29,0.0
+02026,"02 STARCHY ROOTS, TUBERS AND BANANAS","Potato, Irish (English), white variety, peeled, steamed (without salt)",8.0,1.3,18.0,79.0,559.0,6.0,0.31,0.0
+02010,"02 STARCHY ROOTS, TUBERS AND BANANAS","Radish, round, red skin, raw",36.0,0.4,22.0,22.0,103.0,32.27,0.18,0.0
+02011,"02 STARCHY ROOTS, TUBERS AND BANANAS","Radish, long, red skin, raw",28.0,0.37,13.0,27.0,193.0,25.0,0.16,0.0
+02012,"02 STARCHY ROOTS, TUBERS AND BANANAS","Radish, white skin, raw",40.0,0.4,14.0,20.0,249.0,26.0,0.34,0.0
+02013,"02 STARCHY ROOTS, TUBERS AND BANANAS","Sweet potato, brown skin, peeled, raw",22.0,0.4,12.0,25.0,389.0,20.0,0.28,0.0
+02027,"02 STARCHY ROOTS, TUBERS AND BANANAS","Sweet potato, brown skin, peeled, boiled, drained (without salt)",21.0,0.4,10.0,23.0,311.0,16.0,0.25,0.0
+02014,"02 STARCHY ROOTS, TUBERS AND BANANAS","Sweetpotato, orange, biofortified, raw",27.0,0.5,14.0,33.0,250.0,10.0,0.5,1.0
+02028,"02 STARCHY ROOTS, TUBERS AND BANANAS","Sweetpotato, orange, biofortified, boiled, drained (without salt)",26.0,0.5,13.0,31.0,200.0,8.0,0.45,0.0
+02015,"02 STARCHY ROOTS, TUBERS AND BANANAS","Sweet potato, pink skin",14.0,1.0,19.0,61.0,247.0,11.0,0.14,0.0
+02029,"02 STARCHY ROOTS, TUBERS AND BANANAS","Sweet potato, pink skin, boiled, drained (without salt)",13.0,0.9,17.0,57.0,198.0,9.0,0.13,0.0
+02016,"02 STARCHY ROOTS, TUBERS AND BANANAS","Taro, peeled, raw",51.0,0.7,20.0,88.0,300.0,10.0,0.6,1.0
+02017,"02 STARCHY ROOTS, TUBERS AND BANANAS","Turnip, root, raw",34.0,0.5,11.0,39.0,320.0,29.0,0.2,1.0
+02018,"02 STARCHY ROOTS, TUBERS AND BANANAS","Yam, Flour",20.0,1.1,50.0,110.0,818.0,28.0,1.0,2.0
+02019,"02 STARCHY ROOTS, TUBERS AND BANANAS","Yam, white, raw",16.0,0.8,18.0,61.0,295.0,10.0,0.27,1.0
+02030,"02 STARCHY ROOTS, TUBERS AND BANANAS","Yam, white, boiled, drained (without salt)",16.0,0.8,17.0,60.0,248.0,8.0,0.26,1.0
+03001,03 LEGUMES AND PULSES,"Beans, broad, dry, raw",96.0,5.19,135.0,431.0,1190.0,25.0,3.55,8.0
+03023,03 LEGUMES AND PULSES,"Beans, broad, dry, unsoaked, boiled, drained (without salt)",31.0,1.6,42.0,138.0,319.0,9.0,1.14,3.0
+03024,03 LEGUMES AND PULSES,"Beans, broad, dry, unsoaked, boiled (without salt, water not discarded)",23.0,1.1,30.0,94.0,259.0,8.0,0.77,2.0
+03025,03 LEGUMES AND PULSES,"Beans, broad, dry, water-soaked, boiled in different water, drained (without salt)",31.0,1.6,42.0,138.0,319.0,9.0,1.14,3.0
+03026,03 LEGUMES AND PULSES,"Beans, broad, dry, water-soaked, boiled in different water (without salt, water not discarded)",23.0,1.1,30.0,94.0,259.0,8.0,0.77,2.0
+03002,03 LEGUMES AND PULSES,"Beans, broad, fresh, raw",26.0,1.6,29.0,427.0,275.0,2.0,1.1,8.0
+03027,03 LEGUMES AND PULSES,"Beans, broad, fresh, boiled, drained (without salt)",26.0,1.3,18.0,405.0,145.0,2.0,0.83,8.0
+03003,03 LEGUMES AND PULSES,"Beans, cluster, fresh, raw",121.0,5.6,73.0,50.0,301.0,4.0,0.61,2.0
+03028,03 LEGUMES AND PULSES,"Beans, cluster, fresh, boiled, drained (without salt)",121.0,4.4,46.0,47.0,158.0,3.0,0.48,2.0
+03004,03 LEGUMES AND PULSES,"Beans, kidney, dry, raw",106.0,6.4,103.0,600.0,872.0,22.0,2.78,4.0
+03029,03 LEGUMES AND PULSES,"Beans, kidney, dry, unsoaked, boiled, drained (without salt)",36.0,2.1,34.0,207.0,251.0,8.0,0.96,2.0
+03030,03 LEGUMES AND PULSES,"Beans, kidney, dry, unsoaked, boiled (without salt, water not discarded)",27.0,1.5,25.0,139.0,202.0,7.0,0.64,1.0
+03031,03 LEGUMES AND PULSES,"Beans, kidney, dry, water-soaked, boiled in different water, drained (without salt)",36.0,2.1,34.0,207.0,251.0,8.0,0.96,2.0
+03032,03 LEGUMES AND PULSES,"Beans, kidney, dry, water-soaked, boiled in different water (without salt, water not discarded)",27.0,1.5,25.0,139.0,202.0,7.0,0.64,1.0
+03005,03 LEGUMES AND PULSES,"Beans, lima, dry, raw",64.0,9.9,158.0,387.0,1447.0,7.0,2.6,6.0
+03033,03 LEGUMES AND PULSES,"Beans, lima, dry, unsoaked, boiled, drained (without salt)",23.0,3.4,54.0,139.0,434.0,4.0,0.95,2.0
+03034,03 LEGUMES AND PULSES,"Beans, lima, dry, unsoaked, boiled (without salt, water not discarded)",17.0,2.3,37.0,89.0,334.0,4.0,0.61,1.0
+03035,03 LEGUMES AND PULSES,"Beans, lima, dry, water-soaked, boiled in different water, drained (without salt)",23.0,3.4,54.0,139.0,434.0,4.0,0.95,2.0
+03036,03 LEGUMES AND PULSES,"Beans, lima, dry, water-soaked, boiled in different water (without salt, water not discarded)",17.0,2.3,37.0,89.0,334.0,4.0,0.61,1.0
+03006,03 LEGUMES AND PULSES,"Bean, red, fresh, raw",12.0,2.4,18.0,100.0,490.0,3.0,1.0,2.0
+03007,03 LEGUMES AND PULSES,"Beans, shellie, canned, solids & liquid",29.0,1.0,15.0,30.0,109.0,334.0,0.27,2.0
+03008,03 LEGUMES AND PULSES,"Bonavist, dry, raw",59.0,7.13,145.0,334.0,1000.0,18.0,2.49,8.0
+03037,03 LEGUMES AND PULSES,"Bonavist, dry, unsoaked, boiled, drained (without salt)",21.0,2.3,48.0,115.0,289.0,7.0,0.86,3.0
+03038,03 LEGUMES AND PULSES,"Bonavist, dry, unsoaked, boiled (without salt, water not discarded)",21.0,2.3,47.0,107.0,321.0,9.0,0.8,3.0
+03039,03 LEGUMES AND PULSES,"Bonavist, dry, water-soaked, boiled in different water, drained (without salt)",21.0,2.3,48.0,115.0,289.0,7.0,0.86,3.0
+03040,03 LEGUMES AND PULSES,"Bonavist, dry, water-soaked, boiled in different water (without salt, water not discarded)",16.0,1.7,36.0,81.0,244.0,7.0,0.6,2.0
+03009,03 LEGUMES AND PULSES,"Bonavist, fresh, raw",31.0,2.5,380.0,118.0,762.0,6.0,1.12,5.0
+03010,03 LEGUMES AND PULSES,"Chick peas, whole, dry, raw",235.0,6.8,160.0,284.0,1030.0,25.0,3.37,41.0
+03041,03 LEGUMES AND PULSES,"Chick peas, whole, dry, unsoaked, boiled, drained (without salt)",90.0,2.6,61.0,114.0,342.0,10.0,1.35,18.0
+03042,03 LEGUMES AND PULSES,"Chick peas, whole, unsoaked, boiled (without salt, water not discarded)",76.0,2.2,51.0,90.0,326.0,10.0,1.07,13.0
+03043,03 LEGUMES AND PULSES,"Chick peas, whole, dry, water-soaked, boiled in different water, drained (without salt)",90.0,2.6,61.0,114.0,342.0,10.0,1.35,18.0
+03044,03 LEGUMES AND PULSES,"Chick peas, whole, dry, water-soaked, boiled in different water (without salt, water not discarded)",76.0,2.2,51.0,90.0,326.0,10.0,1.07,13.0
+03011,03 LEGUMES AND PULSES,"Cowpeas, dry, raw",112.0,5.97,322.0,276.0,1380.0,22.0,3.37,
+03045,03 LEGUMES AND PULSES,"Cowpeas, dry, unsoaked, boiled, drained (without salt)",37.0,1.9,103.0,93.0,389.0,8.0,1.14,0.0
+03046,03 LEGUMES AND PULSES,"Cowpeas, unsoaked, boiled (without salt, water not discarded)",27.0,1.4,74.0,62.0,313.0,7.0,0.76,0.0
+03047,03 LEGUMES AND PULSES,"Cowpeas, dry, water-soaked, boiled in different water, drained (without salt)",37.0,1.9,103.0,93.0,389.0,8.0,1.14,0.0
+03048,03 LEGUMES AND PULSES,"Cowpeas, dry, water-soaked, boiled in different water (without salt, water not discarded)",27.0,1.4,74.0,62.0,313.0,7.0,0.76,0.0
+03012,03 LEGUMES AND PULSES,"Cowpeas, fresh, raw",200.0,1.7,81.0,84.0,685.0,6.0,1.61,4.0
+03049,03 LEGUMES AND PULSES,"Cowpeas, fresh, boiled, drained (without salt)",200.0,1.4,51.0,80.0,361.0,5.0,1.27,3.0
+03013,03 LEGUMES AND PULSES,"Flour, soya, full fat",200.0,6.25,421.0,484.0,2470.0,12.7,3.84,7.0
+03014,03 LEGUMES AND PULSES,"Flour, soya, low fat",240.0,9.1,278.0,658.0,2040.0,9.0,4.0,57.0
+03015,03 LEGUMES AND PULSES,"Garden peas, fresh, raw",28.2,2.63,30.15,108.0,249.0,3.66,4.65,2.0
+03050,03 LEGUMES AND PULSES,"Garden peas, fresh, boiled, drained (without salt)",28.0,2.1,19.0,102.0,131.0,3.0,3.67,2.0
+03016,03 LEGUMES AND PULSES,"Garden peas, dry, raw",58.0,4.8,117.0,321.0,933.0,17.0,3.21,50.0
+03051,03 LEGUMES AND PULSES,"Garden peas, dry, unsoaked, boiled, drained (without salt)",20.0,1.5,38.0,107.0,259.0,7.0,1.07,19.0
+03052,03 LEGUMES AND PULSES,"Garden peas, unsoaked, boiled (without salt, water not discarded)",16.0,1.1,28.0,76.0,220.0,6.0,0.75,12.0
+03053,03 LEGUMES AND PULSES,"Garden peas, dry, water-soaked, boiled in different water, drained (without salt)",20.0,1.5,38.0,107.0,259.0,7.0,1.07,19.0
+03054,03 LEGUMES AND PULSES,"Garden peas, dry, water-soaked, boiled in different water (without salt, water not discarded)",16.0,1.1,28.0,76.0,220.0,6.0,0.75,12.0
+03017,03 LEGUMES AND PULSES,"Gram, black, dry, raw",84.0,6.0,113.0,335.0,718.0,14.0,2.33,43.0
+03055,03 LEGUMES AND PULSES,"Gram, black, dry, unsoaked, boiled, drained (without salt)",25.0,1.6,32.0,98.0,175.0,5.0,0.68,14.0
+03056,03 LEGUMES AND PULSES,"Gram, black, dry, unsoaked, boiled (without salt, water not discarded)",20.0,1.3,25.0,73.0,157.0,5.0,0.51,9.0
+03057,03 LEGUMES AND PULSES,"Gram, black, dry, water-soaked, boiled in different water, drained (without salt)",25.0,1.6,32.0,98.0,175.0,5.0,0.68,14.0
+03058,03 LEGUMES AND PULSES,"Gram, black, dry, water-soaked, boiled in different water (without salt, water not discarded)",20.0,1.3,25.0,73.0,157.0,5.0,0.51,9.0
+03018,03 LEGUMES AND PULSES,"Gram, Flour, raw",58.0,5.2,62.0,170.0,297.0,2.0,1.5,4.0
+03019,03 LEGUMES AND PULSES,"Gram, green, dry, raw",151.0,7.6,208.0,280.0,989.0,26.0,2.62,23.0
+03059,03 LEGUMES AND PULSES,"Gram, green, dry, unsoaked, boiled, drained (without salt)",49.0,2.4,66.0,94.0,276.0,9.0,0.88,9.0
+03060,03 LEGUMES AND PULSES,"Gram, green, dry, unsoaked, boiled (without salt, water not discarded)",38.0,1.8,50.0,66.0,233.0,8.0,0.62,6.0
+03061,03 LEGUMES AND PULSES,"Gram, green, dry, water-soaked, boiled in different water, drained (without salt)",49.0,2.4,66.0,94.0,276.0,9.0,0.88,9.0
+03062,03 LEGUMES AND PULSES,"Gram, green, dry, water-soaked, boiled in different water (without salt, water not discarded)",38.0,1.8,50.0,66.0,233.0,8.0,0.62,6.0
+03020,03 LEGUMES AND PULSES,"Lentils, whole, dry, raw",83.0,7.4,101.0,308.0,629.0,11.0,4.0,33.0
+03063,03 LEGUMES AND PULSES,"Lentils, whole, dry, unsoaked, boiled, drained (without salt)",28.0,2.4,33.0,104.0,178.0,5.0,1.22,13.0
+03064,03 LEGUMES AND PULSES,"Lentils, whole, unsoaked, boiled (without salt, water not discarded)",21.0,1.7,24.0,72.0,148.0,5.0,0.85,8.0
+03066,03 LEGUMES AND PULSES,"Lentils, whole, dry, water-soaked, boiled in different water (without salt, water not discarded)",21.0,1.7,24.0,72.0,148.0,5.0,0.85,8.0
+03021,03 LEGUMES AND PULSES,"Pigeon peas, dry, raw",172.0,5.4,128.0,272.0,1200.0,21.0,2.9,15.0
+03067,03 LEGUMES AND PULSES,"Pigeon peas, dry, unsoaked, boiled, drained (without salt)",65.0,2.0,48.0,106.0,391.0,8.0,1.13,7.0
+03068,03 LEGUMES AND PULSES,"Pigeon peas, dry, unsoaked, boiled (without salt, water not discarded)",56.0,1.7,41.0,85.0,375.0,8.0,0.91,5.0
+03069,03 LEGUMES AND PULSES,"Pigeon peas, dry, water-soaked, boiled in different water, drained (without salt)",65.0,2.0,48.0,106.0,391.0,8.0,1.13,7.0
+03070,03 LEGUMES AND PULSES,"Pigeon peas, dry, water-soaked, boiled in different water (without salt, water not discarded)",56.0,1.7,41.0,85.0,375.0,8.0,0.91,5.0
+03022,03 LEGUMES AND PULSES,"Soybean, dry, raw",228.0,7.3,203.0,384.0,1730.0,7.0,3.83,22.0
+03071,03 LEGUMES AND PULSES,"Soybean, dry, unsoaked, boiled, drained (without salt)",81.0,2.5,72.0,142.0,533.0,4.0,1.42,9.0
+03072,03 LEGUMES AND PULSES,"Soybean, dry, water-soaked, boiled in different water, drained (without salt)",81.0,2.5,72.0,142.0,533.0,4.0,1.42,9.0
+04001,04 VEGETABLE AND VEGETABLE PROCUCTS,"Amaranth, leaves, picked, raw",280.0,6.8,122.0,89.0,597.0,18.0,0.92,22.0
+04039,04 VEGETABLE AND VEGETABLE PROCUCTS,"Amaranth, leaves, picked, boiled, drained (without salt)",280.0,5.3,77.0,84.0,314.0,14.0,0.73,20.0
+04040,04 VEGETABLE AND VEGETABLE PROCUCTS,"Amaranth, leaves, picked, stewed (without salt)",346.0,8.3,151.0,110.0,737.0,22.0,1.14,27.0
+04002,04 VEGETABLE AND VEGETABLE PROCUCTS,"Bitter gourd, whole, different varieties, raw",22.0,1.4,20.0,51.0,210.0,16.0,0.37,5.0
+04041,04 VEGETABLE AND VEGETABLE PROCUCTS,"Bitter gourd, whole, different varieties, boiled, drained (without salt)",23.0,1.2,13.0,51.0,117.0,14.0,0.31,5.0
+04003,04 VEGETABLE AND VEGETABLE PROCUCTS,"Black (African) nightshade, indigenous, leaves, picked, raw",100.0,8.6,41.0,68.0,421.0,10.0,0.65,1.0
+04042,04 VEGETABLES AND VEGETABLE PRODUCTS,"Black (African) nightshade, indigenous, leaves, picked, boiled, drained (without salt)",91.0,6.2,24.0,58.0,200.0,7.0,0.46,1.0
+04004,04 VEGETABLES AND VEGETABLE PRODUCTS,"Broccoli, tops and stems, raw",66.0,0.8,21.0,75.0,336.0,22.0,1.0,1.0
+04044,04 VEGETABLES AND VEGETABLE PRODUCTS,"Broccoli, tops and stems, boiled, drained (without salt)",56.0,0.6,11.0,61.0,151.0,15.0,0.41,0.0
+04045,04 VEGETABLES AND VEGETABLE PRODUCTS,"Broccoli, tops and stems, steamed (without salt)",60.0,0.6,18.0,69.0,275.0,18.0,0.52,0.0
+04005,04 VEGETABLES AND VEGETABLE PRODUCTS,"Cabbage, leaf head, Chinese, raw",36.0,1.4,10.0,40.0,250.0,16.0,0.0,1.0
+04046,04 VEGETABLES AND VEGETABLE PRODUCTS,"Cabbage, leaf head, Chinese, boiled, drained (without salt)",35.0,1.1,6.0,37.0,128.0,12.0,0.15,0.0
+04047,04 VEGETABLES AND VEGETABLE PRODUCTS,"Cabbage, leaf head, Chinese, steamed (without salt)",35.0,1.2,9.0,39.0,217.0,14.0,0.18,0.0
+04006,04 VEGETABLES AND VEGETABLE PRODUCTS,"Cabbage, leaf head, red raw",45.0,0.7,29.0,14.0,241.0,16.0,0.3,1.0
+04048,04 VEGETABLES AND VEGETABLE PRODUCTS,"Cabbage, leaf head, red, boiled, drained (without salt)",44.0,0.5,18.0,13.0,123.0,12.0,0.23,1.0
+04049,04 VEGETABLES AND VEGETABLE PRODUCTS,"Cabbage, leaf head, red, stewed (without salt)",42.0,0.7,27.0,13.0,223.0,15.0,0.28,1.0
+04007,04 VEGETABLES AND VEGETABLE PRODUCTS,"Cabbage, leaf head, white, raw",47.0,0.5,9.0,40.0,313.0,37.0,0.2,1.0
+04050,04 VEGETABLES AND VEGETABLE PRODUCTS,"Cabbage, leaf head, white, boiled, drained (without salt)",45.0,0.4,6.0,36.0,159.0,29.0,0.18,0.0
+04051,04 VEGETABLES AND VEGETABLE PRODUCTS,"Cabbage, leaf head, white, stewed (without salt)",50.0,0.5,10.0,43.0,336.0,40.0,0.25,1.0
+04008,04 VEGETABLES AND VEGETABLE PRODUCTS,"Capsicum (sweet peper), green, raw",8.0,0.5,10.0,17.0,151.0,2.0,0.18,0.0
+04052,04 VEGETABLES AND VEGETABLE PRODUCTS,"Capsicum (sweet peper), green, boiled, drained (without salt)",9.0,0.5,7.0,18.0,87.0,2.0,0.16,0.0
+04053,04 VEGETABLES AND VEGETABLE PRODUCTS,"Capsicum (sweet peper), green, grilled (without salt and fat)",9.0,0.6,11.0,18.0,162.0,2.0,0.19,0.0
+04054,04 VEGETABLES AND VEGETABLE PRODUCTS,"Capsicum (sweet peper), green, baked (without salt)",8.0,0.6,10.0,18.0,157.0,2.0,0.19,0.0
+04009,04 VEGETABLES AND VEGETABLE PRODUCTS,"Capsicum (sweet peper), red, raw",4.0,0.3,6.0,24.0,174.0,2.0,0.2,1.0
+04055,04 VEGETABLES AND VEGETABLE PRODUCTS,"Capsicum (sweet peper), red, boiled, drained (without salt)",4.0,0.3,4.0,25.0,100.0,2.0,0.17,1.0
+04056,04 VEGETABLES AND VEGETABLE PRODUCTS,"Capsicum (sweet peper), red, grilled (without salt and fat)",4.0,0.3,6.0,26.0,187.0,2.0,0.22,1.0
+04057,04 VEGETABLES AND VEGETABLE PRODUCTS,"Capsicum (sweet peper), red, baked (without salt)",4.0,0.3,6.0,25.0,181.0,2.0,0.21,1.0
+04010,04 VEGETABLES AND VEGETABLE PRODUCTS,"Capsicum (sweet peper), yellow, raw",19.0,1.0,17.0,43.0,242.0,2.0,0.0,0.0
+04058,04 VEGETABLES AND VEGETABLE PRODUCTS,"Capsicum (sweet peper), yellow, boiled, drained (without salt)",21.0,0.6,12.0,45.0,139.0,1.0,0.22,0.0
+04059,04 VEGETABLES AND VEGETABLE PRODUCTS,"Capsicum (sweet peper), yellow, grilled (without salt and fat)",21.0,0.7,19.0,47.0,260.0,2.0,0.28,0.0
+04060,04 VEGETABLES AND VEGETABLE PRODUCTS,"Capsicum (sweet peper), yellow, baked (without salt)",20.0,0.7,18.0,45.0,252.0,2.0,0.27,0.0
+04011,04 VEGETABLES AND VEGETABLE PRODUCTS,"Carrot, peeled, raw",33.0,0.6,17.0,25.0,251.0,35.0,0.14,0.0
+04061,04 VEGETABLES AND VEGETABLE PRODUCTS,"Carrot, peeled, boiled, drained (without salt)",34.0,0.5,11.0,24.0,120.0,21.0,0.11,0.0
+04062,04 VEGETABLES AND VEGETABLE PRODUCTS,"Carrot, peeled, stewed (without salt)",35.0,0.6,17.0,26.0,261.0,37.0,0.14,0.0
+04012,04 VEGETABLES AND VEGETABLE PRODUCTS,"Cauliflower, tops and stems, raw",17.0,0.8,11.0,49.0,292.0,30.0,0.0,1.0
+04063,04 VEGETABLES AND VEGETABLE PRODUCTS,"Cauliflower, tops and stems, boiled, drained (without salt)",16.0,0.6,6.0,44.0,146.0,23.0,0.19,0.0
+04013,04 VEGETABLES AND VEGETABLE PRODUCTS,"Celery, stalk, raw",70.0,1.0,19.0,50.0,267.0,28.0,0.21,2.0
+04064,04 VEGETABLES AND VEGETABLE PRODUCTS,"Celery, stalk, boiled, drained (without salt)",74.0,0.8,13.0,50.0,148.0,23.0,0.18,2.0
+04014,04 VEGETABLES AND VEGETABLE PRODUCTS,"Courgette, green, unpeeled, raw",18.0,0.5,16.0,34.0,188.0,1.0,0.33,1.0
+04065,04 VEGETABLES AND VEGETABLE PRODUCTS,"Courgette, green, unpeeled, boiled, drained (without salt)",19.0,0.4,11.0,34.0,104.0,1.0,0.28,1.0
+04015,04 VEGETABLES AND VEGETABLE PRODUCTS,"Cowpea, leaves, picked, raw",188.0,2.7,47.0,17.0,485.0,31.0,1.0,1.0
+04066,04 VEGETABLES AND VEGETABLE PRODUCTS,"Cowpea, leaves, picked, boiled, drained (without salt)",170.0,1.9,27.0,15.0,231.0,22.0,0.53,0.0
+04067,04 VEGETABLES AND VEGETABLE PRODUCTS,"Cowpea, leaves, picked, steamed (without salt)",155.0,1.9,37.0,14.0,358.0,23.0,0.58,0.0
+04016,04 VEGETABLES AND VEGETABLE PRODUCTS,"Cucumber, green, unpeeled, raw",20.0,0.7,14.0,20.0,136.0,22.0,0.18,1.0
+04017,04 VEGETABLES AND VEGETABLE PRODUCTS,"Eggplant / Brinjal, different varieties, whole edible, raw",18.0,0.4,21.0,35.0,200.0,3.0,0.21,1.0
+04068,04 VEGETABLES AND VEGETABLE PRODUCTS,"Eggplant / Brinjal, different varieties, whole edible, boiled, drained (without salt)",19.0,0.3,14.0,34.0,108.0,2.0,0.17,0.0
+04069,04 VEGETABLES AND VEGETABLE PRODUCTS,"Eggplant / Brinjal, different varieties, whole edible, stewed (without salt)",23.0,0.5,26.0,44.0,250.0,4.0,0.26,1.0
+04018,04 VEGETABLES AND VEGETABLE PRODUCTS,"Jute mallow, picked leaves, raw",207.0,6.3,30.0,88.0,283.0,18.0,0.58,1.0
+04070,04 VEGETABLES AND VEGETABLE PRODUCTS,"Jute mallow, picked leaves, boiled, drained (without salt)",207.0,5.0,19.0,84.0,149.0,14.0,0.46,1.0
+04071,04 VEGETABLES AND VEGETABLE PRODUCTS,"Jute mallow, picked leaves, stewed (without salt)",255.0,7.8,37.0,109.0,349.0,23.0,0.72,1.0
+04019,04 VEGETABLES AND VEGETABLE PRODUCTS,"Kale, Ethiopian (kanzera), leaves, raw",117.0,5.7,54.0,51.0,639.0,7.0,0.7,0.0
+04072,04 VEGETABLES AND VEGETABLE PRODUCTS,"Kale, Ethiopian (kanzera), leaves, boiled, drained (without salt)",105.0,4.0,31.0,43.0,304.0,5.0,0.48,0.0
+04073,04 VEGETABLES AND VEGETABLE PRODUCTS,"Kale, Ethiopian (kanzera), leaves, steamed (without salt)",96.0,3.9,42.0,42.0,472.0,5.0,0.52,0.0
+04020,04 VEGETABLES AND VEGETABLE PRODUCTS,Kale (sukuma wiki) raw,402.0,2.8,41.0,67.0,238.0,71.0,0.5,0.0
+04074,04 VEGETABLES AND VEGETABLE PRODUCTS,"Kale (sukuma wiki), boiled, drained (without salt)",364.0,2.0,23.0,57.0,113.0,51.0,0.34,0.0
+04075,04 VEGETABLES AND VEGETABLE PRODUCTS,"Kale (sukuma wiki), steamed (without salt)",332.0,2.0,32.0,55.0,176.0,53.0,0.37,0.0
+04021,04 VEGETABLES AND VEGETABLE PRODUCTS,"Leeks, bulb and stem, raw",78.0,1.8,14.0,54.0,202.0,17.0,0.3,1.0
+04076,04 VEGETABLES AND VEGETABLE PRODUCTS,"Leeks, bulb and stem, boiled, drained (without salt)",90.0,1.6,10.0,58.0,110.0,11.0,0.27,1.0
+04022,04 VEGETABLES AND VEGETABLE PRODUCTS,"Lettuce, not further defined, raw",47.0,1.6,24.0,55.0,201.0,20.0,0.26,1.0
+04023,04 VEGETABLES AND VEGETABLE PRODUCTS,"Mushroom, fresh, raw",16.0,0.3,15.0,105.0,318.0,8.0,0.17,16.0
+04077,04 VEGETABLES AND VEGETABLE PRODUCTS,"Mushroom, fresh, boiled, drained (without salt)",21.0,0.3,12.0,129.0,218.0,8.0,0.17,20.0
+04078,04 VEGETABLES AND VEGETABLE PRODUCTS,"Mushroom, fresh, stewed (without salt)",20.0,0.4,19.0,130.0,393.0,10.0,0.21,20.0
+04024,04 VEGETABLES AND VEGETABLE PRODUCTS,"Mushroom, dried, raw",24.0,5.5,136.0,702.0,326.0,5.0,8.7,0.0
+04079,04 VEGETABLES AND VEGETABLE PRODUCTS,"Mushroom, dried, boiled, drained (without salt)",14.0,2.3,47.0,361.0,93.0,3.0,3.72,0.0
+04025,04 VEGETABLES AND VEGETABLE PRODUCTS,"Mushroom, raw, canned in brine (drained)",4.0,1.0,4.0,54.0,24.0,300.0,0.0,16.0
+04026,04 VEGETABLES AND VEGETABLE PRODUCTS,"Okra, fresh, raw",81.0,0.8,57.0,63.0,303.0,8.0,0.6,1.0
+04080,04 VEGETABLES AND VEGETABLE PRODUCTS,"Okra, fresh, boiled, drained (without salt)",70.0,0.5,31.0,52.0,138.0,5.0,0.41,1.0
+04081,04 VEGETABLES AND VEGETABLE PRODUCTS,"Okra, fresh, stewed (without salt)",84.0,0.7,56.0,65.0,280.0,7.0,0.59,1.0
+04027,04 VEGETABLES AND VEGETABLE PRODUCTS,"Pumpkin, flesh, yellow w/o seeds, raw",17.0,0.2,12.0,31.0,178.0,14.0,0.21,1.0
+04082,04 VEGETABLES AND VEGETABLE PRODUCTS,"Pumpkin, flesh, yellow w/o seeds, boiled, drained (without salt)",18.0,0.2,8.0,30.0,97.0,11.0,0.17,0.0
+04083,04 VEGETABLES AND VEGETABLE PRODUCTS,"Pumpkin, flesh, yellow w/o seeds, boiled, drained (without salt)",15.0,0.2,11.0,27.0,157.0,12.0,0.19,0.0
+04028,04 VEGETABLES AND VEGETABLE PRODUCTS,"Pumpkin, leaves, raw",383.0,5.6,142.0,119.0,423.0,12.0,0.9,1.0
+04084,04 VEGETABLES AND VEGETABLE PRODUCTS,"Pumpkin, leaves, boiled, drained (without salt)",347.0,4.0,81.0,102.0,201.0,9.0,0.64,1.0
+04085,04 VEGETABLES AND VEGETABLE PRODUCTS,"Pumpkin, leaves, steamed (without salt)",316.0,3.9,111.0,98.0,313.0,9.0,0.7,1.0
+04029,04 VEGETABLES AND VEGETABLE PRODUCTS,"Spider plant, leaves, raw",189.0,2.6,48.0,49.0,478.0,19.0,0.76,2.0
+04086,04 VEGETABLES AND VEGETABLE PRODUCTS,"Spider plant, leaves, boiled, drained (without salt)",171.0,1.9,27.0,42.0,228.0,13.0,0.54,2.0
+04087,04 VEGETABLES AND VEGETABLE PRODUCTS,"Spider plant, leaves, steamed (without salt)",156.0,1.8,37.0,40.0,353.0,14.0,0.59,1.0
+04030,04 VEGETABLES AND VEGETABLE PRODUCTS,"Spinach, leaves, raw",131.0,1.7,72.0,28.0,570.0,59.0,1.0,1.0
+04088,04 VEGETABLES AND VEGETABLE PRODUCTS,"Spinach, leaves, boiled, drained (without salt)",131.0,1.4,45.0,27.0,300.0,46.0,0.47,0.0
+04089,04 VEGETABLES AND VEGETABLE PRODUCTS,"Spinach, leaves, stewed (without salt)",161.0,2.1,89.0,35.0,704.0,72.0,0.74,1.0
+04031,04 VEGETABLES AND VEGETABLE PRODUCTS,"Spinach, Swiss chard, leaves, raw",117.0,4.4,78.0,50.0,348.0,892.0,0.73,1.0
+04090,04 VEGETABLES AND VEGETABLE PRODUCTS,"Spinach, Swiss chard, leaves, boiled, drained (without salt)",117.0,3.5,49.0,47.0,183.0,704.0,0.58,1.0
+04091,04 VEGETABLES AND VEGETABLE PRODUCTS,"Spinach, Swiss chard, leaves, stewed (without salt)",144.0,5.4,96.0,62.0,430.0,1101.0,0.9,1.0
+04032,04 VEGETABLES AND VEGETABLE PRODUCTS,"Squash, butternut, peeled, flesh, raw",18.0,1.0,16.0,19.0,332.0,7.7,0.2,1.0
+04092,04 VEGETABLES AND VEGETABLE PRODUCTS,"Squash, butternut, peeled, flesh, boiled, drained (without salt)",19.0,0.8,11.0,20.0,186.0,7.0,0.16,1.0
+04093,04 VEGETABLES AND VEGETABLE PRODUCTS,"Squash, butternut, peeled, flesh, steamed (without salt)",19.0,0.9,16.0,21.0,317.0,7.0,0.2,1.0
+04094,04 VEGETABLES AND VEGETABLE PRODUCTS,"Squash, butternut, peeled, flesh, baked (without salt)",21.0,1.2,19.0,23.0,390.0,9.0,0.23,1.0
+04033,04 VEGETABLES AND VEGETABLE PRODUCTS,"Stinging nettle, leaves, raw",668.0,7.2,133.0,122.0,524.0,36.0,1.0,2.0
+04095,04 VEGETABLES AND VEGETABLE PRODUCTS,"Stinging nettle, leaves, boiled, drained (without salt)",604.0,5.2,76.0,105.0,250.0,26.0,0.49,2.0
+04096,04 VEGETABLES AND VEGETABLE PRODUCTS,"Stinging nettle, leaves, steamed (without salt)",552.0,5.0,104.0,101.0,387.0,27.0,0.54,2.0
+04034,04 VEGETABLES AND VEGETABLE PRODUCTS,Sweet Potato (Leaves),118.0,1.0,61.0,30.0,620.0,6.0,0.29,1.0
+04035,04 VEGETABLES AND VEGETABLE PRODUCTS,"Tomato, green, raw",8.0,0.4,14.0,23.0,225.0,13.0,0.2,8.0
+04097,04 VEGETABLES AND VEGETABLE PRODUCTS,"Tomato, green, boiled, drained (without salt)",10.0,0.4,10.0,26.0,144.0,13.0,0.15,10.0
+04036,04 VEGETABLES AND VEGETABLE PRODUCTS,"Tomato, red, ripe, raw",8.0,0.9,9.5,25.0,126.0,21.0,0.37,0.0
+04098,04 VEGETABLES AND VEGETABLE PRODUCTS,"Tomato, red, ripe, boiled, drained (without salt)",10.0,0.8,7.0,28.0,81.0,20.0,0.35,0.0
+04037,04 VEGETABLES AND VEGETABLE PRODUCTS,"Tomato, canned, whole contents",22.0,0.6,11.0,20.0,204.0,68.0,0.16,1.0
+04038,04 VEGETABLES AND VEGETABLE PRODUCTS,"Vine (African) spinach, picked leaves, raw",267.0,10.9,40.0,56.0,446.0,8.0,0.5,0.0
+04099,04 VEGETABLES AND VEGETABLE PRODUCTS,"Vine (African) spinach, picked leaves, boiled, drained (without salt)",267.0,8.6,25.0,53.0,234.0,6.0,0.36,0.0
+05001,05 FRUITS,"Apple, green skin, unpeeled, raw",6.0,0.4,4.0,10.0,99.0,2.0,0.07,1.0
+05002,05 FRUITS,"Apple, red, unpeeled, raw",6.0,0.3,4.0,9.0,100.0,1.0,0.07,1.0
+05003,05 FRUITS,"Avocado, ripe, raw",19.0,1.0,25.0,41.0,281.0,7.0,0.39,0.0
+05004,05 FRUITS,"Banana, cavendish, raw",10.0,0.3,26.0,37.0,187.0,0.0,0.36,0.0
+05005,05 FRUITS,"Baobab fruit, powderly part, dry, raw",283.0,5.0,108.0,56.0,1613.0,56.0,0.88,24.0
+05006,05 FRUITS,"Custard apple, peeled, raw",28.0,0.4,38.0,22.0,278.0,3.0,0.0,0.0
+05007,05 FRUITS,"Date, dried",82.0,2.6,50.0,72.0,730.0,14.0,0.6,3.0
+05008,05 FRUITS,"Date, raw",34.0,0.3,24.0,28.0,410.0,7.0,0.2,1.0
+05009,05 FRUITS,"Doumpalm fruit, raw",73.0,18.0,53.0,45.0,862.0,0.47,3.4,
+05010,05 FRUITS,"Grapes, green, raw",14.0,0.3,7.1,24.0,171.0,3.0,0.1,0.0
+05011,05 FRUITS,"Guava, pink-fleshed, raw",20.0,0.4,18.0,31.0,334.0,1.0,0.26,0.0
+05012,05 FRUITS,"Jackfruit, fruit, yellow-fleshed, peeled, raw",35.0,0.0,32.0,23.0,279.0,2.0,0.76,0.0
+05013,05 FRUITS,"Lemon, juice, home squeezed",20.0,0.3,12.0,10.0,120.0,2.0,0.0,0.0
+05014,05 FRUITS,"Lemon peel, raw",134.0,0.8,15.0,12.0,160.0,6.0,0.25,1.0
+05015,05 FRUITS,"Lemon, pulp, raw",33.0,0.3,15.0,16.0,120.0,2.0,0.1,0.0
+05016,05 FRUITS,"Lime, juice",26.0,0.3,11.0,20.0,150.0,3.0,0.0,0.0
+05017,05 FRUITS,"Lime, pulp, raw",22.0,0.0,11.0,20.0,150.0,3.0,0.1,0.0
+05018,05 FRUITS,"Loquat, peeled, raw",13.0,0.5,13.0,20.0,180.0,2.0,0.22,0.0
+05019,05 FRUITS,"Mango, ripe, raw",14.0,0.2,9.0,17.0,186.0,1.0,0.14,1.0
+05020,05 FRUITS,"Mango, unripe, raw",27.0,0.4,18.0,15.0,147.0,26.0,0.09,0.0
+05021,05 FRUITS,"Mulberry, raw",55.0,1.2,19.0,40.0,310.0,6.0,0.2,1.0
+05022,05 FRUITS,"Orange, Juice",21.0,0.7,11.0,20.0,146.0,2.0,0.08,0.0
+05023,05 FRUITS,"Orange, pulp, raw",23.0,0.2,10.0,13.0,165.0,5.0,0.05,0.0
+05024,05 FRUITS,"Papaya, yellow skin, peeled, raw",21.0,0.6,28.0,17.0,140.0,4.0,0.2,0.0
+05025,05 FRUITS,"Passion fruit, dark purple skin, raw",10.0,0.6,28.0,68.0,200.0,19.0,0.8,1.0
+05026,05 FRUITS,"Passion Fruit, juice",13.0,0.4,21.0,20.0,252.0,10.0,0.3,0.0
+05027,05 FRUITS,"Peach, yellow-fleshed, unpeeled, raw",5.0,0.3,8.0,20.0,203.0,2.0,0.11,1.0
+05028,05 FRUITS,"Pear, unpeeled, raw",8.0,0.3,7.0,11.0,96.0,1.0,0.08,0.0
+05029,05 FRUITS,"Pineapple, canned in syrup, whole contents",4.0,0.4,11.0,3.0,80.0,6.0,0.0,1.0
+05030,05 FRUITS,"Pineapple, raw",16.0,0.4,13.0,8.0,143.0,1.0,0.37,1.0
+05031,05 FRUITS,"Plum, purple skin, raw",10.0,0.4,7.0,12.0,158.0,1.0,0.1,0.0
+05032,05 FRUITS,"Pomegranate, raw",12.0,0.8,9.0,37.0,172.0,4.0,0.4,1.0
+05033,05 FRUITS,"Raspberry, raw",27.0,0.8,25.0,37.0,156.0,1.0,0.32,1.0
+05034,05 FRUITS,"Strawberry, raw",19.0,0.6,8.0,27.0,158.0,3.0,0.18,1.0
+05035,05 FRUITS,"Tangerine, juice, non-commercial",12.0,0.2,11.0,20.0,178.0,1.0,0.03,0.1
+05036,05 FRUITS,"Tangerine, pulp, raw",26.0,0.0,17.0,17.0,150.0,2.0,0.1,1.0
+05037,05 FRUITS,"Tree tomato, dark red skin, peeled, raw",56.0,1.0,19.0,51.0,133.0,20.0,0.4,0.0
+05038,05 FRUITS,"Watermelon, fruit, green with white stripes, raw",4.0,0.7,10.0,20.0,88.0,2.0,0.21,0.0
+05039,05 FRUITS,"Zambarau, peeled, raw",44.0,0.5,17.0,17.0,72.0,11.0,0.42,1.0
+06002,06 MILK AND MILK PRODUCTS,"Butter (cow milk), salted (~80% fat)",17.0,0.01,2.0,16.0,23.0,776.0,0.06,1.0
+06004,06 MILK AND MILK PRODUCTS,"Cheese, cottage (cow milk), plain, skimmed",60.0,0.1,8.0,143.0,123.0,450.0,0.24,6.0
+06006,06 MILK AND MILK PRODUCTS,"Cheese, cottage, Milk, Cow, Sour",112.0,0.7,8.0,180.0,104.0,364.0,0.4,10.0
+06008,06 MILK AND MILK PRODUCTS,Ghee (cow milk),2.0,0.2,0.0,3.0,5.0,2.0,0.01,1.0
+06010,06 MILK AND MILK PRODUCTS,"Ice cream, chocolate flavour, regular fat",130.0,0.9,30.0,110.0,245.0,71.0,0.6,2.0
+06012,06 MILK AND MILK PRODUCTS,"Ice cream, vanilla flavour, regular fat",117.0,0.2,12.0,84.0,142.0,64.0,0.23,1.0
+06014,06 MILK AND MILK PRODUCTS,"Milk, camel, whole, fresh, raw",56.0,1.5,16.0,92.0,344.0,119.0,0.35,2.0
+06027,06 MILK AND MILK PRODUCTS,"Milk, camel, whole, fresh, boiled",66.0,1.7,18.0,108.0,404.0,140.0,0.41,2.0
+06015,06 MILK AND MILK PRODUCTS,"Milk, cow, condensed, skimmed, sweetened, raw",358.0,0.3,30.0,300.0,446.0,125.0,1.05,8.0
+06017,06 MILK AND MILK PRODUCTS,"Milk, cow, powder, skimmed",1290.0,0.4,115.0,1000.0,1602.0,550.0,3.83,23.0
+06019,06 MILK AND MILK PRODUCTS,"Milk, cow, skimmed, raw",130.0,0.1,12.0,109.0,170.0,44.0,0.32,1.0
+06028,06 MILK AND MILK PRODUCTS,"Milk, cow, skimmed, boiled",153.0,0.1,14.0,128.0,200.0,52.0,0.38,1.0
+06020,06 MILK AND MILK PRODUCTS,"Milk, cow, whole, fermented (Lala - Industrial)",100.0,0.1,10.0,138.0,126.0,36.0,0.34,3.0
+06022,06 MILK AND MILK PRODUCTS,"Milk, cow, whole, fresh, raw",119.0,0.1,11.0,122.0,136.0,39.0,0.63,3.0
+06023,06 MILK AND MILK PRODUCTS,"Milk, goat, fluid, whole, raw",180.0,0.1,12.0,128.0,207.0,57.0,0.35,1.0
+06030,06 MILK AND MILK PRODUCTS,"Milk, goat, fluid, whole, boiled",211.0,0.1,14.0,150.0,243.0,68.0,0.41,1.0
+06024,06 MILK AND MILK PRODUCTS,"Milk, human/breast, mature, fluid",32.0,0.0,3.0,15.0,51.0,14.0,0.17,2.0
+06031,06 MILK AND MILK PRODUCTS,"Milk, sheep, fluid, whole, boiled",227.0,0.1,21.0,166.0,206.0,52.0,0.64,2.0
+07001,"07 MEATS, POULTRY AND EGGS","Beef, high fat, w/o bones, raw",16.0,2.2,12.0,188.0,134.0,83.0,3.0,1.0
+07031,"07 MEATS, POULTRY AND EGGS","Beef, high fat, w/o bones, boiled (without salt)",21.0,3.7,12.0,203.0,112.0,62.0,5.0,1.0
+07032,"07 MEATS, POULTRY AND EGGS","Beef, high fat, w/o bones, grilled (without salt and fat)",20.0,3.0,14.0,235.0,158.0,98.0,4.17,1.0
+07033,"07 MEATS, POULTRY AND EGGS","Beef, high fat, w/o bones, stewed (without salt)",21.0,3.5,12.0,235.0,105.0,58.0,4.69,1.0
+07002,"07 MEATS, POULTRY AND EGGS","Beef, lean, raw",5.0,2.3,24.0,279.0,241.0,107.0,4.22,15.0
+07034,"07 MEATS, POULTRY AND EGGS","Beef, lean, boiled (without salt)",7.0,4.7,30.0,370.0,246.0,99.0,8.62,30.0
+07035,"07 MEATS, POULTRY AND EGGS","Beef, lean, grilled (without salt and fat)",6.0,3.1,29.0,349.0,285.0,127.0,5.87,20.0
+07036,"07 MEATS, POULTRY AND EGGS","Beef, lean, stewed (without salt)",7.0,4.4,30.0,421.0,228.0,91.0,7.97,28.0
+07003,"07 MEATS, POULTRY AND EGGS","Beef, liver, raw",6.0,10.1,17.0,369.0,159.0,75.0,4.12,17.0
+07037,"07 MEATS, POULTRY AND EGGS","Beef, liver, boiled (without salt)",7.0,14.6,20.0,391.0,145.0,68.0,6.25,25.0
+07004,"07 MEATS, POULTRY AND EGGS","Beef, medium fat, w/o bones, raw",4.0,12.4,24.0,280.0,231.0,121.0,3.85,20.0
+07038,"07 MEATS, POULTRY AND EGGS","Beef, medium fat, without bones, boiled (without salt)",5.0,20.7,24.0,303.0,192.0,91.0,6.41,34.0
+07039,"07 MEATS, POULTRY AND EGGS","Beef, medium fat, without bones, grilled (without salt and fat)",5.0,16.3,28.0,350.0,272.0,143.0,5.34,28.0
+07040,"07 MEATS, POULTRY AND EGGS","Beef, medium fat, without bones, stewed (without salt)",5.0,19.4,24.0,350.0,180.0,85.0,6.01,32.0
+07005,"07 MEATS, POULTRY AND EGGS","Camel blood, raw**",8.0,20.6,6.0,33.0,114.0,313.0,0.65,12.0
+07006,"07 MEATS, POULTRY AND EGGS","Camel Meat, raw",4.0,3.8,13.0,134.0,325.0,49.0,1.93,9.0
+07007,"07 MEATS, POULTRY AND EGGS","Cow’s blood, raw**",14.0,18.8,5.0,20.0,199.0,469.0,1.13,21.0
+07008,"07 MEATS, POULTRY AND EGGS","Duck, meat and skin, fresh, raw",5.0,1.9,15.0,167.0,212.0,82.0,1.55,20.0
+07009,"07 MEATS, POULTRY AND EGGS","Chicken, unespecified part, w/o bone, meat&skin, raw",13.0,2.5,20.0,243.0,152.0,68.0,0.89,16.0
+07041,"07 MEATS, POULTRY AND EGGS","Chicken, unspecified part, w/o bone, meat&skin, boiled (without salt)",14.0,2.5,18.0,215.0,77.0,34.0,1.13,21.0
+07042,"07 MEATS, POULTRY AND EGGS","Chicken, unspecified part, w/o bone, meat&skin, grilled (without salt and fat)",15.0,2.9,19.0,249.0,156.0,70.0,1.14,21.0
+07010,"07 MEATS, POULTRY AND EGGS","Egg, chicken, white (albumen), raw",5.0,0.1,11.0,10.0,119.0,143.0,0.0,11.0
+07011,"07 MEATS, POULTRY AND EGGS","Egg, chicken, whole, raw",54.0,1.7,14.0,180.0,126.0,155.0,1.13,23.0
+07027,"07 MEATS, POULTRY AND EGGS","Egg, chicken, whole, boiled (without salt)",51.0,1.6,13.0,171.0,120.0,147.0,1.07,21.0
+07028,"07 MEATS, POULTRY AND EGGS","Egg, chicken, whole, poached (without salt)",58.0,1.9,15.0,194.0,136.0,167.0,1.21,24.0
+07012,"07 MEATS, POULTRY AND EGGS","Egg, chicken, yolk, raw",130.0,6.0,8.0,398.0,104.0,50.0,2.5,56.0
+07029,"07 MEATS, POULTRY AND EGGS","Egg, chicken, yolk, boiled (without salt)",124.0,5.7,8.0,378.0,99.0,48.0,2.38,53.0
+07013,"07 MEATS, POULTRY AND EGGS","Goat blood, raw",8.0,27.2,6.0,23.0,169.0,216.0,0.65,12.0
+07014,"07 MEATS, POULTRY AND EGGS","Goat, lean, raw",10.0,7.2,29.0,276.0,243.0,156.0,3.66,22.0
+07043,"07 MEATS, POULTRY AND EGGS","Goat, lean, boiled (without salt)",12.0,9.9,34.0,317.0,217.0,137.0,5.46,33.0
+07044,"07 MEATS, POULTRY AND EGGS","Goat, lean, grilled (without salt and fat)",14.0,9.6,35.0,332.0,281.0,189.0,5.03,32.0
+07015,"07 MEATS, POULTRY AND EGGS","Goat liver, raw",12.0,6.6,18.0,308.0,225.0,64.0,3.48,48.0
+07045,"07 MEATS, POULTRY AND EGGS","Goat, liver, boiled (without salt)",,14.0,9.4,22.0,326.0,205.0,58.0,5.27
+07016,"07 MEATS, POULTRY AND EGGS","Goat, medium fat, raw",,10.0,1.9,22.0,237.0,198.0,121.0,3.26
+07046,"07 MEATS, POULTRY AND EGGS","Goat, medium fat, boiled (without salt)",,12.0,2.7,25.0,273.0,177.0,106.0,4.86
+07047,"07 MEATS, POULTRY AND EGGS","Goat, medium fat, grilled (without salt and fat)",,14.0,2.6,26.0,286.0,229.0,147.0,4.48
+07017,"07 MEATS, POULTRY AND EGGS","Guinea fowl, meat, with skin",,31.0,2.2,21.0,187.0,240.0,58.0,1.48
+07018,"07 MEATS, POULTRY AND EGGS","Lamb liver, raw",,10.0,8.3,18.0,413.0,326.0,67.0,4.22
+07048,"07 MEATS, POULTRY AND EGGS","Lamb, liver, boiled (without salt)",,12.0,12.0,22.0,438.0,296.0,61.0,6.39
+07049,"07 MEATS, POULTRY AND EGGS","Lamb, unspecified part, boiled (without salt)",14.0,2.5,21.0,179.0,189.0,54.0,4.97,30.0
+07050,"07 MEATS, POULTRY AND EGGS","Lamb, unspecified part, grilled (without salt and fat)",17.0,2.3,27.0,185.0,283.0,74.0,4.83,29.0
+07020,"07 MEATS, POULTRY AND EGGS","Pork, meat,raw (unspecified part)",25.0,1.1,13.0,178.0,253.0,58.0,1.59,28.0
+07051,"07 MEATS, POULTRY AND EGGS","Pork, meat, unspecified part, boiled (without salt)",30.0,1.8,12.0,164.0,195.0,40.0,2.45,44.0
+07052,"07 MEATS, POULTRY AND EGGS","Pork, meat, unspecified part, grilled (without salt and fat)",26.0,1.3,18.0,228.0,307.0,75.0,2.27,41.0
+07021,"07 MEATS, POULTRY AND EGGS","Rabbit meat, raw",12.0,1.0,18.0,290.0,370.0,53.0,1.6,25.0
+07053,"07 MEATS, POULTRY AND EGGS","Rabbit meat, stewed (without salt)",15.0,1.5,17.0,341.0,299.0,47.0,2.35,37.0
+07054,"07 MEATS, POULTRY AND EGGS","Rabbit meat, roasted (without salt and fat)",13.0,1.1,17.0,280.0,336.0,51.0,1.82,28.0
+07022,"07 MEATS, POULTRY AND EGGS","Sausage, beef, raw",42.0,1.0,26.0,492.0,279.0,679.0,3.42,79.0
+07055,"07 MEATS, POULTRY AND EGGS","Sausage, beef, grilled (without salt and fat)",57.0,1.6,35.0,623.0,316.0,815.0,4.55,106.0
+07023,"07 MEATS, POULTRY AND EGGS","Sausage, frankfurters",78.0,1.5,11.0,150.0,75.0,1000.0,2.3,7.0
+07056,"07 MEATS, POULTRY AND EGGS","Sausage, frankfurters, boiled (without salt)",68.0,1.5,11.0,155.0,66.0,876.0,2.37,7.0
+07024,"07 MEATS, POULTRY AND EGGS","Sausage, liver, raw",30.0,6.4,12.0,230.0,170.0,900.0,2.3,58.0
+07057,"07 MEATS, POULTRY AND EGGS","Sausage, liver, grilled (without salt and fat)",40.0,8.5,16.0,291.0,193.0,1080.0,3.07,77.0
+07025,"07 MEATS, POULTRY AND EGGS","Sausage, pork, raw",25.0,1.1,15.0,160.0,160.0,720.0,1.7,26.0
+07058,"07 MEATS, POULTRY AND EGGS","Sausage, pork, boiled (without salt)",23.0,1.1,16.0,174.0,148.0,665.0,1.85,28.0
+07059,"07 MEATS, POULTRY AND EGGS","Sausage, pork, grilled (without salt and fat)",34.0,1.5,21.0,211.0,189.0,900.0,2.36,36.0
+07026,"07 MEATS, POULTRY AND EGGS","Quail, flesh & skin, raw",10.0,2.6,24.0,243.0,358.0,49.0,1.58,16.0
+08001,08 FISH AND SEAFOOD,"Cod, fillet, raw",15.0,0.2,26.0,209.0,367.0,79.0,0.37,27.0
+08015,08 FISH AND SEAFOOD,"Cod, fillet, steamed (without salt)",18.0,0.2,27.0,217.0,336.0,82.0,0.45,29.0
+08016,08 FISH AND SEAFOOD,"Cod, fillet, grilled (without salt and fat)",20.0,0.2,31.0,251.0,416.0,90.0,0.49,35.0
+08017,08 FISH AND SEAFOOD,"Cod, fillet, boiled in recipe (without salt and fat)",18.0,0.3,31.0,255.0,448.0,97.0,0.45,32.0
+08002,08 FISH AND SEAFOOD,"Dagaa fish (omena), dried, raw",2790.0,6.9,98.0,2730.0,800.0,300.0,16.0,22.0
+08018,08 FISH AND SEAFOOD,"Dagaa fish (omena), dried, stewed (without salt)",1270.0,3.1,44.0,1240.0,364.0,136.0,7.39,10.0
+08003,08 FISH AND SEAFOOD,"Eel, raw",20.0,0.6,20.0,216.0,272.0,70.5,1.62,6.5
+08019,08 FISH AND SEAFOOD,"Eel, steamed (without salt)",24.0,0.6,20.0,221.0,246.0,72.0,1.95,7.0
+08020,08 FISH AND SEAFOOD,"Eel, grilled (without salt and fat)",26.0,0.7,23.0,252.0,300.0,78.0,2.1,8.0
+08021,08 FISH AND SEAFOOD,"Eel, boiled in recipe (without salt and fat)",24.0,0.7,24.0,260.0,328.0,85.0,1.95,8.0
+08004,08 FISH AND SEAFOOD,"Herring stock, raw",67.0,1.1,32.0,250.0,357.0,95.0,0.81,36.0
+08022,08 FISH AND SEAFOOD,"Herring stock, steamed (without salt)",80.0,1.1,33.0,256.0,322.0,97.0,0.97,39.0
+08023,08 FISH AND SEAFOOD,"Herring stock, grilled (without salt)",87.0,1.3,37.0,292.0,394.0,105.0,1.05,47.0
+08024,08 FISH AND SEAFOOD,"Herring stock, boiled in recipe (without salt and fat)",80.0,1.4,39.0,301.0,430.0,114.0,0.97,43.0
+08005,08 FISH AND SEAFOOD,"Lungfish, fillet, raw",180.0,2.6,20.0,253.0,168.0,91.0,1.12,24.0
+08025,08 FISH AND SEAFOOD,"Lungfish, fillet, steamed (without salt)",217.0,2.5,21.0,259.0,152.0,93.0,1.34,26.0
+08026,08 FISH AND SEAFOOD,"Lungfish, fillet, grilled (without salt and fat)",234.0,2.9,24.0,296.0,185.0,100.0,1.45,31.0
+08027,08 FISH AND SEAFOOD,"Lungfish, fillet, boiled in recipe (without salt and fat)",217.0,3.2,24.0,305.0,202.0,109.0,1.34,28.0
+08006,08 FISH AND SEAFOOD,"Mudfish (kamongo), fillet, raw",23.0,0.5,24.0,180.0,301.0,41.0,1.07,38.0
+08028,08 FISH AND SEAFOOD,"Mudfish (kamongo), fillet, steamed (without salt)",28.0,0.5,24.0,184.0,272.0,42.0,1.29,41.0
+08029,08 FISH AND SEAFOOD,"Mudfish (kamongo), fillet, grilled (without salt and fat)",30.0,0.6,28.0,210.0,333.0,45.0,1.39,49.0
+08030,08 FISH AND SEAFOOD,"Mudfish (kamongo), fillet, boiled in recipe (without salt and fat)",28.0,0.7,29.0,217.0,363.0,49.0,1.29,46.0
+08007,08 FISH AND SEAFOOD,"Mackerel, raw",23.0,0.9,33.0,215.0,395.0,66.0,0.52,48.0
+08008,08 FISH AND SEAFOOD,"Nile perch, dry, raw",516.0,4.0,112.0,1092.0,859.0,376.0,2.0,84.0
+08009,08 FISH AND SEAFOOD,"Nile perch, fillet w/o bones, raw",133.0,1.0,29.0,282.0,222.0,97.0,0.56,22.0
+08010,08 FISH AND SEAFOOD,"Nile tilapia, fillet, w/o skin and bones, raw",109.0,2.7,17.0,167.0,151.0,64.0,0.5,17.0
+08011,08 FISH AND SEAFOOD,"Prawns, flesh, raw",59.0,1.5,43.0,246.0,252.0,191.0,1.43,42.0
+08031,08 FISH AND SEAFOOD,"Prawns, fresh, steamed (without salt)",71.0,1.4,44.0,252.0,228.0,196.0,1.72,45.0
+08032,08 FISH AND SEAFOOD,"Prawns, fresh, grilled (without salt and fat)",69.0,1.7,50.0,286.0,293.0,223.0,1.66,48.0
+08033,08 FISH AND SEAFOOD,"Prawns, fresh, boiled in recipe (without salt and fat)",71.0,1.5,47.0,267.0,258.0,196.0,1.72,50.0
+08012,08 FISH AND SEAFOOD,"Sardine, flesh, raw",42.0,1.3,36.0,256.0,364.0,38.0,1.2,50.0
+08034,08 FISH AND SEAFOOD,"Sardine, fresh, steamed (without salt)",50.0,1.2,36.0,256.0,321.0,38.0,1.45,53.0
+08035,08 FISH AND SEAFOOD,"Sardine, fresh, grilled (without salt and fat)",58.0,1.5,44.0,316.0,423.0,45.0,1.68,69.0
+08036,08 FISH AND SEAFOOD,"Sardine, fresh, boiled in recipe (without salt and fat)",50.0,1.6,42.0,301.0,428.0,45.0,1.45,59.0
+08013,08 FISH AND SEAFOOD,"Shark, raw",8.0,0.38,32.58,263.0,372.0,63.63,0.46,28.9
+08037,08 FISH AND SEAFOOD,"Shark, steamed (without salt)",10.0,0.4,33.0,269.0,336.0,65.0,0.55,31.0
+08038,08 FISH AND SEAFOOD,"Shark, grilled (without salt and fat)",11.0,0.4,38.0,307.0,411.0,70.0,0.6,38.0
+08039,08 FISH AND SEAFOOD,"Shark, boiled in recipe (without salt and fat)",10.0,0.5,39.0,316.0,448.0,77.0,0.55,35.0
+08014,08 FISH AND SEAFOOD,"Tuna, raw",5.0,0.8,41.0,266.0,379.0,50.0,0.46,73.0
+08040,08 FISH AND SEAFOOD,"Tuna, steamed (without salt)",7.0,0.8,44.0,283.0,355.0,53.0,0.57,83.0
+08041,08 FISH AND SEAFOOD,"Tuna, grilled (without salt and fat)",7.0,1.0,50.0,324.0,435.0,57.0,0.62,99.0
+08042,08 FISH AND SEAFOOD,"Tuna, boiled in recipe (without salt and fat)",7.0,1.0,52.0,333.0,474.0,63.0,0.57,92.0
+09002,09 OILS AND FATS,Corn oil,0.0,0.0,0.0,0.0,0.0,0.0,0.01,0.0
+09004,09 OILS AND FATS,"Margarine,20% fat",0.0,0.0,1.0,14.0,25.0,733.0,0.0,0.0
+09006,09 OILS AND FATS,"Margarine,80% fat",10.0,0.0,2.0,10.0,5.0,300.0,0.0,0.0
+09008,09 OILS AND FATS,Olive oil,0.0,0.0,0.0,1.0,0.0,0.0,0.01,0.0
+09010,09 OILS AND FATS,Red palm oil,6.0,0.0,0.0,7.0,0.0,0.0,0.0,0.0
+09012,09 OILS AND FATS,Soya bean oil,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+10002,10 NUTS AND SEEDS,"Coconut, fresh, mature fruit, flesh",18.0,2.3,47.0,146.0,125.0,29.0,0.73,3.0
+10004,10 NUTS AND SEEDS,"Coconut meat, dried (desiccated)",25.7,2.7,88.8,210.0,536.0,36.5,2.0,3.0
+10006,10 NUTS AND SEEDS,"Mustard seeds, dry, raw",433.0,16.0,220.0,587.0,380.0,2.0,3.9,70.0
+10008,10 NUTS AND SEEDS,"Nut, cashew, dry, raw, unsalted",33.0,4.9,244.0,578.0,536.0,11.0,5.36,32.0
+10010,10 NUTS AND SEEDS,"Nut, macadamia, raw, unsalted",44.0,2.2,100.0,276.0,308.0,5.0,1.3,10.0
+10012,10 NUTS AND SEEDS,Peanut Butter,117.0,5.5,225.0,232.0,630.0,1.0,2.24,12.0
+10014,10 NUTS AND SEEDS,"Seed, sesame (sim sim) unsalted, dry, raw",1430.0,9.7,333.0,803.0,322.0,7.0,1.72,21.0
+10016,10 NUTS AND SEEDS,"Water Melon, Seed Kernel, Dry, Raw",69.0,7.1,513.0,706.0,433.0,99.0,3.4,10.0
+11002,11 SUGAR AND SWEETENED PRODUCTS,"Sugarcane, Juice, Raw",10.0,1.1,13.0,22.0,150.0,1.0,0.14,0.0
+12002,12 BEVERAGES,"Coconut, fresh, water",24.0,0.2,11.0,14.0,130.0,5.0,0.13,1.0
+12004,12 BEVERAGES,"Drinking chocolate, powder",60.0,2.0,98.0,128.0,591.0,120.0,1.55,3.0
+12006,12 BEVERAGES,"Water, tap",3.0,0.0,1.0,0.0,1.0,3.0,0.0,0.2
+12007,12 BEVERAGES,"Wine, Red (9.4 % alcohol)",8.0,0.3,11.0,16.0,89.0,10.0,0.07,1.0
+12008,12 BEVERAGES,"Wine, White, Dry (10.3 % alcohol)",8.0,0.5,8.0,12.0,54.0,14.0,0.08,1.0
+12009,12 BEVERAGES,"Wine, White, Sweet (10.2 % alcohol)",10.0,0.6,9.0,16.0,81.0,20.0,0.08,1.0
+13002,13 CONDIMENTS AND SPICES,"Baking powder, dry powder",4280.0,9.7,34.0,8410.0,10200.0,8850.0,0.89,0.0
+13004,13 CONDIMENTS AND SPICES,"Bay leaf, dried",832.0,43.0,120.0,112.0,530.0,23.0,3.7,3.0
+13006,13 CONDIMENTS AND SPICES,"Chilli, fresh, raw",15.0,1.2,30.0,51.0,320.0,3.0,0.27,1.0
+13008,13 CONDIMENTS AND SPICES,"Cinnamon, dried, ground",1183.0,8.3,54.0,21.0,482.0,17.0,2.0,3.0
+13010,13 CONDIMENTS AND SPICES,"Coconut, Milk",5.0,0.5,10.0,43.0,131.0,19.0,0.26,2.0
+13012,13 CONDIMENTS AND SPICES,"Coriander seed, dried, ground",613.0,20.1,245.0,347.0,1189.0,27.0,3.6,24.9
+13014,13 CONDIMENTS AND SPICES,"Curry leaves, fresh, raw",740.0,6.9,201.0,70.0,584.0,19.0,1.18,17.0
+13016,13 CONDIMENTS AND SPICES,"Fenugreek leaves, fresh, raw",185.0,7.8,61.0,48.0,96.0,66.0,0.54,4.0
+13018,13 CONDIMENTS AND SPICES,Garam masala,760.0,32.6,330.0,390.0,1450.0,97.0,3.8,17.0
+13020,13 CONDIMENTS AND SPICES,"Ginger, dried, ground",152.0,24.3,335.0,310.0,1225.0,50.0,3.72,55.0
+13022,13 CONDIMENTS AND SPICES,"Mint Leaves, fresh, raw",200.0,3.6,34.0,62.0,380.0,28.0,0.8,1.0
+13024,13 CONDIMENTS AND SPICES,"Onion, spring, raw",44.0,1.3,14.0,34.0,225.0,12.0,0.3,1.0
+13026,13 CONDIMENTS AND SPICES,"Pepper, ground, black, dry, raw",463.0,19.4,253.0,188.0,576.0,25.0,1.28,3.0
+13028,13 CONDIMENTS AND SPICES,"Spice, mixed or all spice",727.0,35.5,203.0,277.0,1440.0,90.0,3.65,3.0
+13030,13 CONDIMENTS AND SPICES,"Tamarind , fruit, fresh, raw",105.0,9.2,83.0,105.0,836.0,25.0,0.58,2.0
+13032,13 CONDIMENTS AND SPICES,"Tomato, paste, with added salt",30.0,1.7,43.0,71.0,911.0,630.0,0.57,4.0
+13034,13 CONDIMENTS AND SPICES,"Turmeric, dried, ground",500.0,39.0,225.0,284.0,1250.0,25.0,3.6,4.3
+14002,14 INSECTS,"Grasshopper, Green, Fresh, Raw",9.0,5.6,11.0,47.0,125.0,121.0,5.81,
+14004,14 INSECTS,"Termite, Fresh, Raw",1460.0,8.3,15.0,780.0,200.0,4.0,,
+15002,15 MIXED DISHES,"Sorghum, Finger Millet and Maize Porridge",33.0,0.5,14.0,47.0,57.0,10.0,0.27,2.0
+15004,15 MIXED DISHES,Mahamri (Swahili Doughnuts),20.0,2.8,19.0,113.0,101.0,4.0,0.56,0.0
+15006,15 MIXED DISHES,Maize and Finger Millet Flour Ugali,79.0,2.9,48.0,112.0,158.0,6.0,0.73,5.0
+15008,15 MIXED DISHES,Cassava and Red Sorghum Ugali,24.0,0.9,38.0,74.0,163.0,9.0,0.5,5.0
+15010,15 MIXED DISHES,"Sorghum, Maize flour & Finger Millet Ugali",26.0,1.3,33.0,61.0,92.0,5.0,0.44,5.0
+15012,15 MIXED DISHES,"Cassava, Millet & Sorghum Porridge",18.0,0.4,10.0,15.0,47.0,6.0,0.12,1.0
+15014,15 MIXED DISHES,Finger Millet Porridge (Uji wa Wimbi),35.0,1.1,16.0,17.0,52.0,4.0,0.16,2.0
+15016,15 MIXED DISHES,Rice Flour Porridge (Uji wa Mchele),4.0,0.1,5.0,17.0,26.0,5.0,0.11,1.0
+15018,15 MIXED DISHES,“Busara” (Whole Maize and Finger Millet Porridge),60.0,1.9,20.0,32.0,41.0,4.0,0.22,2.0
+15020,15 MIXED DISHES,Brown Chapati,23.0,2.4,76.0,182.0,213.0,120.0,1.5,25.0
+15022,15 MIXED DISHES,Fried Egg (Mayai ya Kukaangwa),56.0,1.8,14.0,186.0,132.0,717.0,1.16,23.0
+15024,15 MIXED DISHES,Spanish Omelette,35.0,1.3,13.0,112.0,135.0,409.0,0.75,12.0
+15026,15 MIXED DISHES,Vegetable Samosa (Sambusa ya Mboga),55.0,3.8,35.0,144.0,333.0,243.0,1.76,1.0
+15028,15 MIXED DISHES,Tosti Mayai (Egg Toast),56.0,2.1,25.0,167.0,152.0,587.0,1.2,20.0
+15030,15 MIXED DISHES,“Terere” (Stir fried amaranth leaves),192.0,4.9,87.0,72.0,442.0,161.0,0.75,14.0
+15032,15 MIXED DISHES,Stir-fried Cabbage,48.0,0.6,11.0,43.0,305.0,510.0,0.24,1.0
+15034,15 MIXED DISHES,Pumpkin Leaves,166.0,2.0,51.0,101.0,236.0,332.0,0.67,2.0
+15036,15 MIXED DISHES,Pilau (Spiced Rice),19.0,1.3,20.0,138.0,285.0,349.0,1.24,3.0
+15038,15 MIXED DISHES,Mseto wa Maharagwe (Add Rice with Beans),27.0,1.3,24.0,129.0,172.0,356.0,0.76,1.0
+15040,15 MIXED DISHES,"Fiqe (Red Sorghum, Beans and Teff Flour)",170.0,3.5,77.0,214.0,315.0,495.0,1.4,4.0
+15042,15 MIXED DISHES,Qita (Maize and Wheat flour pancake),24.0,2.8,28.0,131.0,105.0,158.0,1.81,0.0
+15044,15 MIXED DISHES,Mchuzi wa ndengu (Green Gram Stew),33.0,1.6,43.0,61.0,184.0,243.0,0.57,5.0
+15046,15 MIXED DISHES,Mchuzi wa Ndengu Kamande (Lentil Stew),26.0,2.0,28.0,81.0,183.0,275.0,0.93,8.0
+15048,15 MIXED DISHES,Mbuboyi (Blood Cooked in Fresh Milk),57.0,13.9,8.0,62.0,199.0,361.0,1.08,17.0
+15051,15 MIXED DISHES,"Ugali (Cassava, Fingermillet and Sorghum Flour Ugali)",69.0,1.7,40.0,70.0,236.0,11.0,0.53,4.0
+15053,15 MIXED DISHES,Githeri (stewed Maize & Beans),39.0,2.2,41.0,214.0,281.0,233.0,1.01,2.0
+15055,15 MIXED DISHES,Githeri (Sauteed Fresh Maize and beans),41.0,2.2,43.0,222.0,308.0,335.0,1.32,3.0
+15058,15 MIXED RECIPES,Stewed Potatoes & Arrowroots,8.0,0.9,17.0,38.0,401.0,173.0,0.44,1.0
+15060,15 MIXED RECIPES,Githeri (Fresh beans and Maize),17.0,1.7,24.0,119.0,319.0,433.0,1.21,3.0
+15062,15 MIXED RECIPES,Mukimo wa Njahi (Raw & Ripe Bananas),24.0,2.2,54.0,103.0,437.0,229.0,0.79,3.0
+15064,15 MIXED RECIPES,Vimumunya vya Chumvi (Pumpkin & Coconut Milk),16.0,0.3,13.0,39.0,183.0,325.0,0.25,1.0
+15066,15 MIXED RECIPES,Biryani rice,9.0,0.3,9.0,52.0,22.0,180.0,0.47,0.0
+15067,15 MIXED RECIPES,Vimumunya vya Sukari (Sweetened Pumpkin & Coconut Milk),14.0,0.3,11.0,31.0,155.0,15.0,0.21,1.0
+15069,15 MIXED RECIPES,Mushenye (Green Maize and Sweet Potatoes),44.0,2.3,51.0,196.0,340.0,242.0,1.07,3.0
+15071,15 MIXED RECIPES,Malesele (Cow Blood with Sour Milk),85.0,24.8,19.0,123.0,831.0,1070.0,1.85,29.0
+15073,15 MIXED RECIPES,Ingokho (Fried Chicken),31.0,5.6,38.0,492.0,410.0,932.0,2.13,39.0
+15075,15 MIXED RECIPES,Wali wa Yasmin (Onion Fried Rice),13.0,0.5,12.0,61.0,46.0,275.0,0.53,1.0
+15077,15 MIXED RECIPES,Thabai / Thaa (Stinging Nettle Leaves),132.0,1.4,28.0,26.0,113.0,312.0,0.14,1.0
+15079,15 MIXED RECIPES,Kunde and Mrenda (Stewed Cowpeas and Jute Mallow leaves),158.0,2.4,23.0,93.0,244.0,761.0,0.64,2.0
+15081,15 MIXED RECIPES,Chai ya Maziwa (Mixed Tea),42.0,0.0,5.0,40.0,45.0,15.0,0.21,1.0
+15083,15 MIXED DISHES,Kimanga cha Ndizi (Smoked Green Bananas and Kidney Beans),46.0,2.0,43.0,188.0,401.0,485.0,0.89,2.0
+15085,15 MIXED DISHES,Ndoto (Sauteed Red Kidney Beans & Red Sorghum),25.0,1.8,53.0,162.0,211.0,270.0,0.89,6.0
+15087,15 MIXED DISHES,Beef Stew,12.0,11.2,27.0,257.0,264.0,315.0,3.48,18.0
+15089,15 MIXED DISHES,Osarge Ogkole (Fresh blood and Fresh milk),101.0,4.7,11.0,105.0,161.0,148.0,0.79,8.0
+15091,15 MIXED DISHES,Kitojo (Sweet Potato Leaves),97.0,0.9,51.0,31.0,500.0,648.0,0.26,1.0
+15093,15 MIXED DISHES,Nchenga/ Nzenga (Crushed Maize),13.0,0.3,11.0,22.0,85.0,552.0,0.16,0.0
+15095,15 MIXED DISHES,Likhanga (Stewed Guinea Fowl),31.0,2.0,22.0,152.0,240.0,736.0,1.25,18.0
+15097,15 MIXED DISHES,Stewed Green Bananas,9.0,0.7,15.0,24.0,175.0,100.0,0.21,1.0
+15099,15 MIXED DISHES,Stir Fried Goat Meat,33.0,4.1,50.0,424.0,465.0,221.0,5.74,43.0
+15101,15 MIXED DISHES,Omena wa Kukaangwa (Fried Omena),879.0,2.3,33.0,782.0,281.0,90.0,5.28,7.0
+15103,15 MIXED DISHES,Mashed Potatoes,10.0,1.4,20.0,82.0,650.0,330.0,0.32,1.0
+15105,15 MIXED DISHES,Enriched Mashed Potatoes,10.0,1.1,16.0,67.0,529.0,209.0,0.26,1.0
+15107,15 MIXED DISHES,Stewed Nile Perch,105.0,1.0,26.0,216.0,203.0,596.0,0.51,16.0
+15110,15 MIXED DISHES,Potato Chips,17.0,2.7,37.0,159.0,1260.0,13.0,0.63,1.0
+15112,15 MIXED DISHES,Arrowroot Stew,11.0,0.9,18.0,41.0,431.0,250.0,0.44,1.0
+15114,15 MIXED DISHES,Black Bean Stew (Dolichos/ Njahi Stew),17.0,1.2,26.0,55.0,175.0,164.0,0.42,2.0
+15116,15 MIXED DISHES,Mcheleng (Rice with Milk),53.0,0.4,12.0,96.0,73.0,419.0,0.64,1.0
+15118,15 MIXED DISHES,Nyenyi (Mashed Pigeon Peas & Green Maize),56.0,1.8,41.0,106.0,479.0,273.0,0.89,4.0
+15120,15 MIXED DISHES,Mashed Pumpkin and Black Nightshade Leaves,91.0,6.7,41.0,75.0,456.0,411.0,0.66,1.0
+15122,15 MIXED DISHES,Oatmeal,15.0,1.0,35.0,110.0,82.0,209.0,0.71,10.0
+15124,15 MIXED DISHES,Enriched Mandazi (East African Doughnuts; Enriched),45.0,3.3,21.0,134.0,105.0,80.0,0.66,2.0
+15126,15 MIXED DISHES,Stewed Split Dal,22.0,1.2,21.0,54.0,142.0,459.0,0.42,6.0
+15128,15 MIXED DISHES,Peas and Brinjal Curry,38.0,2.1,30.0,71.0,253.0,520.0,1.96,2.0
+15130,15 MIXED DISHES,Rotli (Indian Chapati),25.0,2.7,83.0,199.0,234.0,354.0,1.64,27.0
+15132,15 MIXED DISHES,Chaas (Diluted Yoghurt),106.0,0.1,8.0,66.0,93.0,262.0,0.24,2.0
+15134,15 MIXED DISHES,Minced Meat Balls,14.0,4.4,17.0,126.0,133.0,321.0,1.55,7.0
+15137,15 MIXED DISHES,Okra Meat Dish,23.0,5.2,24.0,126.0,199.0,559.0,1.65,8.0

@@ -60,18 +60,38 @@ def _record_status(ctx: Ctx, meta: dict, status: str, message: str) -> None:
 # generic handlers
 # ---------------------------------------------------------------------------
 def http_file(meta: dict, ctx: Ctx) -> None:
-    """Download a single direct file. Honours an optional `datahub` key as a
-    preferred bulk URL (used by the World Bank real-time prices source)."""
-    url = meta.get("datahub") or meta["url"]
-    out = ctx.raw_dir / ctx.source_key / _safe(Path(urlparse(url).path).name or f"{ctx.source_key}.bin")
-    if ctx.dry_run:
-        _record_status(ctx, meta, "skipped", f"dry-run: would GET {url}")
+    """Download one or several direct files. Accepts a single `url` or a list
+    under `urls` (every file is fetched). Honours an optional `datahub` key as a
+    preferred bulk URL. Records one provenance row per file; the source counts
+    as acquired if at least one file downloads, and reports any that failed.
+    """
+    urls = []
+    if meta.get("datahub"):
+        urls.append(meta["datahub"])
+    if meta.get("urls"):
+        urls.extend(meta["urls"])
+    if meta.get("url") and meta["url"] not in urls:
+        urls.append(meta["url"])
+    if not urls:
+        _record_status(ctx, meta, "failed", "no url or urls in registry entry")
         return
-    try:
-        path = io.http_download(url, out)
-        _record_file(ctx, meta, path)
-    except Exception as exc:  # noqa: BLE001
-        _record_status(ctx, meta, "failed", f"{type(exc).__name__}: {exc}")
+    if ctx.dry_run:
+        _record_status(ctx, meta, "skipped",
+                       f"dry-run: would GET {len(urls)} file(s)")
+        return
+    ok, fail = 0, 0
+    for url in urls:
+        name = _safe(Path(urlparse(url).path).name or f"{ctx.source_key}.bin")
+        out = ctx.raw_dir / ctx.source_key / name
+        try:
+            path = io.http_download(url, out)
+            _record_file(ctx, meta, path, message=f"{ok + fail + 1}/{len(urls)}: {name}")
+            ok += 1
+        except Exception as exc:  # noqa: BLE001
+            _record_status(ctx, meta, "failed", f"{name}: {type(exc).__name__}: {exc}")
+            fail += 1
+    if ok and fail:
+        print(f"[{ctx.source_key}] downloaded {ok}/{ok + fail} files ({fail} failed)")
 
 
 def hdx_dataset(meta: dict, ctx: Ctx) -> None:

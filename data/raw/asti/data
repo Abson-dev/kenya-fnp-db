@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CDJEQ636M4"></script>
+<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag("js", new Date());gtag("set", "developer_id.dMDhkMT", true);gtag("config", "G-CDJEQ636M4", {"groups":"default","page_placeholder":"PLACEHOLDER_page_location"});</script>
+<meta name="Generator" content="Drupal 10 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/sites/default/files/favicon.png" type="image/png" />
+<link rel="canonical" href="https://www.asti.cgiar.org/data-graphics" />
+<link rel="shortlink" href="https://www.asti.cgiar.org/node/2605" />
+
+    <title>Data download | ASTI</title>
+    <link rel="stylesheet" media="all" href="/sites/default/files/css/css_B_t4maohNOGo0DMuCoV0U_O4nsV0w6FvxHgQmIoIY1U.css?delta=0&amp;language=en&amp;theme=asti20&amp;include=eJxLLC7JNDLQT8_JT0rM0S0uqczJzEvXKa4sLknN1U9KLE4FANChDIY" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_tZkzyxqSJbvD6kaCpieh6e__9fY5x7YwBQm9P-yCeS4.css?delta=1&amp;language=en&amp;theme=asti20&amp;include=eJxLLC7JNDLQT8_JT0rM0S0uqczJzEvXKa4sLknN1U9KLE4FANChDIY" />
+
+    <script src="/sites/default/files/js/js_e4h_wkjjg5nuw7w7xEmBAMUrNhwgrXWSRkPMg3iKK6I.js?scope=header&amp;delta=0&amp;language=en&amp;theme=asti20&amp;include=eJxLLC7JNDLQT8_JT0rM0S1OLsosKCnWSc_PT89JjU_MS8ypLMlMLtZHF9ApLkksySwGy6UUlRYk5ughRABnXSEz"></script>
+
+  </head>
+          
+  <body class="role--anonymous not-logged-in no-sidebar type-page">
+    <div id="skip">
+      <a href="#main-menu" class="visually-hidden focusable skip-link">
+        Skip to main navigation
+      </a>
+    </div>
+    
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div class="hidden legacy" data-info="hidden elements legacy from previous templates">
+<div id="name-and-slogan">ASTI Agricultural Science and Technology Indicators</div>
+</div>
+
+<div id="mainWrapper"  class="notfront">
+	<div id="headerWrapper">
+		<header class="light">
+		 <a href="/" title="ASTI Homepage"> 		<img class="astilogo" src="/sites/all/themes/asti20/images/ASTI-Logo.png" alt="ASTI logo" />
+  	 </a> 
+				<div class="siteTitle">ASTI - Agricultural Science and Technology Indicators</div>
+				<nav role="navigation">
+					<div id="astimenuCtrl">
+					<a href="#" class="ic menu" tabindex="1">
+						<span class="line"></span>
+						<span class="line"></span>
+						<span class="line"></span>
+					</a>
+					<a href="#" class="ic close"></a>
+					</div>
+
+					<ul class="main-nav">
+						<li class="top-level-link">
+							<a class="mega-menu"><span>About</span></a>
+							<div class="sub-menu-block">
+								<div class="row">
+									<div class="col-md-gd-4 col-lg-gd-4 col-sm-gd-4">
+									<h2 class="sub-menu-head">What we do</h2>
+										<ul class="sub-menu-lists">
+											<li><a href="/about">Overview</a></li>
+											<li><a href="/methodology">Methodology</a></li>
+										</ul>
+
+									</div>
+									<div class="col-md-gd-4 col-lg-gd-4 col-sm-gd-4">
+									<h2 class="sub-menu-head">Who we are</h2>
+										<ul class="sub-menu-lists">
+											<li><a href="/network">The ASTI network</a></li>
+											<li><a href="/focal-points">Network partners</a></li>
+											<li><a href="/contact">Contact</a></li>
+										</ul>
+									</div>
+									<div class="col-md-gd-4 col-lg-gd-4 col-sm-gd-4">
+										<h2 class="sub-menu-head">Donors, history, FAQ</h2>
+										<ul class="sub-menu-lists">
+											<li><a href="/donors">Donors</a></li>
+											<li><a href="/history">History</a></li>
+											<li><a href="/faq">FAQs</a></li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+						</li>
+
+
+						<li class="top-level-link">
+							<a class="mega-menu"><span>Data/tools</span></a>
+							<div class="sub-menu-block">
+								<div class="row">
+									<div class="col-md-gd-4 col-lg-gd-4 col-sm-gd-4">
+										<h2 class="sub-menu-head">General</h2>
+										<ul class="sub-menu-lists">
+											<li><a href="/data/overview">Tools overview</a></li>
+											<li><a href="/data">Data download</a></li>
+											<li><a href="/countries">Interactive country pages</a></li>									
+											<li><a href="/directory">Agency directory</a></li>
+										</ul>
+									</div>
+									<div class="col-md-gd-4 col-lg-gd-4 col-sm-gd-4">
+									<h2 class="sub-menu-head">Regional benchmarking:</h2>
+										<ul class="sub-menu-lists">
+												<li><a href="/benchmarking/ssa">Africa south of the Sahara</a></li>
+												<li><a href="/benchmarking/south-asia">South Asia</a> | <a href="/benchmarking/southeast-asia">Southeast Asia</a> | <a href="/benchmarking/asia">Asia</a></li>
+												<li><a href="/benchmarking/wana">West Asia and North Africa</a></li>
+												<li><a href="/benchmarking/lac">Latin America and Caribbean</a></li>
+										</ul>	
+
+
+									</div>
+									<div class="col-md-gd-4 col-lg-gd-4 col-sm-gd-4">
+									<h2 class="sub-menu-head">Topics</h2>
+										<ul class="sub-menu-lists">
+											<li><a href="/gender">African women in agricultural research</a></li>
+											<li><a href="/ag-edu/">African agricultural higher education capacities</a></li>
+										</ul>
+										<h2 class="sub-menu-head">CGIAR data </h2>
+										<ul class="sub-menu-lists">
+											<li><a href="/cgiar-data">CGIAR data </a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<li class="top-level-link">
+							<a class="mega-menu"><span>Countries/regions</span></a>
+							<div class="sub-menu-block">
+								<div class="row-menu">
+									<h2 class="sub-menu-head">Africa south of the Sahara</h2>
+									<ul class="sub-menu-countries">
+										<li><a href="/ssa-outputs">Overview</a></li>
+									</ul>
+
+									<ul class="countrylist">
+										<li><a href="/benin?country=BEN" data-iso="BEN" class="countrylink">Benin</a></li>
+										<li><a href="/botswana?country=BWA" data-iso="BWA" class="countrylink">Botswana</a></li>
+										<li><a href="/burkina-faso?country=BFA" data-iso="BFA" class="countrylink">Burkina Faso</a></li>
+										<li><a href="/burundi?country=BDI" data-iso="BDI" class="countrylink">Burundi</a></li>
+										<li><a href="/cabo-verde?country=CPV" data-iso="CPV" class="countrylink">Cabo Verde</a></li>
+										<li><a href="/cameroon?country=CMR" data-iso="CMR" class="countrylink">Cameroon</a></li>
+										<li><a href="/central-african-republic?country=CAF" data-iso="CAF" class="countrylink">Central African
+												Rep.</a></li>
+										<li><a href="/chad?country=TCD" data-iso="TCD" class="countrylink">Chad</a></li>
+										<li><a href="/drcongo?country=COD" data-iso="COD" class="countrylink">Congo, Dem. Rep.</a></li>
+										<li><a href="/republic-of-congo?country=COG" data-iso="COG" class="countrylink">Congo, Rep.</a></li>
+										<li><a href="/cote-divoire?country=CIV" data-iso="CIV" class="countrylink">Côte d'Ivoire</a></li>
+										<li><a href="/eritrea?country=ERI" data-iso="ERI" class="countrylink">Eritrea</a></li>
+										<li><a href="/eswatini?country=SWZ" data-iso="SWZ" class="countrylink">Eswatini</a></li>
+										<li><a href="/ethiopia?country=ETH" data-iso="ETH" class="countrylink">Ethiopia</a></li>
+										<li><a href="/gabon?country=GAB" data-iso="GAB" class="countrylink">Gabon</a></li>
+										<li><a href="/thegambia?country=GMB" data-iso="GMB" class="countrylink">Gambia, The</a></li>
+										<li><a href="/ghana?country=GHA" data-iso="GHA" class="countrylink">Ghana</a></li>
+										<li><a href="/guinea?country=GIN" data-iso="GIN" class="countrylink">Guinea</a></li>
+										<li><a href="/guinea-bissau?country=GNB" data-iso="GNB" class="countrylink">Guinea-Bissau</a></li>
+										<li><a href="/kenya?country=KEN" data-iso="KEN" class="countrylink">Kenya</a></li>
+										<li><a href="/lesotho?country=LSO" data-iso="LSO" class="countrylink">Lesotho</a></li>
+										<li><a href="/liberia?country=LBR" data-iso="LBR" class="countrylink">Liberia</a></li>
+										<li><a href="/madagascar?country=MDG" data-iso="MDG" class="countrylink">Madagascar</a></li>
+										<li><a href="/malawi?country=MWI" data-iso="MWI" class="countrylink">Malawi</a></li>
+										<li><a href="/mali?country=MLI" data-iso="MLI" class="countrylink">Mali</a></li>
+										<li><a href="/mauritania?country=MRT" data-iso="MRT" class="countrylink">Mauritania</a></li>
+										<li><a href="/mauritius?country=MUS" data-iso="MUS" class="countrylink">Mauritius</a></li>
+										<li><a href="/mozambique?country=MOZ" data-iso="MOZ" class="countrylink">Mozambique</a></li>
+										<li><a href="/namibia?country=NAM" data-iso="NAM" class="countrylink">Namibia</a></li>
+										<li><a href="/niger?country=NER" data-iso="NER" class="countrylink">Niger</a></li>
+										<li><a href="/nigeria?country=NGA" data-iso="NGA" class="countrylink">Nigeria</a></li>
+										<li><a href="/rwanda?country=RWA" data-iso="RWA" class="countrylink">Rwanda</a></li>
+										<li><a href="/senegal?country=SEN" data-iso="SEN" class="countrylink">Senegal</a></li>
+										<li><a href="/sierra-leone?country=SLE" data-iso="SLE" class="countrylink">Sierra Leone</a></li>
+										<li><a href="/south_africa?country=ZAF" data-iso="ZAF" class="countrylink">South Africa</a></li>
+										<li><a href="/tanzania?country=TZA" data-iso="TZA" class="countrylink">Tanzania</a></li>
+										<li><a href="/togo?country=TGO" data-iso="TGO" class="countrylink">Togo</a></li>
+										<li><a href="/uganda?country=UGA" data-iso="UGA" class="countrylink">Uganda</a></li>
+										<li><a href="/zambia?country=ZMB" data-iso="ZMB" class="countrylink">Zambia</a></li>
+										<li><a href="/zimbabwe?country=ZWE" data-iso="ZWE" class="countrylink">Zimbabwe</a></li>
+									</ul>
+								</div>
+								<div class="row-menu">
+									<h2 class="sub-menu-head">Asia and Pacific</h2>
+									<ul class="sub-menu-countries">
+										<li><a href="/ap-outputs">Overview</a></li>
+									</ul>
+									<ul class="countrylist">
+										<li><a href="/bangladesh?country=BGD" data-iso="BGD" class="countrylink">Bangladesh</a></li>
+										<li><a href="/cambodia?country=KHM" data-iso="KHM" class="countrylink">Cambodia</a></li>
+										<!--li><a href="/china?country=CHN" data-iso="CHN" class="countrylink">China</a></li-->
+										<li><a href="/india?country=IND" data-iso="IND" class="countrylink">India</a></li>
+										<li><a href="/indonesia?country=IDN" data-iso="IDN" class="countrylink">Indonesia</a></li>
+										<li><a href="/laos?country=LAO" data-iso="LAO" class="countrylink">Laos</a></li>
+										<li><a href="/malaysia?country=MYS" data-iso="MYS" class="countrylink">Malaysia</a></li>
+										<li><a href="/myanmar?country=MMR" data-iso="MMR" class="countrylink">Myanmar</a></li>
+										<li><a href="/nepal?country=NPL" data-iso="NPL" class="countrylink">Nepal</a></li>
+										<li><a href="/pakistan?country=PAK" data-iso="PAK" class="countrylink">Pakistan</a></li>
+										<li><a href="/papua-new-guinea?country=PNG" data-iso="PNG" class="countrylink">Papua New Guinea</a></li>
+										<li><a href="/sri_lanka?country=LKA" data-iso="LKA" class="countrylink">Sri Lanka</a></li>
+										<li><a href="/thailand?country=THA" data-iso="THA" class="countrylink">Thailand</a></li>
+										<li><a href="/vietnam?country=VNM" data-iso="VNM" class="countrylink">Vietnam</a></li>
+									</ul>
+								</div>
+
+								<div class="row-menu">
+
+									<h2 class="sub-menu-head">West Asia and North Africa</h2>
+									<ul class="sub-menu-countries">
+										<li><a href="/wana-outputs">Overview</a></li>
+									</ul>
+									<ul class="countrylist">
+										<li><a href="/algeria?country=DZA" class="countrylink">Algeria</a></li>
+										<li><a href="/egypt?country=EGY" data-iso="EGY" class="countrylink">Egypt</a></li>
+										<li><a href="/jordan?country=JOR" data-iso="JOR" class="countrylink">Jordan</a></li>
+										<li><a href="/lebanon?country=LBN" data-iso="LBN" class="countrylink">Lebanon</a></li>
+										<li><a href="/morocco?country=MAR" data-iso="MAR" class="countrylink">Morocco</a></li>
+										<li><a href="/oman?country=OMN" data-iso="OMN" class="countrylink">Oman</a></li>
+										<li><a href="/sudan?country=SDN" data-iso="SDN" class="countrylink">Sudan</a></li>
+										<li><a href="/tunisia?country=TUN" data-iso="TUN" class="countrylink">Tunisia</a></li>
+										<li><a href="/turkey?country=TUR" data-iso="TUR" class="countrylink">Turkey</a></li>
+										<li><a href="/yemen?country=YEM" data-iso="YEM" class="countrylink">Yemen</a></li>
+									</ul>
+								</div>
+
+								<div class="row-menu">
+
+									<h2 class="sub-menu-head">Latin America and Caribbean</h2>
+									<ul class="sub-menu-countries">
+										<li><a href="/lac-outputs">Overview</a></li>
+									</ul>
+									<ul class="countrylist">
+										<li><a href="/argentina?country=ARG" data-iso="ARG" class="countrylink">Argentina</a></li>
+										<li><a href="/bolivia?country=BOL" data-iso="BOL" class="countrylink">Bolivia</a></li>
+										<li><a href="/brazil?country=BRA" data-iso="BRA" class="countrylink">Brazil</a></li>
+										<li><a href="/caribbean?country=CRB" data-iso="CRB" class="countrylink">Caribbean, Angl.</a></li>
+										<li><a href="/chile?country=CHL" data-iso="CHL" class="countrylink">Chile</a></li>
+										<li><a href="/colombia?country=COL" data-iso="COL" class="countrylink">Colombia</a></li>
+										<li><a href="/costa_rica?country=CRI" data-iso="CRI" class="countrylink">Costa Rica</a></li>
+										<li><a href="/dominican_republic?country=DOM" data-iso="DOM" class="countrylink">Dominican Republic</a></li>
+										<li><a href="/ecuador?country=ECU" data-iso="ECU" class="countrylink">Ecuador</a></li>
+										<li><a href="/guatemala?country=GTM" data-iso="GTM" class="countrylink">Guatemala</a></li>
+										<li><a href="/honduras?country=HND" data-iso="HND" class="countrylink">Honduras</a></li>
+										<li><a href="/mexico?country=MEX" data-iso="MEX" class="countrylink">Mexico</a></li>
+										<li><a href="/nicaragua?country=NIC" data-iso="NIC" class="countrylink">Nicaragua</a></li>
+										<li><a href="/panama?country=PAN" data-iso="PAN" class="countrylink">Panama</a></li>
+										<li><a href="/paraguay?country=PRY" data-iso="PRY" class="countrylink">Paraguay</a></li>
+										<li><a href="/peru?country=PER" data-iso="PER" class="countrylink">Peru</a></li>
+										<li><a href="/uruguay?country=URY" data-iso="URY" class="countrylink">Uruguay</a></li>
+										<li><a href="/venezuela?country=VEN" data-iso="VEN" class="countrylink">Venezuela</a></li>
+									</ul>
+								</div>
+
+
+							</div>
+
+
+						</li>
+
+						<li class="top-level-link">
+							<a class="mega-menu"><span>Resources</span></a>
+							<div class="sub-menu-block">
+								<div class="row">
+									<div class="col-md-gd-4 col-lg-gd-4 col-sm-gd-4">
+										<h2 class="sub-menu-head">Publications</h2>
+										<ul class="sub-menu-resources">
+											<li><a href="/publications/overview-publications">General</a></li>
+											<li><a href="/publications/africa-south-of-the-sahara">Africa south of the Sahara</a></li>
+											<li><a href="/publications/asia-and-the-pacific">Asia and Pacific</a></li>
+											<li><a href="/publications/latin-america-and-the-caribbean">Latin America and Caribbean</a></li>
+											<li><a href="/publications/west-asia-and-north-africa">West Asia and North Africa</a></li>
+											<li><a href="/pubs-overview-a">Archive</a></li>
+										</ul>
+									</div>
+									<div class="col-md-gd-4 col-lg-gd-4 col-sm-gd-4">
+										<h2 class="sub-menu-head">Videos/Blog</h2>
+										<ul class="sub-menu-lists">
+											<li><a href="/videos">Videos</a></li>
+											<li><a href="/blog">Blog</a></li>
+										</ul>
+									</div>
+									<div class="col-md-gd-4 col-lg-gd-4 col-sm-gd-4">
+										<h2 class="sub-menu-head">Hosted SPIA datasets</h2>
+										<ul class="sub-menu-lists">
+											<li><a href="/siac">CGIAR-SIAC, 2017</a></li>
+											<li><a href="/trivsa">CGIAR-TRIVSA 2015</a></li>
+											<li><a href="/diiva">CGIAR-DIIVA, 2014</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="top-level-link">
+							<a class="mega-menu"><span>Analysis</span></a>
+							<div class="sub-menu-block" id="analysisSub">
+								<div class="row">
+									<div class="col-md-gd-4 col-lg-gd-4 col-sm-gd-4">
+										<h2 class="sub-menu-head">Overview</h2>
+										<ul class="sub-menu-resources">
+											<li><a href="/analysis">Overview</a></li>
+										</ul>
+									</div>
+									<div class="col-md-gd-4 col-lg-gd-4 col-sm-gd-4">
+										<h2 class="sub-menu-head">Resources</h2>
+										<ul class="sub-menu-lists">
+											<li><a href="/analysis-publications">Publications</a></li>
+											<li><a href="/analysis-videos">Videos</a></li>
+										</ul>
+
+
+									</div>
+									<div class="col-md-gd-4 col-lg-gd-4 col-sm-gd-4">
+										<h2 class="sub-menu-head">Completed analytical projects</h2>
+										<ul class="sub-menu-lists">
+											<li><a href="/asti-coraf">West African agricultural research (2014)</a></li>
+											<li><a href="/private-sector-research">Private sector agricultural research (2013)</a></li>
+											<li><a href="/globaloverview">Global assessment of agricultural research (2012)</a></li>
+											<li><a href="/gender-capacity">African women in agricultural research (2009)</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="top-level-link">
+							<a class="mega-menu"><span>Policy outreach/uptake</span></a>
+							<div class="sub-menu-block">
+								<div class="row">
+									<div class="col-md-gd-4 col-lg-gd-4 col-sm-gd-4">
+										<h2 class="sub-menu-head">Overview</h2>
+										<ul class="sub-menu-resources">
+											<li><a href="/policy">Overview</a></li>
+											
+										</ul>
+									</div>
+									<div class="col-md-gd-4 col-lg-gd-4 col-sm-gd-4">
+										<h2 class="sub-menu-head">Resources</h2>
+										<ul class="sub-menu-lists">
+										<li><a href="/impact">Policy uptake to date</a></li>
+										<li><a href="/policy-publications">Publications</a></li>
+										<li><a href="/policy-videos">Videos</a></li>
+											<!--li><a href="/embedding">Embedding ASTI web tools</a></li-->
+										</ul>
+									</div>
+									<div class="col-md-gd-4 col-lg-gd-4 col-sm-gd-4">
+										<h2 class="sub-menu-head">Outreach events</h2>
+										<ul class="sub-menu-lists">
+											<li><a href="/outreach">Events</a></li>
+											<!--li><a href="/outreach-archived">Archived</a></li-->
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="top-level-link french-nav">
+							<a class="mega-menu lang fr" href="/fr"><span>Fr</span></a>
+						</li>	
+						<li class="top-level-link spanish-nav">
+							<a class="mega-menu lang" href="/es"><span>Es</span></a>
+						</li>	
+					</ul>
+				</nav>
+		</header>
+	</div>
+
+  <section class="mainSection">
+    <article>
+			
+     <header>
+        				<div class="titleWrap"><h1 class="pageTitle"><span>Data download</span>
+</h1></div>
+      </header>
+                
+                
+			</header>
+
+			 
+				     
+
+			<section class="articleBody">
+
+									  
+                                      
+                    
+
+    		            
+
+							   	  <div>
+    <div id="block-asti20-asti19-system-main">
+  
+    
+      
+<article data-history-node-id="2605" class="node node--type-page node--view-mode-full clearfix">
+  <header>
+    
+        
+      </header>
+
+  <div class="node__content clearfix">
+   
+        <div id="inside_content"></div>
+   
+
+    
+            <div><script type='text/javascript' src='/sites/all/libraries/mw//external/jquery/jquery-3.6.0.min.js'></script><script type='text/javascript' src='/sites/all/libraries/mw//external/jquery/jquery-migrate-3.3.2.js'></script><script type='text/javascript' src='/sites/all/libraries/mw//external/jquery/jquery-ui.min.js'></script><script type='text/javascript' src='/sites/all/libraries/mw//external/highcharts/highcharts.js'></script><script type='text/javascript' src='/sites/all/libraries/mw//external/mapping-worlds/mw.js'></script><script type='text/javascript' src='/sites/all/libraries/mw//external/tinycolor/tinycolor.js'></script><script type='text/javascript' src='/sites/all/libraries/mw//downloadtool/downloadtool.js'></script><link type='text/css' rel='stylesheet' href='/sites/all/libraries/mw//downloadtool/css/downloadtool.css'/><link type='text/css' rel='stylesheet' href='/sites/all/libraries/mw//downloadtool/skins/countries/downloadtool.css'/>
+<div id="dt-root" class="dt-wrapper">
+   <div class="dt-page-header" data-key="DOWNLOAD.TITLE"></div>
+   <p data-key="DOWNLOAD.DESCRIPTION"></p>
+
+   <div class="disclaimer-note dt-page">
+   <a class="fbox2" href="/disclaimer"><span class="disclaimer-info">i</span> Disclaimer</a>   </div>
+
+   
+   <div class="dt-section" data-geoitems>
+      <div class="dt-section-header" data-key="PRIMARY.TITLE"></div>
+
+      <div class="flex-container flex-horizontal">
+         <div class="flex-filled">
+            <p data-key="PRIMARY.DESCRIPTION"></p>
+            <div class="dt-drilldowns"><div class="dt-buttons-label"></div><div class="dt-buttons"><div class="dt-button">Select countries here</div></div><div class="dt-button-values"><div class="dt-values"><ul class="dt-regions"><li data-region="SSA-A" class="selected" data-label="Africa South of the Sahara">Africa South of the Sahara</li><li data-region="ASIAPAC" data-label="Asia and Pacific">Asia and Pacific</li><li data-region="LAMCAR" data-label="Latin America and the Caribbean">Latin America and the Caribbean</li><li data-region="WANA" data-label="West Asia and North Africa">West Asia and North Africa</li></ul><ul class="dt-regions"><li class="all">All countries</li><li class="deselect">Clear country selection</li></ul><div class="dt-region-buttons"><div id='c-SSA-A'><input type="checkbox" class="all-countries" id="SSA-A-all"/><label for="SSA-A-all">All countries</label><input type="checkbox" id="BEN" data-region="SSA-A"/><label for="BEN">Benin</label><input type="checkbox" id="BWA" data-region="SSA-A"/><label for="BWA">Botswana</label><input type="checkbox" id="BFA" data-region="SSA-A"/><label for="BFA">Burkina Faso</label><input type="checkbox" id="BDI" data-region="SSA-A"/><label for="BDI">Burundi</label><input type="checkbox" id="CPV" data-region="SSA-A"/><label for="CPV">Cabo Verde</label><input type="checkbox" id="CMR" data-region="SSA-A"/><label for="CMR">Cameroon</label><input type="checkbox" id="CAF" data-region="SSA-A"/><label for="CAF">Central African Rep.</label><input type="checkbox" id="TCD" data-region="SSA-A"/><label for="TCD">Chad</label><input type="checkbox" id="COD" data-region="SSA-A"/><label for="COD">Congo, Dem. Rep.</label><input type="checkbox" id="COG" data-region="SSA-A"/><label for="COG">Congo, Rep.</label><input type="checkbox" id="CIV" data-region="SSA-A"/><label for="CIV">Cote d'Ivoire</label><input type="checkbox" id="ERI" data-region="SSA-A"/><label for="ERI">Eritrea</label><input type="checkbox" id="SWZ" data-region="SSA-A"/><label for="SWZ">Eswatini</label><input type="checkbox" id="ETH" data-region="SSA-A"/><label for="ETH">Ethiopia</label><input type="checkbox" id="GAB" data-region="SSA-A"/><label for="GAB">Gabon</label><input type="checkbox" id="GMB" data-region="SSA-A"/><label for="GMB">Gambia, The</label><input type="checkbox" id="GHA" data-region="SSA-A"/><label for="GHA">Ghana</label><input type="checkbox" id="GIN" data-region="SSA-A"/><label for="GIN">Guinea</label><input type="checkbox" id="GNB" data-region="SSA-A"/><label for="GNB">Guinea-Bissau</label><input type="checkbox" id="KEN" data-region="SSA-A"/><label for="KEN">Kenya</label><input type="checkbox" id="LSO" data-region="SSA-A"/><label for="LSO">Lesotho</label><input type="checkbox" id="LBR" data-region="SSA-A"/><label for="LBR">Liberia</label><input type="checkbox" id="MDG" data-region="SSA-A"/><label for="MDG">Madagascar</label><input type="checkbox" id="MWI" data-region="SSA-A"/><label for="MWI">Malawi</label><input type="checkbox" id="MLI" data-region="SSA-A"/><label for="MLI">Mali</label><input type="checkbox" id="MRT" data-region="SSA-A"/><label for="MRT">Mauritania</label><input type="checkbox" id="MUS" data-region="SSA-A"/><label for="MUS">Mauritius</label><input type="checkbox" id="MOZ" data-region="SSA-A"/><label for="MOZ">Mozambique</label><input type="checkbox" id="NAM" data-region="SSA-A"/><label for="NAM">Namibia</label><input type="checkbox" id="NER" data-region="SSA-A"/><label for="NER">Niger</label><input type="checkbox" id="NGA" data-region="SSA-A"/><label for="NGA">Nigeria</label><input type="checkbox" id="RWA" data-region="SSA-A"/><label for="RWA">Rwanda</label><input type="checkbox" id="SEN" data-region="SSA-A"/><label for="SEN">Senegal</label><input type="checkbox" id="SLE" data-region="SSA-A"/><label for="SLE">Sierra Leone</label><input type="checkbox" id="ZAF" data-region="SSA-A"/><label for="ZAF">South Africa</label><input type="checkbox" id="TZA" data-region="SSA-A"/><label for="TZA">Tanzania</label><input type="checkbox" id="TGO" data-region="SSA-A"/><label for="TGO">Togo</label><input type="checkbox" id="UGA" data-region="SSA-A"/><label for="UGA">Uganda</label><input type="checkbox" id="ZMB" data-region="SSA-A"/><label for="ZMB">Zambia</label><input type="checkbox" id="ZWE" data-region="SSA-A"/><label for="ZWE">Zimbabwe</label></div><div id='c-ASIAPAC'><input type="checkbox" class="all-countries" id="ASIAPAC-all"/><label for="ASIAPAC-all">All countries</label><input type="checkbox" id="BGD" data-region="ASIAPAC"/><label for="BGD">Bangladesh</label><input type="checkbox" id="KHM" data-region="ASIAPAC"/><label for="KHM">Cambodia</label><input type="checkbox" id="FJI" data-region="ASIAPAC"/><label for="FJI">Fiji</label><input type="checkbox" id="IND" data-region="ASIAPAC"/><label for="IND">India</label><input type="checkbox" id="IDN" data-region="ASIAPAC"/><label for="IDN">Indonesia</label><input type="checkbox" id="LAO" data-region="ASIAPAC"/><label for="LAO">Laos</label><input type="checkbox" id="MYS" data-region="ASIAPAC"/><label for="MYS">Malaysia</label><input type="checkbox" id="MMR" data-region="ASIAPAC"/><label for="MMR">Myanmar</label><input type="checkbox" id="NPL" data-region="ASIAPAC"/><label for="NPL">Nepal</label><input type="checkbox" id="PAK" data-region="ASIAPAC"/><label for="PAK">Pakistan</label><input type="checkbox" id="PNG" data-region="ASIAPAC"/><label for="PNG">Papua New Guinea</label><input type="checkbox" id="LKA" data-region="ASIAPAC"/><label for="LKA">Sri Lanka</label><input type="checkbox" id="THA" data-region="ASIAPAC"/><label for="THA">Thailand</label><input type="checkbox" id="VNM" data-region="ASIAPAC"/><label for="VNM">Vietnam</label></div><div id='c-LAMCAR'><input type="checkbox" class="all-countries" id="LAMCAR-all"/><label for="LAMCAR-all">All countries</label><input type="checkbox" id="ATG" data-region="LAMCAR"/><label for="ATG">Antigua and Barbuda</label><input type="checkbox" id="ARG" data-region="LAMCAR"/><label for="ARG">Argentina</label><input type="checkbox" id="BRB" data-region="LAMCAR"/><label for="BRB">Barbados</label><input type="checkbox" id="BLZ" data-region="LAMCAR"/><label for="BLZ">Belize</label><input type="checkbox" id="BOL" data-region="LAMCAR"/><label for="BOL">Bolivia</label><input type="checkbox" id="BRA" data-region="LAMCAR"/><label for="BRA">Brazil</label><input type="checkbox" id="CHL" data-region="LAMCAR"/><label for="CHL">Chile</label><input type="checkbox" id="COL" data-region="LAMCAR"/><label for="COL">Colombia</label><input type="checkbox" id="CRI" data-region="LAMCAR"/><label for="CRI">Costa Rica</label><input type="checkbox" id="DMA" data-region="LAMCAR"/><label for="DMA">Dominica</label><input type="checkbox" id="DOM" data-region="LAMCAR"/><label for="DOM">Dominican Rep.</label><input type="checkbox" id="ECU" data-region="LAMCAR"/><label for="ECU">Ecuador</label><input type="checkbox" id="SLV" data-region="LAMCAR"/><label for="SLV">El Salvador</label><input type="checkbox" id="GRD" data-region="LAMCAR"/><label for="GRD">Grenada</label><input type="checkbox" id="GTM" data-region="LAMCAR"/><label for="GTM">Guatemala</label><input type="checkbox" id="HND" data-region="LAMCAR"/><label for="HND">Honduras</label><input type="checkbox" id="JAM" data-region="LAMCAR"/><label for="JAM">Jamaica</label><input type="checkbox" id="MEX" data-region="LAMCAR"/><label for="MEX">Mexico</label><input type="checkbox" id="NIC" data-region="LAMCAR"/><label for="NIC">Nicaragua</label><input type="checkbox" id="PAN" data-region="LAMCAR"/><label for="PAN">Panama</label><input type="checkbox" id="PRY" data-region="LAMCAR"/><label for="PRY">Paraguay</label><input type="checkbox" id="PER" data-region="LAMCAR"/><label for="PER">Peru</label><input type="checkbox" id="KNA" data-region="LAMCAR"/><label for="KNA">St Kitts and Nevis</label><input type="checkbox" id="LCA" data-region="LAMCAR"/><label for="LCA">St Lucia</label><input type="checkbox" id="VCT" data-region="LAMCAR"/><label for="VCT">St Vincent and the Gren.</label><input type="checkbox" id="TTO" data-region="LAMCAR"/><label for="TTO">Trinidad and Tobago</label><input type="checkbox" id="URY" data-region="LAMCAR"/><label for="URY">Uruguay</label><input type="checkbox" id="VEN" data-region="LAMCAR"/><label for="VEN">Venezuela</label></div><div id='c-WANA'><input type="checkbox" class="all-countries" id="WANA-all"/><label for="WANA-all">All countries</label><input type="checkbox" id="DZA" data-region="WANA"/><label for="DZA">Algeria</label><input type="checkbox" id="EGY" data-region="WANA"/><label for="EGY">Egypt</label><input type="checkbox" id="JOR" data-region="WANA"/><label for="JOR">Jordan</label><input type="checkbox" id="LBN" data-region="WANA"/><label for="LBN">Lebanon</label><input type="checkbox" id="MAR" data-region="WANA"/><label for="MAR">Morocco</label><input type="checkbox" id="OMN" data-region="WANA"/><label for="OMN">Oman</label><input type="checkbox" id="SDN" data-region="WANA"/><label for="SDN">Sudan</label><input type="checkbox" id="TUN" data-region="WANA"/><label for="TUN">Tunisia</label><input type="checkbox" id="TUR" data-region="WANA"/><label for="TUR">Turkey</label><input type="checkbox" id="YEM" data-region="WANA"/><label for="YEM">Yemen</label></div></div></div></div></div>         </div>
+
+         <div class="dt-download-section flex-container flex-vertical">
+             <div class="dt-countries-section"></div>
+
+             <div class="dt-preview-sections flex-container flex-vertical flex-filled">
+                 <div class='dt-preview-section'>
+                     <ul class='dt-preview-tabs'>
+                         <li data-type='notes'>Metadata</li>
+                     </ul>
+                     <div class='dt-preview-tab'>
+                         <div class='dt-download-buttons'>
+                             <a class='dt-download-link' data-type='notes' data-format='xls'></a>
+                             <a class='dt-download-link' data-type='notes' data-format='csv'></a>
+                         </div>
+                     </div>
+                </div>
+             </div>
+         </div>
+     </div>
+   </div>
+
+   <div class="dt-section" id="section-EXP" data-indicators><input type="checkbox" checked data-units value="EXP"/><div class="dt-section-header">Spending</div><div class="flex-container flex-horizontal"><div class="flex-filled"><p>ASTI’s national agricultural research expenditure data is categorized as salary-related expenses, operating and program costs, and capital investments by government, nonprofit, and higher education agencies. Data on spending by private entities are excluded, due to lack of availability. Additional financial data, such as shares of spending by cost category and funding by source, are accessible under the <a href='/countries'>individual country pages</a>.</p><input id="t-0" type="checkbox" class="toplevel" data-units="ARI.AGGDP ARI.FARMERS ARI.POPULATION CONSTLCU.FTE CURNTLCU.FTE PPP.FTE USD.FTE"/><label for="t-0">Spending, total</label><div class="dt-drilldowns"><div class="dt-buttons"><div class="dt-button default" data-parents="">total</div></div><div class="dt-button-values"><div class="dt-values default grouped" data-level="1"><input id="c-0" type="checkbox" class="all-values"/><label for="c-0">all</label><div class="dt-group" data-parent=""><label></label><input id="c-1" type="checkbox" class="all-values"/><label for="c-1">all</label><input id="c-2" type="checkbox" value="TOT" data-units="ARI.AGGDP ARI.FARMERS ARI.POPULATION CONSTLCU.FTE CURNTLCU.FTE PPP.FTE USD.FTE"/><label for="c-2">TOT</label></div></div></div></div><div class="dt-units"><div class="dt-unit-group dt-button-values"><div class="dt-unit-label">Unit</div><div class="dt-values"><input id="EXP.PPP.FTE" type="checkbox" value="PPP.FTE"/><label for="EXP.PPP.FTE">million constant 2011 PPP dollars</label><input id="EXP.USD.FTE" type="checkbox" value="USD.FTE"/><label for="EXP.USD.FTE">million constant 2011 US dollars</label><input id="EXP.CONSTLCU.FTE" type="checkbox" value="CONSTLCU.FTE"/><label for="EXP.CONSTLCU.FTE">million constant 2011 local currencies</label><input id="EXP.CURNTLCU.FTE" type="checkbox" value="CURNTLCU.FTE"/><label for="EXP.CURNTLCU.FTE">million current local currencies</label></div></div><div class="dt-unit-group dt-button-values"><div class="dt-unit-label">Intensity ratio</div><div class="dt-values"><input id="EXP.ARI.AGGDP" type="checkbox" value="ARI.AGGDP"/><label for="EXP.ARI.AGGDP">as a share of agricultural GDP</label><input id="EXP.ARI.FARMERS" type="checkbox" value="ARI.FARMERS"/><label for="EXP.ARI.FARMERS">per 100,000 farmers</label><input id="EXP.ARI.POPULATION" type="checkbox" value="ARI.POPULATION"/><label for="EXP.ARI.POPULATION">per million population</label></div></div><div class="dt-unit-group"><div class="dt-unit-label">Year</div><input type="radio" id="EXP-1" name="EXP" value="latest"/><label for="EXP-1">latest year</label><input type="radio" id="EXP-2" name="EXP" value="all"/><label for="EXP-2">all available years</label></div></div></div><div class='dt-download-section flex-container flex-vertical'>
+   <div class='dt-download-header'></div>
+   <div class='dt-download-description'></div>
+   <div class='dt-download-units'></div>
+   <div class='dt-download-years'></div>
+   <div class='dt-download-nodata' data-prefix='Data not available for: '></div>
+
+   <div class="dt-preview-sections flex-container flex-vertical flex-filled">
+      <div class='dt-preview-section'>
+         <ul class='dt-preview-tabs'>
+            <li data-type='line'>Download chart</li>
+            <li data-type='bar'></li>
+            <li data-type='donut'></li>
+         </ul>
+         <div class='dt-preview-tab' data-type='line'>
+            <div class='dt-preview-container' id='line-EXP'></div>
+            <div class='dt-download-buttons'>
+               <a class='dt-download-link' data-format='png'></a>
+            </div>
+         </div>
+         <div class='dt-preview-tab' data-type='bar'>
+             <div class='dt-preview-container' id='bar-EXP'></div>
+             <div class='dt-download-buttons'>
+                <a class='dt-download-link' data-format='png'></a>
+             </div>
+         </div>
+         <div class='dt-preview-tab' data-type='donut'>
+            <div class='dt-preview-container' id='donut-EXP'></div>
+            <div class='dt-download-buttons'>
+               <a class='dt-download-link' data-format='png'></a>
+            </div>
+         </div>
+      </div>      <div class='dt-preview-section'>
+         <ul class='dt-preview-tabs'>
+            <li data-type='map'>Download map</li>
+         </ul>
+         <div class='dt-preview-tab' data-type='map'>
+            <div class='dt-preview-container' id='map-EXP'></div>
+            <div class='dt-download-buttons'>
+               <a class='dt-download-link' data-format='png'></a>
+            </div>
+         </div>
+      </div>      <div class='dt-preview-section'>
+         <ul class='dt-preview-tabs'>
+            <li data-type='data'>Download data</li>
+         </ul>
+         <div class='dt-preview-tab'>
+            <input type="radio" id="xls-type-EXP-1" name="xls-type-EXP" value="country"/><label for="xls-type-EXP-1">One sheet per country</label>
+            <input type="radio" id="xls-type-EXP-2" name="xls-type-EXP" value="indicator"/><label for="xls-type-EXP-2">One sheet per indicator</label>
+
+            <div class='dt-download-buttons'>
+               <a class='dt-download-link' data-type='data' data-format='xls'></a>
+               <a class='dt-download-link' data-type='data' data-format='csv'></a>
+            </div>
+         </div>
+      </div>
+   </div>
+</div></div></div><div class="dt-section" id="section-RES" data-indicators><input type="checkbox" checked data-units value="RES"/><div class="dt-section-header">Researchers</div><div class="flex-container flex-horizontal"><div class="flex-filled"><p>ASTI’s data on national agricultural researchers are expressed in full-time equivalent (FTE) researchers (with official researcher status) employed at government, nonprofit, and higher education agencies. Data on agricultural researchers employed by the private sector are excluded due to lack of availability. FTE calculations take into account the proportion of time scientists actually spend on research as opposed to other activities.</p><input id="t-1" type="checkbox" class="toplevel" data-units="ARI.FARMERS ARI.POPULATION FTE"/><label for="t-1">Researchers, total</label><div class="dt-drilldowns"><div class="dt-buttons-label">Disaggregate by</div><div class="dt-buttons"><div class="dt-button" data-parents="">Degree</div><div class="dt-button" data-parents="">Gender</div><div class="dt-button" data-parents="">Age</div><div class="dt-button default" data-parents="">total</div><div class="dt-button" data-parents="">Institutional category</div><div class="dt-button" data-parents="">Commodity focus</div><div class="dt-button" data-parents="">Discipline</div></div><div class="dt-button-values"><div class="dt-values" data-level="1"><input id="c-3" type="checkbox" class="all-values"/><label for="c-3">all</label><input id="c-4" type="checkbox" value="BSC" data-units="FTE SHRE"/><label for="c-4">BSc</label><input id="c-5" type="checkbox" value="MSC" data-units="FTE SHRE"/><label for="c-5">MSc</label><input id="c-6" type="checkbox" value="PHD" data-units="FTE SHRE"/><label for="c-6">PhD</label><div class="dt-drilldowns"><div class="dt-buttons-label">You can further disaggregate your data by</div><div class="dt-buttons"><div class="dt-button" data-parents="BSC MSC PHD">Gender</div><div class="dt-button" data-parents="BSC MSC PHD">Age</div><div class="dt-button default" data-parents="BSC MSC PHD">total</div><div class="dt-button" data-parents="BSC MSC PHD">Institutional category</div></div><div class="dt-button-values"><div class="dt-values" data-level="2"><input id="c-7" type="checkbox" value="FEMALE.TOT" data-units="FTE"/><label for="c-7">female</label><input id="c-8" type="checkbox" value="MALE.TOT" data-units="FTE"/><label for="c-8">male</label></div><div class="dt-values many" data-level="2"><input id="c-9" type="checkbox" value="UNDER31.TOT" data-units="FTE"/><label for="c-9">< 31 years</label><input id="c-10" type="checkbox" value="31_40.TOT" data-units="FTE"/><label for="c-10">31–40 years</label><input id="c-11" type="checkbox" value="41_50.TOT" data-units="FTE"/><label for="c-11">41–50 years</label><input id="c-12" type="checkbox" value="51_60.TOT" data-units="FTE"/><label for="c-12">51–60 years</label><input id="c-13" type="checkbox" value="OVER60.TOT" data-units="FTE"/><label for="c-13">> 60 years</label></div><div class="dt-values default grouped" data-level="2"><div class="dt-group" data-parent=""><label></label><input id="c-14" type="checkbox" class="all-values"/><label for="c-14">all</label><input id="c-15" type="checkbox" value="TOT" data-units="FTE SHRE"/><label for="c-15">TOT</label></div></div><div class="dt-values" data-level="2"><input id="c-16" type="checkbox" value="GOV" data-units="FTE"/><label for="c-16">government</label><input id="c-17" type="checkbox" value="HE" data-units="FTE"/><label for="c-17">higher education</label><input id="c-18" type="checkbox" value="NP" data-units="FTE"/><label for="c-18">nonprofit</label></div></div></div></div><div class="dt-values" data-level="1"><input id="c-19" type="checkbox" class="all-values"/><label for="c-19">all</label><input id="c-20" type="checkbox" value="FEMALE" data-units="FTE SHRE"/><label for="c-20">female</label><input id="c-21" type="checkbox" value="MALE" data-units="FTE SHRE"/><label for="c-21">male</label><div class="dt-drilldowns"><div class="dt-buttons-label">You can further disaggregate your data by</div><div class="dt-buttons"><div class="dt-button" data-parents="FEMALE MALE">Degree</div><div class="dt-button" data-parents="FEMALE MALE">Age</div><div class="dt-button default" data-parents="FEMALE MALE">total</div><div class="dt-button" data-parents="FEMALE MALE">Institutional category</div></div><div class="dt-button-values"><div class="dt-values" data-level="2"><input id="c-22" type="checkbox" value="BSC.TOT" data-units="FTE"/><label for="c-22">BSc</label><input id="c-23" type="checkbox" value="MSC.TOT" data-units="FTE"/><label for="c-23">MSc</label><input id="c-24" type="checkbox" value="PHD.TOT" data-units="FTE"/><label for="c-24">PhD</label></div><div class="dt-values many" data-level="2"><input id="c-25" type="checkbox" value="UNDER31.TOT" data-units="FTE"/><label for="c-25">< 31 years</label><input id="c-26" type="checkbox" value="31_40.TOT" data-units="FTE"/><label for="c-26">31–40 years</label><input id="c-27" type="checkbox" value="41_50.TOT" data-units="FTE"/><label for="c-27">41–50 years</label><input id="c-28" type="checkbox" value="51_60.TOT" data-units="FTE"/><label for="c-28">51–60 years</label><input id="c-29" type="checkbox" value="OVER60.TOT" data-units="FTE"/><label for="c-29">> 60 years</label></div><div class="dt-values default grouped" data-level="2"><div class="dt-group" data-parent=""><label></label><input id="c-30" type="checkbox" class="all-values"/><label for="c-30">all</label><input id="c-31" type="checkbox" value="TOT" data-units="FTE SHRE"/><label for="c-31">TOT</label></div></div><div class="dt-values" data-level="2"><input id="c-32" type="checkbox" value="GOV" data-units="FTE"/><label for="c-32">government</label><input id="c-33" type="checkbox" value="HE" data-units="FTE"/><label for="c-33">higher education</label><input id="c-34" type="checkbox" value="NP" data-units="FTE"/><label for="c-34">nonprofit</label></div></div></div></div><div class="dt-values" data-level="1"><input id="c-35" type="checkbox" class="all-values"/><label for="c-35">all</label><input id="c-36" type="checkbox" value="UNDER31" data-units="FTE SHRE"/><label for="c-36">< 31 years</label><input id="c-37" type="checkbox" value="31_40" data-units="FTE SHRE"/><label for="c-37">31–40 years</label><input id="c-38" type="checkbox" value="41_50" data-units="FTE SHRE"/><label for="c-38">41–50 years</label><input id="c-39" type="checkbox" value="51_60" data-units="FTE SHRE"/><label for="c-39">51–60 years</label><input id="c-40" type="checkbox" value="OVER60" data-units="FTE SHRE"/><label for="c-40">> 60 years</label><div class="dt-drilldowns"><div class="dt-buttons-label">You can further disaggregate your data by</div><div class="dt-buttons"><div class="dt-button" data-parents="UNDER31 31_40 41_50 51_60 OVER60">Degree</div><div class="dt-button" data-parents="UNDER31 31_40 41_50 51_60 OVER60">Gender</div><div class="dt-button default" data-parents="UNDER31 31_40 41_50 51_60 OVER60">total</div><div class="dt-button" data-parents="UNDER31 31_40 41_50 51_60 OVER60">Institutional category</div></div><div class="dt-button-values"><div class="dt-values" data-level="2"><input id="c-41" type="checkbox" value="BSC.TOT" data-units="FTE"/><label for="c-41">BSc</label><input id="c-42" type="checkbox" value="MSC.TOT" data-units="FTE"/><label for="c-42">MSc</label><input id="c-43" type="checkbox" value="PHD.TOT" data-units="FTE"/><label for="c-43">PhD</label></div><div class="dt-values" data-level="2"><input id="c-44" type="checkbox" value="FEMALE.TOT" data-units="FTE"/><label for="c-44">female</label><input id="c-45" type="checkbox" value="MALE.TOT" data-units="FTE"/><label for="c-45">male</label></div><div class="dt-values default grouped" data-level="2"><div class="dt-group" data-parent=""><label></label><input id="c-46" type="checkbox" class="all-values"/><label for="c-46">all</label><input id="c-47" type="checkbox" value="TOT" data-units="FTE SHRE"/><label for="c-47">TOT</label></div></div><div class="dt-values" data-level="2"><input id="c-48" type="checkbox" value="GOV" data-units="FTE"/><label for="c-48">government</label><input id="c-49" type="checkbox" value="HE" data-units="FTE"/><label for="c-49">higher education</label><input id="c-50" type="checkbox" value="NP" data-units="FTE"/><label for="c-50">nonprofit</label></div></div></div></div><div class="dt-values default grouped" data-level="1"><input id="c-51" type="checkbox" class="all-values"/><label for="c-51">all</label><div class="dt-group" data-parent=""><label></label><input id="c-52" type="checkbox" class="all-values"/><label for="c-52">all</label><input id="c-53" type="checkbox" value="TOT" data-units="ARI.FARMERS ARI.POPULATION FTE"/><label for="c-53">TOT</label></div></div><div class="dt-values" data-level="1"><input id="c-54" type="checkbox" class="all-values"/><label for="c-54">all</label><input id="c-55" type="checkbox" value="GOV" data-units="FTE SHRE"/><label for="c-55">government</label><input id="c-56" type="checkbox" value="HE" data-units="FTE SHRE"/><label for="c-56">higher education</label><input id="c-57" type="checkbox" value="NP" data-units="FTE SHRE"/><label for="c-57">nonprofit</label></div><div class="dt-values many" data-level="1"><input id="c-58" type="checkbox" class="all-values"/><label for="c-58">all</label><input id="c-59" type="checkbox" value="COM.CEREAL" data-units="FTE SHRE"/><label for="c-59">crops (cereals)</label><input id="c-60" type="checkbox" value="COM.ROOTTUB" data-units="FTE SHRE"/><label for="c-60">crops (roots and tubers)</label><input id="c-61" type="checkbox" value="COM.PULSES" data-units="FTE SHRE"/><label for="c-61">crops (pulses)</label><input id="c-62" type="checkbox" value="COM.OILCRP" data-units="FTE SHRE"/><label for="c-62">crops (oil-bearing)</label><input id="c-63" type="checkbox" value="COM.HORT" data-units="FTE SHRE"/><label for="c-63">crops (horticultural)</label><input id="c-64" type="checkbox" value="COM.OTHCRP" data-units="FTE SHRE"/><label for="c-64">crops (other)</label><input id="c-65" type="checkbox" value="COM.LIVEST" data-units="FTE SHRE"/><label for="c-65">livestock</label><input id="c-66" type="checkbox" value="COM.FORESTRY" data-units="FTE SHRE"/><label for="c-66">forestry</label><input id="c-67" type="checkbox" value="COM.FISH" data-units="FTE SHRE"/><label for="c-67">fisheries</label><input id="c-68" type="checkbox" value="COM.NATRES" data-units="FTE SHRE"/><label for="c-68">natural resources</label><input id="c-69" type="checkbox" value="COM.SOCIOECON" data-units="FTE SHRE"/><label for="c-69">socioeconomics</label><input id="c-70" type="checkbox" value="COM.MISC" data-units="FTE SHRE"/><label for="c-70">other commodities</label><div class="dt-drilldowns"><div class="dt-buttons-label">You can further disaggregate your data by</div><div class="dt-buttons"><div class="dt-button default" data-parents="COM.CEREAL COM.ROOTTUB COM.PULSES COM.OILCRP COM.HORT COM.OTHCRP COM.LIVEST COM.FORESTRY COM.FISH COM.NATRES COM.SOCIOECON COM.MISC">total</div><div class="dt-button" data-parents="COM.CEREAL COM.ROOTTUB COM.PULSES COM.OILCRP COM.HORT COM.OTHCRP COM.LIVEST COM.FORESTRY COM.FISH COM.NATRES COM.SOCIOECON COM.MISC">Institutional category</div><div class="dt-button" data-parents="COM.CEREAL COM.ROOTTUB COM.PULSES COM.OILCRP COM.HORT COM.OTHCRP COM.LIVEST COM.FORESTRY COM.FISH COM.NATRES COM.SOCIOECON COM.MISC">Commodity item</div></div><div class="dt-button-values"><div class="dt-values default grouped" data-level="2"><div class="dt-group" data-parent=""><label></label><input id="c-71" type="checkbox" class="all-values"/><label for="c-71">all</label><input id="c-72" type="checkbox" value="TOT" data-units="FTE SHRE"/><label for="c-72">TOT</label></div></div><div class="dt-values" data-level="2"><input id="c-73" type="checkbox" value="GOV" data-units="FTE"/><label for="c-73">government</label><input id="c-74" type="checkbox" value="HE" data-units="FTE"/><label for="c-74">higher education</label><input id="c-75" type="checkbox" value="NP" data-units="FTE"/><label for="c-75">nonprofit</label></div><div class="dt-values many grouped" data-level="2"><div class="dt-group" data-parent="COM.CEREAL"><label>crops (cereals)</label><input id="c-76" type="checkbox" class="all-values"/><label for="c-76">all</label><input id="c-77" type="checkbox" value="WHEAT.TOT" data-units="FTE"/><label for="c-77">wheat</label><input id="c-78" type="checkbox" value="RICE.TOT" data-units="FTE"/><label for="c-78">rice</label><input id="c-79" type="checkbox" value="BARLEY.TOT" data-units="FTE"/><label for="c-79">barley</label><input id="c-80" type="checkbox" value="MAIZE.TOT" data-units="FTE"/><label for="c-80">maize</label><input id="c-81" type="checkbox" value="SORGHUM.TOT" data-units="FTE"/><label for="c-81">sorghum</label><input id="c-82" type="checkbox" value="OTHSUM.TOT" data-units="FTE"/><label for="c-82">other cereals</label></div><div class="dt-group" data-parent="COM.ROOTTUB"><label>crops (roots and tubers)</label><input id="c-83" type="checkbox" class="all-values"/><label for="c-83">all</label><input id="c-84" type="checkbox" value="POTATO.TOT" data-units="FTE"/><label for="c-84">potatoes</label><input id="c-85" type="checkbox" value="OTHSUM.TOT" data-units="FTE"/><label for="c-85">other roots and tubers</label></div><div class="dt-group" data-parent="COM.PULSES"><label>crops (pulses)</label><input id="c-86" type="checkbox" class="all-values"/><label for="c-86">all</label><input id="c-87" type="checkbox" value="BEAN.TOT" data-units="FTE"/><label for="c-87">beans</label><input id="c-88" type="checkbox" value="OTHSUM.TOT" data-units="FTE"/><label for="c-88">other pulses</label></div><div class="dt-group" data-parent="COM.OILCRP"><label>crops (oil-bearing)</label><input id="c-89" type="checkbox" class="all-values"/><label for="c-89">all</label><input id="c-90" type="checkbox" value="SOYBEAN.TOT" data-units="FTE"/><label for="c-90">soybeans</label><input id="c-91" type="checkbox" value="OILPLM.TOT" data-units="FTE"/><label for="c-91">oil palm</label><input id="c-92" type="checkbox" value="COCOPLM.TOT" data-units="FTE"/><label for="c-92">coconut palm</label><input id="c-93" type="checkbox" value="GRNDNUT.TOT" data-units="FTE"/><label for="c-93">groundnuts</label><input id="c-94" type="checkbox" value="OTHSUM.TOT" data-units="FTE"/><label for="c-94">other oil-bearing crops</label></div><div class="dt-group" data-parent="COM.HORT"><label>crops (horticultural)</label><input id="c-95" type="checkbox" class="all-values"/><label for="c-95">all</label><input id="c-96" type="checkbox" value="BANANAS.TOT" data-units="FTE"/><label for="c-96">bananas and plantains</label><input id="c-97" type="checkbox" value="FRTOTHSUM.TOT" data-units="FTE"/><label for="c-97">other fruits</label><input id="c-98" type="checkbox" value="FLOWERS.TOT" data-units="FTE"/><label for="c-98">flowers and ornamentals</label><input id="c-99" type="checkbox" value="VEGSUM.TOT" data-units="FTE"/><label for="c-99">vegetables</label></div><div class="dt-group" data-parent="COM.OTHCRP"><label>crops (other)</label><input id="c-100" type="checkbox" class="all-values"/><label for="c-100">all</label><input id="c-101" type="checkbox" value="NUTSUM.TOT" data-units="FTE"/><label for="c-101">nuts</label><input id="c-102" type="checkbox" value="COTTON.TOT" data-units="FTE"/><label for="c-102">cotton</label><input id="c-103" type="checkbox" value="TOBACCO.TOT" data-units="FTE"/><label for="c-103">tobacco</label><input id="c-104" type="checkbox" value="OTHSUM.TOT" data-units="FTE"/><label for="c-104">other crops</label></div><div class="dt-group" data-parent="COM.LIVEST"><label>livestock</label><input id="c-105" type="checkbox" class="all-values"/><label for="c-105">all</label><input id="c-106" type="checkbox" value="CATTLE.TOT" data-units="FTE"/><label for="c-106">cattle (excl. dairy)</label><input id="c-107" type="checkbox" value="DAIRY.TOT" data-units="FTE"/><label for="c-107">dairy</label><input id="c-108" type="checkbox" value="SHPGOAT.TOT" data-units="FTE"/><label for="c-108">sheep and goats</label><input id="c-109" type="checkbox" value="POULTRY.TOT" data-units="FTE"/><label for="c-109">poultry</label><input id="c-110" type="checkbox" value="OTHSUM.TOT" data-units="FTE"/><label for="c-110">other animals</label></div><div class="dt-group" data-parent="COM.FORESTRY"><label>forestry</label><input id="c-111" type="checkbox" class="all-values"/><label for="c-111">all</label><input id="c-112" type="checkbox" value="ITEM.TOT" data-units="FTE"/><label for="c-112">forestry</label></div><div class="dt-group" data-parent="COM.FISH"><label>fisheries</label><input id="c-113" type="checkbox" class="all-values"/><label for="c-113">all</label><input id="c-114" type="checkbox" value="MARINE.TOT" data-units="FTE"/><label for="c-114">marine</label><input id="c-115" type="checkbox" value="INLAND.TOT" data-units="FTE"/><label for="c-115">inland</label></div><div class="dt-group" data-parent="COM.NATRES"><label>natural resources</label><input id="c-116" type="checkbox" class="all-values"/><label for="c-116">all</label><input id="c-117" type="checkbox" value="ITEM.TOT" data-units="FTE"/><label for="c-117">natural resources</label></div><div class="dt-group" data-parent="COM.SOCIOECON"><label>socioeconomics</label><input id="c-118" type="checkbox" class="all-values"/><label for="c-118">all</label><input id="c-119" type="checkbox" value="ITEM.TOT" data-units="FTE"/><label for="c-119">socio-economics</label></div><div class="dt-group" data-parent="COM.MISC"><label>other commodities</label><input id="c-120" type="checkbox" class="all-values"/><label for="c-120">all</label><input id="c-121" type="checkbox" value="PASTURES.TOT" data-units="FTE"/><label for="c-121">pastures and forages</label><input id="c-122" type="checkbox" value="ONFRMHARV.TOT" data-units="FTE"/><label for="c-122">on-farm postharvest</label><input id="c-123" type="checkbox" value="AGRENG.TOT" data-units="FTE"/><label for="c-123">agricultural engineering</label><input id="c-124" type="checkbox" value="OTHSUM.TOT" data-units="FTE"/><label for="c-124">other commodities</label></div></div></div></div></div><div class="dt-values many grouped" data-level="1"><div class="dt-group" data-parent="DISC.CRP"><label>Crop sciences</label><input id="c-125" type="checkbox" class="all-values"/><label for="c-125">all</label><input id="c-126" type="checkbox" value="DISC.CRP.BREED" data-units="FTE SHRE"/><label for="c-126">plant breeding/genetics (incl. biotechnology)</label><input id="c-127" type="checkbox" value="DISC.CRP.PATH" data-units="FTE SHRE"/><label for="c-127">plant pathology</label><input id="c-128" type="checkbox" value="DISC.CRP.PHYS" data-units="FTE SHRE"/><label for="c-128">plant physiology</label><input id="c-129" type="checkbox" value="DISC.CRP.BOT" data-units="FTE SHRE"/><label for="c-129">botany</label><input id="c-130" type="checkbox" value="DISC.CRP.SEED" data-units="FTE SHRE"/><label for="c-130">seed science and technology</label><input id="c-131" type="checkbox" value="DISC.CRP.OTH" data-units="FTE SHRE"/><label for="c-131">other crop sciences</label></div><div class="dt-group" data-parent="DISC.FORES"><label>Forestry and agroforestry</label><input id="c-132" type="checkbox" class="all-values"/><label for="c-132">all</label><input id="c-133" type="checkbox" value="DISC.FOREST" data-units="FTE SHRE"/><label for="c-133">forestry and agroforestry</label></div><div class="dt-group" data-parent="DISC.ANIM"><label>Animal and livestock sciences</label><input id="c-134" type="checkbox" class="all-values"/><label for="c-134">all</label><input id="c-135" type="checkbox" value="DISC.ANIM.BREED" data-units="FTE SHRE"/><label for="c-135">animal breeding/genetics</label><input id="c-136" type="checkbox" value="DISC.ANIM.HUSB" data-units="FTE SHRE"/><label for="c-136">animal husbandry</label><input id="c-137" type="checkbox" value="DISC.ANIM.NUTR" data-units="FTE SHRE"/><label for="c-137">animal nutrition</label><input id="c-138" type="checkbox" value="DISC.ANIM.DAIRY" data-units="FTE SHRE"/><label for="c-138">dairy science</label><input id="c-139" type="checkbox" value="DISC.ANIM.PLTRY" data-units="FTE SHRE"/><label for="c-139">poultry science</label><input id="c-140" type="checkbox" value="DISC.ANIM.VET" data-units="FTE SHRE"/><label for="c-140">veterinary medicine</label><input id="c-141" type="checkbox" value="DISC.ANIM.ZOO" data-units="FTE SHRE"/><label for="c-141">zoology/entomology</label><input id="c-142" type="checkbox" value="DISC.ANIM.OTH" data-units="FTE SHRE"/><label for="c-142">other animal and livestock sciences</label></div><div class="dt-group" data-parent="DISC.FISH"><label>Fisheries and aquatic resources</label><input id="c-143" type="checkbox" class="all-values"/><label for="c-143">all</label><input id="c-144" type="checkbox" value="DISC.FISHAQUA" data-units="FTE SHRE"/><label for="c-144">fisheries and aquatic resources</label></div><div class="dt-group" data-parent="DISC.NAT"><label>Natural resources</label><input id="c-145" type="checkbox" class="all-values"/><label for="c-145">all</label><input id="c-146" type="checkbox" value="DISC.NAT.SOIL" data-units="FTE SHRE"/><label for="c-146">soil sciences</label><input id="c-147" type="checkbox" value="DISC.NAT.MANAG" data-units="FTE SHRE"/><label for="c-147">natural resouces management</label><input id="c-148" type="checkbox" value="DISC.NAT.WATER" data-units="FTE SHRE"/><label for="c-148">water and irrigation management</label><input id="c-149" type="checkbox" value="DISC.NAT.ECOL" data-units="FTE SHRE"/><label for="c-149">ecology</label><input id="c-150" type="checkbox" value="DISC.NAT.BIODIV" data-units="FTE SHRE"/><label for="c-150">biodiversity conservation</label></div><div class="dt-group" data-parent="DISC.MISC"><label>Other sciences</label><input id="c-151" type="checkbox" class="all-values"/><label for="c-151">all</label><input id="c-152" type="checkbox" value="DISC.MISC.FOOD" data-units="FTE SHRE"/><label for="c-152">food sciences and nutrition</label><input id="c-153" type="checkbox" value="DISC.MISC.SOCEC" data-units="FTE SHRE"/><label for="c-153">socioeconomics (incl. agricultural economics)</label><input id="c-154" type="checkbox" value="DISC.MISC.EXTED" data-units="FTE SHRE"/><label for="c-154">extension and education</label><input id="c-155" type="checkbox" value="DISC.MISC.OTH" data-units="FTE SHRE"/><label for="c-155">other</label></div><div class="dt-drilldowns"><div class="dt-buttons-label">You can further disaggregate your data by</div><div class="dt-buttons"><div class="dt-button" data-parents="DISC.CRP.CRPBREED DISC.CRP.BREED DISC.CRP.PATH DISC.CRP.PHYS DISC.CRP.BOT DISC.CRP.SEED DISC.CRP.OTHCRP DISC.CRP.OTH DISC.FOREST DISC.ANIM.ANIMBREED DISC.ANIM.BREED DISC.ANIM.HUSB DISC.ANIM.NUTR DISC.ANIM.DAIRY DISC.ANIM.PLTRY DISC.ANIM.VET DISC.ANIM.ZOO DISC.ANIM.OTHANIM DISC.ANIM.OTH DISC.FISHAQUA DISC.NAT.SOIL DISC.NAT.MANAG DISC.NAT.WATER DISC.NAT.ECOL DISC.NAT.BIODIV DISC.MISC.FOOD DISC.MISC.SOCEC DISC.MISC.EXTED DISC.MISC.OTHMISC DISC.MISC.OTH">Degree</div><div class="dt-button default" data-parents="DISC.CRP.CRPBREED DISC.CRP.BREED DISC.CRP.PATH DISC.CRP.PHYS DISC.CRP.BOT DISC.CRP.SEED DISC.CRP.OTHCRP DISC.CRP.OTH DISC.FOREST DISC.ANIM.ANIMBREED DISC.ANIM.BREED DISC.ANIM.HUSB DISC.ANIM.NUTR DISC.ANIM.DAIRY DISC.ANIM.PLTRY DISC.ANIM.VET DISC.ANIM.ZOO DISC.ANIM.OTHANIM DISC.ANIM.OTH DISC.FISHAQUA DISC.NAT.SOIL DISC.NAT.MANAG DISC.NAT.WATER DISC.NAT.ECOL DISC.NAT.BIODIV DISC.MISC.FOOD DISC.MISC.SOCEC DISC.MISC.EXTED DISC.MISC.OTHMISC DISC.MISC.OTH">total</div><div class="dt-button" data-parents="DISC.CRP.CRPBREED DISC.CRP.BREED DISC.CRP.PATH DISC.CRP.PHYS DISC.CRP.BOT DISC.CRP.SEED DISC.CRP.OTHCRP DISC.CRP.OTH DISC.FOREST DISC.ANIM.ANIMBREED DISC.ANIM.BREED DISC.ANIM.HUSB DISC.ANIM.NUTR DISC.ANIM.DAIRY DISC.ANIM.PLTRY DISC.ANIM.VET DISC.ANIM.ZOO DISC.ANIM.OTHANIM DISC.ANIM.OTH DISC.FISHAQUA DISC.NAT.SOIL DISC.NAT.MANAG DISC.NAT.WATER DISC.NAT.ECOL DISC.NAT.BIODIV DISC.MISC.FOOD DISC.MISC.SOCEC DISC.MISC.EXTED DISC.MISC.OTHMISC DISC.MISC.OTH">Institutional category</div></div><div class="dt-button-values"><div class="dt-values" data-level="2"><input id="c-156" type="checkbox" value="BSC.TOT" data-units="FTE"/><label for="c-156">BSc</label><input id="c-157" type="checkbox" value="MSC.TOT" data-units="FTE"/><label for="c-157">MSc</label><input id="c-158" type="checkbox" value="PHD.TOT" data-units="FTE"/><label for="c-158">PhD</label></div><div class="dt-values default grouped" data-level="2"><div class="dt-group" data-parent=""><label></label><input id="c-159" type="checkbox" class="all-values"/><label for="c-159">all</label><input id="c-160" type="checkbox" value="TOT" data-units="FTE SHRE"/><label for="c-160">TOT</label></div></div><div class="dt-values" data-level="2"><input id="c-161" type="checkbox" value="GOV" data-units="FTE"/><label for="c-161">government</label><input id="c-162" type="checkbox" value="HE" data-units="FTE"/><label for="c-162">higher education</label><input id="c-163" type="checkbox" value="NP" data-units="FTE"/><label for="c-163">nonprofit</label></div></div></div></div></div></div><div class="dt-units"><div class="dt-unit-group dt-button-values"><div class="dt-unit-label">Unit</div><div class="dt-values"><input id="RES.FTE" type="checkbox" value="FTE"/><label for="RES.FTE">FTEs</label><input id="RES.SHRE" type="checkbox" value="SHRE"/><label for="RES.SHRE">share</label></div></div><div class="dt-unit-group dt-button-values"><div class="dt-unit-label">Intensity ratio</div><div class="dt-values"><input id="RES.ARI.FARMERS" type="checkbox" value="ARI.FARMERS"/><label for="RES.ARI.FARMERS">per 100,000 farmers</label><input id="RES.ARI.POPULATION" type="checkbox" value="ARI.POPULATION"/><label for="RES.ARI.POPULATION">per million population</label></div></div><div class="dt-unit-group"><div class="dt-unit-label">Year</div><input type="radio" id="RES-1" name="RES" value="latest"/><label for="RES-1">latest year</label><input type="radio" id="RES-2" name="RES" value="all"/><label for="RES-2">all available years</label></div></div></div><div class='dt-download-section flex-container flex-vertical'>
+   <div class='dt-download-header'></div>
+   <div class='dt-download-description'></div>
+   <div class='dt-download-units'></div>
+   <div class='dt-download-years'></div>
+   <div class='dt-download-nodata' data-prefix='Data not available for: '></div>
+
+   <div class="dt-preview-sections flex-container flex-vertical flex-filled">
+      <div class='dt-preview-section'>
+         <ul class='dt-preview-tabs'>
+            <li data-type='line'>Download chart</li>
+            <li data-type='bar'></li>
+            <li data-type='donut'></li>
+         </ul>
+         <div class='dt-preview-tab' data-type='line'>
+            <div class='dt-preview-container' id='line-RES'></div>
+            <div class='dt-download-buttons'>
+               <a class='dt-download-link' data-format='png'></a>
+            </div>
+         </div>
+         <div class='dt-preview-tab' data-type='bar'>
+             <div class='dt-preview-container' id='bar-RES'></div>
+             <div class='dt-download-buttons'>
+                <a class='dt-download-link' data-format='png'></a>
+             </div>
+         </div>
+         <div class='dt-preview-tab' data-type='donut'>
+            <div class='dt-preview-container' id='donut-RES'></div>
+            <div class='dt-download-buttons'>
+               <a class='dt-download-link' data-format='png'></a>
+            </div>
+         </div>
+      </div>      <div class='dt-preview-section'>
+         <ul class='dt-preview-tabs'>
+            <li data-type='map'>Download map</li>
+         </ul>
+         <div class='dt-preview-tab' data-type='map'>
+            <div class='dt-preview-container' id='map-RES'></div>
+            <div class='dt-download-buttons'>
+               <a class='dt-download-link' data-format='png'></a>
+            </div>
+         </div>
+      </div>      <div class='dt-preview-section'>
+         <ul class='dt-preview-tabs'>
+            <li data-type='data'>Download data</li>
+         </ul>
+         <div class='dt-preview-tab'>
+            <input type="radio" id="xls-type-RES-1" name="xls-type-RES" value="country"/><label for="xls-type-RES-1">One sheet per country</label>
+            <input type="radio" id="xls-type-RES-2" name="xls-type-RES" value="indicator"/><label for="xls-type-RES-2">One sheet per indicator</label>
+
+            <div class='dt-download-buttons'>
+               <a class='dt-download-link' data-type='data' data-format='xls'></a>
+               <a class='dt-download-link' data-type='data' data-format='csv'></a>
+            </div>
+         </div>
+      </div>
+   </div>
+</div></div></div>
+   <div class="dt-section">
+      <div class="dt-section-header" data-key="FULL.TITLE"></div>
+
+      <div class="flex-container flex-horizontal">
+         <div class="flex-filled">
+            <p data-key="FULL.DESCRIPTION"></p>
+         </div>
+
+         <div class="dt-download-section flex-container flex-vertical">
+            <div class="dt-download-header" data-key="FULL.TITLE"></div>
+
+            <div class="dt-preview-section">
+               <ul class="dt-preview-tabs"><li data-key="DOWNLOAD.DATA" data-type="data"></li></ul>
+               <div class="dt-preview-tab">
+                  <input type="radio" id="xls-type-full-1" name="xls-type-full" value="country"/><label for="xls-type-full-1" data-key="SHEET.PRIMARY"></label>
+                  <input type="radio" id="xls-type-full-2" name="xls-type-full" value="indicator"/><label for="xls-type-full-2" data-key="SHEET.INDICATOR"></label>
+                  <div class="dt-download-buttons">
+                     <a id="full-xls" class="dt-download-link" data-type='data' data-format="xls"></a>
+                     <a id="full-csv" class="dt-download-link" data-type='data' data-format="csv"></a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+   </div>
+
+   </div>
+
+<script>
+   asti = window.asti || {};
+   asti.config = {"iso3":"","lang":"en","root":"https:\/\/www.asti.cgiar.org\/","site":"http:\/\/www.asti.cgiar.org:443\/","file":"\/var\/www\/asti.cgiar.org\/htdocs\/sites\/all\/libraries\/mw\/","json":"https:\/\/dataportal.asti.cgiar.org\/json","tool":"downloadtool","path":"\/sites\/all\/libraries\/mw\/\/","api":{"public":{"token":"public","url":"https:\/\/dataportal.asti.cgiar.org\/api\/public","language":"en","version":2}}};
+</script>
+<script>
+   asti.downloadtool.init(
+      0,
+      {"DOWNLOAD.TITLE":"Download","DOWNLOAD.CHART":"Download chart","DOWNLOAD.MAP":"Download map","DOWNLOAD.DATA":"Download data","DOWNLOAD.NOTES":"Metadata","REGIONS.ALL":"Select all regions","MAKE.A":"","ALL":"all","DETAIL.DATA":"Disaggregate by","DETAIL.FURTHER":"You can further disaggregate your data by","YEAR":"Year","YEAR.LATEST":"latest year","YEAR.ALL":"all available years","NO.DATA":"Data not available for: ","SHEET.INDICATOR":"One sheet per indicator","SSA-A":"Africa South of the Sahara","SSA":"Africa South of the Sahara","LAMCAR":"Latin America and the Caribbean","WANA":"West Asia and North Africa","ASIAPAC":"Asia and Pacific","FULL.TITLE":"Full set of ASTI indicators","EXP.TITLE":"Spending","EXP.COLOR":"#11b6d6","FUND.TITLE":"Funding","FUND.COLOR":"#11b6d6","RES.TITLE":"Researchers","RES.COLOR":"#95c21d","PRF.TITLE":"Researchers (headcounts)","PRF.COLOR":"#95c21d","AGE":"Age","UNDER31":"< 31 years","31_40":"31\u201340 years","41_50":"41\u201350 years","51_60":"51\u201360 years","OVER60":"> 60 years","DEGREE":"Degree","BSC":"BSc","MSC":"MSc","PHD":"PhD","COSTCAT":"Cost category","CAP":"capital investments","OPERAT":"operating and program costs","SALARIES":"salaries","SOURCE":"Source","COMPROD":"commodity levies\/producer organizations","DONORS":"donors","LOANS":"development banks","GOVCORE":"government (core)","GOVOTH":"government (other)","FUNDOTH":"other funding","SALES":"sales of goods\/services","GENDER":"Gender","FEMALE":"female","MALE":"male","TOTAL":"total","INSTCAT":"Institutional category","HE":"higher education","GOV":"government","NP":"nonprofit","POS":"Position","POS.MANAG":"management","POS.SENRSC":"senior scientists","POS.SCNTIST":"scientists","POS.POSTDOC":"postdoctoral fellows","POS.DEAN":"deans and department heads","POS.PROF":"professors","POS.ASSPROF":"associate professors","POS.SENLECT":"senior lecturers","POS.LECTUR":"lecturers","UNIT":"Unit","SHRE":"share","FTE":"FTEs","HC":"headcounts","RATIO":"Intensity ratio","ARI.AGGDP":"as a share of agricultural GDP","ARI.FARMERS":"per 100,000 farmers","ARI.POPULATION":"per million population","GROWTH":"growth","VOLATILITY":"volatility ratio","CONSTLCU.FTE":"million constant 2011 local currencies","CURNTLCU.FTE":"million current local currencies","PPP.FTE":"million constant 2011 PPP dollars","USD.FTE":"million constant 2011 US dollars","COM.FOCUS":"Commodity focus","COM.CEREAL":"crops (cereals)","COM.ROOTTUB":"crops (roots and tubers)","COM.PULSES":"crops (pulses)","COM.OILCRP":"crops (oil-bearing)","COM.HORT":"crops (horticultural)","COM.OTHCRP":"crops (other)","COM.LIVEST":"livestock","COM.FISH":"fisheries","COM.FORESTRY":"forestry","COM.NATRES":"natural resources","COM.SOCIOECON":"socioeconomics","COM.MISC":"other commodities","COM.ITEM":"Commodity item","DISC":"Discipline","DISC.ANIM":"Animal and livestock sciences","DISC.CRP":"Crop sciences","DISC.NAT":"Natural resources","DISC.FORES":"Forestry and agroforestry","DISC.FISH":"Fisheries and aquatic resources","DISC.MISC":"Other sciences","AGRENG":"COM.MISC|agricultural engineering","BANANAS":"COM.HORT|bananas and plantains","BARLEY":"COM.CEREAL|barley","BEAN":"COM.PULSES|beans","CATTLE":"COM.LIVEST|cattle (excl. dairy)","CEROTH":"COM.CEREAL|other cereals","CEROTHSUM":"COM.CEREAL|other cereals","COCOPLM":"COM.OILCRP|coconut palm","COTTON":"COM.OTHCRP|cotton","DAIRY":"COM.LIVEST|dairy","FLOWERS":"COM.HORT|flowers and ornamentals","FORITEM":"COM.FORESTRY|forestry","FRTOTHSUM":"COM.HORT|other fruits","GRNDNUT":"COM.OILCRP|groundnuts","INLAND":"COM.FISH|inland","LSTOTH":"COM.LIVEST|other animals","LSTOTHSUM":"COM.LIVEST|other animals","MAIZE":"COM.CEREAL|maize","MARINE":"COM.FISH|marine","NRITEM":"COM.NATRES|natural resources","OTH":"COM.MISC|other categories","MISCOTHSUM":"COM.MISC|other commodities","NUTSUM":"COM.OTHCRP|nuts","OILOTHSUM":"COM.OILCRP|other oil-bearing crops","OILPLM":"COM.OILCRP|oil palm","ONFRMHARV":"COM.MISC|on-farm postharvest","OTHOTH":"COM.OTHCRP|other crops","OTHOTHSUM":"COM.OTHCRP|other crops","PASTURES":"COM.MISC|pastures and forages","POTATO":"COM.ROOTTUB|potatoes","POULTRY":"COM.LIVEST|poultry","PULOTH":"COM.PULSES|other pulses","PULOTHSUM":"COM.PULSES|other pulses","RICE":"COM.CEREAL|rice","SHPGOAT":"COM.LIVEST|sheep and goats","SOCIOECON":"COM.MISC|socio-economics","SEITEM":"COM.SOCIOECON|socio-economics","SORGHUM":"COM.CEREAL|sorghum","SOYBEAN":"COM.OILCRP|soybeans","TOBACCO":"COM.OTHCRP|tobacco","TUBOTH":"COM.ROOTTUB|other roots and tubers","TUBOTHSUM":"COM.ROOTTUB|other roots and tubers","VEGSUM":"COM.HORT|vegetables","WHEAT":"COM.CEREAL|wheat","COCOA":"COM.OTHCRP|cocoa","COFFEE":"COM.OTHCRP|coffee","RUBBER":"COM.OTHCRP|rubber","SPICES":"COM.OTHCRP|spices","SUGAR":"COM.OTHCRP|sugar","TEA":"COM.OTHCRP|tea","MILLET":"COM.CEREAL|millet","SWTPOT":"COM.ROOTTUB|sweet potatoes","CASSAV":"COM.ROOTTUB|cassava","YAM":"COM.ROOTTUB|yams","CHICKPEA":"COM.PULSES|chick-peas","LENTIL":"COM.PULSES|lentils","SWINE":"COM.LIVEST|swine","APICULT":"COM.LIVEST|seri- and apiculture","DISC.CRP.CRPBREED":"DISC.CRP|plant breeding\/genetics (incl. biotechnology)","DISC.CRP.PATH":"DISC.CRP|plant pathology","DISC.CRP.PHYS":"DISC.CRP|plant physiology","DISC.CRP.BOT":"DISC.CRP|botany","DISC.CRP.SEED":"DISC.CRP|seed science and technology","DISC.CRP.OTHCRP":"DISC.CRP|other crop sciences","DISC.ANIM.ANIMBREED":"DISC.ANIM|animal breeding\/genetics","DISC.ANIM.HUSB":"DISC.ANIM|animal husbandry","DISC.ANIM.NUTR":"DISC.ANIM|animal nutrition","DISC.ANIM.DAIRY":"DISC.ANIM|dairy science","DISC.ANIM.PLTRY":"DISC.ANIM|poultry science","DISC.ANIM.VET":"DISC.ANIM|veterinary medicine","DISC.ANIM.ZOO":"DISC.ANIM|zoology\/entomology","DISC.ANIM.OTHANIM":"DISC.ANIM|other animal and livestock sciences","DISC.FOREST":"DISC.FORES|forestry and agroforestry","DISC.FISHAQUA":"DISC.FISH|fisheries and aquatic resources","DISC.NAT.SOIL":"DISC.NAT|soil sciences","DISC.NAT.MANAG":"DISC.NAT|natural resouces management","DISC.NAT.WATER":"DISC.NAT|water and irrigation management","DISC.NAT.ECOL":"DISC.NAT|ecology","DISC.NAT.BIODIV":"DISC.NAT|biodiversity conservation","DISC.MISC.FOOD":"DISC.MISC|food sciences and nutrition","DISC.MISC.SOCEC":"DISC.MISC|socioeconomics (incl. agricultural economics)","DISC.MISC.EXTED":"DISC.MISC|extension and education","DISC.MISC.OTHMISC":"DISC.MISC|other","SHEET.PRIMARY":"One sheet per country","DOWNLOAD.DESCRIPTION":"Use ASTI\u2019s data graphing and download tool to access datasets on agricultural research expenditures and human resource capacity in a large number of low- and middle-income countries. You can filter the data by country, indicator, or subindicator, as shown below. Please make sure you have selected one or more countries before proceeding to data download.","FULL.DESCRIPTION":"Download all of ASTI\u2019s available indicators, for multiple years, in bulk for countries selected above. Please select no more than 10 countries at a time.","PRIMARY.TITLE":"Countries","PRIMARY.DESCRIPTION":"ASTI has conducted primary surveys in a large number of low- and middle-income countries. Please note that the year of the most recent data available will differ by region.","PRIMARY.ALL":"All countries","PRIMARY.SELECT":"Countries (select at left)","PRIMARY.DESELECT":"Clear country selection","PRIMARY.NONE":"You need to select at least one country","PRIMARY.SELECTION":"Select countries here","INVALID.MAP":"For a map you need at least two countries, and a single indicator","INVALID.LINE":"For a line-chart you need one indicator, all years, and no more than six countries, or indicators from a single drilldown group, and one country","INVALID.DONUT":"For a donut-chart you need all indicators from a single drilldown group, latest year, and one country","INVALID.BAR":"For a bar-chart you need either one indicator with latest year, or indicators from a single drilldown group, and one country","EXP.DESCRIPTION":"ASTI\u2019s national agricultural research expenditure data is categorized as salary-related expenses, operating and program costs, and capital investments by government, nonprofit, and higher education agencies. Data on spending by private entities are excluded, due to lack of availability. Additional financial data, such as shares of spending by cost category and funding by source, are accessible under the <a href='\/countries'>individual country pages<\/a>.","RES.DESCRIPTION":"ASTI\u2019s data on national agricultural researchers are expressed in full-time equivalent (FTE) researchers (with official researcher status) employed at government, nonprofit, and higher education agencies. Data on agricultural researchers employed by the private sector are excluded due to lack of availability. FTE calculations take into account the proportion of time scientists actually spend on research as opposed to other activities.","PRF.DESCRIPTION":"TBD","FULL.INDICATORS":"EXP.TOT.CURNTLCU.FTE,EXP.TOT.CONSTLCU.FTE,EXP.TOT.PPP.FTE,EXP.TOT.USD.FTE,RES.TOT.FTE,EXP.TOT.ARI.AGGDP,EXP.TOT.ARI.FARMERS,EXP.TOT.ARI.POPULATION,RES.TOT.ARI.FARMERS,RES.TOT.ARI.POPULATION,RES.GOV.FTE,RES.HE.FTE,RES.NP.FTE,RES.GOV.SHRE,RES.HE.SHRE,RES.NP.SHRE,RES.PHD.TOT.FTE,RES.MSC.TOT.FTE,RES.BSC.TOT.FTE,RES.PHD.TOT.SHRE,RES.MSC.TOT.SHRE,RES.BSC.TOT.SHRE,RES.PHD.GOV.FTE,RES.PHD.HE.FTE,RES.PHD.NP.FTE,RES.MSC.GOV.FTE,RES.MSC.HE.FTE,RES.MSC.NP.FTE,RES.BSC.GOV.FTE,RES.BSC.HE.FTE,RES.BSC.NP.FTE,RES.FEMALE.TOT.FTE,RES.MALE.TOT.FTE,RES.FEMALE.TOT.SHRE,RES.MALE.TOT.SHRE,RES.FEMALE.GOV.FTE,RES.FEMALE.HE.FTE,RES.FEMALE.NP.FTE,RES.MALE.GOV.FTE,RES.MALE.HE.FTE,RES.MALE.NP.FTE,RES.PHD.FEMALE.TOT.FTE,RES.PHD.MALE.TOT.FTE,RES.MSC.FEMALE.TOT.FTE,RES.MSC.MALE.TOT.FTE,RES.BSC.FEMALE.TOT.FTE,RES.BSC.MALE.TOT.FTE,RES.UNDER31.TOT.FTE,RES.31_40.TOT.FTE,RES.41_50.TOT.FTE,RES.51_60.TOT.FTE,RES.OVER60.TOT.FTE,RES.UNDER31.TOT.SHRE,RES.31_40.TOT.SHRE,RES.41_50.TOT.SHRE,RES.51_60.TOT.SHRE,RES.OVER60.TOT.SHRE,RES.UNDER31.GOV.FTE,RES.UNDER31.HE.FTE,RES.UNDER31.NP.FTE,RES.31_40.GOV.FTE,RES.31_40.HE.FTE,RES.31_40.NP.FTE,RES.41_50.GOV.FTE,RES.41_50.HE.FTE,RES.41_50.NP.FTE,RES.51_60.GOV.FTE,RES.51_60.HE.FTE,RES.51_60.NP.FTE,RES.OVER60.GOV.FTE,RES.OVER60.HE.FTE,RES.OVER60.NP.FTE,RES.PHD.UNDER31.TOT.FTE,RES.PHD.31_40.TOT.FTE,RES.PHD.41_50.TOT.FTE,RES.PHD.51_60.TOT.FTE,RES.PHD.OVER60.TOT.FTE,RES.MSC.UNDER31.TOT.FTE,RES.MSC.31_40.TOT.FTE,RES.MSC.41_50.TOT.FTE,RES.MSC.51_60.TOT.FTE,RES.MSC.OVER60.TOT.FTE,RES.BSC.UNDER31.TOT.FTE,RES.BSC.31_40.TOT.FTE,RES.BSC.41_50.TOT.FTE,RES.BSC.51_60.TOT.FTE,RES.BSC.OVER60.TOT.FTE,RES.FEMALE.UNDER31.TOT.FTE,RES.FEMALE.31_40.TOT.FTE,RES.FEMALE.41_50.TOT.FTE,RES.FEMALE.51_60.TOT.FTE,RES.FEMALE.OVER60.TOT.FTE,RES.MALE.UNDER31.TOT.FTE,RES.MALE.31_40.TOT.FTE,RES.MALE.41_50.TOT.FTE,RES.MALE.51_60.TOT.FTE,RES.MALE.OVER60.TOT.FTE,RES.DISC.CRP.BREED.TOT.FTE,RES.DISC.CRP.PATH.TOT.FTE,RES.DISC.CRP.PHYS.TOT.FTE,RES.DISC.CRP.BOT.TOT.FTE,RES.DISC.CRP.SEED.TOT.FTE,RES.DISC.CRP.OTH.TOT.FTE,RES.DISC.ANIM.BREED.TOT.FTE,RES.DISC.ANIM.HUSB.TOT.FTE,RES.DISC.ANIM.NUTR.TOT.FTE,RES.DISC.ANIM.DAIRY.TOT.FTE,RES.DISC.ANIM.PLTRY.TOT.FTE,RES.DISC.ANIM.VET.TOT.FTE,RES.DISC.ANIM.ZOO.TOT.FTE,RES.DISC.ANIM.OTH.TOT.FTE,RES.DISC.FOREST.TOT.FTE,RES.DISC.FISHAQUA.TOT.FTE,RES.DISC.NAT.SOIL.TOT.FTE,RES.DISC.NAT.MANAG.TOT.FTE,RES.DISC.NAT.WATER.TOT.FTE,RES.DISC.NAT.ECOL.TOT.FTE,RES.DISC.NAT.BIODIV.TOT.FTE,RES.DISC.MISC.FOOD.TOT.FTE,RES.DISC.MISC.SOCEC.TOT.FTE,RES.DISC.MISC.EXTED.TOT.FTE,RES.DISC.MISC.OTH.TOT.FTE,RES.DISC.CRP.BREED.TOT.SHRE,RES.DISC.CRP.PATH.TOT.SHRE,RES.DISC.CRP.PHYS.TOT.SHRE,RES.DISC.CRP.BOT.TOT.SHRE,RES.DISC.CRP.SEED.TOT.SHRE,RES.DISC.CRP.OTH.TOT.SHRE,RES.DISC.ANIM.BREED.TOT.SHRE,RES.DISC.ANIM.HUSB.TOT.SHRE,RES.DISC.ANIM.NUTR.TOT.SHRE,RES.DISC.ANIM.DAIRY.TOT.SHRE,RES.DISC.ANIM.PLTRY.TOT.SHRE,RES.DISC.ANIM.ZOO.TOT.SHRE,RES.DISC.ANIM.VET.TOT.SHRE,RES.DISC.ANIM.OTH.TOT.SHRE,RES.DISC.FOREST.TOT.SHRE,RES.DISC.FISHAQUA.TOT.SHRE,RES.DISC.NAT.SOIL.TOT.SHRE,RES.DISC.NAT.MANAG.TOT.SHRE,RES.DISC.NAT.WATER.TOT.SHRE,RES.DISC.NAT.ECOL.TOT.SHRE,RES.DISC.NAT.BIODIV.TOT.SHRE,RES.DISC.MISC.FOOD.TOT.SHRE,RES.DISC.MISC.SOCEC.TOT.SHRE,RES.DISC.MISC.EXTED.TOT.SHRE,RES.DISC.MISC.OTH.TOT.SHRE,RES.DISC.CRP.BREED.GOV.FTE,RES.DISC.CRP.BREED.HE.FTE,RES.DISC.CRP.BREED.NP.FTE,RES.DISC.CRP.PATH.GOV.FTE,RES.DISC.CRP.PATH.HE.FTE,RES.DISC.CRP.PATH.NP.FTE,RES.DISC.CRP.PHYS.GOV.FTE,RES.DISC.CRP.PHYS.HE.FTE,RES.DISC.CRP.PHYS.NP.FTE,RES.DISC.CRP.BOT.GOV.FTE,RES.DISC.CRP.BOT.HE.FTE,RES.DISC.CRP.BOT.NP.FTE,RES.DISC.CRP.SEED.GOV.FTE,RES.DISC.CRP.SEED.HE.FTE,RES.DISC.CRP.SEED.NP.FTE,RES.DISC.CRP.OTH.GOV.FTE,RES.DISC.CRP.OTH.HE.FTE,RES.DISC.CRP.OTH.NP.FTE,RES.DISC.ANIM.BREED.GOV.FTE,RES.DISC.ANIM.BREED.HE.FTE,RES.DISC.ANIM.BREED.NP.FTE,RES.DISC.ANIM.HUSB.GOV.FTE,RES.DISC.ANIM.HUSB.HE.FTE,RES.DISC.ANIM.HUSB.NP.FTE,RES.DISC.ANIM.NUTR.GOV.FTE,RES.DISC.ANIM.NUTR.HE.FTE,RES.DISC.ANIM.NUTR.NP.FTE,RES.DISC.ANIM.DAIRY.GOV.FTE,RES.DISC.ANIM.DAIRY.HE.FTE,RES.DISC.ANIM.DAIRY.NP.FTE,RES.DISC.ANIM.PLTRY.GOV.FTE,RES.DISC.ANIM.PLTRY.HE.FTE,RES.DISC.ANIM.PLTRY.NP.FTE,RES.DISC.ANIM.VET.GOV.FTE,RES.DISC.ANIM.VET.HE.FTE,RES.DISC.ANIM.VET.NP.FTE,RES.DISC.ANIM.ZOO.GOV.FTE,RES.DISC.ANIM.ZOO.HE.FTE,RES.DISC.ANIM.ZOO.NP.FTE,RES.DISC.ANIM.OTH.GOV.FTE,RES.DISC.ANIM.OTH.HE.FTE,RES.DISC.ANIM.OTH.NP.FTE,RES.DISC.FOREST.GOV.FTE,RES.DISC.FOREST.HE.FTE,RES.DISC.FOREST.NP.FTE,RES.DISC.FISHAQUA.GOV.FTE,RES.DISC.FISHAQUA.HE.FTE,RES.DISC.FISHAQUA.NP.FTE,RES.DISC.NAT.SOIL.GOV.FTE,RES.DISC.NAT.SOIL.HE.FTE,RES.DISC.NAT.SOIL.NP.FTE,RES.DISC.NAT.MANAG.GOV.FTE,RES.DISC.NAT.MANAG.HE.FTE,RES.DISC.NAT.MANAG.NP.FTE,RES.DISC.NAT.WATER.GOV.FTE,RES.DISC.NAT.WATER.HE.FTE,RES.DISC.NAT.WATER.NP.FTE,RES.DISC.NAT.ECOL.GOV.FTE,RES.DISC.NAT.ECOL.HE.FTE,RES.DISC.NAT.ECOL.NP.FTE,RES.DISC.NAT.BIODIV.GOV.FTE,RES.DISC.NAT.BIODIV.HE.FTE,RES.DISC.NAT.BIODIV.NP.FTE,RES.DISC.MISC.FOOD.GOV.FTE,RES.DISC.MISC.FOOD.HE.FTE,RES.DISC.MISC.FOOD.NP.FTE,RES.DISC.MISC.SOCEC.GOV.FTE,RES.DISC.MISC.SOCEC.HE.FTE,RES.DISC.MISC.SOCEC.NP.FTE,RES.DISC.MISC.EXTED.GOV.FTE,RES.DISC.MISC.EXTED.HE.FTE,RES.DISC.MISC.EXTED.NP.FTE,RES.DISC.MISC.OTH.GOV.FTE,RES.DISC.MISC.OTH.HE.FTE,RES.DISC.MISC.OTH.NP.FTE,RES.DISC.CRP.BREED.BSC.TOT.FTE,RES.DISC.CRP.BREED.MSC.TOT.FTE,RES.DISC.CRP.BREED.PHD.TOT.FTE,RES.DISC.CRP.PATH.BSC.TOT.FTE,RES.DISC.CRP.PATH.MSC.TOT.FTE,RES.DISC.CRP.PATH.PHD.TOT.FTE,RES.DISC.CRP.PHYS.BSC.TOT.FTE,RES.DISC.CRP.PHYS.MSC.TOT.FTE,RES.DISC.CRP.PHYS.PHD.TOT.FTE,RES.DISC.CRP.BOT.BSC.TOT.FTE,RES.DISC.CRP.BOT.MSC.TOT.FTE,RES.DISC.CRP.BOT.PHD.TOT.FTE,RES.DISC.CRP.SEED.BSC.TOT.FTE,RES.DISC.CRP.SEED.MSC.TOT.FTE,RES.DISC.CRP.SEED.PHD.TOT.FTE,RES.DISC.CRP.OTH.BSC.TOT.FTE,RES.DISC.CRP.OTH.MSC.TOT.FTE,RES.DISC.CRP.OTH.PHD.TOT.FTE,RES.DISC.ANIM.BREED.BSC.TOT.FTE,RES.DISC.ANIM.BREED.MSC.TOT.FTE,RES.DISC.ANIM.BREED.PHD.TOT.FTE,RES.DISC.ANIM.HUSB.BSC.TOT.FTE,RES.DISC.ANIM.HUSB.MSC.TOT.FTE,RES.DISC.ANIM.HUSB.PHD.TOT.FTE,RES.DISC.ANIM.NUTR.BSC.TOT.FTE,RES.DISC.ANIM.NUTR.MSC.TOT.FTE,RES.DISC.ANIM.NUTR.PHD.TOT.FTE,RES.DISC.ANIM.DAIRY.BSC.TOT.FTE,RES.DISC.ANIM.DAIRY.MSC.TOT.FTE,RES.DISC.ANIM.DAIRY.PHD.TOT.FTE,RES.DISC.ANIM.PLTRY.BSC.TOT.FTE,RES.DISC.ANIM.PLTRY.MSC.TOT.FTE,RES.DISC.ANIM.PLTRY.PHD.TOT.FTE,RES.DISC.ANIM.VET.BSC.TOT.FTE,RES.DISC.ANIM.VET.MSC.TOT.FTE,RES.DISC.ANIM.VET.PHD.TOT.FTE,RES.DISC.ANIM.ZOO.BSC.TOT.FTE,RES.DISC.ANIM.ZOO.MSC.TOT.FTE,RES.DISC.ANIM.ZOO.PHD.TOT.FTE,RES.DISC.ANIM.OTH.BSC.TOT.FTE,RES.DISC.ANIM.OTH.MSC.TOT.FTE,RES.DISC.ANIM.OTH.PHD.TOT.FTE,RES.DISC.FOREST.BSC.TOT.FTE,RES.DISC.FOREST.MSC.TOT.FTE,RES.DISC.FOREST.PHD.TOT.FTE,RES.DISC.FISHAQUA.BSC.TOT.FTE,RES.DISC.FISHAQUA.MSC.TOT.FTE,RES.DISC.FISHAQUA.PHD.TOT.FTE,RES.DISC.NAT.SOIL.BSC.TOT.FTE,RES.DISC.NAT.SOIL.MSC.TOT.FTE,RES.DISC.NAT.SOIL.PHD.TOT.FTE,RES.DISC.NAT.MANAG.BSC.TOT.FTE,RES.DISC.NAT.MANAG.MSC.TOT.FTE,RES.DISC.NAT.MANAG.PHD.TOT.FTE,RES.DISC.NAT.WATER.BSC.TOT.FTE,RES.DISC.NAT.WATER.MSC.TOT.FTE,RES.DISC.NAT.WATER.PHD.TOT.FTE,RES.DISC.NAT.ECOL.BSC.TOT.FTE,RES.DISC.NAT.ECOL.MSC.TOT.FTE,RES.DISC.NAT.ECOL.PHD.TOT.FTE,RES.DISC.NAT.BIODIV.BSC.TOT.FTE,RES.DISC.NAT.BIODIV.MSC.TOT.FTE,RES.DISC.NAT.BIODIV.PHD.TOT.FTE,RES.DISC.MISC.FOOD.BSC.TOT.FTE,RES.DISC.MISC.FOOD.MSC.TOT.FTE,RES.DISC.MISC.FOOD.PHD.TOT.FTE,RES.DISC.MISC.SOCEC.BSC.TOT.FTE,RES.DISC.MISC.SOCEC.MSC.TOT.FTE,RES.DISC.MISC.SOCEC.PHD.TOT.FTE,RES.DISC.MISC.EXTED.BSC.TOT.FTE,RES.DISC.MISC.EXTED.MSC.TOT.FTE,RES.DISC.MISC.EXTED.PHD.TOT.FTE,RES.DISC.MISC.OTH.BSC.TOT.FTE,RES.DISC.MISC.OTH.MSC.TOT.FTE,RES.DISC.MISC.OTH.PHD.TOT.FTE,RES.COM.CEREAL.TOT.FTE,RES.COM.ROOTTUB.TOT.FTE,RES.COM.PULSES.TOT.FTE,RES.COM.OILCRP.TOT.FTE,RES.COM.HORT.TOT.FTE,RES.COM.OTHCRP.TOT.FTE,RES.COM.LIVEST.TOT.FTE,RES.COM.FORESTRY.TOT.FTE,RES.COM.FISH.TOT.FTE,RES.COM.NATRES.TOT.FTE,RES.COM.SOCIOECON.TOT.FTE,RES.COM.MISC.TOT.FTE,RES.COM.CEREAL.TOT.SHRE,RES.COM.ROOTTUB.TOT.SHRE,RES.COM.PULSES.TOT.SHRE,RES.COM.OILCRP.TOT.SHRE,RES.COM.HORT.TOT.SHRE,RES.COM.OTHCRP.TOT.SHRE,RES.COM.LIVEST.TOT.SHRE,RES.COM.FORESTRY.TOT.SHRE,RES.COM.FISH.TOT.SHRE,RES.COM.NATRES.TOT.SHRE,RES.COM.SOCIOECON.TOT.SHRE,RES.COM.MISC.TOT.SHRE,RES.COM.CEREAL.GOV.FTE,RES.COM.CEREAL.HE.FTE,RES.COM.CEREAL.NP.FTE,RES.COM.ROOTTUB.GOV.FTE,RES.COM.ROOTTUB.HE.FTE,RES.COM.ROOTTUB.NP.FTE,RES.COM.PULSES.GOV.FTE,RES.COM.PULSES.HE.FTE,RES.COM.PULSES.NP.FTE,RES.COM.OILCRP.GOV.FTE,RES.COM.OILCRP.HE.FTE,RES.COM.OILCRP.NP.FTE,RES.COM.HORT.GOV.FTE,RES.COM.HORT.HE.FTE,RES.COM.HORT.NP.FTE,RES.COM.OTHCRP.GOV.FTE,RES.COM.OTHCRP.HE.FTE,RES.COM.OTHCRP.NP.FTE,RES.COM.LIVEST.GOV.FTE,RES.COM.LIVEST.HE.FTE,RES.COM.LIVEST.NP.FTE,RES.COM.FORESTRY.GOV.FTE,RES.COM.FORESTRY.HE.FTE,RES.COM.FORESTRY.NP.FTE,RES.COM.FISH.GOV.FTE,RES.COM.FISH.HE.FTE,RES.COM.FISH.NP.FTE,RES.COM.NATRES.GOV.FTE,RES.COM.NATRES.HE.FTE,RES.COM.NATRES.NP.FTE,RES.COM.SOCIOECON.GOV.FTE,RES.COM.SOCIOECON.HE.FTE,RES.COM.SOCIOECON.NP.FTE,RES.COM.MISC.GOV.FTE,RES.COM.MISC.HE.FTE,RES.COM.MISC.NP.FTE,RES.COM.CEREAL.WHEAT.TOT.FTE,RES.COM.CEREAL.BARLEY.TOT.FTE,RES.COM.CEREAL.RICE.TOT.FTE,RES.COM.CEREAL.MAIZE.TOT.FTE,RES.COM.CEREAL.SORGHUM.TOT.FTE,RES.COM.CEREAL.OTHSUM.TOT.FTE,RES.COM.ROOTTUB.OTHSUM.TOT.FTE,RES.COM.ROOTTUB.POTATO.TOT.FTE,RES.COM.PULSES.BEAN.TOT.FTE,RES.COM.PULSES.OTHSUM.TOT.FTE,RES.COM.OILCRP.SOYBEAN.TOT.FTE,RES.COM.OILCRP.OILPLM.TOT.FTE,RES.COM.OILCRP.COCOPLM.TOT.FTE,RES.COM.OILCRP.GRNDNUT.TOT.FTE,RES.COM.OILCRP.OTHSUM.TOT.FTE,RES.COM.HORT.BANANAS.TOT.FTE,RES.COM.HORT.FRTOTHSUM.TOT.FTE,RES.COM.HORT.FLOWERS.TOT.FTE,RES.COM.HORT.VEGSUM.TOT.FTE,RES.COM.OTHCRP.NUTSUM.TOT.FTE,RES.COM.OTHCRP.COTTON.TOT.FTE,RES.COM.OTHCRP.TOBACCO.TOT.FTE,RES.COM.OTHCRP.OTHSUM.TOT.FTE,RES.COM.LIVEST.CATTLE.TOT.FTE,RES.COM.LIVEST.DAIRY.TOT.FTE,RES.COM.LIVEST.SHPGOAT.TOT.FTE,RES.COM.LIVEST.POULTRY.TOT.FTE,RES.COM.LIVEST.OTHSUM.TOT.FTE,RES.COM.FORESTRY.ITEM.TOT.FTE,RES.COM.FISH.INLAND.TOT.FTE,RES.COM.FISH.MARINE.TOT.FTE,RES.COM.NATRES.ITEM.TOT.FTE,RES.COM.SOCIOECON.ITEM.TOT.FTE,RES.COM.MISC.PASTURES.TOT.FTE,RES.COM.MISC.ONFRMHARV.TOT.FTE,RES.COM.MISC.AGRENG.TOT.FTE,RES.COM.MISC.SOCIOECON.TOT.FTE,RES.COM.MISC.OTHSUM.TOT.FTE"},
+      {"ATG":["RES.COM.*"],"BFA":["RES.COM.*","RES.POS.*"],"DMA":["RES.COM.*"],"KNA":["RES.COM.*"],"BEN":["RES.POS.*"],"BDI":["RES.POS.*"],"CPV":["RES.POS.*"],"CAF":["RES.POS.*","RES.DISC.*"],"COG":["RES.POS.*"],"ERI":["RES.POS.*","RES.DISC.*"],"GAB":["RES.POS.*"],"GIN":["RES.POS.*","RES.DISC.*"],"GNB":["RES.POS.*","RES.DISC.*"],"LBR":["RES.POS.*","RES.DISC.*"],"MLI":["RES.POS.*"],"MRT":["RES.POS.*"],"SEN":["RES.POS.*"],"SSD":["RES.POS.*"],"TGO":["RES.POS.*"],"MWI":["RES.DISC.*"],"NAM":["RES.DISC.*"],"SDN":["RES.DISC.*"],"BRB":["RES.UNDER31.*","RES.31_40.*","RES.41_50.*","RES.51_60.*","RES.OVER60.*","RES.BSC.*","RES.PHD.*","RS.MSC.*","RES.FEMALE.*","RES.MALE.*","RES.COM.*"],"CIV":["RES.UNDER31.*","RES.31_40.*","RES.41_50.*","RES.51_60.*","RES.OVER60.*","RES.BSC.*","RES.PHD.*","RS.MSC.*","RES.FEMALE.*","RES.MALE.*","RES.COM.*"],"GRD":["RES.UNDER31.*","RES.31_40.*","RES.41_50.*","RES.51_60.*","RES.OVER60.*","RES.BSC.*","RES.PHD.*","RS.MSC.*","RES.FEMALE.*","RES.MALE.*","RES.COM.*"],"VCT":["RES.UNDER31.*","RES.31_40.*","RES.41_50.*","RES.51_60.*","RES.OVER60.*","RES.BSC.*","RES.PHD.*","RS.MSC.*","RES.FEMALE.*","RES.MALE.*","RES.COM.*"],"ZAF":["RES.UNDER31.*","RES.31_40.*","RES.41_50.*","RES.51_60.*","RES.OVER60.*","RES.BSC.*","RES.PHD.*","RS.MSC.*","RES.FEMALE.*","RES.MALE.*","RES.COM.*","RES.DISC.*"],"ZMB":["RES.UNDER31.*","RES.31_40.*","RES.41_50.*","RES.51_60.*","RES.OVER60.*","RES.BSC.*","RES.PHD.*","RS.MSC.*","RES.FEMALE.*","RES.MALE.*","RES.COM.*"],"NGA":["RES.UNDER31.*","RES.31_40.*","RES.41_50.*","RES.51_60.*","RES.OVER60.*","RES.BSC.*","RES.PHD.*","RS.MSC.*","RES.FEMALE.*","RES.MALE.*","RES.COM.*"],"TCD":["RES.UNDER31.FEMALE.*","RES.31_40.FEMALE.*","RES.41_50.FEMALE.*","RES.51_60.FEMALE.*","RES.OVER60.FEMALE.*","RES.UNDER31.MALE.*","RES.31_40.MALE.*","RES.41_50.MALE.*","RES.51_60.MALE.*","RES.OVER60.MALE.*","RES.FEMALE.UNDER31.*","RES.FEMALE.31_40.*","RES.FEMALE.41_50.*","RES.FEMALE.51_60.*","RES.FEMALEOVER60..*","RES.MALE.UNDER31.*","RES.MALE.31_40.*","RES.MALE.41_50.*","RES.MALE.51_60.*","RES.MALE.OVER60.*","RES.POS.*"],"COD":["RES.UNDER31.FEMALE.*","RES.31_40.FEMALE.*","RES.41_50.FEMALE.*","RES.51_60.FEMALE.*","RES.OVER60.FEMALE.*","RES.UNDER31.MALE.*","RES.31_40.MALE.*","RES.41_50.MALE.*","RES.51_60.MALE.*","RES.OVER60.MALE.*","RES.FEMALE.UNDER31.*","RES.FEMALE.31_40.*","RES.FEMALE.41_50.*","RES.FEMALE.51_60.*","RES.FEMALEOVER60..*","RES.MALE.UNDER31.*","RES.MALE.31_40.*","RES.MALE.41_50.*","RES.MALE.51_60.*","RES.MALE.OVER60.*","RES.POS.*"],"MDG":["RES.UNDER31.FEMALE.*","RES.31_40.FEMALE.*","RES.41_50.FEMALE.*","RES.51_60.FEMALE.*","RES.OVER60.FEMALE.*","RES.UNDER31.MALE.*","RES.31_40.MALE.*","RES.41_50.MALE.*","RES.51_60.MALE.*","RES.OVER60.MALE.*","RES.FEMALE.UNDER31.*","RES.FEMALE.31_40.*","RES.FEMALE.41_50.*","RES.FEMALE.51_60.*","RES.FEMALEOVER60..*","RES.MALE.UNDER31.*","RES.MALE.31_40.*","RES.MALE.41_50.*","RES.MALE.51_60.*","RES.MALE.OVER60.*","RES.POS.*"],"EGY":["RES.UNDER31.*","RES.31_40.*","RES.41_50.*","RES.51_60.*","RES.OVER60.*","RES.PHD.UNDER31.*","RES.PHD.31_40.*","RES.PHD.41_50.*","RES.PHD.51_60.*","RES.PHD.OVER60.*","RES.MSC.UNDER31.*","RES.MSC.31_40.*","RES.MSC.41_50.*","RES.MSC.51_60.*","RES.MSC.OVER60.*","RES.BSC.UNDER31.*","RES.BSC.31_40.*","RES.BSC.41_50.*","RES.BSC.51_60.*","RES.BSC.OVER60.*","RES.FEMALE.UNDER31.*","RES.FEMALE.31_40.*","RES.FEMALE.41_50.*","RES.FEMALE.51_60.*","RES.FEMALE.OVER60.*","RES.MALE.UNDER31.*","RES.MALE.31_40.*","RES.MALE.41_50.*","RES.MALE.51_60.*","RES.MALE.OVER60.*","RES.POS.*","RES.DISC.*"],"JAM":["RES.UNDER31.*","RES.31_40.*","RES.41_50.*","RES.51_60.*","RES.OVER60.*","RES.PHD.UNDER31.*","RES.PHD.31_40.*","RES.PHD.41_50.*","RES.PHD.51_60.*","RES.PHD.OVER60.*","RES.MSC.UNDER31.*","RES.MSC.31_40.*","RES.MSC.41_50.*","RES.MSC.51_60.*","RES.MSC.OVER60.*","RES.BSC.UNDER31.*","RES.BSC.31_40.*","RES.BSC.41_50.*","RES.BSC.51_60.*","RES.BSC.OVER60.*","RES.FEMALE.UNDER31.*","RES.FEMALE.31_40.*","RES.FEMALE.41_50.*","RES.FEMALE.51_60.*","RES.FEMALE.OVER60.*","RES.MALE.UNDER31.*","RES.MALE.31_40.*","RES.MALE.41_50.*","RES.MALE.51_60.*","RES.MALE.OVER60.*"],"NIG":["RES.UNDER31.*","RES.31_40.*","RES.41_50.*","RES.51_60.*","RES.OVER60.*","RES.PHD.UNDER31.*","RES.PHD.31_40.*","RES.PHD.41_50.*","RES.PHD.51_60.*","RES.PHD.OVER60.*","RES.MSC.UNDER31.*","RES.MSC.31_40.*","RES.MSC.41_50.*","RES.MSC.51_60.*","RES.MSC.OVER60.*","RES.BSC.UNDER31.*","RES.BSC.31_40.*","RES.BSC.41_50.*","RES.BSC.51_60.*","RES.BSC.OVER60.*","RES.FEMALE.UNDER31.*","RES.FEMALE.31_40.*","RES.FEMALE.41_50.*","RES.FEMALE.51_60.*","RES.FEMALE.OVER60.*","RES.MALE.UNDER31.*","RES.MALE.31_40.*","RES.MALE.41_50.*","RES.MALE.51_60.*","RES.MALE.OVER60.*"],"MAR":["RES.POS.*","RES.DISC.*"],"OMN":["RES.POS.*","RES.DISC.*"],"DZA":["RES.POS.*","RES.DISC.*"],"TUN":["RES.POS.*","RES.DISC.*"],"YEM":["RES.POS.*","RES.DISC.*"],"LBN":["RES.POS.*","RES.DISC.*"],"JOR":["RES.POS.*","RES.DISC.*"],"BRA":["RES.POS.*","RES.DISC.*"],"ARG":["RES.POS.*","RES.DISC.*"],"MEX":["RES.POS.*","RES.DISC.*"],"COL":["RES.POS.*","RES.DISC.*"],"CHL":["RES.POS.*","RES.DISC.*"],"VEN":["RES.POS.*","RES.DISC.*"],"PER":["RES.POS.*","RES.DISC.*"],"URY":["RES.POS.*","RES.DISC.*"],"BOL":["RES.POS.*","RES.DISC.*"],"CRB":["RES.POS.*","RES.DISC.*"],"CRI":["RES.POS.*","RES.DISC.*"],"ECU":["RES.POS.*","RES.DISC.*"],"PRY":["RES.POS.*","RES.DISC.*"],"DOM":["RES.POS.*","RES.DISC.*"],"NIC":["RES.POS.*","RES.DISC.*"],"GTM":["RES.POS.*","RES.DISC.*"],"PAN":["RES.POS.*","RES.DISC.*"],"HND":["RES.POS.*","RES.DISC.*"],"IND":["RES.POS.*","RES.DISC.*"],"PAK":["RES.POS.*","RES.DISC.*"],"BGD":["RES.POS.*","RES.DISC.*"],"NPL":["RES.POS.*","RES.DISC.*"]}   );
+</script>
+</div>
+      
+
+     </div>
+
+</article>
+
+
+
+  </div>
+<div data-drupal-messages-fallback class="hidden"></div>
+
+  </div>
+ 
+								
+								  
+
+									
+			</section>
+		</article>
+	</section>
+              
+                
+   
+
+
+               
+             
+          
+				 </div>
+		<footer>
+			<div class="footerWrap">
+				<div class="footerLeft">
+					<div class="footer-column">
+							<p>©ASTI 2023  
+							</p>	
+					</div>	
+				  <div class="footerLeftExtra">  </div>
+				</div>
+				<div class="footerRight">
+				  <div class="footerRight"> </div>
+			  </div>
+			</div>
+
+
+
+
+		</footer>
+	
+<div class="hidden legacy" data-info="hidden elements legacy from previous templates">
+  <div>
+    <div id="block-asti20-breadcrumbs">
+  
+    
+        <nav role="navigation" aria-labelledby="system-breadcrumb">
+    <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
+    <ol>
+          <li>
+                  <a href="/">Home</a>
+              </li>
+        </ol>
+  </nav>
+
+  </div>
+<nav role="navigation" aria-labelledby="block-asti20-main-menu-menu" id="block-asti20-main-menu">
+            
+  <h2 class="visually-hidden" id="block-asti20-main-menu-menu">Main navigation</h2>
+  
+
+        
+              <ul>
+              <li>
+        <a href="/" data-drupal-link-system-path="&lt;front&gt;">Home</a>
+              </li>
+        </ul>
+  
+
+
+  </nav>
+<nav role="navigation" aria-labelledby="block-asti20-account-menu-menu" id="block-asti20-account-menu">
+            
+  <h2 class="visually-hidden" id="block-asti20-account-menu-menu">User account menu</h2>
+  
+
+        
+              <ul>
+              <li>
+        <a href="/login" data-drupal-link-system-path="user/login">Log in</a>
+              </li>
+        </ul>
+  
+
+
+  </nav>
+<div id="block-asti20-powered">
+  
+    
+      <span>Powered by <a href="https://www.drupal.org">Drupal</a></span>
+  </div>
+
+  </div>
+ 
+ 
+</div>
+
+
+  </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "source_key": "census_ke_ag",
+  "title": "2019 Kenya Population and Housing Census Analytical Report on Agriculture",
+  "publisher": "Kenya National Bureau of Statistics",
+  "layer": "geography",
+  "access": "open_download (local)",
+  "pdf_path": "C:\\Users\\AHema\\OneDrive - CGIAR\\Desktop\\2026\\John\\Kenya Dataset Bundle for Soil, Food, Nutrition, and Policy Analysis\\Kenya dataset\\kenya_fnp_db\\data\\raw\\census_ke_ag\\2019-Kenya-Population-and-Housing-Census-Analytical-Report-Agriculture.pdf",
+  "sha256": "ee54f0d29d6b5e1446169543454cbf009b54cbf903f2e1dc42119c894283224d",
+  "bytes": 22872093,
+  "pages": 156,
+  "text_chars": 2086,
+  "message": "local document: 156 pages, 2086 extractable chars; graphics-and-narrative report; county agricultural figures come from the KNBS data tables",
+  "extracted_by": "Aboubacar HEMA",
+  "extracted_at": "2026-06-15T22:06:04.049253+00:00"
+}

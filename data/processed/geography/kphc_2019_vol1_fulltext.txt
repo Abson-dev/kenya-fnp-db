@@ -1,0 +1,1913 @@
+REPUBLIC OF KENYA
+2019 KENYA POPULATION AND HOUSING CENSUS
+VOLUME I:
+POPULATION BY COUNTY AND SUB-COUNTY
+November 2019
+Counting Our People for Sustainable Development
+and Devolution of Services
+2019 Kenya Population and Housing Census: Volume I
+REPUBLIC OF KENYA
+2019 KENYA POPULATION AND HOUSING CENSUS
+VOLUME I:
+POPULATION BY COUNTY AND SUB-COUNTY
+Counting Our People for Sustainable Development and Devolution of Services
+November 2019
+2019 Kenya Population and Housing Census: Volume I
+Kenya Counties
+2019 Kenya Population and Housing Census: Volume I
+Kenya National Bureau of Statistics
+P.O Box 30266-00100
+Nairobi
+Tel. +254-20-3317583/6/8
+E-mail: directorgeneral@knbs.or.ke
+or
+info@knbs.or.ke
+Website: http://www.knbs.or.ke
+ISBN: 978-9966-102-09-6
+All Rights Reserved Copyright©2019
+Extracts may be published if the source is duly acknowledged
+2019 Kenya Population and Housing Census: Volume I
+About KNBS
+The Kenya National Bureau of Statistics (KNBS) is the principal agency of the
+Government for collecting, analysing and disseminating statistical data, and the
+custodian of official statistical information. The Bureau is also responsible for the co-
+ordination of the National Statistical System (NSS) in the country.
+The functions of KNBS as defined in the Statistics (Amendment) Act, 2019 are:
+• Planning, authorising, coordinating and supervising all official statistical
+programmes undertaken within the NSS;
+• Establishing standards and ensuring the use of best practices and methods in
+the production and dissemination of statistical information across the NSS;
+• Collecting, compiling, analysing, abstracting and disseminating statistical
+information;
+• Conducting the Population and Housing Census every ten years, and such
+other censuses and surveys as the Board may determine;
+• Maintaining a comprehensive and reliable national socio-economic database;
+• Developing and maintaining sampling frames of the Bureau;
+• Collaborating with and assisting the county governments or any institutions in
+the production of official statistics;
+• Providing technical advice on statistics to other state entities;
+• Promoting co-ordination among producers, users and suppliers of official
+statistics by forming appropriate sector committees; and
+• Designating statistics produced by national statistical system as official
+statistics on being satisfied that the necessary criteria have been followed.
+The KNBS has an elaborate infrastructure for data collection across the country. This
+includes, a County Statistical Office in each of the 47 counties, two sampling frames
+for implementation of censuses and surveys and various databases for socio-
+economic statistical information.
+The Bureau collects various statistical information on monthly, quarterly, semi-
+annually and annual basis. Ad hoc surveys and studies are also carried out to gather
+information on specific indicators. Some of the statistical products of the Bureau
+include; Consumer Price Index (CPI), Leading Economic Indicators report, Quarterly
+Gross Domestic Product (GDP), Quarterly Producer Price Index (PPI), Quarterly
+Balance of Payment, Annual Economic Survey Report and Annual Statistical Abstract.
+The Bureau also provides statistical information to regional and international
+organisations. The KNBS maintains various platforms through which products and
+statistical information are disseminated.
+The Bureau provides information for monitoring the country’s development agenda
+as well as internationally agreed initiatives such as Sustainable Development Goals
+(SDGs).
+2019 Kenya Population and Housing Census: Volume I
+In undertaking its mandate, the Bureau is guided by a Vision, Mission and Core
+Values.
+Vision
+“To be a global leader in the provision of quality statistical services”
+Mission
+“To provide, manage and promote quality statistical services through utilization of
+best practices for evidence-based decision making”.
+Core Values
+• P-Professionalism: The Bureau will strictly abide by professional
+considerations, including scientific principles and ethics on methods,
+standards and procedures for provision of quality statistical services.
+• I-Integrity: The Bureau will adhere to the principles of good governance to
+ensure transparency and accountability in undertaking its programmes and
+activities.
+• C-Confidentiality: The Bureau will treat all information provided by
+stakeholders with strict confidentiality and use it exclusively for statistical
+purposes
+• C-Customer Focus: The Bureau commits itself to align its programmes to the
+expectations of its stakeholders and attaining the highest standards in service
+delivery.
+• I-Innovation: The Bureau will continuously embrace creativity and innovation
+for value-addition in its business processes.
+• T-Teamwork: The Bureau will embrace teamwork in pursuing timely
+attainment of targeted results at all levels, through coordination and
+networking.
+2019 Kenya Population and Housing Census: Volume I
+Foreword
+The 2019 Kenya Population and Housing Census (KPHC) was conducted in August
+2019 and followed the United Nations principles and recommendations for
+conducting the 2020 round of censuses. The Census collected information on the
+demographic and socio-economic characteristics of the population. In addition,
+information relating to housing amenities and emigrants was collected.
+The theme for the census was “Counting Our People for Sustainable Development
+and Devolution of Services”. The theme resonates well with Kenya’s development
+agenda -Vision 2030 and the Big Four, as well as other regional and International
+development initiatives including the Sustainable Development Goals (SDGs) and the
+African Union Agenda 2063. The information contained herein responds to the ever-
+increasing demand for official statistical information and provides benchmark
+information for other statistical development and infrastructure.
+The 2019 Kenya Population and Housing Census Volume I report is the first in a
+series of census publications. It presents the distribution of the enumerated
+population by sex; number of households; and average household size, at national,
+county and sub-county levels. Also contained in the report is information on land
+area and population density, as per the administrative boundaries. Further work is
+ongoing to produce basic and in-depth analytical topical reports on the Census.
+The Bureau is indebted to all the organs of government, the private sector and the
+public for the overwhelming support and participation in implementing the Census.
+I thank all the census personnel who played a key role in the overall success of the
+2019 KPHC.
+Stakeholders are encouraged to utilize the information in this report effectively.
+Zachary Mwangi
+Director General, KNBS
+2019 Kenya Population and Housing Census: Volume I
+Table of Contents
+Table of Contents ................................................................................................................................................. i
+List of Tables ........................................................................................................................................................ ii
+List of Figures ...................................................................................................................................................... ii
+Acronyms and Abbreviations ........................................................................................................................... iii
+Chapter 1: Introduction ..................................................................................................................................... 1
+1.1 Background Information ................................................................................................................ 1
+1.2 Objectives of the 2019 Census ....................................................................................................... 1
+1.3 Theme of the 2019 Census ............................................................................................................. 1
+1.4 Implementation of the 2019 Census ............................................................................................. 1
+1.4.1 Legal Framework ......................................................................................................................... 1
+1.4.2 Census Management Structure .................................................................................................. 2
+1.4.3 Use of Technology........................................................................................................................ 2
+1.4.4 Cartographic Mapping ................................................................................................................ 2
+1.4.5 Census Questionnaires ................................................................................................................ 2
+1.4.6 Pilot and Pre-tests ........................................................................................................................ 3
+1.4.7 Publicity and Advocacy ............................................................................................................... 3
+1.4.8 Recruitment and Training ........................................................................................................... 3
+1.4.9 Enumeration ................................................................................................................................. 3
+1.4.10 Data Transmission and Storage .................................................................................................. 3
+1.5 Data Processing ................................................................................................................................ 4
+1.6 Quality Assurance ........................................................................................................................... 4
+Chapter 2: Summary Results ............................................................................................................................. 5
+2.1 Highlights of the 2019 KPHC Results ............................................................................................ 5
+2.2 Trend analysis .................................................................................................................................. 5
+2.3 Distribution of Population by County ............................................................................................ 7
+2.4 Distribution of Population by Sub-county .................................................................................. 12
+i
+2019 Kenya Population and Housing Census: Volume I
+List of Tables
+Table 2. 1: Census Indicators at a Glance, 2019 ............................................................................................. 5
+Table 2. 2: Distribution of Population by Sex and County ............................................................................. 7
+Table 2. 3: Distribution of Population, Number of Households and Average ............................................... 9
+Table 2. 4: Distribution of Population, Land Area and Population Density by County .............................. 10
+Table 2. 5: Distribution of Population by Sex and Sub-County ................................................................... 12
+Table 2. 6: Distribution of Population, Number of Households and Average Household Size by Sub-
+County ............................................................................................................................................ 21
+Table 2. 7: Distribution of Population by Land Area and Population Density by Sub-County .................. 30
+List of Figures
+Figure 2. 1: Population Trend, 1969 to 2019 .................................................................................................. 5
+Figure 2. 2: Inter-Censal Population Growth Rates ......................................................................................... 6
+Figure 2. 3: Distribution of Population by County .......................................................................................... 8
+Figure 2. 4: Population Density by County ................................................................................................... 11
+ii
+2019 Kenya Population and Housing Census: Volume I
+Acronyms and Abbreviations
+CSPro Census and Survey Processing system
+EA Enumeration Area
+GPS Geographical Positioning System
+ICT Information, Communication and Technology
+KNBS Kenya National Bureau of Statistics
+KPHC Kenya Population and Housing Census
+NSS National Statistical System
+SDGs Sustainable Development Goals
+SPSS Statistical Package for Social Sciences
+UN United Nations
+iii
+2019 Kenya Population and Housing Census: Volume I
+Chapter 1: Introduction
+1.1 Background Information
+The first known population census in Kenya was conducted in 1897 and was basically a
+headcount. This was followed by the 1948 census that focused on non-natives. A complete
+census that enumerated 8.6 million persons was conducted in 1962 and was used to set
+up political and administrative structures. The first post-independence census was
+undertaken in 1969 and enumerated 10.9 million persons. Since then, the country has
+conducted decennial Population and Housing Censuses on a de facto basis with the
+midnight of 24th/25th August as the reference point. The censuses have been implemented
+in accordance with the UN Principles and Recommendations for conducting population
+and housing censuses.
+1.2 Objectives of the 2019 Census
+The main objective of the 2019 KPHC was to collect information on the size, composition,
+distribution and socio-economic characteristics of the population. This information will
+be used in planning, budgeting and programming for important services; future policy
+formulation, resource allocation; creation of administrative and political units; monitoring
+and evaluation of programmes and projects; research; development of a master household
+sampling frame; development of geo-spatial database; benchmark for agricultural
+census/surveys; business, industry and labour; and formulation of housing policy and
+programmes.
+1.3 Theme of the 2019 Census
+The theme of the census was “Counting Our People for Sustainable Development and
+Devolution of Services”. This is in response to the demand for statistical information for
+implementation of Kenya’s development agenda such as the Big Four and Vision 2030 and
+other global initiatives including the Sustainable Development Goals (SDGs).
+1.4 Implementation of the 2019 Census
+1.4.1 Legal Framework
+The 2019 Kenya Population and Housing Census was conducted under the provisions of
+the Constitution of Kenya, 2010 (Fourth Schedule Part 1 Item 11), the Statistics
+(Amendment) Act, 2019 and the Statistics (Census of Population) Order, 2018 - Legal
+1
+2019 Kenya Population and Housing Census: Volume I
+Notice No. 205 and the Cabinet Memorandum of May 2017 on the implementation of the
+2019 population and housing census process.
+1.4.2 Census Management Structure
+Various committees were established and operationalized at both national and county
+levels to manage the census process. The National Census Steering Committee spearheaded
+the implementation process and provided policy direction. Coordination of the processes
+was undertaken by the National Census Coordination Committee while the Technical
+Working Committee was responsible for all the technical aspects of the census. County
+and Sub-County Census Committees were established to implement Census activities at
+respective levels.
+1.4.3 Use of Technology
+Kenya adopted the use of mobile technology to collect data during the 2019 census as
+recommended by the UN for the 2020 round of censuses. This was the first census in
+Kenya to use mobile technology in the capture and transmission of data for both
+cartographic mapping and enumeration. The mobile devices used for data collection were
+assembled by local universities.
+1.4.4 Cartographic Mapping
+The implementation of preparatory activities for the 2019 KPHC started in early 2016
+with Cartographic Mapping exercise. The process involved delineation of the country into
+small geographical units known as Enumeration Areas (EAs). The EAs were used in
+determining the number of census personnel required as well as in ensuring total coverage
+during enumeration. The exercise was done using mobile devices where Geographical
+Positioning System (GPS) coordinates for homesteads, households, and other features of
+interest were picked and digitized using satellite imageries in rural areas and aerial
+photographs in urban areas. Digitized sub-location and EA maps were generated based on
+administrative boundaries and uploaded onto mobile devices for use during the
+enumeration exercise.
+1.4.5 Census Questionnaires
+The census questionnaires and manuals were developed through a consultative process
+spearheaded by the Technical Working Committee comprising of various stakeholders. A
+mobile data capture system was designed and adopted by changing the paper
+questionnaires to electronic questionnaires. These were uploaded onto the mobile devices
+for data collection and transmission. Five sets of questionnaires (one main and four short)
+2
+2019 Kenya Population and Housing Census: Volume I
+were developed to cover the conventional population and special population (travellers,
+outdoor sleepers, individuals in hotels and lodges and persons in institutions).
+1.4.6 Pilot and Pre-tests
+A Pilot Census was conducted in August 2018, a year prior to actual enumeration as per
+the UN recommendation, followed by two pre-tests undertaken in April and May 2019.
+This was meant to assess the preparedness for the actual enumeration in terms of logistics,
+map accuracy, content and flow of questions, data capture application and data
+transmission. Lessons learnt provided crucial input in the finalization of the tools and
+implementation strategies.
+1.4.7 Publicity and Advocacy
+Publicity and advocacy campaigns were done in all parts of the country through various
+channels, including; print media, national and local radio stations, mobile telephony,
+television stations and road shows. A call/contact centre was established with a toll-free
+line to respond to queries raised by the field teams and the public.
+1.4.8 Recruitment and Training
+Recruitment of census personnel who included 2,467 ICT supervisors, 22,268 content
+supervisors and 138,572 enumerators was undertaken by the County and Sub-County
+Census Committees through a competitive process. The training of these personnel was
+conducted in a cascaded manner from the training of trainers to the training of
+enumerators. The training for various cadres was conducted for seven days for each cadre.
+1.4.9 Enumeration
+The main census enumeration was preceded by EA boundary identification and pre-
+enumeration listing of households in each EA for two days on 22nd and 23rd August 2019.
+The pre-enumeration listing exercise helped in gauging the expected workload during the
+7 days of enumeration. The actual enumeration took place from the night of 24th/25th
+August 2019 and ended on 31st August 2019. The mop-up exercise was conducted on 1st
+and 2nd September 2019. The special population was strictly enumerated on the night of
+24th/25th August 2019.
+1.4.10 Data Transmission and Storage
+Data was collected by enumerators using mobile devices (tablets) and subsequently
+transmitted to a central server. The data was encrypted prior to transmission and was
+backed up in off-site locations.
+3
+2019 Kenya Population and Housing Census: Volume I
+1.5 Data Processing
+The editing of the census data was guided by the United Nations Handbook on Population
+and Housing Census editing. The data was processed using CSPro, Stata and SPSS software.
+In addition, validation checks were done to ensure that all EAs, aligned to administrative
+boundaries, were accounted for in the dataset. Outputs were generated based on
+administrative areas.
+1.6 Quality Assurance
+Quality assurance was integrated in all phases of the census process. Comprehensive
+guidelines were developed and shared with census personnel. Field supervision followed
+a three-tier structure to ensure adequate support, real-time response to emerging issues,
+and feedback during data collection. In addition, enumeration reporting schedules and
+control forms were used to facilitate monitoring of activities. Field monitoring teams
+oversaw technical, logistical and administrative aspects of enumeration in each region.
+Further, independent observers, drawn from the international community and national
+statistics offices across Africa monitored and observed undertaking of the census.
+4
+2019 Kenya Population and Housing Census: Volume I
+Chapter 2: Summary Results
+This chapter presents the distribution of the enumerated population by sex; number of
+households; and average household size, at national, county and sub-county levels.
+Information on land area and population density, as per the administrative boundaries is
+also provided.
+2.1 Highlights of the 2019 KPHC Results
+Table 2. 1: Census Indicators at a Glance, 2019
+Indicator 2019
+Population Size ('000s)…………….………………… 4 7,564.3
+Male ('000s)……………………...…………… … 2 3,548.1
+Female ('000s)……………………...………… … …2 4,014.7
+Inter Sex ('000s)……………………...……… … … … 1 .5
+Sex Ratio (No. of Males per 100 Females)………… … … … … 9 …8.…1
+Population Density (No. per sq. Km)………………… … … … 8 2
+Number of Households ('000s)……………………… … …1 2…,1.43.9
+Average Household Size…………………..………… . . 3 .9
+Inter-Censal Growth Rate (%) ………..…………….. . 2 .2
+2.2 Trend analysis
+Figure 2. 1: Population Trend, 1969 to 2019
+47.6
+37.7
+)
+s
+n
+o
+i 28.7
+lliM
+(
+r
+21.4
+e
+b
+m 15.3
+u 10.9
+N
+1969 1979 1989 1999 2009 2019
+Year
+5
+2019 Kenya Population and Housing Census: Volume I
+Figure 2. 2: Inter-Censal Population Growth Rates
+Per cent
+3.4 3.4 3.4
+2.9 2.9
+2.2
+1962-69 1969-79 1979-89 1989-99 1999-09 2009-19
+Inter censal Period
+6
+2019 Kenya Population and Housing Census: Volume I
+2.3 Distribution of Population by County
+Table 2. 2: Distribution of Population by Sex and County
+Sex
+National/ County Total
+Male Female Intersex
+Kenya…………………… 2 3,548,056 2 4,014,716 1 ,524 4 7,564,296
+County
+Mombasa…………..… 6 10,257 5 98,046 3 0 1 ,208,333
+Kwale……………..…… 4 25,121 4 41,681 1 8 8 66,820
+Kilifi………………..…… 7 04,089 7 49,673 2 5 1 ,453,787
+Tana River………….… 1 58,550 1 57,391 2 3 15,943
+Lamu……………….…. 7 6,103 6 7,813 4 1 43,920
+Taita/Taveta……..….… 1 73,337 1 67,327 7 3 40,671
+Garissa……………….. 4 58,975 3 82,344 3 4 8 41,353
+Wajir……………….…… 4 15,374 3 65,840 4 9 7 81,263
+Mandera…………....… 4 34,976 4 32,444 3 7 8 67,457
+Marsabit…….…........… 2 43,548 2 16,219 1 8 4 59,785
+Isiolo……….…….…… 1 39,510 1 28,483 9 2 68,002
+Meru…………………… 7 67,698 7 77,975 4 1 1 ,545,714
+Tharaka-Nithi………… 1 93,764 1 99,406 7 3 93,177
+Embu………………….. 3 04,208 3 04,367 2 4 6 08,599
+Kitui……………………. 5 49,003 5 87,151 3 3 1 ,136,187
+Machakos………….….. 7 10,707 7 11,191 3 4 1 ,421,932
+Makueni………………. 4 89,691 4 97,942 2 0 9 87,653
+Nyandarua……………. 3 15,022 3 23,247 2 0 6 38,289
+Nyeri…………………… 3 74,288 3 84,845 3 1 7 59,164
+Kirinyaga……………… 3 02,011 3 08,369 3 1 6 10,411
+Murang'a………………. 5 23,940 5 32,669 3 1 1 ,056,640
+Kiambu……………….. 1 ,187,146 1 ,230,454 1 35 2 ,417,735
+Turkana………………. 4 78,087 4 48,868 2 1 9 26,976
+West Pokot…………… 3 07,013 3 14,213 1 5 6 21,241
+Samburu……………… 1 56,774 1 53,546 7 3 10,327
+Trans Nzoia………….. 4 89,107 5 01,206 2 8 9 90,341
+Uasin Gishu………….. 5 80,269 5 82,889 2 8 1 ,163,186
+Elgeyo/Marakwet…….. 2 27,317 2 27,151 1 2 4 54,480
+Nandi………………….. 4 41,259 4 44,430 2 2 8 85,711
+Baringo……………….. 3 36,322 3 30,428 1 3 6 66,763
+Laikipia…………………… … 2 …59..,440 2 59,102 1 8 5 18,560
+Nakuru…………………… …1 ,…07…7,272 1 ,084,835 9 5 2 ,162,202
+Narok…………………… … … 5 …79..,042 5 78,805 2 6 1 ,157,873
+Kajiado…………………… … 5 …5…7,098 5 60,704 3 8 1 ,117,840
+Kericho………..……… 4 50,741 4 51,008 2 8 9 01,777
+Bomet…………………. 4 34,287 4 41,379 2 3 8 75,689
+Kakamega……………. 8 97,133 9 70,406 4 0 1 ,867,579
+Vihiga…………………. 2 83,678 3 06,323 1 2 5 90,013
+Bungoma…………..… 8 12,146 8 58,389 3 5 1 ,670,570
+Busia…………...…….. 4 26,252 4 67,401 2 8 8 93,681
+Siaya…………….…….. 4 71,669 5 21,496 1 8 9 93,183
+Kisumu……………….. 5 60,942 5 94,609 2 3 1 ,155,574
+Homa Bay…………….. 5 39,560 5 92,367 2 3 1 ,131,950
+Migori………………….. 5 36,187 5 80,214 3 5 1 ,116,436
+Kisii…………………… 6 05,784 6 61,038 3 8 1 ,266,860
+Nyamira……………….. 2 90,907 3 14,656 1 3 6 05,576
+Nairobi City……..……. 2 ,192,452 2 ,204,376 2 45 4 ,397,073
+7
+2019 Kenya Population and Housing Census: Volume I
+Figure 2. 3: Distribution of Population by County
+8
+2019 Kenya Population and Housing Census: Volume I
+Table 2. 3: Distribution of Population, Number of Households and Average
+Household Size by County
+National/ County Population+ Number of Average
+Households Household size
+Kenya…………………… 4 7,213,282 1 2,143,913 3.9
+County
+Mombasa…………..… 1 ,190,987 3 78,422 3.1
+Kwale……………..…… 8 58,748 1 73,176 5.0
+Kilifi………………..…… 1 ,440,958 2 98,472 4.8
+Tana River………….… 3 14,710 6 8,242 4.6
+Lamu……………….…. 1 41,909 3 7,963 3.7
+Taita/Taveta……..….… 3 35,747 9 6,429 3.5
+Garissa……………….. 8 35,482 1 41,394 5.9
+Wajir……………….…… 7 75,302 1 27,932 6.1
+Mandera…………....… 8 62,079 1 25,763 6.9
+Marsabit…….…........… 4 47,150 7 7,495 5.8
+Isiolo……….…….…… 2 67,997 5 8,072 4.6
+Meru…………………… 1 ,535,635 4 26,360 3.6
+Tharaka-Nithi………… 3 91,303 1 09,860 3.6
+Embu………………….. 6 04,769 1 82,743 3.3
+Kitui……………………. 1 ,130,134 2 62,942 4.3
+Machakos………….….. 1 ,414,022 4 02,466 3.5
+Makueni………………. 9 77,015 2 44,669 4.0
+Nyandarua……………. 6 36,002 1 79,686 3.5
+Nyeri…………………… 7 52,695 2 48,050 3.0
+Kirinyaga……………… 6 05,630 2 04,188 3.0
+Murang'a………………. 1 ,053,059 3 18,105 3.3
+Kiambu……………….. 2 ,402,834 7 95,241 3.0
+Turkana………………. 9 22,210 1 64,519 5.6
+West Pokot…………… 6 18,867 1 16,182 5.3
+Samburu……………… 3 07,957 6 5,910 4.7
+Trans Nzoia………….. 9 85,333 2 23,808 4.4
+Uasin Gishu………….. 1 ,152,671 3 04,943 3.8
+Elgeyo/Marakwet…….. 4 53,403 9 9,861 4.5
+Nandi………………….. 8 83,634 1 99,426 4.4
+Baringo……………….. 6 62,760 1 42,518 4.7
+Laikipia…………………… … … . . 5 13,879 1 49,271 3.4
+Nakuru…………………… … … … 2 ,142,667 6 16,046 3.5
+Narok……………………… … … .1 .,149,379 2 41,125 4.8
+Kajiado…………………… … … … 1 ,107,296 3 16,179 3.5
+Kericho………..……… 8 96,863 2 06,036 4.4
+Bomet…………………. 8 73,023 1 87,641 4.7
+Kakamega……………. 1 ,861,332 4 33,207 4.3
+Vihiga…………………. 5 87,189 1 43,365 4.1
+Bungoma…………..… 1 ,663,898 3 58,796 4.6
+Busia…………...…….. 8 86,856 1 98,152 4.5
+Siaya…………….…….. 9 89,708 2 50,698 3.9
+Kisumu……………….. 1 ,144,777 3 00,745 3.8
+Homa Bay…………….. 1 ,125,823 2 62,036 4.3
+Migori………………….. 1 ,108,950 2 40,168 4.6
+Kisii…………………… 1 ,260,509 3 08,054 4.1
+Nyamira……………….. 6 03,051 1 50,669 4.0
+Nairobi City……..……. 4 ,337,080 1 ,506,888 2.9
++ Excludes the special population (travellers, outdoor sleepers, individuals in hotels and
+lodges and persons in institutions).
+9
+2019 Kenya Population and Housing Census: Volume I
+Table 2. 4: Distribution of Population, Land Area and Population Density by County
+National/ County Population Land Area Population Density
+(Sq. Km) (No. per Sq. Km)
+Kenya…………………… 4 7,564,296 5 80,876.3 8 2
+County
+Mombasa…………..… 1 ,208,333 2 19.9 5 ,495
+Kwale……………..…… 8 66,820 8 ,267.1 1 05
+Kilifi………………..…… 1 ,453,787 1 2,539.7 1 16
+Tana River………….… 3 15,943 3 7,950.5 8
+Lamu……………….…. 1 43,920 6 ,253.3 2 3
+Taita/Taveta……..….… 3 40,671 1 7,152.0 2 0
+Garissa……………….. 8 41,353 4 4,736.0 1 9
+Wajir……………….…… 7 81,263 5 6,773.1 1 4
+Mandera…………....… 8 67,457 2 5,939.8 3 3
+Marsabit…….…........… 4 59,785 7 0,944.1 6
+Isiolo……….…….…… 2 68,002 2 5,350.6 1 1
+Meru…………………… 1 ,545,714 7 ,006.3 2 21
+Tharaka-Nithi………… 3 93,177 2 ,564.4 1 53
+Embu………………….. 6 08,599 2 ,820.7 2 16
+Kitui……………………. 1 ,136,187 3 0,429.5 3 7
+Machakos………….….. 1 ,421,932 6 ,042.7 2 35
+Makueni………………. 9 87,653 8 ,169.8 1 21
+Nyandarua……………. 6 38,289 3 ,285.7 1 94
+Nyeri…………………… 7 59,164 3 ,325.0 2 28
+Kirinyaga……………… 6 10,411 1 ,478.3 4 13
+Murang'a………………. 1 ,056,640 2 ,524.2 4 19
+Kiambu……………….. 2 ,417,735 2 ,538.6 9 52
+Turkana………………. 9 26,976 6 8,232.9 1 4
+West Pokot…………… 6 21,241 9 ,123.2 6 8
+Samburu……………… 3 10,327 2 1,065.1 1 5
+Trans Nzoia………….. 9 90,341 2 ,495.2 3 97
+Uasin Gishu………….. 1 ,163,186 3 ,392.2 3 43
+Elgeyo/Marakwet…….. 4 54,480 3 ,032.0 1 50
+Nandi………………….. 8 85,711 2 ,855.8 3 10
+Baringo……………….. 6 66,763 1 0,976.4 6 1
+Laikipia…………………… … … . . 5 18,560 9 ,532.2 5 4
+Nakuru…………………… … … … 2 ,162,202 7 ,462.4 2 90
+Narok…………………… … … … . . 1 ,157,873 1 7,950.3 6 5
+Kajiado…………………… … … … 1 ,117,840 2 1,871.1 5 1
+Kericho………..……… 9 01,777 2 ,436.1 3 70
+Bomet…………………. 8 75,689 2 ,530.9 3 46
+Kakamega……………. 1 ,867,579 3 ,020.0 6 18
+Vihiga…………………. 5 90,013 5 63.8 1 ,047
+Bungoma…………..… 1 ,670,570 3 ,023.9 5 52
+Busia…………...…….. 8 93,681 1 ,696.3 5 27
+Siaya…………….…….. 9 93,183 2 ,529.8 3 93
+Kisumu……………….. 1 ,155,574 2 ,085.4 5 54
+Homa Bay…………….. 1 ,131,950 3 ,152.5 3 59
+Migori………………….. 1 ,116,436 2 ,613.5 4 27
+Kisii…………………… 1 ,266,860 1 ,323.0 9 58
+Nyamira……………….. 6 05,576 8 97.3 6 75
+Nairobi City……..……. 4 ,397,073 7 03.9 6 ,247
+10
+2019 Kenya Population and Housing Census: Volume I
+Figure 2. 4: Population Density by County
+11
+2019 Kenya Population and Housing Census: Volume I
+2.4 Distribution of Population by Sub-county
+Table 2.5: Distribution of Population by Sex and Sub-County
+National/ County Sex
+Total
+Male Female Intersex
+Kenya…………………………..…2 3,548,056 2 4,014,716 1 ,524 4 7,564,296
+County/ Sub County
+Mombasa…………………...… 6 10,257 5 98,046 3 0 1 ,208,333
+Changamwe…………….. 6 8,761 6 3,121 .. 1 31,882
+Jomvu…………………….. 8 3,002 8 0,410 3 1 63,415
+Kisauni…………………… 1 46,748 1 45,176 6 2 91,930
+Likoni…………………….. 1 26,962 1 23,392 4 2 50,358
+Mvita………………………. 7 5,565 7 8,601 5 1 54,171
+Nyali………………………. 1 09,219 1 07,346 1 2 2 16,577
+Kwale……………………….… 4 25,121 4 41,681 1 8 8 66,820
+Kinango………………...… 4 5,413 4 8,806 1 9 4,220
+Lungalunga……………...… 9 7,174 1 01,245 4 1 98,423
+Matuga………………....… 9 5,831 9 8,419 2 1 94,252
+Msambweni…………....… 8 9,206 8 8,480 4 1 77,690
+Samburu-Kwale………...… 9 7,497 1 04,731 7 2 02,235
+Kilifi………………..………….… 7 04,089 7 49,673 2 5 1 ,453,787
+Chonyi…………..……….… 2 9,527 3 2,807 1 6 2,335
+Ganze…………..…...….… 6 6,921 7 6,981 4 1 43,906
+Kaloleni.………..……….… 9 2,614 1 01,063 5 1 93,682
+Kauma…………..……….… 1 0,965 1 1,673 .. 2 2,638
+Kilifi North……...……….… 8 6,986 9 1,836 2 1 78,824
+Kilifi South……..……….… 1 01,852 1 04,897 4 2 06,753
+Magarini………..……….… 9 3,302 9 8,308 .. 1 91,610
+Malindi…………….…….… 1 63,351 1 69,866 9 3 33,226
+Rabai…………….…….… 5 8,571 6 2,242 .. 1 20,813
+Tana River………..………….… 1 58,550 1 57,391 2 3 15,943
+Tana North..….………….… 5 5,716 5 4,924 .. 1 10,640
+Tana Delta……………….… 5 9,123 5 7,632 2 1 16,757
+Tana River……………….… 4 3,711 4 4,835 .. 8 8,546
+Lamu…...………..………….… 7 6,103 6 7,813 4 1 43,920
+Lamu East.……..……...… 1 1,675 1 0,583 .. 2 2,258
+Lamu West.……...…….… 6 4,428 5 7,230 4 1 21,662
+Taita/Taveta……..………….… 1 73,337 1 67,327 7 3 40,671
+Mwatate……..………….… 4 1,426 4 0,231 2 8 1,659
+Taita………….………….… 2 8,386 2 7,573 .. 5 5,959
+Taveta………..………….… 4 7,410 4 3,812 .. 9 1,222
+Voi……..……….……….… 5 6,115 5 5,711 5 1 11,831
+Garissa…...……..………….… 4 58,975 3 82,344 3 4 8 41,353
+Balambala...……..……..… 2 0,277 1 1,979 1 3 2,257
+Dadaab.…...……..………….… 9 9,059 8 6,185 8 1 85,252
+Fafi…...…...……..………….… 7 2,617 6 1,413 1 0 1 34,040
+Garissa…...……..………….… 8 3,460 8 0,449 5 1 63,914
+Hulugho…...……..………….… 7 8,081 5 5,898 5 1 33,984
+Ijara…..…...……..………….… 8 0,458 6 1,129 4 1 41,591
+Lagdera…………………..…. … 2 5,023 2 5,291 1 5 0,315
+12
+2019 Kenya Population and Housing Census: Volume I
+Table 2.5: Distribution of Population by Sex and Sub-County, Cont’d
+National/ County Sex
+Total
+Male Female Intersex
+Wajir..…...……..………….… 4 15,374 3 65,840 4 9 7 81,263
+Buna..…...……..………….… 2 6,796 2 3,088 2 4 9,886
+Eldas..…...……..………….… 4 4,743 4 3,759 7 8 8,509
+Habaswein..…...……..……… … . … 9 4,613 7 9,505 1 6 1 74,134
+Tarbaj..…...……..………….… 2 7,141 3 0,086 5 5 7,232
+Wajir East..…...……..………… . … 5 9,359 5 1,292 3 1 10,654
+Wajir North..…...……..……… … . … 3 1,990 3 0,209 7 6 2,206
+Wajir South..…...……..……… … . … 6 4,947 5 1,864 3 1 16,814
+Wajir West..…...……..………… . … 6 5,785 5 6,037 6 1 21,828
+Mandera..…...……..………….… 4 34,976 4 32,444 3 7 8 67,457
+Mandera West..…...……..… … … 4 …8.,…166 5 0,130 4 9 8,300
+Banisa..…...……..………….… 7 8,301 7 4,288 9 1 52,598
+Kutulo..…...……..………….… 3 5,799 3 6,593 2 7 2,394
+Lafey..…...……..………….… 4 0,476 4 2,976 5 8 3,457
+Mandera Central..…...…….. … … 7 …1…,68.…8 8 5,527 5 1 57,220
+Mandera East..…...……..…… … …8 3.…,538 7 6,095 5 1 59,638
+Mandera North..…...……..… … … 7 …7,.0…08 6 6,835 7 1 43,850
+Marsabit..…...……..………….… 2 43,548 2 16,219 1 8 4 59,785
+Loiyangalani..…...……..…… … … 1 .…7,659 1 8,051 3 3 5,713
+Marsabit Central..…...……..… … …4 0…,9.5…6 3 8,214 1 1 7 9,181
+Marsabit North..…...……..… … … 3 …0.,…091 2 4,205 1 5 4,297
+Marsabit South..…...……..… … … 3 …3,.2…15 3 2,161 .. 6 5,376
+Moyale..…...……..………….… 5 6,440 5 2,508 1 1 08,949
+North Horr..…...……..……… … . … 4 1,719 2 9,726 2 7 1,447
+Sololo..…...……..………….… 2 3,468 2 1,354 .. 4 4,822
+Isiolo..…...……..………….… 1 39,510 1 28,483 9 2 68,002
+Garbatulla..…...……..……… … . … 5 4,661 4 5,068 1 9 9,730
+Isiolo..…...……..………….… 6 0,414 6 0,647 5 1 21,066
+Merti..…...……..………….… 2 4,435 2 2,768 3 4 7,206
+Meru..…...……..………….… 7 67,698 7 77,975 4 1 1 ,545,714
+Buuri East..…...……..……… … . … 3 8,101 3 8,497 .. 7 6,598
+Buuri West..…...……..……… … . … 4 0,496 4 0,264 2 8 0,762
+Igembe Central..…...……..… … 1 …1…1,2.…08 1 10,200 4 2 21,412
+Igembe North..…...……..…… … … 8 3.…,364 8 5,949 4 1 69,317
+Igembe South..…...……..…… … …8 0.…,192 8 1,446 8 1 61,646
+Imenti North..…...……..…… … … 8 .…8,506 8 9,056 5 1 77,567
+Imenti South..…...……..…… … …1 0.…3,338 1 03,162 6 2 06,506
+Meru Central..…...……..…… … … 6 .…6,920 6 6,894 4 1 33,818
+Tigania Central..…...……..… … … 5 …1,8.…14 5 2,916 .. 1 04,730
+Tigania East..…...……..…… … … 3 .…5,352 3 7,194 3 7 2,549
+Tigania West..…...……..…… … … 6 .7…,715 7 2,241 5 1 39,961
+Meru National Park*..…...… … . . … … 2 …8…3 .… 1 02 .. 3 85
+Mt. Kenya Forest*..…...……. . … … … …4 0.9… 5 4 .. 4 63
+*Demarcated as a special area to ensure complete coverage during census enumeration
+13
+2019 Kenya Population and Housing Census: Volume I
+Table 2.5: Distribution of Population by Sex and Sub-County, Cont’d
+Sex
+National/ County Total
+Male Female Intersex
+Tharaka-Nithi..…...……..……… … .1 …93,764 1 99,406 7 3 93,177
+Igambang'ombe..…...……..… … …2 6…,4.6…4 2 6,745 1 5 3,210
+Maara..…...……..………….… 5 7,689 5 7,205 .. 1 14,894
+Meru South..…...……..……… … . …4 4,923 4 6,155 2 9 1,080
+Tharaka North..…...……..…… … …2 8.,…290 3 0,053 2 5 8,345
+Tharaka South..…...……..… … … 3 …6.,…190 3 9,058 2 7 5,250
+Mt. Kenya Forest*..…...……. . … … … …2 0.8… 1 90 .. 3 98
+Embu..…...……..………….… 3 04,208 3 04,367 2 4 6 08,599
+Embu East..…...……..……… … . …6 4,571 6 4,991 2 1 29,564
+Embu North..…...……..……… … .3 …9,665 3 9,888 3 7 9,556
+Embu West..…...……..……… … .6 …3,125 6 3,966 9 1 27,100
+Mbeere South..…...……..…… … …8 3.…,311 8 0,159 6 1 63,476
+Mbeere North..…...……..…… … … 5 3.…,517 5 5,360 4 1 08,881
+Mt. Kenya Forest*..…...……. . … … … … 1 .9… 3 .. 2 2
+Kitui..…...……..………….… 5 49,003 5 87,151 3 3 1 ,136,187
+Ikutha..…...……..………….… 3 9,986 4 2,976 2 8 2,964
+Katulani..…...……..………… . … 2 3,150 2 3,957 1 4 7,108
+Kisasi..…...……..………….… 2 2,646 2 3,496 .. 4 6,142
+Kitui Central..…...……..…… … … 5 .…2,123 5 3,863 5 1 05,991
+Kitui West..…...……..……… … . … 3 3,887 3 6,983 1 7 0,871
+Kyuso..…...……..………….… 3 6,789 4 0,077 1 7 6,867
+Lower Yatta..…...……..……… … .3 …1,701 3 1,628 .. 6 3,329
+Matinyani..…...……..………… . … 2 3,362 2 4,448 1 4 7,811
+Migwani..…...……..………… . … 3 7,525 4 1,726 4 7 9,255
+Mumoni..…...……..………… . … 1 3,748 1 5,596 .. 2 9,344
+Mutitu..…...……..………….… 2 6,388 2 8,896 3 5 5,287
+Mutitu North..…...……..……… … .1 …0,337 1 0,877 1 2 1,215
+Mutomo..…...……..………… . … 5 4,819 5 8,531 6 1 13,356
+Mwingi Central..…...……..… … … 5 …2,.5…39 5 6,174 .. 1 08,713
+Mwingi East..…...……..……… … .4 …0,314 4 4,820 5 8 5,139
+Nzambani..…...……..……… … . … 2 2,929 2 3,857 2 4 6,788
+Thagicu..…...……..………… . … 7 ,141 7 ,994 1 1 5,136
+Tseikuru..…...……..………… . … 1 9,619 2 1,252 .. 4 0,871
+Machakos..…...……..………… . … 7 10,707 7 11,191 3 4 1 ,421,932
+Athi River..…...……..………… . … 1 64,322 1 58,172 5 3 22,499
+Kalama..…...……..………… . … 2 6,764 2 7,692 6 5 4,462
+Kangundo..…...……..……… … . … 4 8,697 4 9,219 1 9 7,917
+Kathiani..…...……..………… . … 5 4,910 5 6,976 4 1 11,890
+Machakos..…...……..……… … . … 8 5,486 8 5,114 6 1 70,606
+Masinga..…...……..………… . … 7 3,519 7 5,001 2 1 48,522
+Matungulu..…...……..……… … . … 8 1,145 8 0,407 5 1 61,557
+Mwala..…...……..………….… 9 0,427 9 1,466 3 1 81,896
+Yatta..…...……..………….… 8 5,437 8 7,144 2 1 72,583
+*Demarcated as a special area to ensure complete coverage during census enumeration
+14
+2019 Kenya Population and Housing Census: Volume I
+Table 2.5: Distribution of Population by Sex and Sub-County, Cont’d
+National/ County Sex
+Total
+Male Female Intersex
+Makueni..…...……..………….… 4 89,691 4 97,942 2 0 9 87,653
+Kathonzweni..…...……..…… … … 3 .…9,335 4 0,442 3 7 9,780
+Kibwezi..…...……..…………. … 9 8,477 9 8,517 6 1 97,000
+Kilungu..…...……..…………. … 2 9,019 3 1,932 1 6 0,952
+Makindu..…...……..………… . … 4 2,204 4 2,742 .. 8 4,946
+Makueni..…...……..………… . … 6 5,418 6 4,955 2 1 30,375
+Mbooni East..…...……..…… … … 4 .…8,152 4 9,601 3 9 7,756
+Mbooni West..…...……..…… … … 4 .9…,434 5 3,159 1 1 02,594
+Mukaa..…...……..………….… 5 4,481 5 3,068 .. 1 07,549
+Nzaui..…...……..………….… 6 3,171 6 3,526 4 1 26,701
+Nyandarua..…...……..………… . … 3 15,022 3 23,247 2 0 6 38,289
+Kinangop..…...……..………… . … 5 4,727 5 6,679 4 1 11,410
+Nyandarua South..…...……. . … … 4 …6,…15.7… 4 7,708 5 9 3,870
+Mirangine..…...……..………… . … 3 3,447 3 3,766 1 6 7,214
+Kipipiri..…...……..………….… 4 6,113 4 7,740 2 9 3,855
+Nyandarua Central..…...…… . . … 3 …7…,32…9.… 3 7,931 2 7 5,262
+Nyandarua West..…...…….. … … 4 …8…,75.…2 4 9,209 4 9 7,965
+Nyandarua North..…...…….. … … 4 …8,…48.…6 5 0,210 2 9 8,698
+Aberdare National Park*..… . . . … … . . … 1 …1 … … . … 4 .. 1 5
+Nyeri..…...……..………….… 3 74,288 3 84,845 3 1 7 59,164
+Tetu..…...……..………….… 3 9,293 4 1,155 5 8 0,453
+Kieni East..…...……..……… … . … 5 5,360 5 5,012 4 1 10,376
+Kieni West..…...……..……… … . … 4 3,843 4 4,677 5 8 8,525
+Mathira East..…...……..…… … … 4 .…8,070 5 0,992 3 9 9,065
+Mathira West..…...……..…… … … 2 .9…,480 3 0,412 3 5 9,895
+Nyeri South..…...……..……… … . …4 4,115 4 6,964 2 9 1,081
+Mukurwe-ini..…...……..……… … .4 …3,975 4 5,156 6 8 9,137
+Nyeri Central..…...……..…… … … 6 .9…,955 7 0,380 3 1 40,338
+Mt. Kenya Forest*..…...……. . … … … …1 2.3… 6 5 .. 1 88
+Aberdare Forest*..…...…….. … … … … 7 .…4 3 2 .. 1 06
+Kirinyaga..…...……..………….… 3 02,011 3 08,369 3 1 6 10,411
+Kirinyaga Central..…...……. . … … 6 …0,…11.…8 6 2,617 5 1 22,740
+Kirinyaga East..…...……..… … … 6 …7.,…037 6 8,514 8 1 35,559
+Kirinyaga West..…...……..… … … 5 …6,.1…54 5 8,502 4 1 14,660
+Mwea East..…...……..……… … . … 6 6,432 6 6,114 8 1 32,554
+Mwea West..…...……..……… … . …5 2,228 5 2,594 6 1 04,828
+Mt. Kenya Forest*..…...……. . … … … … 4 .2… 2 8 .. 7 0
+Murang'a..…...……..………….… 5 23,940 5 32,669 3 1 1 ,056,640
+Murang'a East..…...……..…… … …5 4.,…665 5 5,645 1 1 10,311
+Kangema..…...……..………… . … 3 9,582 4 0,862 3 8 0,447
+Mathioya..…...……..………… . … 4 5,454 4 7,359 1 9 2,814
+Kahuro..…...……..…………. … 4 3,352 4 4,834 7 8 8,193
+Murang'a South..…...……..… … … 9 …1,7.…32 9 3,087 5 1 84,824
+Gatanga..…...……..………… . … 9 4,437 9 3,548 4 1 87,989
+Kigumo..…...……..………… . … 6 7,989 6 8,929 3 1 36,921
+Kandara..…...……..………… . … 8 6,698 8 8,393 7 1 75,098
+Aberdare Forest*..…...…….. … … … … 3 .…1 1 2 .. 4 3
+*Demarcated as a special area to ensure complete coverage during census enumeration
+15
+2019 Kenya Population and Housing Census: Volume I
+Table 2.5: Distribution of Population by Sex and Sub-County, Cont’d
+National/ County Sex
+Total
+Male Female Intersex
+Kiambu..…...……..………….… 1 ,187,146 1 ,230,454 1 35 2 ,417,735
+Gatundu North..…...……..…… … … 5 4.…,189 5 5,678 3 1 09,870
+Gatundu South..…...……..…… … …6 0.…,384 6 1,714 5 1 22,103
+Githunguri..…...……..………… . … 8 2,037 8 3,187 8 1 65,232
+Juja..…...……..………….… 1 48,446 1 52,480 2 2 3 00,948
+Kabete..…...……..………….… 9 7,794 1 01,845 1 4 1 99,653
+Kiambaa..…...……..………… . … 1 15,690 1 20,695 1 5 2 36,400
+Kiambu..…...……..………….… 6 9,661 7 6,225 1 7 1 45,903
+Kikuyu..…...……..………….… 9 0,919 9 6,198 5 1 87,122
+Lari..…...……..………….… 6 7,061 6 8,238 4 1 35,303
+Limuru..…...……..………….… 7 9,632 7 9,682 .. 1 59,314
+Ruiru..…...……..………….… 1 80,947 1 90,144 2 0 3 71,111
+Thika East..…...……..………… . … 1 9,688 1 9,264 4 3 8,956
+Thika West..…...……..……… … . …1 20,698 1 25,104 1 8 2 45,820
+Turkana..…...……..………….… 4 78,087 4 48,868 2 1 9 26,976
+Kibish..…...……..………….… 1 8,651 1 8,117 1 3 6,769
+Loima..…...……..………….… 5 4,341 5 3,453 1 1 07,795
+Turkana Central..…...……..… … … 9 …3,.1…45 9 2,160 .. 1 85,305
+Turkana East..…...……..…… … … 7 .…6,871 6 1,643 1 2 1 38,526
+Turkana North..…...……..…… … … 3 .2…,810 3 2,408 .. 6 5,218
+Turkana South..…...……..…… … … 7 8.…,402 7 5,329 5 1 53,736
+Turkana West..…...……..…… … …1 2.3…,867 1 15,758 2 2 39,627
+West Pokot..…...……..………… . … 3 07,013 3 14,213 1 5 6 21,241
+Kipkomo..…...……..………… . … 5 0,923 5 1,703 7 1 02,633
+Pokot Central..…...……..…… … … 5 .…9,682 5 9,331 3 1 19,016
+Pokot North..…...……..……… … . … 6 4,780 6 9,702 3 1 34,485
+Pokot South..…...……..……… … . …3 9,808 4 0,851 2 8 0,661
+West Pokot..…...……..……… … . … 9 1,820 9 2,626 .. 1 84,446
+Samburu..…...……..………….… 1 56,774 1 53,546 7 3 10,327
+Samburu Central..…...……..… … …8 3…,6.3…3 8 1,307 2 1 64,942
+Samburu East..…...……..…… … … 3 8.…,211 3 9,782 1 7 7,994
+Samburu North..…...……..… … … 3 …4.,…930 3 2,457 4 6 7,391
+Trans Nzoia..…...……..………… . … 4 89,107 5 01,206 2 8 9 90,341
+Trans Nzoia West..…...…….. … … 1 0…1…,19.…8 1 01,174 5 2 02,377
+Trans Nzoia East..…...……..… … 1 …13…,4.9…8 1 16,029 1 1 2 29,538
+Kwanza..…...……..………….… 1 00,234 1 03,584 3 2 03,821
+Endebess..…...……..………… . … 5 6,090 5 5,689 3 1 11,782
+Kiminini..…...……..…………. … 1 18,087 1 24,730 6 2 42,823
+Uasin Gishu..…...……..………… . … 5 80,269 5 82,889 2 8 1 ,163,186
+Ainabkoi..…...……..…………. … 6 8,348 6 9,835 1 1 38,184
+Kapseret..…...……..………… . … 9 9,650 9 8,845 4 1 98,499
+Kesses..…...……..………….… 7 4,301 7 4,493 4 1 48,798
+Moiben..…...……..………….… 9 0,309 9 1,027 2 1 81,338
+Soy..…...……..………….… 1 14,082 1 15,007 5 2 29,094
+Turbo..…...……..………….… 1 33,579 1 33,682 1 2 2 67,273
+16
+2019 Kenya Population and Housing Census: Volume I
+Table 2.5: Distribution of Population by Sex and Sub-County, Cont’d
+National/ County Sex
+Total
+Male Female Intersex
+Elgeyo/Marakwet..…...……..… … … 2 2…7.,…317 2 27,151 1 2 4 54,480
+Keiyo North..…...……..……… … . … 4 9,601 4 9,574 1 9 9,176
+Keiyo South..…...……..……… … . … 6 0,919 5 9,827 4 1 20,750
+Marakwet East..…...……..…… … … 4 7.…,849 4 9,190 2 9 7,041
+Marakwet West..…...……..…… … …6 8.,…948 6 8,560 5 1 37,513
+Nandi..…...……..………….… 4 41,259 4 44,430 2 2 8 85,711
+Chesumei..…...……..………… . … 8 0,949 8 3,180 4 1 64,133
+Nandi Central..…...……..…… … … 7 .3…,291 7 4,255 7 1 47,553
+Nandi East..…...……..……… … . … 5 9,899 5 9,271 3 1 19,173
+Nandi North..…...……..……… … . …8 2,512 8 3,656 3 1 66,171
+Nandi South..…...……..……… … . …8 5,718 8 7,029 3 1 72,750
+Tinderet..…...……..…………. … 5 8,890 5 7,039 2 1 15,931
+Baringo..…...……..………….… 3 36,322 3 30,428 1 3 6 66,763
+Baringo Central..…...……..… … … 4 …8,.1…20 4 8,829 2 9 6,951
+Baringo North..…...……..…… … … 5 .2…,369 5 2,500 2 1 04,871
+East Pokot..…...……..………… . … 4 0,462 3 9,459 2 7 9,923
+Koibatek..…...……..………… . … 6 5,295 6 4,238 2 1 29,535
+Marigat..…...……..………….… 4 5,706 4 5,246 3 9 0,955
+Mogotio..…...……..………….… 4 6,014 4 5,088 2 9 1,104
+Tiaty East..…...……..………… . … 3 8,356 3 5,068 .. 7 3,424
+Laikipia..…...……..………….… 2 59,440 2 59,102 1 8 5 18,560
+Laikipia Central..…...……..… … … 4 …7,.8…88 4 7,705 1 9 5,594
+Laikipia East..…...……..……… … .5 …2,078 5 0,732 5 1 02,815
+Laikipia North..…...……..…… … … 1 .8…,067 1 8,116 1 3 6,184
+Laikipia West..…...……..…… … … 6 .…5,158 6 4,102 3 1 29,263
+Nyahururu..…...……..………… . … 7 6,249 7 8,447 8 1 54,704
+Nakuru..…...……..………….… 1 ,077,272 1 ,084,835 9 5 2 ,162,202
+Gilgil..…...……..………….… 9 2,955 9 2,247 7 1 85,209
+Kuresoi North..…...……..…… … … 8 .7…,472 8 7,599 3 1 75,074
+Kuresoi South..…...……..…… … … 7 .8…,204 7 7,117 3 1 55,324
+Molo..…...……..………….… 7 8,129 7 8,598 5 1 56,732
+Naivasha..…...……..………… . … 1 79,222 1 76,132 2 9 3 55,383
+Nakuru East..…...……..……… … . …9 2,956 1 00,960 1 0 1 93,926
+Nakuru North..…...……..…… … … 1 0.…6,155 1 11,880 1 5 2 18,050
+Nakuru West..…...……..…… … … 1 .0…1,797 9 6,854 1 0 1 98,661
+Njoro..…...……..………….… 1 18,361 1 20,408 4 2 38,773
+Rongai..…...……..………….… 9 9,976 9 9,922 8 1 99,906
+Subukia..…...……..…………. … 4 2,045 4 3,118 1 8 5,164
+Narok..…...……..………….… 5 79,042 5 78,805 2 6 1 ,157,873
+Narok East..…...……..……… … . … 5 8,699 5 6,617 7 1 15,323
+Narok North..…...……..……… … 1 .…28,024 1 23,829 9 2 51,862
+Narok South..…...……..……… … 1 .…18,441 1 20,029 2 2 38,472
+Narok West..…...……..……… … . … 9 7,085 9 8,198 4 1 95,287
+Trans Mara East..…...……..… … … 5 …4,5.…45 5 6,637 1 1 11,183
+Trans Mara West..…...……..… … 1 …22…,2.2…0 1 23,491 3 2 45,714
+Mau Forest*..…...……..……… … . … 2 8 4 .. 3 2
+*Demarcated as a special area to ensure complete coverage during census enumeration
+17
+2019 Kenya Population and Housing Census: Volume I
+Table 2.5: Distribution of Population by Sex and Sub-County, Cont’d
+National/ County Sex
+Total
+Male Female Intersex
+Kajiado..…...……..………….… 5 57,098 5 60,704 3 8 1 ,117,840
+Isinya..…...……..………….… 1 05,607 1 04,860 6 2 10,473
+Kajiado Central..…...……..… … … 8 …1.,…514 8 0,343 5 1 61,862
+Kajiado North..…...……..…… … …1 5.…0,675 1 55,908 1 3 3 06,596
+Kajiado West..…...……..…… … … 9 .…1,607 9 1,237 5 1 82,849
+Loitokitok..…...……..………… . … 9 4,613 9 7,225 8 1 91,846
+Mashuuru..…...……..………… . … 3 3,082 3 1,131 1 6 4,214
+Kericho..…...……..………….… 4 50,741 4 51,008 2 8 9 01,777
+Belgut..…...……..………….… 7 2,508 7 2,564 .. 1 45,072
+Bureti..…...……..………….… 9 8,823 1 00,642 5 1 99,470
+Kericho East..…...……..……… … .8 …6,671 8 3,947 7 1 70,625
+Kipkelion..…...……..………… . … 6 1,066 6 1,460 4 1 22,530
+Londiani..…...……..………… . … 6 8,570 6 9,000 1 0 1 37,580
+Soin Sigowet..…...……..…… … … 6 .…3,103 6 3,395 2 1 26,500
+Bomet..…...……..………….… 4 34,287 4 41,379 2 3 8 75,689
+Bomet East..…...……..……… … . … 7 1,095 7 3,172 8 1 44,275
+Chepalungu..…...……..……… … . …7 9,921 8 4,912 4 1 64,837
+Konoin..…...……..………….… 8 3,120 8 0,384 3 1 63,507
+Sotik..…...……..………….… 1 12,369 1 15,482 4 2 27,855
+Bomet Central..…...……..…… … … 8 7.…,782 8 7,429 4 1 75,215
+Kakamega..…...……..………… . … 8 97,133 9 70,406 4 0 1 ,867,579
+Butere..…...……..………….… 7 3,634 8 0,463 3 1 54,100
+Kakamega Central..…...…… . . … … 9 2…,7…74.… 9 5,432 6 1 88,212
+Kakamega East..…...……..… … … 8 …0,.8…53 8 6,784 4 1 67,641
+Kakamega North..…...……..… … 1 …15…,5.1…1 1 22,814 5 2 38,330
+Kakamega South..…...……..… … …5 3…,2.1…9 5 8,524 .. 1 11,743
+Khwisero..…...……..………… . … 5 3,670 5 9,803 3 1 13,476
+Likuyani..…...……..…………. … 7 3,710 7 8,341 4 1 52,055
+Lugari..…...……..………….… 5 9,135 6 3,593 .. 1 22,728
+Matete..…...……..………….… 3 1,749 3 4,423 .. 6 6,172
+Matungu..…...……..…………. … 7 8,793 8 8,143 4 1 66,940
+Mumias East..…...……..…… … … 5 .…5,895 6 0,953 3 1 16,851
+Mumias West..…...……..…… … … 5 .…4,915 6 0,438 1 1 15,354
+Navakholo..…...……..………… . … 7 3,275 8 0,695 7 1 53,977
+Vihiga..…...……..………….… 2 83,678 3 06,323 1 2 5 90,013
+Emuhaya..…...……..………… . … 4 6,507 5 0,633 1 9 7,141
+Vihiga..…...……..………….… 4 5,788 4 9,501 3 9 5,292
+Sabatia..…...……..………….… 6 2,944 6 8,683 1 1 31,628
+Luanda..…...……..………….… 5 1,525 5 5,165 4 1 06,694
+Hamisi..…...……..………….… 7 6,901 8 2,337 3 1 59,241
+Kakamega Forest*..…...…… . . … … … … 1 .3… 4 .. 1 7
+*Demarcated as a special area to ensure complete coverage during census enumeration
+18
+2019 Kenya Population and Housing Census: Volume I
+Table 2.5: Distribution of Population by Sex and Sub-County, Cont’d
+National/ County Sex
+Total
+Male Female Intersex
+Bungoma..…...……..………….… 8 12,146 8 58,389 3 5 1 ,670,570
+Bumula..…...……..………….… 1 03,368 1 12,523 1 2 15,892
+Bungoma Central..…...…….. … … 8 …6…,30.…2 9 1,438 8 1 77,748
+Bungoma East..…...……..…… … …5 5.…,775 5 8,771 2 1 14,548
+Bungoma North..…...……..… … … 5 …8,.7…90 6 2,526 1 1 21,317
+Bungoma South..…...……..… … 1 …3…9,7.…05 1 48,055 5 2 87,765
+Cheptais..…...……..………… . … 6 7,717 6 8,312 6 1 36,035
+Kimilili-Bungoma..…...……..… … …7 8…,5.6…0 8 3,475 3 1 62,038
+Mt. Elgon..…...……..………… . … 3 8,977 3 9,893 3 7 8,873
+Bungoma West..…...……..… … … 5 …8.,…225 6 1,649 1 1 19,875
+Tongaren..…...……..………… . … 4 8,685 5 1,657 1 1 00,343
+Webuye West..…...……..…… … … 7 .…4,180 7 8,331 4 1 52,515
+Mt. Elgon Forest*..…...……..… … … 1 …,8.6…2 1 ,759 .. 3 ,621
+Busia..…...……..………….… 4 26,252 4 67,401 2 8 8 93,681
+Bunyala..…...……..………….… 4 1,465 4 4,511 1 8 5,977
+Busia..…...……..………….… 6 9,034 7 3,373 1 1 42,408
+Butula..…...……..………….… 6 5,136 7 5,195 3 1 40,334
+Nambale..…...……..………… . … 5 2,900 5 8,732 4 1 11,636
+Samia..…...……..………….… 5 0,821 5 6,341 1 4 1 07,176
+Teso North..…...……..……… … . … 6 6,412 7 1,619 3 1 38,034
+Teso South..…...……..……… … . … 8 0,484 8 7,630 2 1 68,116
+Siaya..…...……..………….… 4 71,669 5 21,496 1 8 9 93,183
+Siaya..…...……..………….… 1 05,906 1 18,433 4 2 24,343
+Gem..…...……..………….… 8 5,696 9 4,092 4 1 79,792
+Ugenya..…...……..………….… 6 2,624 7 1,726 4 1 34,354
+Ugunja..…...……..………….… 4 8,912 5 5,329 .. 1 04,241
+Bondo..…...……..………….… 9 5,962 1 01,917 4 1 97,883
+Rarieda..…...……..………….… 7 2,569 7 9,999 2 1 52,570
+Kisumu..…...……..………….… 5 60,942 5 94,609 2 3 1 ,155,574
+Kisumu East..…...……..…… … … 1 .0…8,304 1 12,689 4 2 20,997
+Kisumu Central..…...……..… … … 8 …4,.1…55 8 9,985 5 1 74,145
+Kisumu West..…...……..…… … … 8 .…5,697 8 7,121 3 1 72,821
+Seme..…...……..………….… 5 7,658 6 4,007 2 1 21,667
+Muhoroni..…...……..………… . … 7 6,770 7 7,345 1 1 54,116
+Nyando..…...……..………….… 7 7,121 8 4,380 7 1 61,508
+Nyakach..…...……..…………. … 7 1,237 7 9,082 1 1 50,320
+Homa Bay..…...……..…………. … 5 39,560 5 92,367 2 3 1 ,131,950
+Homa Bay..…...……..………… . … 5 5,756 6 1,681 2 1 17,439
+Ndhiwa..…...……..………….… 1 03,706 1 14,422 8 2 18,136
+Rachuonyo North..…...……..… … …8 5…,4.0…9 9 3,273 4 1 78,686
+Rachuonyo East..…...……..… … … 5 …7,7.…09 6 4,111 2 1 21,822
+Rachuonyo South..…...…….. … … 6 …1…,66.…3 6 9,151 .. 1 30,814
+Rangwe..…...……..…………. … 5 5,404 6 2,325 3 1 17,732
+Suba North..…...……..……… … . … 6 0,530 6 4,406 2 1 24,938
+Suba South..…...……..……… … . … 5 9,383 6 2,998 2 1 22,383
+*Demarcated as a special area to ensure complete coverage during census enumeration
+19
+2019 Kenya Population and Housing Census: Volume I
+Table 2.5: Distribution of Population by Sex and Sub-County, Cont’d
+National/ County Sex
+Total
+Male Female Intersex
+Migori..…...……..………….… 5 36,187 5 80,214 3 5 1 ,116,436
+Awendo..…...……..………….… 5 6,348 6 0,939 3 1 17,290
+Kuria East..…...……..………… . … 4 6,969 4 9,894 9 9 6,872
+Kuria West..…...……..……… … . …1 01,090 1 07,417 6 2 08,513
+Nyatike..…...……..………….… 8 3,989 9 2,164 9 1 76,162
+Rongo..…...……..………….… 5 9,257 6 5,329 1 1 24,587
+Suna East..…...……..………… . … 5 8,977 6 3,694 3 1 22,674
+Suna West..…...……..……… … . … 6 1,430 6 7,459 1 1 28,890
+Uriri..…...……..………….… 6 8,127 7 3,318 3 1 41,448
+Kisii..…...……..………….… 6 05,784 6 61,038 3 8 1 ,266,860
+Etago..…...……..………….… 4 0,137 4 3,647 3 8 3,787
+Gucha..…...……..………….… 3 9,631 4 4,108 1 8 3,740
+Gucha South..…...……..……… … .4 …0,022 4 3,598 3 8 3,623
+Kenyenya..…...……..………… . … 6 2,859 6 8,878 3 1 31,740
+Kisii Central..…...……..……… … . …8 1,330 8 5,573 3 1 66,906
+Kisii South..…...……..………… . … 6 4,514 7 0,615 5 1 35,134
+Kitutu Central..…...……..…… … … 7 .…4,608 7 9,561 6 1 54,175
+Marani..…...……..………….… 5 0,598 5 6,864 2 1 07,464
+Masaba South..…...……..…… … … 5 8.…,143 6 4,248 5 1 22,396
+Nyamache..…...……..………… . … 6 2,113 6 8,782 3 1 30,898
+Sameta..…...……..………….… 3 1,829 3 5,164 4 6 6,997
+Nyamira..…...……..………….… 2 90,907 3 14,656 1 3 6 05,576
+Borabu..…...……..………….… 3 6,736 3 6,431 .. 7 3,167
+Manga..…...……..………….… 4 4,868 4 9,339 2 9 4,209
+Masaba North..…...……..…… … … 5 .2…,884 5 8,974 2 1 11,860
+Nyamira North..…...……..…… … … 8 0.…,314 8 6,947 6 1 67,267
+Nyamira South..…...……..…… … …7 6.…,105 8 2,965 3 1 59,073
+Nairobi City..…...……..………… .2 …,192,452 2 ,204,376 2 45 4 ,397,073
+Dagoretti..…...……..………… . … 2 17,651 2 16,526 3 1 4 34,208
+Embakasi..…...……..………… . … 4 92,476 4 96,270 6 2 9 88,808
+Kamukunji..…...……..……… … . …1 36,670 1 31,599 7 2 68,276
+Kasarani..…...……..………… . … 3 81,234 3 99,385 3 7 7 80,656
+Kibra..…...……..………….… 9 4,199 9 1,569 9 1 85,777
+Lang'ata..…...……..…………. … 9 6,698 1 00,774 1 7 1 97,489
+Makadara..…...……..………… . … 9 6,369 9 3,157 1 0 1 89,536
+Mathare..…...……..…………. … 1 06,522 1 00,028 1 4 2 06,564
+Njiru..…...……..………….… 3 07,642 3 18,809 3 1 6 26,482
+Starehe..…...……..………….… 1 09,173 1 01,238 1 2 2 10,423
+Westlands..…...……..………… . … 1 53,818 1 55,021 1 5 3 08,854
+20
+2019 Kenya Population and Housing Census: Volume I
+Table 2.6: Distribution of Population, Number of Households and Average
+Household Size by Sub-County
+Population+ Number of Average
+National/ County
+Households Household size
+Kenya…………………………..… 4 7,213,282 1 2,143,913 3.9
+County/ Sub County
+Mombasa…………………...… 1 ,190,987 3 78,422 3.1
+Changamwe…………….. 1 30,541 4 6,614 2.8
+Jomvu…………………….. 1 62,760 5 3,472 3.0
+Kisauni…………………… 2 87,131 8 8,202 3.3
+Likoni…………………….. 2 49,230 8 1,191 3.1
+Mvita………………………. 1 47,983 3 8,995 3.8
+Nyali………………………. 2 13,342 6 9,948 3.1
+Kwale……………………….… 8 58,748 1 73,176 5.0
+Kinango………………...… 9 3,789 1 6,043 5.8
+Lungalunga……………...… 1 98,195 3 7,366 5.3
+Matuga………………....… 1 92,999 3 9,231 4.9
+Msambweni…………....… 1 73,213 4 5,466 3.8
+Samburu-Kwale………...… 2 00,552 3 5,070 5.7
+Kilifi………………..………….… 1 ,440,958 2 98,472 4.8
+Chonyi…………..……….… 6 2,318 1 1,421 5.5
+Ganze…………..…...….… 1 43,590 2 3,258 6.2
+Kaloleni.………..……….… 1 92,905 3 6,355 5.3
+Kauma…………..……….… 2 2,613 3 ,479 6.5
+Kilifi North……...……….… 1 77,527 3 9,512 4.5
+Kilifi South……..……….… 2 03,891 5 3,074 3.8
+Magarini………..……….… 1 90,644 3 3,017 5.8
+Malindi…………….…….… 3 26,991 7 3,547 4.4
+Rabai…………….…….… 1 20,479 2 4,809 4.9
+Tana River………..………….… 3 14,710 6 8,242 4.6
+Tana North..….………….… 1 10,293 2 2,791 4.8
+Tana Delta……………….… 1 16,463 2 6,886 4.3
+Tana River……………….… 8 7,954 1 8,565 4.7
+Lamu…...………..………….… 1 41,909 3 7,963 3.7
+Lamu East.……..……...… 2 2,212 5 ,090 4.4
+Lamu West.……...…….… 1 19,697 3 2,873 3.6
+Taita/Taveta……..………….… 3 35,747 9 6,429 3.5
+Mwatate……..………….… 8 1,389 2 3,698 3.4
+Taita………….………….… 5 5,643 1 5,094 3.7
+Taveta………..………….… 8 9,319 2 4,115 3.7
+Voi……..……….……….… 1 09,396 3 3,522 3.3
+Garissa…...……..………….… 8 35,482 1 41,394 5.9
+Balambala...……..……..… 3 1,819 4 ,337 7.3
+Dadaab.…...……..…………. … 1 83,410 3 5,793 5.1
+Fafi…...…...……..………….… 1 33,286 2 3,671 5.6
+Garissa…...……..………….… 1 61,951 3 0,518 5.3
+Hulugho…...……..…………. … 1 33,746 2 0,254 6.6
+Ijara…..…...……..………….… 1 41,418 1 8,481 7.7
+Lagdera…………………..…. … 4 9,852 8 ,340 6.0
++ Excludes the special population (travellers, outdoor sleepers, individuals in hotels and
+lodges and persons in institutions).
+21
+2019 Kenya Population and Housing Census: Volume I
+Table 2.6: Distribution of Population, Number of Households and Average
+Household Size by Sub-County, Cont’d
+National/ County Population+ Number of Average
+Households Household size
+Wajir..…...……..………….… 7 75,302 1 27,932 6.1
+Buna..…...……..………….… 4 8,117 6 ,480 7.4
+Eldas..…...……..………….… 8 8,310 1 3,892 6.4
+Habaswein..…...……..……… … . … 1 73,446 3 1,292 5.5
+Tarbaj..…...……..………….… 5 6,983 9 ,378 6.1
+Wajir East..…...……..………… . … 1 09,316 1 8,674 5.9
+Wajir North..…...……..……… … . … 6 1,867 1 0,490 5.9
+Wajir South..…...……..……… … . … 1 16,225 2 1,364 5.4
+Wajir West..…...……..……… … . … 1 21,038 1 6,362 7.4
+Mandera..…...……..………….… 8 62,079 1 25,763 6.9
+Mandera West..…...……..… … … … . …9 7,983 1 4,274 6.9
+Banisa..…...……..…………. … 1 52,043 2 4,285 6.3
+Kutulo..…...……..………….… 7 1,602 9 ,446 7.6
+Lafey..…...……..………….… 8 3,001 1 1,597 7.2
+Mandera Central..…...…….. … … … 1 …5.6…,623 2 1,140 7.4
+Mandera East..…...……..…… … … .1 …58,586 2 5,904 6.1
+Mandera North..…...……..… … … … 1 .…42,241 1 9,117 7.4
+Marsabit..…...……..………….… 4 47,150 7 7,495 5.8
+Loiyangalani..…...……..…… … … . … 3 5,274 7 ,774 4.5
+Marsabit Central..…...……..… … … … 7 .8…,167 1 5,849 4.9
+Marsabit North..…...……..… … … … . …4 9,056 7 ,521 6.5
+Marsabit South..…...……..… … … … .6 …4,937 1 1,615 5.6
+Moyale..…...……..………….… 1 08,223 1 7,709 6.1
+North Horr..…...……..……… … . … 6 7,154 9 ,789 6.9
+Sololo..…...……..………….… 4 4,339 7 ,238 6.1
+Isiolo..…...……..………….… 2 67,997 5 8,072 4.6
+Garbatulla..…...……..……… … . … 9 9,730 1 8,661 5.3
+Isiolo..…...……..………….… 1 21,061 2 9,853 4.1
+Merti..…...……..………….… 4 7,206 9 ,558 4.9
+Meru..…...……..………….… 1 ,535,635 4 26,360 3.6
+Buuri East..…...……..……… … . … 7 5,943 2 3,834 3.2
+Buuri West..…...……..……… … . … 8 0,419 2 7,973 2.9
+Igembe Central..…...……..… … … … 2 1.…9,887 5 2,031 4.2
+Igembe North..…...……..…… … … .1 …68,903 3 8,871 4.3
+Igembe South..…...……..…… … … .1 …60,851 4 3,281 3.7
+Imenti North..…...……..…… … … . … 1 73,876 5 7,668 3.0
+Imenti South..…...……..…… … … . … 2 05,487 6 4,186 3.2
+Meru Central..…...……..…… … … . … 1 33,165 3 9,595 3.4
+Tigania Central..…...……..… … … … 1 .0…4,558 2 5,039 4.2
+Tigania East..…...……..…… … … . … 7 2,471 1 7,185 4.2
+Tigania West..…...……..…… … … . …1 39,312 3 6,207 3.8
+Meru National Park*..…...… … . . … … … … 3 1.…7 2 07 1.5
+Mt. Kenya Forest*..…...……. . … … … … . … 4 46 2 83 1.6
++ Excludes the special population (travellers, outdoor sleepers, individuals in hotels and
+lodges and persons in institutions).
+*Demarcated as a special area to ensure complete coverage during census enumeration
+22
+2019 Kenya Population and Housing Census: Volume I
+Table 2.6: Distribution of Population, Number of Households and Average
+Household Size by Sub-County, Cont’d
+National/ County Population+ Number of Average
+Households Household size
+Tharaka-Nithi..…...……..……… … . … 3 91,303 1 09,860 3.6
+Igambang'ombe..…...……..… … … … 5 .2…,802 1 4,398 3.7
+Maara..…...……..………….… 1 14,734 3 5,041 3.3
+Meru South..…...……..……… … . … 9 0,520 2 8,249 3.2
+Tharaka North..…...……..…… … … . … 5 8,252 1 3,413 4.3
+Tharaka South..…...……..… … … … . …7 4,824 1 8,646 4.0
+Mt. Kenya Forest*..…...……. . … … … … . … 1 71 1 13 1.5
+Embu..…...……..………….… 6 04,769 1 82,743 3.3
+Embu East..…...……..……… … . … 1 29,097 3 9,678 3.3
+Embu North..…...……..……… … . … 7 9,465 2 4,300 3.3
+Embu West..…...……..……… … . … 1 24,616 4 3,153 2.9
+Mbeere South..…...……..…… … … .1 …62,918 4 6,065 3.5
+Mbeere North..…...……..…… … … . …1 08,651 2 9,528 3.7
+Mt. Kenya Forest*..…...……. . … … … … . … 2 2 1 9 1.2
+Kitui..…...……..………….… 1 ,130,134 2 62,942 4.3
+Ikutha..…...……..………….… 8 2,463 1 6,679 4.9
+Katulani..…...……..………… . … 4 6,913 1 2,170 3.9
+Kisasi..…...……..………….… 4 6,003 1 0,866 4.2
+Kitui Central..…...……..…… … … . … 1 04,128 2 9,057 3.6
+Kitui West..…...……..……… … . … 7 0,635 1 7,497 4.0
+Kyuso..…...……..………….… 7 6,452 1 5,993 4.8
+Lower Yatta..…...……..……… … . … 6 2,938 1 5,454 4.1
+Matinyani..…...……..………… . … 4 7,802 1 1,513 4.2
+Migwani..…...……..………… . … 7 9,066 1 9,096 4.1
+Mumoni..…...……..………… . … 2 9,321 6 ,496 4.5
+Mutitu..…...……..………….… 5 5,136 1 1,521 4.8
+Mutitu North..…...……..……… … . … 2 1,128 4 ,929 4.3
+Mutomo..…...……..………… . … 1 12,703 2 3,044 4.9
+Mwingi Central..…...……..… … … … 1 .…07,973 2 6,753 4.0
+Mwingi East..…...……..……… … . … 8 4,973 1 8,730 4.5
+Nzambani..…...……..……… … . … 4 6,710 1 1,276 4.1
+Thagicu..…...……..………… . … 1 5,096 3 ,289 4.6
+Tseikuru..…...……..………… . … 4 0,694 8 ,579 4.7
+Machakos..…...……..………… . … 1 ,414,022 4 02,466 3.5
+Athi River..…...……..………… . … 3 19,526 1 09,735 2.9
+Kalama..…...……..………… . … 5 4,408 1 4,182 3.8
+Kangundo..…...……..……… … . … 9 7,700 2 6,142 3.7
+Kathiani..…...……..………… . … 1 11,757 2 8,730 3.9
+Machakos..…...……..……… … . … 1 68,255 5 0,979 3.3
+Masinga..…...……..………… . … 1 48,181 3 6,251 4.1
+Matungulu..…...……..……… … . … 1 61,080 4 4,454 3.6
+Mwala..…...……..………….… 1 81,671 4 5,840 4.0
+Yatta..…...……..………….… 1 71,444 4 6,153 3.7
++ Excludes the special population (travellers, outdoor sleepers, individuals in hotels and
+lodges and persons in institutions).
+*Demarcated as a special area to ensure complete coverage during census enumeration
+23
+2019 Kenya Population and Housing Census: Volume I
+Table 2.6: Distribution of Population, Number of Households and Average
+Household Size by Sub-County, Cont’d
+National/ County Population+ Number of Average
+Households Household size
+Makueni..…...……..………….… 9 77,015 2 44,669 4.0
+Kathonzweni..…...……..…… … … . … 7 9,281 1 8,365 4.3
+Kibwezi..…...……..………… . … 1 94,004 4 7,912 4.0
+Kilungu..…...……..…………. … 6 0,869 1 4,586 4.2
+Makindu..…...……..………… . … 8 3,391 2 1,756 3.8
+Makueni..…...……..………… . … 1 28,880 3 4,479 3.7
+Mbooni East..…...……..…… … … . … 9 7,523 2 3,734 4.1
+Mbooni West..…...……..…… … … . … 1 02,292 2 4,833 4.1
+Mukaa..…...……..………….… 1 06,239 2 8,185 3.8
+Nzaui..…...……..………….… 1 24,536 3 0,819 4.0
+Nyandarua..…...……..………… . … 6 36,002 1 79,686 3.5
+Kinangop..…...……..………… . … 1 11,119 3 0,970 3.6
+Nyandarua South..…...……. . … … … …9 3.…,228 2 5,822 3.6
+Mirangine..…...……..………… . … 6 7,121 1 8,816 3.6
+Kipipiri..…...……..………….… 9 3,698 2 5,200 3.7
+Nyandarua Central..…...…… . . … … … 7 …4,8.…35 2 1,942 3.4
+Nyandarua West..…...…….. … … … … 9 .7…,590 2 9,008 3.4
+Nyandarua North..…...…….. … … … … 9 8.…,396 2 7,917 3.5
+Aberdare National Park*..… . . . … … . . … … …1 5….… 1 1 1.4
+Nyeri..…...……..………….… 7 52,695 2 48,050 3.0
+Tetu..…...……..………….… 8 0,283 2 4,139 3.3
+Kieni East..…...……..……… … . … 1 09,624 3 6,835 3.0
+Kieni West..…...……..……… … . … 8 8,014 2 7,619 3.2
+Mathira East..…...……..…… … … . … 9 8,425 3 5,044 2.8
+Mathira West..…...……..…… … … . … 5 9,729 1 9,020 3.1
+Nyeri South..…...……..……… … . … 9 0,803 2 8,228 3.2
+Mukurwe-ini..…...……..……… … . … 8 8,674 2 7,040 3.3
+Nyeri Central..…...……..…… … … . … 1 36,849 4 9,945 2.7
+Mt. Kenya Forest*..…...……. . … … … … . … 1 88 1 01 1.9
+Aberdare Forest*..…...……. . … … … … . … 1 06 7 9 1.3
+Kirinyaga..…...……..………….… 6 05,630 2 04,188 3.0
+Kirinyaga Central..…...……. . … … … 1 …21.…,419 4 0,225 3.0
+Kirinyaga East..…...……..… … … … 1 .…35,085 4 4,571 3.0
+Kirinyaga West..…...……..… … … … 1 .1…4,191 3 8,309 3.0
+Mwea East..…...……..……… … . … 1 30,571 4 6,340 2.8
+Mwea West..…...……..……… … . … 1 04,327 3 4,720 3.0
+Mt. Kenya Forest*..…...……. . … … … … . … 3 7 2 3 1.6
+Murang'a..…...……..………….… 1 ,053,059 3 18,105 3.3
+Murang'a East..…...……..… … … … 1 .…08,675 3 4,734 3.1
+Kangema..…...……..………… . … 8 0,189 2 5,293 3.2
+Mathioya..…...……..………… . … 9 2,656 2 8,400 3.3
+Kahuro..…...……..…………. … 8 8,059 2 6,930 3.3
+Murang'a South..…...……..… … … … 1 8.…4,190 5 5,998 3.3
+Gatanga..…...……..………… . … 1 87,631 5 5,461 3.4
+Kigumo..…...……..………… . … 1 36,827 4 0,552 3.4
+Kandara..…...……..………… . … 1 74,789 5 0,704 3.4
+Aberdare Forest*..…...…….. … … … … . … 4 3 3 3 1.3
++ Excludes the special population (travellers, outdoor sleepers, individuals in hotels and
+lodges and persons in institutions).
+*Demarcated as a special area to ensure complete coverage during census enumeration
+24
+2019 Kenya Population and Housing Census: Volume I
+Table 2.6: Distribution of Population, Number of Households and Average
+Household Size by Sub-County, Cont’d
+National/ County Population+ Number of Average
+Households Household size
+Kiambu..…...……..………….… 2 ,402,834 7 95,241 3.0
+Gatundu North..…...……..…… … … .1 …09,654 3 1,472 3.5
+Gatundu South..…...……..…… … … .1 …21,693 3 5,609 3.4
+Githunguri..…...……..………… . … 1 64,939 4 9,426 3.3
+Juja..…...……..………….… 2 99,671 1 04,301 2.9
+Kabete..…...……..………….… 1 99,114 6 6,710 3.0
+Kiambaa..…...……..………… . … 2 35,858 8 0,332 2.9
+Kiambu..…...……..………….… 1 44,241 4 7,275 3.1
+Kikuyu..…...……..………….… 1 86,093 6 0,686 3.1
+Lari..…...……..………….… 1 34,651 3 8,592 3.5
+Limuru..…...……..………….… 1 57,873 4 9,174 3.2
+Ruiru..…...……..………….… 3 69,618 1 29,470 2.9
+Thika East..…...……..………… . … 3 8,573 1 2,736 3.0
+Thika West..…...……..……… … . … 2 40,856 8 9,458 2.7
+Turkana..…...……..………….… 9 22,210 1 64,519 5.6
+Kibish..…...……..………….… 3 6,401 5 ,805 6.3
+Loima..…...……..………….… 1 06,625 1 9,438 5.5
+Turkana Central..…...……..… … … … 1 .8…3,121 3 8,173 4.8
+Turkana East..…...……..…… … … . … 1 38,265 1 7,981 7.7
+Turkana North..…...……..…… … … . … 6 5,125 1 3,119 5.0
+Turkana South..…...……..…… … … .1 …53,350 2 4,552 6.2
+Turkana West..…...……..…… … … . … 2 39,323 4 5,451 5.3
+West Pokot..…...……..………… . … 6 18,867 1 16,182 5.3
+Kipkomo..…...……..………… . … 1 02,311 1 8,370 5.6
+Pokot Central..…...……..…… … … . … 1 18,721 2 1,850 5.4
+Pokot North..…...……..……… … . … 1 34,012 2 5,804 5.2
+Pokot South..…...……..……… … . … 8 0,590 1 3,817 5.8
+West Pokot..…...……..……… … . … 1 83,233 3 6,341 5.0
+Samburu..…...……..………….… 3 07,957 6 5,910 4.7
+Samburu Central..…...……..… … … …1 6.3…,942 3 4,202 4.8
+Samburu East..…...……..…… … … . … 7 7,136 1 8,424 4.2
+Samburu North..…...……..… … … … . …6 6,879 1 3,284 5.0
+Trans Nzoia..…...……..………… . … 9 85,333 2 23,808 4.4
+Trans Nzoia West..…...…….. … … … 1 …99.…,644 4 7,603 4.2
+Trans Nzoia East..…...……..… … … …2 2.9…,117 5 0,017 4.6
+Kwanza..…...……..………….… 2 03,586 4 5,752 4.4
+Endebess..…...……..………… . … 1 11,681 2 3,705 4.7
+Kiminini..…...……..…………. … 2 41,305 5 6,731 4.3
+Uasin Gishu..…...……..………… . … 1 ,152,671 3 04,943 3.8
+Ainabkoi..…...……..………… . … 1 37,117 3 4,892 3.9
+Kapseret..…...……..………… . … 1 96,883 5 9,746 3.3
+Kesses..…...……..………….… 1 48,228 3 4,653 4.3
+Moiben..…...……..………….… 1 78,105 4 6,729 3.8
+Soy..…...……..………….… 2 28,219 5 3,784 4.2
+Turbo..…...……..………….… 2 64,119 7 5,139 3.5
++ Excludes the special population (travellers, outdoor sleepers, individuals in hotels and
+lodges and persons in institutions).
+25
+2019 Kenya Population and Housing Census: Volume I
+Table 2.6: Distribution of Population, Number of Households and Average
+Household Size by Sub-County, Cont’d
+National/ County Population+ Number of Average
+Households Household size
+Elgeyo/Marakwet..…...……..… … … … 4 .…53,403 9 9,861 4.5
+Keiyo North..…...……..……… … . … 9 8,683 2 1,947 4.5
+Keiyo South..…...……..……… … . … 1 20,643 2 7,029 4.5
+Marakwet East..…...……..…… … … . … 9 6,897 2 1,362 4.5
+Marakwet West..…...……..… … … … 1 .…37,180 2 9,523 4.6
+Nandi..…...……..………….… 8 83,634 1 99,426 4.4
+Chesumei..…...……..………… . … 1 63,564 3 9,051 4.2
+Nandi Central..…...……..…… … … . … 1 46,634 3 4,400 4.3
+Nandi East..…...……..……… … . … 1 18,997 2 9,253 4.1
+Nandi North..…...……..……… … . … 1 66,023 3 5,297 4.7
+Nandi South..…...……..……… … . … 1 72,672 3 7,094 4.7
+Tinderet..…...……..…………. … 1 15,744 2 4,331 4.8
+Baringo..…...……..………….… 6 62,760 1 42,518 4.7
+Baringo Central..…...……..… … … … . …9 6,195 2 3,555 4.1
+Baringo North..…...……..…… … … . … 1 04,654 2 3,500 4.5
+East Pokot..…...……..………… . … 7 9,770 1 4,498 5.5
+Koibatek..…...……..………… . … 1 28,874 3 0,774 4.2
+Marigat..…...……..………….… 8 9,210 1 9,854 4.5
+Mogotio..…...……..………….… 9 0,911 1 8,184 5.0
+Tiaty East..…...……..………… . … 7 3,146 1 2,153 6.0
+Laikipia..…...……..………….… 5 13,879 1 49,271 3.4
+Laikipia Central..…...……..… … … … . …9 5,281 3 0,372 3.1
+Laikipia East..…...……..…… … … . … 1 00,874 3 3,505 3.0
+Laikipia North..…...……..…… … … . … 3 5,870 7 ,752 4.6
+Laikipia West..…...……..…… … … . … 1 28,693 3 3,025 3.9
+Nyahururu..…...……..………… . … 1 53,161 4 4,617 3.4
+Nakuru..…...……..………….… 2 ,142,667 6 16,046 3.5
+Gilgil..…...……..………….… 1 82,862 5 8,920 3.1
+Kuresoi North..…...……..…… … … . … 1 74,898 4 0,359 4.3
+Kuresoi South..…...……..…… … … . …1 54,998 3 4,627 4.5
+Molo..…...……..………….… 1 56,279 4 1,462 3.8
+Naivasha..…...……..………… . … 3 49,067 1 17,633 3.0
+Nakuru East..…...……..……… … . … 1 90,161 6 1,398 3.1
+Nakuru North..…...……..…… … … . … 2 17,425 6 1,728 3.5
+Nakuru West..…...……..…… … … . … 1 94,723 6 4,481 3.0
+Njoro..…...……..………….… 2 38,233 6 1,271 3.9
+Rongai..…...……..………….… 1 99,004 5 2,348 3.8
+Subukia..…...……..…………. … 8 5,017 2 1,819 3.9
+Narok..…...……..………….… 1 ,149,379 2 41,125 4.8
+Narok East..…...……..……… … . … 1 15,091 2 5,078 4.6
+Narok North..…...……..……… … . … 2 50,105 5 9,996 4.2
+Narok South..…...……..……… … . … 2 38,301 4 6,723 5.1
+Narok West..…...……..……… … . … 1 90,237 3 8,658 4.9
+Trans Mara East..…...……..… … … … 1 1.…1,119 2 0,506 5.4
+Trans Mara West..…...……..… … … …2 4.…4,494 5 0,132 4.9
+Mau Forest*..…...……..……… … . … 3 2 3 2 1.0
++ Excludes the special population (travellers, outdoor sleepers, individuals in hotels and
+lodges and persons in institutions).
+*Demarcated as a special area to ensure complete coverage during census enumeration
+26
+2019 Kenya Population and Housing Census: Volume I
+Table 2.6: Distribution of Population, Number of Households and Average
+Household Size by Sub-County, Cont’d
+National/ County Population+ Number of Average
+Households Household size
+Kajiado..…...……..………….… 1 ,107,296 3 16,179 3.5
+Isinya..…...……..………….… 2 07,715 7 1,579 2.9
+Kajiado Central..…...……..… … … … 1 .…59,520 3 7,238 4.3
+Kajiado North..…...……..…… … … . … 3 04,404 1 01,378 3.0
+Kajiado West..…...……..…… … … . … 1 81,622 4 2,774 4.2
+Loitokitok..…...……..………… . … 1 90,174 4 7,058 4.0
+Mashuuru..…...……..………… . … 6 3,861 1 6,152 4.0
+Kericho..…...……..………….… 8 96,863 2 06,036 4.4
+Belgut..…...……..………….… 1 44,882 3 5,012 4.1
+Bureti..…...……..………….… 1 98,781 4 3,117 4.6
+Kericho East..…...……..……… … . … 1 67,898 4 4,246 3.8
+Kipkelion..…...……..………… . … 1 22,380 2 4,688 5.0
+Londiani..…...……..………… . … 1 37,013 3 1,778 4.3
+Soin Sigowet..…...……..…… … … . … 1 25,909 2 7,195 4.6
+Bomet..…...……..………….… 8 73,023 1 87,641 4.7
+Bomet East..…...……..……… … . … 1 43,816 2 9,958 4.8
+Chepalungu..…...……..……… … . … 1 64,710 3 3,931 4.9
+Konoin..…...……..………….… 1 63,359 3 8,178 4.3
+Sotik..…...……..………….… 2 27,380 4 7,315 4.8
+Bomet Central..…...……..…… … … . …1 73,758 3 8,259 4.5
+Kakamega..…...……..………… . … 1 ,861,332 4 33,207 4.3
+Butere..…...……..………….… 1 53,926 3 6,243 4.2
+Kakamega Central..…...…… . . … … … 1 8…5.,…625 5 2,015 3.6
+Kakamega East..…...……..… … … … 1 .6…6,288 3 9,589 4.2
+Kakamega North..…...……..… … … …2 3.…8,093 5 1,083 4.7
+Kakamega South..…...…….. … … … 1 …1.1…,608 2 6,964 4.1
+Khwisero..…...……..………… . … 1 13,294 2 7,681 4.1
+Likuyani..…...……..…………. … 1 51,773 3 5,322 4.3
+Lugari..…...……..………….… 1 22,584 2 7,862 4.4
+Matete..…...……..………….… 6 6,155 1 3,956 4.7
+Matungu..…...……..………… . … 1 66,755 3 6,457 4.6
+Mumias East..…...……..…… … … . … 1 16,712 2 6,049 4.5
+Mumias West..…...……..…… … … . … 1 14,601 2 7,671 4.1
+Navakholo..…...……..………… . … 1 53,918 3 2,315 4.8
+Vihiga..…...……..………….… 5 87,189 1 43,365 4.1
+Emuhaya..…...……..………… . … 9 7,035 2 3,804 4.1
+Vihiga..…...……..………….… 9 4,509 2 3,375 4.0
+Sabatia..…...……..………….… 1 30,851 3 1,422 4.2
+Luanda..…...……..………….… 1 05,707 2 6,766 3.9
+Hamisi..…...……..………….… 1 59,070 3 7,986 4.2
+Kakamega Forest*..…...…… . . … … … … . … 1 7 1 2 1.4
++ Excludes the special population (travellers, outdoor sleepers, individuals in hotels and
+lodges and persons in institutions).
+*Demarcated as a special area to ensure complete coverage during census enumeration
+27
+2019 Kenya Population and Housing Census: Volume I
+Table 2.6: Distribution of Population, Number of Households and Average
+Household Size by Sub-County, Cont’d
+National/ County Population+ Number of Average
+Households Household size
+Bungoma..…...……..………….… 1 ,663,898 3 58,796 4.6
+Bumula..…...……..………….… 2 15,546 4 4,954 4.8
+Bungoma Central..…...…….. … … … 1 …77.…,175 3 7,803 4.7
+Bungoma East..…...……..…… … … .1 …14,242 2 4,873 4.6
+Bungoma North..…...……..… … … … 1 .2…0,871 2 4,998 4.8
+Bungoma South..…...……..… … … … 2 .8…4,662 6 9,151 4.1
+Cheptais..…...……..………… . … 1 35,864 2 6,326 5.2
+Kimilili-Bungoma..…...…….. … … … 1 …6.1…,628 3 5,263 4.6
+Mt. Elgon..…...……..………… . … 7 8,782 1 5,276 5.2
+Bungoma West..…...……..… … … … 1 .…19,585 2 5,172 4.8
+Tongaren..…...……..………… . … 1 00,268 2 1,343 4.7
+Webuye West..…...……..…… … … . … 1 51,654 3 2,839 4.6
+Mt. Elgon Forest*..…...……..… … … … . …3 ,621 7 98 4.5
+Busia..…...……..………….… 8 86,856 1 98,152 4.5
+Bunyala..…...……..………….… 8 5,645 1 9,039 4.5
+Busia..…...……..………….… 1 38,274 3 3,160 4.2
+Butula..…...……..………….… 1 40,051 3 2,213 4.3
+Nambale..…...……..………… . … 1 11,543 2 3,892 4.7
+Samia..…...……..………….… 1 07,004 2 3,884 4.5
+Teso North..…...……..……… … . … 1 36,804 2 9,395 4.7
+Teso South..…...……..……… … . … 1 67,535 3 6,569 4.6
+Siaya..…...……..………….… 9 89,708 2 50,698 3.9
+Siaya..…...……..………….… 2 23,182 5 7,553 3.9
+Gem..…...……..………….… 1 79,570 4 4,884 4.0
+Ugenya..…...……..………….… 1 34,166 3 3,565 4.0
+Ugunja..…...……..………….… 1 03,892 2 6,328 3.9
+Bondo..…...……..………….… 1 96,835 5 1,362 3.8
+Rarieda..…...……..…………. … 1 52,063 3 7,006 4.1
+Kisumu..…...……..………….… 1 ,144,777 3 00,745 3.8
+Kisumu East..…...……..…… … … . … 2 19,996 6 1,871 3.6
+Kisumu Central..…...……..… … … … 1 .…70,592 5 2,331 3.3
+Kisumu West..…...……..…… … … . … 1 69,806 4 5,933 3.7
+Seme..…...……..………….… 1 21,461 2 9,404 4.1
+Muhoroni..…...……..………… . … 1 51,799 3 7,193 4.1
+Nyando..…...……..………….… 1 60,804 3 8,460 4.2
+Nyakach..…...……..………… . … 1 50,319 3 5,553 4.2
+Homa Bay..…...……..…………. … 1 ,125,823 2 62,036 4.3
+Homa Bay..…...……..………… . … 1 16,034 2 9,318 4.0
+Ndhiwa..…...……..………….… 2 17,549 4 8,062 4.5
+Rachuonyo North..…...…….. … … … 1 …7.8…,036 4 1,809 4.3
+Rachuonyo East..…...……..… … … … 1 2.…1,233 2 7,319 4.4
+Rachuonyo South..…...…….. … … … 1 …30.…,212 3 0,990 4.2
+Rangwe..…...……..…………. … 1 17,128 2 7,003 4.3
+Suba North..…...……..……… … . … 1 23,892 2 9,766 4.2
+Suba South..…...……..……… … . … 1 21,739 2 7,769 4.4
++ Excludes the special population (travellers, outdoor sleepers, individuals in hotels and
+lodges and persons in institutions).
+*Demarcated as a special area to ensure complete coverage during census enumeration
+28
+2019 Kenya Population and Housing Census: Volume I
+Table 2.6: Distribution of Population, Number of Households and Average
+Household Size by Sub-County, Cont’d
+National/ County Population+ Number of Average
+Households Household size
+Migori..…...……..………….… 1 ,108,950 2 40,168 4.6
+Awendo..…...……..…………. … 1 16,268 2 7,033 4.3
+Kuria East..…...……..………… . … 9 6,455 1 7,363 5.6
+Kuria West..…...……..……… … . … 2 07,528 3 9,781 5.2
+Nyatike..…...……..………….… 1 75,180 4 0,257 4.4
+Rongo..…...……..………….… 1 23,984 2 9,087 4.3
+Suna East..…...……..………… . … 1 21,365 2 7,302 4.4
+Suna West..…...……..……… … . … 1 27,113 2 9,251 4.3
+Uriri..…...……..………….… 1 41,057 3 0,094 4.7
+Kisii..…...……..………….… 1 ,260,509 3 08,054 4.1
+Etago..…...……..………….… 8 3,661 1 8,610 4.5
+Gucha..…...……..………….… 8 3,098 1 9,657 4.2
+Gucha South..…...……..……… … . … 8 3,209 1 9,732 4.2
+Kenyenya..…...……..………… . … 1 31,325 3 0,989 4.2
+Kisii Central..…...……..……… … . … 1 63,782 4 4,311 3.7
+Kisii South..…...……..……… … . … 1 34,940 3 1,696 4.3
+Kitutu Central..…...……..…… … … . … 1 53,686 4 1,271 3.7
+Marani..…...……..………….… 1 07,230 2 6,186 4.1
+Masaba South..…...……..…… … … . …1 22,149 2 9,232 4.2
+Nyamache..…...……..……… … . … 1 30,666 3 0,712 4.3
+Sameta..…...……..………….… 6 6,763 1 5,658 4.3
+Nyamira..…...……..………….… 6 03,051 1 50,669 4.0
+Borabu..…...……..………….… 7 2,797 1 9,468 3.7
+Manga..…...……..………….… 9 4,056 2 3,869 3.9
+Masaba North..…...……..…… … … . …1 10,914 2 7,913 4.0
+Nyamira North..…...……..…… … … . …1 66,959 4 0,446 4.1
+Nyamira South..…...……..…… … … .1 …58,325 3 8,973 4.1
+Nairobi City……..………….… 4 ,337,080 1 ,506,888 2.9
+Dagoretti..…...……..………… . … 4 32,331 1 55,089 2.8
+Embakasi..…...……..………… . … 9 83,232 3 47,955 2.8
+Kamukunji..…...……..……… … . … 2 63,462 8 4,365 3.1
+Kasarani..…...……..………… . … 7 72,586 2 71,290 2.8
+Kibra..…...……..………….… 1 81,509 6 1,690 2.9
+Lang'ata..…...……..………… . … 1 91,207 6 2,239 3.1
+Makadara..…...……..………… . … 1 88,792 7 0,361 2.7
+Mathare..…...……..…………. … 2 04,469 7 4,967 2.7
+Njiru..…...……..………….… 6 23,471 2 04,563 3.0
+Starehe..…...……..………….… 1 94,726 6 9,389 2.8
+Westlands..…...……..………… . … 3 01,295 1 04,980 2.9
++ Excludes the special population (travellers, outdoor sleepers, individuals in hotels and
+lodges and persons in institutions).
+29
+2019 Kenya Population and Housing Census: Volume I
+Table 2.7: Distribution of Population by Land Area and Population Density by Sub-County
+National/ County Population Land Area P o pulation Density
+(Sq. Km) (No. per Sq. Km)
+Kenya…………………………..… 4 7,564,296 5 80,876.3 8 2
+County/ Sub County
+Mombasa…………………...… 1 ,208,333 2 19.9 5 ,495
+Changamwe…………….. 1 31,882 1 7.7 7 ,457
+Jomvu…………………….. 1 63,415 3 6.9 4 ,432
+Kisauni…………………… 2 91,930 8 7.7 3 ,328
+Likoni…………………….. 2 50,358 4 0.5 6 ,187
+Mvita………………………. 1 54,171 1 4.6 1 0,543
+Nyali………………………. 2 16,577 2 2.5 9 ,610
+Kwale……………………….… 8 66,820 8 ,267.1 1 05
+Kinango………………...… 9 4,220 1 ,614.0 5 8
+Lungalunga……………...… 1 98,423 2 ,765.2 7 2
+Matuga………………....… 1 94,252 1 ,032.4 1 88
+Msambweni…………....… 1 77,690 4 11.7 4 32
+Samburu-Kwale………...… 2 02,235 2 ,443.7 8 3
+Kilifi………………..………….… 1 ,453,787 1 2,539.7 1 16
+Chonyi…………..……….… 6 2,335 1 92.6 3 24
+Ganze…………..…...….… 1 43,906 3 ,204.4 4 5
+Kaloleni.………..……….… 1 93,682 7 06.1 2 74
+Kauma…………..……….… 2 2,638 1 81.4 1 25
+Kilifi North……...……….… 1 78,824 2 64.4 6 76
+Kilifi South……..……….… 2 06,753 2 90.5 7 12
+Magarini………..……….… 1 91,610 5 ,229.4 3 7
+Malindi…………….…….… 3 33,226 2 ,263.3 1 47
+Rabai…………….…….… 1 20,813 2 07.8 5 81
+Tana River………..………….… 3 15,943 3 7,950.5 8
+Tana North..….………….… 1 10,640 1 5,478.7 7
+Tana Delta……………….… 1 16,757 1 3,306.1 9
+Tana River……………….… 8 8,546 9 ,165.6 1 0
+Lamu…...………..………….… 1 43,920 6 ,253.3 2 3
+Lamu East.……..……...… 2 2,258 2 ,336.7 1 0
+Lamu West.……...…….… 1 21,662 3 ,916.6 3 1
+Taita/Taveta……..………….… 3 40,671 1 7,152.0 2 0
+Mwatate……..………….… 8 1,659 2 ,722.6 3 0
+Taita………….………….… 5 5,959 4 77.9 1 17
+Taveta………..………….… 9 1,222 6 ,398.7 1 4
+Voi……..……….……….… 1 11,831 7 ,552.8 1 5
+Garissa…...……..………….… 8 41,353 4 4,736.0 1 9
+Balambala...……..……..… 3 2,257 3 ,684.1 9
+Dadaab.…...……..…………. … 1 85,252 6 ,479.8 2 9
+Fafi…...…...……..………….… 1 34,040 1 5,072.9 9
+Garissa…...……..………….… 1 63,914 3 ,230.7 5 1
+Hulugho…...……..…………. … 1 33,984 7 ,733.2 1 7
+Ijara…..…...……..………….… 1 41,591 2 ,438.9 5 8
+Lagdera…………………..…. … 5 0,315 6 ,096.4 8
+30
+2019 Kenya Population and Housing Census: Volume I
+Table 2.7: Distribution of Population by Land Area and Population Density by Sub-County,
+Cont’d
+National/ County Population Land Area P o pulation Density
+(Sq. Km) (No. per Sq. Km)
+Wajir..…...……..………….… 7 81,263 5 6,773.1 1 4
+Buna..…...……..………….… 4 9,886 3 ,892.8 1 3
+Eldas..…...……..………….… 8 8,509 4 ,444.0 2 0
+Habaswein..…...……..……… … . … 1 74,134 1 0,912.5 1 6
+Tarbaj..…...……..………….… 5 7,232 9 ,650.9 6
+Wajir East..…...……..………… . … 1 10,654 4 ,055.1 2 7
+Wajir North..…...……..……… … . … 6 2,206 4 ,042.9 1 5
+Wajir South..…...……..……… … . … 1 16,814 1 0,732.6 1 1
+Wajir West..…...……..……… … . … 1 21,828 9 ,042.3 1 3
+Mandera..…...……..………….… 8 67,457 2 5,939.8 3 3
+Mandera West..…...……..… … … … 9 .…8,300 4 ,016.9 2 4
+Banisa..…...……..…………. … 1 52,598 3 ,942.7 3 9
+Kutulo..…...……..………….… 7 2,394 2 ,509.3 2 9
+Lafey..…...……..………….… 8 3,457 3 ,846.3 2 2
+Mandera Central..…...…….. … … … 1 5…7.,…220 4 ,031.6 3 9
+Mandera East..…...……..…… … … 1 .5…9,638 2 ,505.7 6 4
+Mandera North..…...……..… … … …1 4.…3,850 5 ,087.3 2 8
+Marsabit..…...……..………….… 4 59,785 7 0,944.1 6
+Loiyangalani..…...……..…… … … . … 3 5,713 1 1,789.2 3
+Marsabit Central..…...…….. … … … 7 …9.,…181 2 ,142.8 3 7
+Marsabit North..…...……..… … … … 5 .…4,297 1 9,836.8 3
+Marsabit South..…...……..… … … … 6 .5…,376 8 ,447.4 8
+Moyale..…...……..…………. … 1 08,949 3 ,395.5 3 2
+North Horr..…...……..……… … . … 7 1,447 1 9,336.7 4
+Sololo..…...……..………….… 4 4,822 5 ,995.6 7
+Isiolo..…...……..………….… 2 68,002 2 5,350.6 1 1
+Garbatulla..…...……..……… … . … 9 9,730 9 ,902.0 1 0
+Isiolo..…...……..………….… 1 21,066 2 ,691.3 4 5
+Merti..…...……..………….… 4 7,206 1 2,757.3 4
+Meru..…...……..………….… 1 ,545,714 7 ,006.3 2 21
+Buuri East..…...……..……… … . … 7 6,598 3 32.9 2 30
+Buuri West..…...……..……… … . … 8 0,762 6 38.7 1 26
+Igembe Central..…...……..… … … 2 …21.…,412 6 04.1 3 66
+Igembe North..…...……..…… … … 1 .6…9,317 1 ,076.9 1 57
+Igembe South..…...……..… … … … 1 .6…1,646 2 55.2 6 33
+Imenti North..…...……..…… … … . …1 77,567 2 30.8 7 69
+Imenti South..…...……..…… … … .2 …06,506 4 13.9 4 99
+Meru Central..…...……..…… … … .1 …33,818 3 81.8 3 50
+Tigania Central..…...……..… … … 1 …0.4…,730 2 37.4 4 41
+Tigania East..…...……..…… … … . … 7 2,549 5 07.9 1 43
+Tigania West..…...……..…… … … 1 .…39,961 3 98.6 3 51
+Meru National Park*..…...… … . . … … … 3 …85.… 8 68.1 0
+Mt. Kenya Forest*..…...…… . . … … … … 4 .…63 1 ,059.9 0
+*Demarcated as a special area to ensure complete coverage during census enumeration
+31
+2019 Kenya Population and Housing Census: Volume I
+Table 2.7: Distribution of Population by Land Area and Population Density by Sub-County,
+Cont’d
+National/ County Population Land Area P o pulation Density
+(Sq. Km) (No. per Sq. Km)
+Tharaka-Nithi..…...……..……… … . … 3 93,177 2 ,564.4 1 53
+Igambang'ombe..…...…….. … … … 5 …3.,…210 3 24.6 1 64
+Maara..…...……..………….… 1 14,894 2 65.1 4 33
+Meru South..…...……..……… … . … 9 1,080 1 38.8 6 56
+Tharaka North..…...……..… … … … 5 .…8,345 8 38.8 7 0
+Tharaka South..…...……..… … … … 7 .…5,250 6 37.0 1 18
+Mt. Kenya Forest*..…...…… . . … … … … 3 .…98 3 60.1 1
+Embu..…...……..………….… 6 08,599 2 ,820.7 2 16
+Embu East..…...……..……… … . … 1 29,564 2 53.3 5 12
+Embu North..…...……..…… … … . … 7 9,556 1 10.6 7 19
+Embu West..…...……..……… … . … 1 27,100 1 58.1 8 04
+Mbeere South..…...……..…… … … 1 .6…3,476 1 ,312.1 1 25
+Mbeere North..…...……..…… … … 1 .…08,881 7 83.6 1 39
+Mt. Kenya Forest*..…...……. . … … … … . … 2 2 2 03.0 0
+Kitui..…...……..………….… 1 ,136,187 3 0,429.5 3 7
+Ikutha..…...……..………….… 8 2,964 9 ,033.1 9
+Katulani..…...……..………… . … 4 7,108 3 23.7 1 46
+Kisasi..…...……..………….… 4 6,142 2 94.6 1 57
+Kitui Central..…...……..…… … … . …1 05,991 4 21.8 2 51
+Kitui West..…...……..……… … . … 7 0,871 4 16.4 1 70
+Kyuso..…...……..………….… 7 6,867 2 ,524.5 3 0
+Lower Yatta..…...……..……… … . … 6 3,329 1 ,191.0 5 3
+Matinyani..…...……..………… . … 4 7,811 2 64.2 1 81
+Migwani..…...……..………… . … 7 9,255 6 34.5 1 25
+Mumoni..…...……..………… . … 2 9,344 6 11.4 4 8
+Mutitu..…...……..………….… 5 5,287 5 ,359.8 1 0
+Mutitu North..…...……..……… … . … 2 1,215 5 48.3 3 9
+Mutomo..…...……..………… . … 1 13,356 2 ,202.9 5 1
+Mwingi Central..…...……..… … … …1 0.…8,713 1 ,146.4 9 5
+Mwingi East..…...……..…… … … . … 8 5,139 3 ,418.5 2 5
+Nzambani..…...……..……… … . … 4 6,788 3 19.7 1 46
+Thagicu..…...……..………… . … 1 5,136 3 62.7 4 2
+Tseikuru..…...……..………… . … 4 0,871 1 ,356.0 3 0
+Machakos..…...……..…………. … 1 ,421,932 6 ,042.7 2 35
+Athi River..…...……..………… . … 3 22,499 8 27.2 3 90
+Kalama..…...……..………… . … 5 4,462 4 87.2 1 12
+Kangundo..…...……..……… … . … 9 7,917 1 72.7 5 67
+Kathiani..…...……..………… . … 1 11,890 2 05.6 5 44
+Machakos..…...……..……… … . … 1 70,606 2 80.2 6 09
+Masinga..…...……..………… . … 1 48,522 1 ,405.7 1 06
+Matungulu..…...……..……… … . … 1 61,557 5 81.4 2 78
+Mwala..…...……..………….… 1 81,896 1 ,020.3 1 78
+Yatta..…...……..………….… 1 72,583 1 ,062.4 1 62
+*Demarcated as a special area to ensure complete coverage during census enumeration
+32
+2019 Kenya Population and Housing Census: Volume I
+Table 2.7: Distribution of Population by Land Area and Population Density by Sub-County,
+Cont’d
+National/ County Population Land Area P o pulation Density
+(Sq. Km) (No. per Sq. Km)
+Makueni..…...……..………….… 9 87,653 8 ,169.8 1 21
+Kathonzweni..…...……..…… … … . … 7 9,780 8 80.7 9 1
+Kibwezi..…...……..………… . … 1 97,000 3 ,137.4 6 3
+Kilungu..…...……..………… . … 6 0,952 1 54.3 3 95
+Makindu..…...……..………… . … 8 4,946 8 52.1 1 00
+Makueni..…...……..………… . … 1 30,375 6 09.3 2 14
+Mbooni East..…...……..…… … … . … 9 7,756 6 86.5 1 42
+Mbooni West..…...……..…… … … 1 .…02,594 2 70.7 3 79
+Mukaa..…...……..………….… 1 07,549 8 03.7 1 34
+Nzaui..…...……..………….… 1 26,701 7 75.2 1 63
+Nyandarua..…...……..………… . … 6 38,289 3 ,285.7 1 94
+Kinangop..…...……..……… … . … 1 11,410 2 93.6 3 79
+Nyandarua South..…...……. . … … … 9 …3,8.…70 3 13.6 2 99
+Mirangine..…...……..……… … . … 6 7,214 2 45.6 2 74
+Kipipiri..…...……..………….… 9 3,855 4 56.3 2 06
+Nyandarua Central..…...…… . . … … 7 …5…,26.…2 3 46.6 2 17
+Nyandarua West..…...…….. … … … 9 …7.,…965 3 84.9 2 55
+Nyandarua North..…...……. . … … … 9 …8,.6…98 5 28.4 1 87
+Aberdare National Park*..… . . . … … . . … … 1 …5 … . … 7 16.7 0
+Nyeri..…...……..………….… 7 59,164 3 ,325.0 2 28
+Tetu..…...……..………….… 8 0,453 2 16.5 3 72
+Kieni East..…...……..……… … . … 1 10,376 4 48.7 2 46
+Kieni West..…...……..……… … . … 8 8,525 5 17.8 1 71
+Mathira East..…...……..…… … … . … 9 9,065 1 30.4 7 60
+Mathira West..…...……..…… … … . … 5 9,895 1 62.3 3 69
+Nyeri South..…...……..……… … . … 9 1,081 1 69.2 5 38
+Mukurwe-ini..…...……..…… … … . … 8 9,137 1 79.1 4 98
+Nyeri Central..…...……..…… … … 1 .…40,338 1 67.6 8 37
+Mt. Kenya Forest*..…...…… . . … … … … 1 .…88 6 11.4 0
+Aberdare Forest*..…...……. . … … … … .1 …06 7 22.0 0
+Kirinyaga..…...……..………….… 6 10,411 1 ,478.3 4 13
+Kirinyaga Central..…...……. . … … …1 2…2,.7…40 1 53.3 8 00
+Kirinyaga East..…...……..… … … … 1 3.…5,559 2 31.8 5 85
+Kirinyaga West..…...……..… … … …1 1.4…,660 2 07.8 5 52
+Mwea East..…...……..……… … . … 1 32,554 3 03.0 4 37
+Mwea West..…...……..……… … . … 1 04,828 2 39.4 4 38
+Mt. Kenya Forest*..…...……. . … … … … . … 7 0 3 43.0 0
+Murang'a..…...……..………….… 1 ,056,640 2 ,524.2 4 19
+Murang'a East..…...……..… … … … 1 1.…0,311 2 40.8 4 58
+Kangema..…...……..……… … . … 8 0,447 1 73.7 4 63
+Mathioya..…...……..………… . … 9 2,814 1 77.5 5 23
+Kahuro..…...……..…………. … 8 8,193 1 69.4 5 21
+Murang'a South..…...……..… … … 1 …84.…,824 4 56.9 4 05
+Gatanga..…...……..………… . … 1 87,989 5 32.3 3 53
+Kigumo..…...……..………… . … 1 36,921 2 44.2 5 61
+Kandara..…...……..………… . … 1 75,098 2 34.6 7 46
+Aberdare Forest*..…...……. . … … … … . … 4 3 2 94.7 0
+*Demarcated as a special area to ensure complete coverage during census enumeration
+33
+2019 Kenya Population and Housing Census: Volume I
+Table 2.7: Distribution of Population by Land Area and Population Density by Sub-County,
+Cont’d
+National/ County Population Land Area P o pulation Density
+(Sq. Km) (No. per Sq. Km)
+Kiambu..…...……..………….… 2 ,417,735 2 ,538.6 9 52
+Gatundu North..…...……..…… … … 1 .0…9,870 2 85.9 3 84
+Gatundu South..…...……..… … … … 1 .2…2,103 1 93.6 6 31
+Githunguri..…...……..………… . … 1 65,232 1 74.4 9 48
+Juja..…...……..………….… 3 00,948 3 42.0 8 80
+Kabete..…...……..………….… 1 99,653 6 0.7 3 ,289
+Kiambaa..…...……..………… . … 2 36,400 9 1.1 2 ,595
+Kiambu..…...……..…………. … 1 45,903 9 8.3 1 ,484
+Kikuyu..…...……..………….… 1 87,122 1 72.9 1 ,082
+Lari..…...……..………….… 1 35,303 4 32.3 3 13
+Limuru..…...……..………….… 1 59,314 2 85.1 5 59
+Ruiru..…...……..………….… 3 71,111 2 01.1 1 ,846
+Thika East..…...……..………… . … 3 8,956 1 09.9 3 54
+Thika West..…...……..……… … . … 2 45,820 9 1.4 2 ,689
+Turkana..…...……..………….… 9 26,976 6 8,232.9 1 4
+Kibish..…...……..………….… 3 6,769 1 0,466.1 4
+Loima..…...……..………….… 1 07,795 9 ,113.3 1 2
+Turkana Central..…...……..… … … 1 …8.5…,305 6 ,415.2 2 9
+Turkana East..…...……..…… … … .1 …38,526 1 1,395.6 1 2
+Turkana North..…...……..…… … … . …6 5,218 7 ,012.2 9
+Turkana South..…...……..…… … … 1 .5…3,736 7 ,051.5 2 2
+Turkana West..…...……..…… … … 2 .…39,627 1 6,778.9 1 4
+West Pokot..…...……..………… . … 6 21,241 9 ,123.2 6 8
+Kipkomo..…...……..………… . … 1 02,633 7 65.6 1 34
+Pokot Central..…...……..…… … … .1 …19,016 2 ,055.2 5 8
+Pokot North..…...……..……… … . … 1 34,485 3 ,910.9 3 4
+Pokot South..…...……..……… … . … 8 0,661 5 36.7 1 50
+West Pokot..…...……..……… … . … 1 84,446 1 ,854.8 9 9
+Samburu..…...……..………….… 3 10,327 2 1,065.1 1 5
+Samburu Central..…...…….. … … … 1 …64.,…942 3 ,674.4 4 5
+Samburu East..…...……..…… … … . …7 7,994 1 0,015.9 8
+Samburu North..…...……..… … … … 6 .…7,391 7 ,374.8 9
+Trans Nzoia..…...……..………… . … 9 90,341 2 ,495.2 3 97
+Trans Nzoia West..…...……. . … … …2 0…2,.3…77 3 55.4 5 69
+Trans Nzoia East..…...…….. … … … 2 …29.,…538 6 29.1 3 65
+Kwanza..…...……..…………. … 2 03,821 4 65.3 4 38
+Endebess..…...……..………… . … 1 11,782 6 78.4 1 65
+Kiminini..…...……..…………. … 2 42,823 3 66.9 6 62
+Uasin Gishu..…...……..………… . … 1 ,163,186 3 ,392.2 3 43
+Ainabkoi..…...……..………… . … 1 38,184 4 92.9 2 80
+Kapseret..…...……..………… . … 1 98,499 2 99.3 6 63
+Kesses..…...……..…………. … 1 48,798 7 31.0 2 04
+Moiben..…...……..………….… 1 81,338 7 69.8 2 36
+Soy..…...……..………….… 2 29,094 6 67.6 3 43
+Turbo..…...……..………….… 2 67,273 4 31.4 6 20
+34
+2019 Kenya Population and Housing Census: Volume I
+Table 2.7: Distribution of Population by Land Area and Population Density by Sub-County,
+Cont’d
+National/ County Population Land Area P o pulation Density
+(Sq. Km) (No. per Sq. Km)
+Elgeyo/Marakwet..…...……..… … … …4 5.…4,480 3 ,032.0 1 50
+Keiyo North..…...……..……… … . … 9 9,176 5 43.2 1 83
+Keiyo South..…...……..……… … . … 1 20,750 8 97.8 1 34
+Marakwet East..…...……..…… … … .9 …7,041 8 53.2 1 14
+Marakwet West..…...……..… … … … 1 3.…7,513 7 37.9 1 86
+Nandi..…...……..………….… 8 85,711 2 ,855.8 3 10
+Chesumei..…...……..……… … . … 1 64,133 4 74.6 3 46
+Nandi Central..…...……..…… … … 1 .…47,553 3 62.9 4 07
+Nandi East..…...……..……… … . … 1 19,173 3 97.6 3 00
+Nandi North..…...……..……… … . … 1 66,171 6 06.3 2 74
+Nandi South..…...……..……… … . … 1 72,750 4 57.4 3 78
+Tinderet..…...……..…………. … 1 15,931 5 57.1 2 08
+Baringo..…...……..………….… 6 66,763 1 0,976.4 6 1
+Baringo Central..…...……..… … … … 9 .…6,951 7 86.5 1 23
+Baringo North..…...……..…… … … 1 .…04,871 1 ,629.3 6 4
+East Pokot..…...……..……… … . … 7 9,923 2 ,500.5 3 2
+Koibatek..…...……..………… . … 1 29,535 9 38.6 1 38
+Marigat..…...……..………….… 9 0,955 1 ,453.4 6 3
+Mogotio..…...……..………….… 9 1,104 1 ,375.3 6 6
+Tiaty East..…...……..………… . … 7 3,424 2 ,106.5 3 5
+Laikipia..…...……..………….… 5 18,560 9 ,532.2 5 4
+Laikipia Central..…...……..… … … … 9 .…5,594 1 ,232.6 7 8
+Laikipia East..…...……..…… … … . …1 02,815 1 ,539.0 6 7
+Laikipia North..…...……..…… … … . … 3 6,184 2 ,575.0 1 4
+Laikipia West..…...……..…… … … .1 …29,263 3 ,372.2 3 8
+Nyahururu..…...……..………… . … 1 54,704 8 13.4 1 90
+Nakuru..…...……..………….… 2 ,162,202 7 ,462.4 2 90
+Gilgil..…...……..………….… 1 85,209 1 ,075.4 1 72
+Kuresoi North..…...……..…… … … 1 .…75,074 6 18.1 2 83
+Kuresoi South..…...……..…… … … 1 .…55,324 5 48.2 2 83
+Molo..…...……..………….… 1 56,732 4 83.2 3 24
+Naivasha..…...……..………… . … 3 55,383 1 ,958.4 1 81
+Nakuru East..…...……..……… … . … 1 93,926 2 30.9 8 40
+Nakuru North..…...……..…… … … .2 …18,050 3 87.3 5 63
+Nakuru West..…...……..…… … … . …1 98,661 7 1.9 2 ,764
+Njoro..…...……..………….… 2 38,773 6 99.5 3 41
+Rongai..…...……..………….… 1 99,906 9 88.1 2 02
+Subukia..…...……..…………. … 8 5,164 4 01.5 2 12
+Narok..…...……..………….… 1 ,157,873 1 7,950.3 6 5
+Narok East..…...……..……… … . … 1 15,323 2 ,042.0 5 6
+Narok North..…...……..……… … . … 2 51,862 2 ,159.4 1 17
+Narok South..…...……..……… … . … 2 38,472 4 ,577.3 5 2
+Narok West..…...……..……… … . … 1 95,287 5 ,563.0 3 5
+Trans Mara East..…...……..… … … 1 …11.…,183 3 09.8 3 59
+Trans Mara West..…...……..… … … 2 …45.…,714 2 ,545.9 9 7
+Mau Forest*..…...……..……… … . … 3 2 7 52.9 0
+*Demarcated as a special area to ensure complete coverage during census enumeration
+35
+2019 Kenya Population and Housing Census: Volume I
+Table 2.7: Distribution of Population by Land Area and Population Density by Sub-County,
+Cont’d
+National/ County Population Land Area P o pulation Density
+(Sq. Km) (No. per Sq. Km)
+Kajiado..…...……..………….… 1 ,117,840 21,871.1 5 1
+Isinya..…...……..………….… 2 10,473 1,071.6 1 96
+Kajiado Central..…...……..… … … …1 6.…1,862 4,239.5 3 8
+Kajiado North..…...……..…… … … .3 …06,596 1 10.6 2 ,773
+Kajiado West..…...……..…… … … .1 …82,849 7,862.1 2 3
+Loitokitok..…...……..………… . … 1 91,846 6,336.7 3 0
+Mashuuru..…...……..………… . … 6 4,214 2,250.7 2 9
+Kericho..…...……..………….… 9 01,777 2,436.1 3 70
+Belgut..…...……..………….… 1 45,072 2 64.3 5 49
+Bureti..…...……..………….… 1 99,470 3 20.6 6 22
+Kericho East..…...……..…… … … . …1 70,625 2 40.6 7 09
+Kipkelion..…...……..………… . … 1 22,530 3 49.9 3 50
+Londiani..…...……..………… . … 1 37,580 3 99.5 3 44
+Soin Sigowet..…...……..…… … … . …1 26,500 4 66.2 2 71
+Mau Forest..…...……..…… 0 2 01.2 0
+Tinderet Forest*..…………... 0 1 93.7 0
+Bomet..…...……..………….… 8 75,689 2,530.9 3 46
+Bomet East..…...……..……… … . … 1 44,275 3 05.0 4 73
+Chepalungu..…...……..……… … . … 1 64,837 4 60.5 3 58
+Konoin..…...……..………….… 1 63,507 3 92.5 4 17
+Sotik..…...……..………….… 2 27,855 5 44.3 4 19
+Bomet Central..…...……..…… … … 1 .…75,215 2 86.1 6 13
+Mau Forest*..…...……..………….… 0 5 42.3 0
+Kakamega..…...……..………… . … 1 ,867,579 3 ,020.0 6 18
+Butere..…...……..………….… 1 54,100 2 10.1 7 34
+Kakamega Central..…...…… . . … … 1 …88…,2.…12 1 55.2 1 ,212
+Kakamega East..…...……..… … … 1 …6.7…,641 4 17.2 4 02
+Kakamega North..…...……..… … … 2 …38.…,330 4 20.8 5 66
+Kakamega South..…...…….. … … … 1 1…1.,…743 1 46.2 7 64
+Khwisero..…...……..………… . … 1 13,476 1 45.6 7 80
+Likuyani..…...……..…………. … 1 52,055 3 16.1 4 81
+Lugari..…...……..………….… 1 22,728 2 54.3 4 83
+Matete..…...……..………….… 6 6,172 1 02.7 6 44
+Matungu..…...……..………… . … 1 66,940 2 79.1 5 98
+Mumias East..…...……..…… … … . …1 16,851 1 50.2 7 78
+Mumias West..…...……..…… … … .1 …15,354 1 63.3 7 06
+Navakholo..…...……..……… … . … 1 53,977 2 59.3 5 94
+Vihiga..…...……..………….… 5 90,013 5 63.8 1 ,047
+Emuhaya..…...……..………… . … 9 7,141 8 9.0 1 ,091
+Vihiga..…...……..………….… 9 5,292 9 0.1 1 ,058
+Sabatia..…...……..………….… 1 31,628 1 11.4 1 ,181
+Luanda..…...……..………….… 1 06,694 8 4.3 1 ,265
+Hamisi..…...……..………….… 1 59,241 1 57.2 1 ,013
+Kakamega Forest*..…...…… . . … … … … . …1 7 3 1.7 1
+*Demarcated as a special area to ensure complete coverage during census enumeration
+36
+2019 Kenya Population and Housing Census: Volume I
+Table 2.7: Distribution of Population by Land Area and Population Density by Sub-County,
+Cont’d
+National/ County Population Land Area P o pulation Density
+(Sq. Km) (No. per Sq. Km)
+Bungoma..…...……..………….… 1 ,670,570 3 ,023.9 5 52
+Bumula..…...……..…………. … 2 15,892 3 45.2 6 25
+Bungoma Central..…...……. . … … …1 7…7,.7…48 2 32.7 7 64
+Bungoma East..…...……..… … … … 1 .1…4,548 1 63.3 7 02
+Bungoma North..…...……..… … … …1 2.1…,317 1 91.5 6 33
+Bungoma South..…...……..… … … 2 …8.7…,765 3 21.2 8 96
+Cheptais..…...……..………… . … 1 36,035 2 22.9 6 10
+Kimilili-Bungoma..…...…….. … … … 1 6…2.,…038 1 79.6 9 02
+Mt. Elgon..…...……..………… . … 7 8,873 1 26.5 6 24
+Bungoma West..…...……..… … … …1 1.…9,875 2 11.0 5 68
+Tongaren..…...……..………… . … 1 00,343 1 85.3 5 42
+Webuye West..…...……..…… … … .1 …52,515 2 38.9 6 38
+Mt. Elgon Forest*..…...……..… … … … 3 .…,621 6 05.8 6
+Busia..…...……..………….… 8 93,681 1 ,696.3 5 27
+Bunyala..…...……..…………. … 8 5,977 1 92.2 4 47
+Busia..…...……..………….… 1 42,408 1 96.0 7 27
+Butula..…...……..………….… 1 40,334 2 43.6 5 76
+Nambale..…...……..………… . … 1 11,636 2 38.1 4 69
+Samia..…...……..………….… 1 07,176 2 62.4 4 08
+Teso North..…...……..……… … . … 1 38,034 2 61.0 5 29
+Teso South..…...……..……… … . … 1 68,116 3 02.9 5 55
+Siaya..…...……..………….… 9 93,183 2 ,529.8 3 93
+Siaya..…...……..………….… 2 24,343 5 98.9 3 75
+Gem..…...……..………….… 1 79,792 4 05.3 4 44
+Ugenya..…...……..………….… 1 34,354 3 23.5 4 15
+Ugunja..…...……..………….… 1 04,241 2 01.0 5 19
+Bondo..…...……..………….… 1 97,883 5 98.8 3 30
+Rarieda..…...……..…………. … 1 52,570 4 02.4 3 79
+Kisumu..…...……..………….… 1 ,155,574 2 ,085.4 5 54
+Kisumu East..…...……..…… … … . …2 20,997 1 41.6 1 ,560
+Kisumu Central..…...……..… … … …1 7.…4,145 3 6.8 4 ,737
+Kisumu West..…...……..…… … … .1 …72,821 2 09.0 8 27
+Seme..…...……..………….… 1 21,667 2 67.7 4 55
+Muhoroni..…...……..………… . … 1 54,116 6 57.5 2 34
+Nyando..…...……..………….… 1 61,508 4 46.1 3 62
+Nyakach..…...……..………… . … 1 50,320 3 26.7 4 60
+Homa Bay..…...……..…………. … 1 ,131,950 3 ,152.5 3 59
+Homa Bay..…...……..………… . … 1 17,439 1 82.0 6 45
+Ndhiwa..…...……..………….… 2 18,136 7 13.5 3 06
+Rachuonyo North..…...…….. … … … 1 7…8.,…686 4 35.4 4 10
+Rachuonyo East..…...……..… … … 1 …21.…,822 2 50.9 4 86
+Rachuonyo South..…...……. . … … …1 3…0,.8…14 2 56.1 5 11
+Rangwe..…...……..………… . … 1 17,732 2 74.1 4 29
+Suba North..…...……..……… … . … 1 24,938 4 06.3 3 07
+Suba South..…...……..……… … . … 1 22,383 6 34.1 1 93
+*Demarcated as a special area to ensure complete coverage during census enumeration
+37
+2019 Kenya Population and Housing Census: Volume I
+Table 2.7: Distribution of Population by Land Area and Population Density by Sub-County,
+Cont’d
+National/ County Population Land Area P o pulation Density
+(Sq. Km) (No. per Sq. Km)
+Migori..…...……..………….… 1 ,116,436 2 ,613.5 4 27
+Awendo..…...……..…………. … 1 17,290 2 55.3 4 59
+Kuria East..…...……..………… . … 9 6,872 1 87.6 5 16
+Kuria West..…...……..……… … . … 2 08,513 3 95.7 5 27
+Nyatike..…...……..………….… 1 76,162 6 76.9 2 60
+Rongo..…...……..………….… 1 24,587 2 13.4 5 84
+Suna East..…...……..………… . … 1 22,674 2 05.1 5 98
+Suna West..…...……..……… … . … 1 28,890 2 87.5 4 48
+Uriri..…...……..………….… 1 41,448 3 92.1 3 61
+Kisii..…...……..………….… 1 ,266,860 1 ,323.0 9 58
+Etago..…...……..………….… 8 3,787 1 08.4 7 73
+Gucha..…...……..………….… 8 3,740 8 2.1 1 ,020
+Gucha South..…...……..…… … … . … 8 3,623 9 4.9 8 81
+Kenyenya..…...……..………… . … 1 31,740 1 41.7 9 30
+Kisii Central..…...……..……… … . … 1 66,906 1 35.8 1 ,229
+Kisii South..…...……..……… … . … 1 35,134 1 28.3 1 ,054
+Kitutu Central..…...……..…… … … .1 …54,175 1 00.3 1 ,537
+Marani..…...……..………….… 1 07,464 1 28.4 8 37
+Masaba South..…...……..…… … … 1 .…22,396 1 61.2 7 59
+Nyamache..…...……..……… … . … 1 30,898 1 62.7 8 05
+Sameta..…...……..………….… 6 6,997 7 9.1 8 47
+Nyamira..…...……..………….… 6 05,576 8 97.3 6 75
+Borabu..…...……..………….… 7 3,167 2 46.9 2 96
+Manga..…...……..………….… 9 4,209 1 11.5 8 45
+Masaba North..…...……..…… … … 1 .…11,860 1 41.7 7 89
+Nyamira North..…...……..…… … … 1 .…67,267 2 15.7 7 75
+Nyamira South..…...……..…… … … 1 .5…9,073 1 81.5 8 76
+Nairobi City..…...……..………… . … 4 ,397,073 7 03.9 6 ,247
+Dagoretti..…...……..………… . … 4 34,208 2 9.1 1 4,908
+Embakasi..…...……..………… . … 9 88,808 8 6.3 1 1,460
+Kamukunji..…...……..……… … . … 2 68,276 1 0.5 2 5,455
+Kasarani..…...……..………… . … 7 80,656 8 6.2 9 ,058
+Kibra..…...……..………….… 1 85,777 1 2.1 1 5,311
+Lang'ata..…...……..………… . … 1 97,489 2 16.8 9 11
+Makadara..…...……..………… . … 1 89,536 1 1.7 1 6,150
+Mathare..…...……..…………. … 2 06,564 3 .0 6 8,941
+Njiru..…...……..………….… 6 26,482 1 29.9 4 ,821
+Starehe..…...……..…………. … 2 10,423 2 0.6 1 0,205
+Westlands..…...……..……… … . … 3 08,854 9 7.5 3 ,167
+38
+Kenya National Bureau of Statistics
+Real Towers, Upper Hill
+P.O. Box 30266,00100
+Nairobi
+Tel: +254-20-3317583/6/8
+Email:directorgeneral@knbs.or.ke
+info@knbs.or.ke
+Website: https://knbs.or.ke
+Follow us at:
+FB: Kenya National Bureau of Statistics (KNBStats)
+Twitter: @KNBStats

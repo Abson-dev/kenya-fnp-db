@@ -25,7 +25,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from kenyadb import action_plan, crosswalk, pipeline, transforms
+from kenyadb import action_plan, census, crosswalk, kfct, pipeline, transforms
 from kenyadb import build_db as builder
 from kenyadb.utils import extract
 
@@ -67,10 +67,14 @@ def main() -> None:
     crosswalk.build(BASE / "data" / "raw", BASE / "data" / "processed")
 
     if not args.dry_run:
-        # Policy layer: extract the Action Plan PDF -> processed workbook +
-        # external CSVs, written before the ingester runs so they are folded in.
+        # Local extractors: write processed tables before the database build so
+        # build_db registers them and folds their provenance sidecars in.
         if args.layer is None or "policy" in args.layer:
             action_plan.run(BASE, prov=prov)
+        if args.layer is None or "geography" in args.layer:
+            census.run(BASE)
+        if args.layer is None or "food" in args.layer:
+            kfct.run(BASE)
         if not args.no_transform:
             transforms.run_all(BASE)
         builder.build(BASE, args.config, args.db, prov=prov)

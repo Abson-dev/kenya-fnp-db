@@ -46,19 +46,35 @@ layers:
       publisher: KNBS
       access: open_download
       handler: http_file
+      processed_by: kenyadb.census
       url: https://www.knbs.or.ke/wp-content/uploads/2023/09/2019-Kenya-population-and-Housing-Census-Volume-1-Population-By-County-And-Sub-County.pdf
+      urls:
+        - https://www.knbs.or.ke/wp-content/uploads/2023/09/2019-Kenya-population-and-Housing-Census-Population-households-density-by-county.xlsx
+        - https://www.knbs.or.ke/wp-content/uploads/2023/09/2019-Kenya-population-and-Housing-Census-Population-households-density-by-sub-county.xlsx
+        - https://www.knbs.or.ke/wp-content/uploads/2023/09/2019-Kenya-population-and-Housing-Census-Population-households-density-by-administrative-units.xlsx
+        - https://www.knbs.or.ke/wp-content/uploads/2023/09/2019-Kenya-population-and-Housing-Census-Volume-1-Population-By-County-And-Sub-County.pdf
+        - https://www.knbs.or.ke/wp-content/uploads/2023/09/2019-Kenya-population-and-Housing-Census-Volume-2-Distribution-of-Population-by-Administrative-Units.pdf
       role: population / households / area / density denominators
-      note: PDF tables; parse to CSV in interim step
+      note: the three XLSX data tables are the clean county and sub-county denominators
+        (parsed by kenyadb.census); the Volume I PDF is also kept locally in
+        data/raw/kphc_2019_vol1/ for provenance and reference
 
     census_ke_ag:
-      title: Census.ke 2019 agriculture-related census extracts
-      publisher: KNBS (via Census.ke mirror)
-      mirror: census.ke
+      title: 2019 Kenya Census - Analytical Report on Agriculture (Volume XV)
+      publisher: KNBS
       access: open_download
-      handler: http_file
-      url: https://census.ke/no/dataset/table-2-25-hectares-of-agricultural-land-and-farming-hoholds-for-production-county-and-sub-county
+      handler: local_file
+      processed_by: kenyadb.census
+      provided_locally: data/raw/census_ke_ag
+      url: https://www.knbs.or.ke/reports/2019-kenya-population-and-housing-census-analytical-reports/
+      urls:
+        - https://www.knbs.or.ke/wp-content/uploads/2023/09/2019-Kenya-population-and-Housing-Census-Population-households-density-by-administrative-units.xlsx
       role: farming-household and agricultural-land denominators
-      note: mirror, not primary publisher - record extraction date
+      note: the analytical report PDF (provided locally in data/raw/census_ke_ag/) is a
+        graphics-and-narrative document; its county figures are not reliably
+        machine-readable, so the structured agricultural-land and farming-household
+        denominators should be taken from the KNBS census data tables at the reports
+        page above. kenyadb.census records the local PDF for provenance.
 
   # ---------------------------------------------------------------
   # LAYER 2 - soil nutrient and soil health
@@ -82,19 +98,24 @@ layers:
       access: open_download
       handler: http_file
       url: https://files.isric.org/public/soter/KENSOTER_ver2.zip
+      isric_record: https://data.isric.org/geonetwork/srv/api/records/73e27136-9efe-49e4-af35-fd98b841d467
       license: CC BY 3.0
       role: Kenya-specific legacy soil classes and properties
+      note: direct zip path from files.isric.org; if it 404s, download the zipped
+        shapefile from the ISRIC data hub record (isric_record) id
+        73e27136-9efe-49e4-af35-fd98b841d467
 
     kenya_soil_mirror:
-      title: ICPAC/SODMA Kenya - Soil (Kenya Soil Survey legacy polygons)
-      publisher: Kenya Soil Survey (via ICPAC/SODMA mirror)
-      mirror: sodma-dev.okfn.org
+      title: Kenya Soil Survey legacy polygons (interpretive classes)
+      publisher: Kenya Soil Survey
       access: open_download
-      handler: ckan_resource
-      url: https://sodma-dev.okfn.org/dataset/kenya-soil
-      formats: [zip, csv, geojson]
+      handler: manual
+      url: https://data.isric.org/geonetwork/srv/api/records/73e27136-9efe-49e4-af35-fd98b841d467
       license: unspecified
       role: legacy Kenya soil polygons (interpretive classes)
+      note: the former SODMA dev CKAN (sodma-dev.okfn.org) is offline. This layer is
+        effectively superseded by kensoter (ISRIC KENSOTER 2.0); use that record.
+        Marked manual so no run attempts the dead endpoint.
 
     afsis_chem:
       title: AfSIS Soil Chemistry (Phase I, spectra + reference chemistry)
@@ -125,10 +146,17 @@ layers:
       title: Kenya Food Composition Tables 2018
       publisher: FAO / Government of Kenya
       access: open_download
-      handler: http_file
-      url: https://www.fao.org/food-composition/tables-and-databases/detail/kenya-food-composition-tables/en
+      handler: local_file
+      processed_by: kenyadb.kfct
+      provided_locally: data/raw/kfct_2018
+      url: https://www.fao.org/3/I9120EN/i9120en.pdf
+      mirror: https://familyhealth.go.ke/wp-content/uploads/2019/05/Final-Food-compostion-book-2018.pdf
+      fao_record: https://openknowledge.fao.org/items/ca3c7504-aa5a-4602-bb24-63c21082a496
       license: free access (PDF + electronic file)
       role: nutrient-composition backbone (522 foods, 142 recipes)
+      note: PDF provided locally in data/raw/kfct_2018/ and parsed by kenyadb.kfct into
+        proximates, minerals and vitamins CSVs; the FAO direct PDF (url, 254 pp) and the
+        Government of Kenya mirror are the download sources
 
     kilimostat:
       title: KilimoSTAT (Ministry of Agriculture open data)
@@ -258,25 +286,36 @@ layers:
       publisher: GFDx (GAIN / FFI / IGN / Micronutrient Forum)
       access: open_download
       handler: gfdx_download
-      url: https://www.fortificationdata.org/
+      url: https://fortificationdata.org/data/
+      api: https://public.fortificationdata.org/v1/
       foods: [maize flour, oil, rice, salt, wheat flour]
       role: structured fortification status and program performance
+      note: interactive portal; use the data export at fortificationdata.org/data or the
+        public API. The gfdx_download handler targets the export endpoint.
 
     aspire:
       title: World Bank ASPIRE (Kenya social protection)
       publisher: World Bank
       access: open_download
       handler: http_file
-      url: https://www.worldbank.org/en/data/datatopics/aspire
+      url: https://datacatalogapi.worldbank.org/ddhxext/ResourceDownload?resource_unique_id=DR0090357
+      landing: https://www.worldbank.org/en/data/datatopics/aspire
       role: social-protection covariates
+      note: ASPIRE indicators export. If the direct resource id changes, take the latest
+        country-level summary from the ASPIRE landing page (landing).
 
     asti:
       title: ASTI agricultural R&D data (FAO 2004-2023)
       publisher: FAO / IFPRI ASTI
       access: open_download
       handler: http_file
-      url: https://openknowledge.fao.org/handle/20.500.14283/cd9439en
+      url: https://www.asti.cgiar.org/data
+      kenya_page: https://www.asti.cgiar.org/kenya
+      dataverse: https://dataverse.harvard.edu/dataset.xhtml?persistentId=hdl:1902.1/20514
+      fao_record: https://openknowledge.fao.org/handle/20.500.14283/cd9439en
       role: agricultural research capacity (expenditure, FTE researchers)
+      note: interactive data portal (asti.cgiar.org/data); the IFPRI Dataverse handle
+        1902.1/20514 holds a downloadable database snapshot. ASTI moved to FAO in 2023.
 
     fortification_refs:
       title: Kenya fortification references (MoH + KEBS)

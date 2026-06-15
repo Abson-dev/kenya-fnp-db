@@ -2,12 +2,16 @@
 
 Author: Aboubacar HEMA
 
-Summary: {'PASS': 10, 'WARN': 2, 'FAIL': 0, 'INFO': 29}
+Summary: {'PASS': 10, 'WARN': 2, 'FAIL': 0, 'INFO': 33}
 
 ## Tables loaded
 [INFO] core.crosswalk_admin
 [INFO] core.source_registry
 [INFO] food.faostat_kenya
+[INFO] food.kfct_foods
+[INFO] food.kfct_minerals
+[INFO] food.kfct_proximates
+[INFO] food.kfct_vitamins
 [INFO] food.prices_wfp_observed
 [INFO] health.wb_hnp_panel
 [INFO] policy.action_plan__action_plan_ag_commodities
@@ -54,9 +58,9 @@ Summary: {'PASS': 10, 'WARN': 2, 'FAIL': 0, 'INFO': 29}
 [INFO] year span = 1987-2023
 
 ## Provenance
-[INFO] failed: 49 rows
-[INFO] manual: 30 rows
-[INFO] ok: 283 rows
+[INFO] failed: 50 rows
+[INFO] manual: 42 rows
+[INFO] ok: 370 rows
 [INFO] skipped: 7 rows
-[WARN] sources with failures: census_ke_ag, faostat, kensoter, kenya_soil_mirror, kphc_2019_vol1, soilgrids, wb_rtfp
-[INFO] manual gates pending: faolex, fortification_refs, fsd_food, gfdx, kdhs_2022, kilimostat, knms_2011, mics_2000, nipfn, soilhive_ocp, wb_rtfp
+[WARN] sources with failures: faostat, kensoter, kenya_soil_mirror, soilgrids, wb_rtfp
+[INFO] manual gates pending: faolex, fortification_refs, fsd_food, gfdx, kdhs_2022, kenya_soil_mirror, kilimostat, knms_2011, mics_2000, nipfn, soilhive_ocp, wb_rtfp
