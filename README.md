@@ -2,6 +2,13 @@
 
 A configuration-driven, provenance-tracked acquisition pipeline that assembles the Kenya dataset bundle into a single layered database keyed on a master county and sub-county crosswalk. It is built for county-level profiling and for the soil-to-nutrition analysis at the centre of the bundle.
 
+## What the Project Is
+
+This is a **configuration-driven data pipeline** that assembles a comprehensive Kenya dataset spanning **soil health, food systems, nutrition, and policy** into a single layered DuckDB database. It is designed for **county-level profiling** and a **soil-to-nutrition analytical pathway**.
+
+> [!IMPORTANT]
+> The core research question is: *how do soil properties relate to food prices and ultimately to nutrition outcomes at the county level in Kenya?*
+
 Author: Aboubacar HEMA
 
 ---
