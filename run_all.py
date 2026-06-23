@@ -25,7 +25,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from kenyadb import action_plan, census, crosswalk, kfct, pipeline, transforms
+from kenyadb import action_plan, census, crosswalk, kfct, napr, pipeline, transforms
 from kenyadb import build_db as builder
 from kenyadb.utils import extract
 
@@ -75,6 +75,7 @@ def main() -> None:
             census.run(BASE)
         if args.layer is None or "food" in args.layer:
             kfct.run(BASE)
+            napr.run(BASE)
         if not args.no_transform:
             transforms.run_all(BASE)
         builder.build(BASE, args.config, args.db, prov=prov)

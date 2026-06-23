@@ -389,6 +389,8 @@ _KDHS_VARS = {
     "weight": "v005",          # sample weight (divide by 1e6)
     "haz": "hw70", "waz": "hw71", "whz": "hw72",   # height/weight z-scores x100
     "child_anaemia": "hw57",   # child anaemia level (KR)
+    "child_anaemia_pr": "hc57",  # child anaemia level (PR household-member recode)
+    "weight_hh": "hv005",      # household weight for the PR recode (divide by 1e6)
     "woman_anaemia": "v457",   # woman anaemia level (IR)
     "woman_tested": "v042",    # selected/measured for haemoglobin (IR)
 }
@@ -422,10 +424,13 @@ def _pick_county_col(meta, cols: set, county_norms: set) -> str | None:
 
 
 def _weighted_prevalence(df, flag_col: str, weight_col: str) -> "pd.Series":
-    """Per-county weighted prevalence (%) of a 0/1 flag over valid rows."""
-    valid = df[df[flag_col].notna()]
-    num = valid.assign(_w=valid[weight_col] * valid[flag_col]).groupby("county_norm")["_w"].sum()
-    den = valid.groupby("county_norm").apply(lambda g: (g[weight_col]).sum())
+    """Per-county weighted prevalence (%) of a 0/1 flag over valid rows. Uses
+    Series.groupby to stay clear of the DataFrameGroupBy.apply deprecation and
+    to handle boolean / nullable flag columns consistently across pandas."""
+    valid = df.loc[df[flag_col].notna(), ["county_norm", weight_col, flag_col]].copy()
+    valid[flag_col] = valid[flag_col].astype(float)
+    num = (valid[weight_col] * valid[flag_col]).groupby(valid["county_norm"]).sum()
+    den = valid[weight_col].groupby(valid["county_norm"]).sum()
     return (100.0 * num / den).rename(flag_col)
 
 
@@ -461,16 +466,25 @@ def kdhs_county(base: Path, vars: dict | None = None) -> Path | None:
         return None
     county_norms = set(xwalk["county_norm"]) - {""}
 
-    def load(kind_vars: list[str], extra: tuple = ()):
+    def load(kind_vars: list[str], extra: tuple = (), prefer: str | None = None,
+             weight_var: str | None = None):
         """Find a recode containing the needed vars; read those + any optional
-        extras present + weight + county."""
-        for f in files:
+        extras present + weight + county. `prefer` is a recode token (e.g. 'ir',
+        'kr', 'pr') used to disambiguate when several recodes carry the same
+        variable (v457 appears in IR, BR and KR as the mother's value). The PR
+        recode uses the household weight hv005 rather than v005, so `weight_var`
+        overrides the default."""
+        wv = weight_var or V["weight"]
+        ordered = files
+        if prefer:
+            ordered = sorted(files, key=lambda f: 0 if prefer in str(f).lower() else 1)
+        for f in ordered:
             try:
                 _, meta = pyreadstat.read_dta(str(f), metadataonly=True)
             except Exception:  # noqa: BLE001
                 continue
             cols = set(meta.column_names)
-            if not all(v in cols for v in kind_vars):
+            if wv not in cols or not all(v in cols for v in kind_vars):
                 continue
             ccol = _pick_county_col(meta, cols, county_norms)
             if ccol is None:
@@ -478,43 +492,72 @@ def kdhs_county(base: Path, vars: dict | None = None) -> Path | None:
                       f"(looked for {_COUNTY_CANDIDATES})")
                 continue
             opt = [e for e in extra if e in cols]
-            usecols = list(dict.fromkeys([V["weight"], ccol, *kind_vars, *opt]))
+            usecols = list(dict.fromkeys([wv, ccol, *kind_vars, *opt]))
             df, meta = pyreadstat.read_dta(str(f), usecols=usecols)
             labels = (meta.variable_value_labels or {}).get(ccol, {})
             df["county_label"] = df[ccol].map(labels).astype("string")
             df["county_norm"] = df["county_label"].map(lambda x: norm(x) if isinstance(x, str) else "")
-            df["w"] = df[V["weight"]] / 1_000_000.0
+            df["w"] = df[wv] / 1_000_000.0
             return df, f.name
         return None, None
 
     # --- children: anthropometry + child anaemia ---------------------------
-    kr, kr_name = load([V["haz"], V["waz"], V["whz"]], extra=(V["child_anaemia"],))
+    kr, kr_name = load([V["haz"], V["waz"], V["whz"]], extra=(V["child_anaemia"],), prefer="kr")
     parts = []
+    child_anaemia_done = False
     if kr is not None:
         for z, flag in ((V["haz"], "stunting"), (V["whz"], "wasting"), (V["waz"], "underweight")):
-            kr[flag] = ((kr[z].abs() <= _Z_VALID) & (kr[z] < -200)).where(kr[z].abs() <= _Z_VALID)
-        if V["child_anaemia"] in kr.columns:
-            a = kr[V["child_anaemia"]]
-            kr["child_anaemia"] = a.isin([1, 2, 3]).where(a.isin([1, 2, 3, 4]))
+            zc = pd.to_numeric(kr[z], errors="coerce")
+            kr[flag] = ((zc.abs() <= _Z_VALID) & (zc < -200)).where(zc.abs() <= _Z_VALID)
         n = kr.groupby("county_norm").size().rename("n_children")
-        agg = [n]
-        for flag in ("stunting", "wasting", "underweight",
-                     *( ["child_anaemia"] if "child_anaemia" in kr.columns else [] )):
-            agg.append(_weighted_prevalence(kr, flag, "w"))
+        agg = [n, _weighted_prevalence(kr, "stunting", "w"),
+               _weighted_prevalence(kr, "wasting", "w"),
+               _weighted_prevalence(kr, "underweight", "w")]
+        # child anaemia from KR hw57, but only if the column is actually populated
+        if V["child_anaemia"] in kr.columns:
+            a = pd.to_numeric(kr[V["child_anaemia"]], errors="coerce")
+            kr["child_anaemia"] = a.isin([1, 2, 3]).where(a.isin([1, 2, 3, 4]))
+            if kr["child_anaemia"].notna().any():
+                agg.append(_weighted_prevalence(kr, "child_anaemia", "w"))
+                child_anaemia_done = True
         parts.append(pd.concat(agg, axis=1))
         print(f"[transform] health.kdhs_county: children from {kr_name} "
               f"({int(n.sum())} records)")
 
+    # --- child anaemia fallback: the PR recode (hc57) when KR hw57 is empty --
+    # The 2022 KDHS biomarker module is anthropometry only (no haemoglobin), so
+    # this normally finds nothing; it stays in place for surveys that do measure it.
+    if not child_anaemia_done:
+        pr, pr_name = load([V["child_anaemia_pr"]], prefer="pr", weight_var=V["weight_hh"])
+        if pr is not None:
+            a = pd.to_numeric(pr[V["child_anaemia_pr"]], errors="coerce")
+            pr = pr.assign(child_anaemia=a.isin([1, 2, 3]).where(a.isin([1, 2, 3, 4])))
+            if pr["child_anaemia"].notna().any():
+                parts.append(_weighted_prevalence(pr, "child_anaemia", "w").to_frame())
+                child_anaemia_done = True
+                print(f"[transform] health.kdhs_county: child anaemia from {pr_name} "
+                      f"(PR recode {V['child_anaemia_pr']})")
+
     # --- women: anaemia ----------------------------------------------------
-    ir, ir_name = load([V["woman_anaemia"]], extra=(V["woman_tested"],))
+    # Gate on a valid anaemia level (v457 in 1-4), not on v042: when a survey
+    # has no haemoglobin module the level is empty and the indicator is omitted.
+    ir, ir_name = load([V["woman_anaemia"]], prefer="ir")
+    women_anaemia_done = False
     if ir is not None:
-        if V["woman_tested"] in ir.columns:
-            ir = ir[ir[V["woman_tested"]] == 1]
-        a = ir[V["woman_anaemia"]]
-        ir["women_anaemia"] = a.isin([1, 2, 3]).where(a.isin([1, 2, 3, 4]))
-        nw = ir.groupby("county_norm").size().rename("n_women")
-        parts.append(pd.concat([nw, _weighted_prevalence(ir, "women_anaemia", "w")], axis=1))
-        print(f"[transform] health.kdhs_county: women from {ir_name} ({int(nw.sum())} records)")
+        a = pd.to_numeric(ir[V["woman_anaemia"]], errors="coerce")
+        wa = a.isin([1, 2, 3]).where(a.isin([1, 2, 3, 4]))
+        if wa.notna().any():
+            ir = ir.assign(women_anaemia=wa)
+            nw = ir.loc[wa.notna()].groupby("county_norm").size().rename("n_women")
+            parts.append(pd.concat([nw, _weighted_prevalence(ir, "women_anaemia", "w")], axis=1))
+            women_anaemia_done = True
+            print(f"[transform] health.kdhs_county: women anaemia from {ir_name} "
+                  f"({int(nw.sum())} tested)")
+
+    if not (child_anaemia_done or women_anaemia_done):
+        print("[transform] health.kdhs_county: no haemoglobin/anaemia data present "
+              "(the 2022 KDHS biomarker module is anthropometry only); "
+              "reporting stunting, wasting and underweight")
 
     if not parts:
         print("[transform] health.kdhs_county: recodes present but required variables "
@@ -526,6 +569,11 @@ def kdhs_county(base: Path, vars: dict | None = None) -> Path | None:
     cmap = (xwalk.drop_duplicates("county_norm")
             .set_index("county_norm")[["county_code", "county_name"]])
     out_df = out_df.join(cmap, on="county_norm")
+    # Drop any indicator or count column that ended up entirely empty, so the
+    # table carries only the outcomes the survey actually measured.
+    for c in ("child_anaemia", "women_anaemia", "n_women", "n_children"):
+        if c in out_df.columns and out_df[c].notna().sum() == 0:
+            out_df = out_df.drop(columns=c)
     pct = [c for c in ("stunting", "wasting", "underweight", "child_anaemia", "women_anaemia")
            if c in out_df.columns]
     out_df[pct] = out_df[pct].round(1)
@@ -535,8 +583,8 @@ def kdhs_county(base: Path, vars: dict | None = None) -> Path | None:
 
     out = _out(base, "health", "kdhs_county")
     out_df.to_csv(out, index=False)
-    print(f"[transform] health.kdhs_county ({len(out_df)} counties, "
-          f"indicators: {', '.join(pct)}) -> {out.name}")
+    cov = ", ".join(f"{c} {int(out_df[c].notna().sum())}/{len(out_df)}" for c in pct)
+    print(f"[transform] health.kdhs_county ({len(out_df)} counties; coverage: {cov}) -> {out.name}")
     return out
 
 

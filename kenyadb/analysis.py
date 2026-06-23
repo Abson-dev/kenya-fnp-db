@@ -128,13 +128,28 @@ def build_county_table(con) -> pd.DataFrame:
     prices = wfp_price_summary(con)
     if not prices.empty:
         table = table.merge(prices, on="county_norm", how="left")
+    # geography: population denominators and agricultural land / farming households
+    pop = census_population(con)
+    if not pop.empty:
+        table = table.merge(pop, on="county_code", how="left")
+    ag = census_agriculture(con)
+    if not ag.empty:
+        table = table.merge(ag, on="county_code", how="left")
+    # food: crop area and production (latest NAPR year), enables yields and per-capita
+    crop = napr_crop_summary(con)
+    if not crop.empty:
+        table = table.merge(crop, on="county_code", how="left")
     # Policy layer: the Action Plan names four counties with a stunting figure.
     # Sparse (4 of 47), so it serves as an external check, not a model input.
     ap = policy_county_nutrition(con)
     if not ap.empty:
         table = table.merge(ap, on="county_code", how="left")
-    # KDHS county nutrition outcomes (stunting, wasting, anaemia) join here once
-    # the survey is ingested:  table = table.merge(kdhs_county, on="county_norm")
+    # Health layer: KDHS 2022 county nutrition outcomes (the analytical centrepiece
+    # of the soil-to-nutrition pathway). Joined once the recodes are processed.
+    kd = kdhs_county_estimates(con)
+    if not kd.empty:
+        table = table.merge(kd, on="county_code", how="left")
+    table = _add_derived(table)
     return table.sort_values("county_code").reset_index(drop=True)
 
 
@@ -185,6 +200,188 @@ def policy_ag_growth(con) -> pd.DataFrame:
         return pd.DataFrame()
     return con.execute(
         f"select year, ag_sector_growth_pct from policy.{tbl} order by year").df()
+
+
+# --------------------------------------------------------------------------
+# geography: population and agriculture denominators (2019 KPHC via census.py)
+# --------------------------------------------------------------------------
+def census_population(con) -> pd.DataFrame:
+    """County population denominators: population, households, average household
+    size, land area and density."""
+    if not _has_table(con, "geography", "census_population_county"):
+        return pd.DataFrame()
+    df = con.execute("select * from geography.census_population_county").df()
+    cols = ["county_code"] + [c for c in (
+        "population_total", "households", "avg_household_size",
+        "land_area_sqkm", "density") if c in df.columns]
+    return df[cols].drop_duplicates("county_code")
+
+
+def census_agriculture(con) -> pd.DataFrame:
+    """County agricultural land (ha) and farming households, total and split by
+    subsistence / commercial purpose."""
+    if not _has_table(con, "geography", "census_agriculture_county"):
+        return pd.DataFrame()
+    df = con.execute("select * from geography.census_agriculture_county").df()
+    cols = ["county_code"] + [c for c in (
+        "ag_land_ha_total", "ag_land_ha_subsistence", "ag_land_ha_commercial",
+        "farming_households_total", "farming_households_subsistence",
+        "farming_households_commercial") if c in df.columns]
+    return df[cols].drop_duplicates("county_code")
+
+
+def kdhs_county_estimates(con) -> pd.DataFrame:
+    """County child anthropometry (stunting, wasting, underweight), child and
+    women anaemia from KDHS 2022 (health.kdhs_county). This is the outcome layer
+    for the soil-to-nutrition analysis."""
+    if not _has_table(con, "health", "kdhs_county"):
+        return pd.DataFrame()
+    df = con.execute("select * from health.kdhs_county").df()
+    keep = ["county_code"] + [c for c in (
+        "stunting", "wasting", "underweight", "child_anaemia", "women_anaemia",
+        "n_children", "n_women") if c in df.columns]
+    return df[keep].drop_duplicates("county_code")
+
+
+# --------------------------------------------------------------------------
+# food: NAPR crop area and production (kenyadb.napr -> food.napr_crop_county)
+# --------------------------------------------------------------------------
+def napr_crop_summary(con, year: int | None = None) -> pd.DataFrame:
+    """Per-county crop totals for the latest NAPR year: total cropped area,
+    total production, number of crops reported, and maize area / production."""
+    if not _has_table(con, "food", "napr_crop_county"):
+        return pd.DataFrame()
+    df = con.execute("select * from food.napr_crop_county").df()
+    if df.empty:
+        return pd.DataFrame()
+    if year is None:
+        year = int(df["year"].max())
+    d = df[df["year"] == year].copy()
+    agg = d.groupby("county_code").agg(
+        crop_area_ha=("area_ha", "sum"),
+        crop_production_mt=("production_mt", "sum")).reset_index()
+    nc = (d[d["production_mt"].notna()].groupby("county_code")["crop"]
+          .nunique().rename("n_crops").reset_index())
+    agg = agg.merge(nc, on="county_code", how="left")
+    mz = (d[d["crop"].str.lower() == "maize"].groupby("county_code")
+          .agg(maize_area_ha=("area_ha", "sum"),
+               maize_production_mt=("production_mt", "sum")).reset_index())
+    out = agg.merge(mz, on="county_code", how="left")
+    out["napr_year"] = year
+    return out
+
+
+def napr_crop_yields(con, year: int | None = None) -> pd.DataFrame:
+    """Tidy crop x county yields (production / area, t/ha) for the latest year."""
+    if not _has_table(con, "food", "napr_crop_county"):
+        return pd.DataFrame()
+    df = con.execute("select * from food.napr_crop_county").df()
+    if df.empty:
+        return pd.DataFrame()
+    if year is None:
+        year = int(df["year"].max())
+    d = df[df["year"] == year].copy()
+    area = pd.to_numeric(d["area_ha"], errors="coerce")
+    d["yield_t_ha"] = pd.to_numeric(d["production_mt"], errors="coerce") / area.where(area > 0)
+    cols = [c for c in ("county_code", "county_name", "crop", "year",
+                        "area_ha", "production_mt", "yield_t_ha") if c in d.columns]
+    return d[cols].sort_values(["crop", "county_name"]).reset_index(drop=True)
+
+
+def national_crop_summary(con) -> pd.DataFrame:
+    """National crop area, production and implied yield by crop and year."""
+    if not _has_table(con, "food", "napr_crop_county"):
+        return pd.DataFrame()
+    df = con.execute("""
+        select crop, year,
+               round(sum(area_ha), 1) as area_ha,
+               round(sum(production_mt), 1) as production_mt
+        from food.napr_crop_county group by crop, year order by crop, year
+    """).df()
+    if not df.empty:
+        df["yield_t_ha"] = (df["production_mt"] / df["area_ha"].where(df["area_ha"] > 0)).round(3)
+    return df
+
+
+# --------------------------------------------------------------------------
+# derived county indicators: per-capita, land-use intensity, yield
+# --------------------------------------------------------------------------
+def _add_derived(t: pd.DataFrame) -> pd.DataFrame:
+    def have(*names):
+        return all(n in t.columns for n in names)
+    if have("maize_production_mt", "maize_area_ha"):
+        t["maize_yield_t_ha"] = t["maize_production_mt"] / t["maize_area_ha"].where(t["maize_area_ha"] > 0)
+    if have("crop_production_mt", "population_total"):
+        t["crop_production_per_capita_kg"] = (
+            t["crop_production_mt"] * 1000 / t["population_total"].where(t["population_total"] > 0))
+    if have("maize_production_mt", "population_total"):
+        t["maize_production_per_capita_kg"] = (
+            t["maize_production_mt"] * 1000 / t["population_total"].where(t["population_total"] > 0))
+    if have("ag_land_ha_total", "land_area_sqkm"):
+        t["ag_land_share"] = t["ag_land_ha_total"] / (t["land_area_sqkm"] * 100).where(t["land_area_sqkm"] > 0)
+    if have("farming_households_total", "households"):
+        t["farming_hh_share"] = t["farming_households_total"] / t["households"].where(t["households"] > 0)
+    if have("ag_land_ha_total", "farming_households_total"):
+        t["cropland_per_farming_hh_ha"] = (
+            t["ag_land_ha_total"] / t["farming_households_total"].where(t["farming_households_total"] > 0))
+    if have("ag_land_ha_subsistence", "ag_land_ha_total"):
+        t["ag_land_subsistence_share"] = (
+            t["ag_land_ha_subsistence"] / t["ag_land_ha_total"].where(t["ag_land_ha_total"] > 0))
+    return t
+
+
+def soil_yield_model(table: pd.DataFrame, yield_col: str = "maize_yield_t_ha"):
+    """Exploratory OLS of county maize yield on topsoil quality. Descriptive
+    only (soil, management and climate are jointly determined); HC3 errors."""
+    try:
+        import statsmodels.formula.api as smf
+    except Exception:  # noqa: BLE001
+        return None
+    feats = [p for p in ("phh2o", "soc", "nitrogen", "cec", "clay") if p in table.columns]
+    if yield_col not in table.columns or not feats:
+        return None
+    d = table[[yield_col] + feats].replace([np.inf, -np.inf], np.nan).dropna()
+    if len(d) < len(feats) + 5:
+        return None
+    return smf.ols(f"{yield_col} ~ " + " + ".join(feats), data=d).fit(cov_type="HC3")
+
+
+def soil_nutrition_model(table: pd.DataFrame, outcome: str = "stunting"):
+    """Exploratory OLS of a county child-nutrition outcome (default stunting) on
+    topsoil quality, controlling for the staple price and maize yield where
+    available. This is the soil-to-nutrition pathway that motivates the bundle.
+    It is associational, not causal: soil, climate, market access, diets and
+    care practices are jointly determined, so it is reported with HC3 errors and
+    read as a conditional gradient, not an effect."""
+    try:
+        import statsmodels.formula.api as smf
+    except Exception:  # noqa: BLE001
+        return None
+    if outcome not in table.columns:
+        return None
+    soil = [p for p in ("phh2o", "soc", "nitrogen", "cec") if p in table.columns]
+    controls = [c for c in ("maize_price_median", "maize_yield_t_ha") if c in table.columns]
+    feats = soil + controls
+    if not soil:
+        return None
+    d = table[[outcome] + feats].replace([np.inf, -np.inf], np.nan).dropna()
+    if len(d) < len(feats) + 5:
+        return None
+    return smf.ols(f"{outcome} ~ " + " + ".join(feats), data=d).fit(cov_type="HC3")
+
+
+def kdhs_vs_actionplan(table: pd.DataFrame) -> pd.DataFrame:
+    """Validate the survey aggregates against the four county stunting figures the
+    Action Plan names (Kilifi, West Pokot, Samburu, Kisumu): KDHS estimate, Plan
+    figure and their difference."""
+    if "stunting" not in table.columns or "stunting_actionplan" not in table.columns:
+        return pd.DataFrame()
+    d = table.loc[table["stunting_actionplan"].notna(),
+                  ["county_name", "stunting", "stunting_actionplan"]].copy()
+    if d.empty:
+        return d
+    d["difference"] = (d["stunting"] - d["stunting_actionplan"]).round(1)
+    return d.sort_values("stunting_actionplan", ascending=False).reset_index(drop=True)
 
 
 def descriptive_stats(table: pd.DataFrame) -> pd.DataFrame:
@@ -244,7 +441,12 @@ def choropleth(gdf, table: pd.DataFrame, column: str, title: str, out: Path,
                cmap: str = "YlOrBr"):
     import matplotlib.pyplot as plt
 
+    if column not in table.columns:
+        return None
     merged = gdf.merge(table[["county_norm", column]], on="county_norm", how="left")
+    if merged[column].notna().sum() == 0:
+        print(f"[analysis] map skipped: {column} has no values to plot")
+        return None
     fig, ax = plt.subplots(1, 1, figsize=(7, 7))
     merged.plot(column=column, ax=ax, cmap=cmap, legend=True, edgecolor="white",
                 linewidth=0.3, missing_kwds={"color": "lightgrey", "label": "no data"})

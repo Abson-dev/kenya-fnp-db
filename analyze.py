@@ -5,11 +5,19 @@
   python analyze.py --db path.duckdb
 
 Outputs (analysis/outputs/):
-  county_analytical_table.csv   one row per county (soil + staple prices)
+  county_analytical_table.csv   one row per county (soil, prices, population,
+                                agriculture, crop production, derived indicators)
   table1_descriptives.csv       summary statistics
   soil_typology.csv             county soil-health zones
-  map_*.png                     choropleths (SOC, pH, maize price, volatility, zones)
-  soil_price_model.txt          exploratory regression summary
+  napr_crop_yields.csv          county x crop area, production and yield (t/ha)
+  napr_national_crop_summary.csv national crop area / production / yield by year
+  kdhs_county_nutrition.csv     county stunting, wasting, underweight, anaemia (KDHS 2022)
+  kdhs_vs_actionplan_stunting.csv survey stunting vs the four Action Plan figures
+  soil_price_model.txt          exploratory price ~ soil regression
+  soil_yield_model.txt          exploratory maize-yield ~ soil regression
+  soil_nutrition_model.txt      exploratory stunting ~ soil (+ price, yield) regression
+  map_*.png                     choropleths (soil, prices, yield, land use, density,
+                                stunting, anaemia, zones)
   METHODS.md                    short methods note for the manuscript
 
 Author: Aboubacar HEMA
@@ -79,6 +87,50 @@ def main() -> None:
     elif "stunting_actionplan" not in table.columns:
         print("  -> no policy county nutrition in the database (build the policy layer)")
 
+    print("[analysis] food: crop area, production and yields (NAPR)")
+    yields = A.napr_crop_yields(con)
+    if not yields.empty:
+        yields.round(3).to_csv(OUT / "napr_crop_yields.csv", index=False)
+        print(f"  -> county x crop yields: {yields['crop'].nunique()} crops, "
+              f"{yields['county_name'].nunique()} counties")
+    natl = A.national_crop_summary(con)
+    if not natl.empty:
+        natl.to_csv(OUT / "napr_national_crop_summary.csv", index=False)
+        print(f"  -> national crop summary: {natl['crop'].nunique()} crops, "
+              f"{natl['year'].nunique()} years")
+    if yields.empty and "crop_production_mt" not in table.columns:
+        print("  -> no NAPR crop table in the database (build the food layer)")
+
+    print("[analysis] exploratory soil-yield model")
+    ym = A.soil_yield_model(table)
+    if ym is not None:
+        (OUT / "soil_yield_model.txt").write_text(str(ym.summary()), encoding="utf-8")
+        print(f"  -> OLS maize yield on soil, n={int(ym.nobs)}, R2={ym.rsquared:.3f}")
+    else:
+        print("  -> skipped (need maize yield + soil columns, or statsmodels)")
+
+    print("[analysis] health: KDHS 2022 county nutrition (soil-to-nutrition pathway)")
+    nut_cols = [c for c in ("stunting", "wasting", "underweight", "child_anaemia",
+                            "women_anaemia") if c in table.columns]
+    if nut_cols:
+        keep = ["county_code", "county_name"] + nut_cols + [
+            c for c in ("n_children", "n_women") if c in table.columns]
+        table[keep].dropna(subset=nut_cols, how="all").to_csv(
+            OUT / "kdhs_county_nutrition.csv", index=False)
+        print(f"  -> KDHS county nutrition: {', '.join(nut_cols)}")
+        nm = A.soil_nutrition_model(table, "stunting")
+        if nm is not None:
+            (OUT / "soil_nutrition_model.txt").write_text(str(nm.summary()), encoding="utf-8")
+            print(f"  -> OLS stunting on soil (+ price, yield), n={int(nm.nobs)}, "
+                  f"R2={nm.rsquared:.3f}")
+        vac = A.kdhs_vs_actionplan(table)
+        if not vac.empty:
+            vac.to_csv(OUT / "kdhs_vs_actionplan_stunting.csv", index=False)
+            print(f"  -> KDHS vs Action Plan stunting for {len(vac)} named counties")
+    else:
+        print("  -> no KDHS county table yet (place the recodes in "
+              "data/external/kdhs_2022/ and rebuild)")
+
     if not args.no_maps:
         print("[analysis] maps")
         gdf = A.county_geometry(BASE)
@@ -88,13 +140,20 @@ def main() -> None:
                 ("phh2o", "Topsoil pH (H2O), 0-30 cm", "map_ph.png", "RdYlBu"),
                 ("maize_price_median", "Median maize price (KES/kg)", "map_maize_price.png", "YlOrRd"),
                 ("maize_price_cv", "Maize price volatility (CV)", "map_maize_volatility.png", "OrRd"),
+                ("maize_yield_t_ha", "Maize yield (production / area, t/ha)", "map_maize_yield.png", "YlGn"),
+                ("maize_production_per_capita_kg", "Maize production per capita (kg)", "map_maize_pc.png", "BuGn"),
+                ("ag_land_share", "Agricultural land as share of county area", "map_ag_land_share.png", "Greens"),
+                ("farming_hh_share", "Farming households as share of all households", "map_farming_hh.png", "Purples"),
+                ("density", "Population density (persons / sq km)", "map_density.png", "PuBu"),
+                ("stunting", "Child stunting (%), KDHS 2022", "map_stunting.png", "OrRd"),
+                ("child_anaemia", "Child anaemia (%), KDHS 2022", "map_child_anaemia.png", "Reds"),
                 ("soil_zone", "Soil-health zone", "map_soil_zone.png", "Set2"),
             ]
             src = typed if "soil_zone" in typed.columns else table
             for col, title, fn, cmap in specs:
                 if col in src.columns:
-                    A.choropleth(gdf, src, col, title, OUT / fn, cmap=cmap)
-                    print(f"  -> {fn}")
+                    if A.choropleth(gdf, src, col, title, OUT / fn, cmap=cmap) is not None:
+                        print(f"  -> {fn}")
         else:
             print("  -> no county geometry found; skipping maps")
 
@@ -126,6 +185,23 @@ def _write_methods(path: Path, table, meta) -> None:
         "Retail staple prices from the World Food Programme are normalised to a "
         "per-kilogram basis, then summarised per county as the median price "
         "level and the coefficient of variation as a volatility measure.\n\n"
+        "## Population and agriculture denominators\n\n"
+        "County population, households, average household size, land area and "
+        "density come from the 2019 Kenya Population and Housing Census. "
+        "Agricultural land (hectares) and farming households, split by "
+        "subsistence and commercial purpose, come from the census agriculture "
+        "tables. These denominators support per-capita and land-use-intensity "
+        "indicators: agricultural land as a share of county area, farming "
+        "households as a share of all households, and cropland per farming "
+        "household.\n\n"
+        "## Crop area, production and yields\n\n"
+        "Crop area and production by county and year (2019-2023) are extracted "
+        "from the KNBS National Agriculture Production Report 2024. For each "
+        "county the latest year gives total cropped area, total production and "
+        "the number of crops reported; maize is retained separately as the "
+        "staple. County maize yield is production divided by area (t/ha), and "
+        "maize production per capita uses the census population. Crop area, "
+        "production and yield are also reported nationally by crop and year.\n\n"
         "## Typology\n\n"
         f"Counties are grouped into soil-health zones by k-means on standardised "
         f"topsoil properties, with the number of zones (k={k}) selected by the "
@@ -139,14 +215,27 @@ def _write_methods(path: Path, table, meta) -> None:
         "table and placed beside the soil and price profile as an external, "
         "illustrative check. With four counties this is not an inferential "
         "analysis and is not used as a model input.\n\n"
-        "## Planned extension\n\n"
-        "County anthropometry and anaemia from the 2022 Kenya Demographic and "
-        "Health Survey will be appended to the county table to estimate the soil "
-        "to nutrition pathway, with the four Action Plan county figures serving as "
-        "an external check on the survey aggregates. Current soil-price "
-        "associations are descriptive: soil quality, market access and prices are "
-        "jointly determined, so they are reported with robust standard errors and "
-        "not interpreted causally.\n",
+        "## Health and nutrition outcomes\n\n"
+        "County child anthropometry (stunting, wasting, underweight) comes from "
+        "the 2022 Kenya Demographic and Health Survey. Prevalence is computed "
+        "per county from the children (KR) recode, sample-weighted by v005/1e6, "
+        "with z-score flags excluded (|z| beyond 6 SD). The county variable is "
+        "detected by matching its value labels to the crosswalk. The 2022 KDHS "
+        "biomarker questionnaire collected height and weight only; unlike the "
+        "2014 round it carried no haemoglobin module, so anaemia is not "
+        "available from this survey and is omitted rather than reported empty. "
+        "Child stunting is the outcome for the soil-to-nutrition pathway: it is "
+        "regressed on topsoil quality controlling for the staple price and "
+        "maize yield. The four county stunting figures the Action Plan names "
+        "(Kilifi, West Pokot, Samburu, Kisumu) are compared against the survey "
+        "estimates as an external validation; Kilifi at about 37 percent matches "
+        "the Action Plan figure closely.\n\n"
+        "## Causal caution\n\n"
+        "All county associations reported here are descriptive. Soil quality, "
+        "climate, market access, diets and care practices are jointly "
+        "determined, so the soil-price, soil-yield and soil-nutrition models "
+        "are read as conditional gradients with robust (HC3) standard errors, "
+        "not as causal effects.\n",
         encoding="utf-8",
     )
 

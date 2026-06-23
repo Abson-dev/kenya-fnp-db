@@ -10,7 +10,9 @@ from pathlib import Path
 
 import requests
 
-USER_AGENT = "kenya-fnp-db/1.0 (research pipeline; Aboubacar HEMA)"
+USER_AGENT = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+              "(KHTML, like Gecko) Chrome/124.0 Safari/537.36 "
+              "kenya-fnp-db/1.0 (research pipeline; Aboubacar HEMA)")
 DEFAULT_TIMEOUT = 120
 
 

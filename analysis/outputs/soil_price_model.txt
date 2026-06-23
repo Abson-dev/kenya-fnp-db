@@ -3,8 +3,8 @@
 Dep. Variable:     maize_price_median   R-squared:                       0.295
 Model:                            OLS   Adj. R-squared:                 -0.025
 Method:                 Least Squares   F-statistic:                    0.6533
-Date:                Sun, 14 Jun 2026   Prob (F-statistic):              0.666
-Time:                        11:22:20   Log-Likelihood:                -69.892
+Date:                Tue, 23 Jun 2026   Prob (F-statistic):              0.666
+Time:                        12:25:56   Log-Likelihood:                -69.892
 No. Observations:                  17   AIC:                             151.8
 Df Residuals:                      11   BIC:                             156.8
 Df Model:                           5                                         

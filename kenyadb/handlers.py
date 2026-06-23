@@ -79,7 +79,7 @@ def http_file(meta: dict, ctx: Ctx) -> None:
         _record_status(ctx, meta, "skipped",
                        f"dry-run: would GET {len(urls)} file(s)")
         return
-    ok, fail = 0, 0
+    ok, fail, msgs = 0, 0, []
     for url in urls:
         name = _safe(Path(urlparse(url).path).name or f"{ctx.source_key}.bin")
         out = ctx.raw_dir / ctx.source_key / name
@@ -89,9 +89,12 @@ def http_file(meta: dict, ctx: Ctx) -> None:
             ok += 1
         except Exception as exc:  # noqa: BLE001
             _record_status(ctx, meta, "failed", f"{name}: {type(exc).__name__}: {exc}")
+            msgs.append(f"    {name}: {type(exc).__name__}: {str(exc)[:120]}")
             fail += 1
-    if ok and fail:
-        print(f"[{ctx.source_key}] downloaded {ok}/{ok + fail} files ({fail} failed)")
+    if fail:
+        print(f"[{ctx.source_key}] downloaded {ok}/{ok + fail} files ({fail} failed):")
+        for m in msgs:
+            print(m)
 
 
 def hdx_dataset(meta: dict, ctx: Ctx) -> None:
@@ -190,7 +193,10 @@ def soilgrids_wcs(meta: dict, ctx: Ctx) -> None:
     got = 0
     for prop in props:
         map_q = f"/map/{prop}.map"
-        for depth in depths:
+        # SoilGrids serves organic carbon stock (ocs) only at the 0-30cm depth,
+        # not the six standard depth intervals.
+        prop_depths = ["0-30cm"] if prop == "ocs" else depths
+        for depth in prop_depths:
             cov = f"{prop}_{depth}_mean"
             params = {
                 "map": map_q,
