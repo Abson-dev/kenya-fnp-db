@@ -9,8 +9,6 @@ This is a **configuration-driven data pipeline** that assembles a comprehensive 
 > [!IMPORTANT]
 > The core research question is: *how do soil properties relate to food prices and ultimately to nutrition outcomes at the county level in Kenya?*
 
-Author: Aboubacar HEMA
-
 ---
 
 ## Table of contents
@@ -47,8 +45,14 @@ kenya_fnp_db/
     sources.yaml             single source of truth: 25 sources across 5 layers
   run_all.py                 main CLI: acquire -> extract -> crosswalk -> transform -> build
   build_action_plan.py       standalone runner for the Action Plan extractor
+  build_census.py            standalone runner for the census extractors
+  build_kfct.py              standalone runner for the food-composition extractor
+  build_napr.py              standalone runner for the crop area / production extractor
   validate.py                read-only consistency checker (writes validation_report.md)
-  analyze.py                 starter analysis: county table, typology, maps, model
+  check_soil.py              Layer 2 diagnostic: per-source soil status
+  check_food.py              Layer 3 diagnostic: per-source food status
+  check_napr.py              locates the crop annex tables in the NAPR PDF
+  analyze.py                 starter analysis: county table, typology, maps, models
   requirements.txt           Python dependencies (core + optional extractors)
   MANUAL_DATASETS.md         step-by-step instructions for the gated sources
   README.md
@@ -76,10 +80,17 @@ kenyadb/
                              CSVs to data/processed/<layer>/ , plus a generic ingester
   action_plan.py             extracts the Food Systems and Land Use Action Plan PDF
                              into a structured workbook and policy-layer CSVs
+  census.py                  parses the 2019 KPHC county denominators (population,
+                             households, area, density) and the agricultural-land /
+                             farming-household tables into geography-layer CSVs
+  kfct.py                    extracts the Kenya Food Composition Tables 2018 PDF into
+                             proximate, mineral, vitamin and merged-food CSVs
+  napr.py                    extracts crop area and production by county and year from
+                             the National Agriculture Production Report 2024 PDF
   build_db.py                assembles the DuckDB database from processed files,
                              the crosswalk, the registry and the provenance ledger
   analysis.py                county analytical table, soil typology, choropleths,
-                             exploratory soil-price model
+                             exploratory soil-price and soil-yield models
   validate.py                consistency checks used by the root validate.py runner
   utils/
     io.py                    HTTP download, JSON fetch, checksums
@@ -93,18 +104,18 @@ kenyadb/
 | Handler | Used by | Behaviour |
 | --- | --- | --- |
 | `hdx_dataset` | COD-AB, WFP prices | resolve an HDX (CKAN) dataset, download every resource |
-| `http_file` | census, KENSOTER, KFCT, ASPIRE, ASTI | download a single direct file URL |
-| `ckan_resource` | SODMA soil mirror | fetch one CKAN resource by id |
+| `http_file` | census agriculture CSV (openAFRICA), KENSOTER, ASPIRE, ASTI | download one or more direct file URLs |
+| `ckan_resource` | SODMA soil mirror (deprecated) | fetch one CKAN resource by id |
 | `soilgrids_wcs` | SoilGrids | pull 250 m coverages over the Kenya bounding box |
 | `aws_s3` | AfSIS chemistry | list and fetch objects from a public S3 prefix |
 | `faostat_bulk` | FAOSTAT | read the bulk manifest, download the normalised domain zips |
-| `kilimostat_api` | KilimoSTAT | query the Ministry of Agriculture statistics API |
+| `kilimostat_api` | KilimoSTAT (superseded) | query the Ministry of Agriculture API; superseded by the local NAPR report |
 | `worldbank_api` | WB HNP | pull indicator series from the World Bank API |
 | `faolex_api` | FAOLEX | query the FAO legal and policy corpus |
 | `gfdx_download` | GFDx | download fortification status exports |
 | `dhs_rdhs` | KDHS 2022 | record the manual rdhs recipe (registration gate) |
-| `local_file` | Action Plan | record a user-provided file (checksum + ok) without any network call |
-| `manual` | KNMS, MICS, NIPFN, dashboards | record a manual gate with instructions from the registry |
+| `local_file` | Action Plan, census, KFCT, NAPR | record a user-provided file (checksum + ok) without any network call |
+| `manual` | KNMS, MICS, NIPFN / dashboards | record a manual gate with instructions from the registry |
 
 Network-dependent handlers degrade gracefully: on any error they record a `failed` provenance row instead of crashing, so one dead endpoint never takes down the run.
 
@@ -121,10 +132,14 @@ data/
     soilgrids/               SoilGrids 250 m coverages over Kenya
     faostat/                 FAOSTAT domain zips (QCL, QV, FBS, FO, PP, RFN, RL)
     wfp_prices/              WFP market price CSV from HDX
+    kphc_2019_vol1/          census county denominators (CSV / XLSX, or Volume I PDF)
+    census_ke_ag/            census agriculture table (openAFRICA CSV)
+    kfct_2018/               Kenya Food Composition Tables 2018 PDF
+    kilimostat/              National Agriculture Production Report 2024 PDF
     action_plan/             the Action Plan PDF you place here by hand
     ...                      one folder per source
   external/                  manual / gated drops, one folder per source
-    kdhs_2022/               DHS Stata recodes (KEKR8xFL, KEIR8xFL) - you add these
+    kdhs_2022/               DHS 2022 Stata recodes (children KR, women IR, household-member PR used)
     knms_2011/               KNMS microdata (data-use agreement)
     wb_rtfp/                 World Bank real-time prices (microdata flow)
     action_plan/             the 10 policy CSVs written by the Action Plan extractor
@@ -198,8 +213,11 @@ A full `run_all.py` executes these stages in order:
 | `prices` | `food.prices_wfp_observed` | strips the HXL tag row, coerces price and date, assigns each market to a county by point-in-polygon |
 | `soilgrids_zonal` | `soil.soilgrids_zonal_county` | county zonal means of every SoilGrids coverage |
 | `wb_hnp_panel` | `health.wb_hnp_panel` | tidies the World Bank HNP indicator series |
-| `kdhs_county` | `health.kdhs_county` | survey-weighted county anthropometry and anaemia from the DHS recodes |
+| `kdhs_county` | `health.kdhs_county` | survey-weighted county child anthropometry from the DHS recodes (anaemia only when a survey carries it; 2022 does not) |
 | `action_plan.run` | 10 `policy.action_plan__*` tables | extracts the Action Plan PDF (see below) |
+| `census.run` | `geography.census_population_county`, `census_agriculture_county`, `census_agriculture_subcounty` | parses the KPHC county denominators and the agricultural-land / farming-household tables |
+| `kfct.run` | `food.kfct_proximates`, `kfct_minerals`, `kfct_vitamins`, `kfct_foods` | extracts the Kenya Food Composition Tables 2018 PDF |
+| `napr.run` | `food.napr_crop_county` | extracts crop area and production by county and year from the NAPR 2024 PDF |
 | `ingest_external` | `policy.*`, `health.*`, ... | generic ingester for any CSV / XLSX dropped in `data/external/<source>/` |
 
 Market prices are tagged by former province in the source, so a spatial join on market coordinates is what produces the correct county key (100 percent coverage). DHS county estimates use the children recode (KR) for stunting, wasting, underweight and child anaemia and the women recode (IR) for women anaemia, weighting by `v005/1e6` and detecting the county variable by matching its value labels to the crosswalk.
@@ -216,6 +234,14 @@ The Food Systems and Land Use Action Plan is a fixed published PDF. Place it in 
 
 The budget table and appendices use merged, multi-line cells that no general parser reads reliably, so the structured tables are a curated transcription checked by formula (the 7-year plan reconciles to 52,700 KES millions) and cross-checked against the extracted text.
 
+### The census, food-composition and crop extractors
+
+Three further modules follow the same local-extractor pattern (read a user-provided file, write tidy CSVs to `data/processed/<layer>/`, and emit a `*_provenance.json` sidecar the build folds into the ledger). Each has a standalone runner (`build_census.py`, `build_kfct.py`, `build_napr.py`) and is wired into the matching layer of `run_all.py`.
+
+- `census.py` reads the KNBS data-table CSV/XLSX exports (or the Volume I PDF) for county population, households, area and density, and the openAFRICA agricultural-land / farming-household table (a two-row header with a subsistence / commercial split). It keys every row on the crosswalk names, so it is robust to layout, and writes the county and sub-county tables.
+- `kfct.py` reads the Kenya Food Composition Tables 2018 PDF, detects the proximate, mineral and vitamin blocks by their header signatures, and writes one CSV per block plus a merged food table (572 foods).
+- `napr.py` reads the National Agriculture Production Report 2024 PDF. The crop annexes are printed in landscape with a two-tier header (year over Area / Production); the module reorients the rotated tables, flattens the header, melts to a tidy `county, crop, year, area_ha, production_mt` long table, and auto-detects the annex page offset.
+
 ---
 
 ## Data inventory by layer
@@ -227,17 +253,17 @@ Status legend: **acquired** (in the database and passing checks), **open** (auto
 | Key | Dataset | Publisher | Access | Role | Status |
 | --- | --- | --- | --- | --- | --- |
 | `cod_ab` | Administrative boundaries (47 counties, 290 sub-counties) | OCHA / HDX | open_api | master spatial key | acquired |
-| `kphc_2019_vol1` | 2019 Census Volume I (population, households, area) | KNBS | open_download | denominators | open |
-| `census_ke_ag` | 2019 agricultural census extracts | KNBS (Census.ke mirror) | open_download | farming-household denominators | open |
+| `kphc_2019_vol1` | 2019 Census county population, households, area, density | KNBS | open_download (local) | denominators | acquired |
+| `census_ke_ag` | 2019 Census agricultural land and farming households by county / sub-county | KNBS (openAFRICA) | open_download | farming-household denominators | acquired |
 
 ### Layer 2 - Soil
 
 | Key | Dataset | Publisher | Access | Role | Status |
 | --- | --- | --- | --- | --- | --- |
-| `soilgrids` | SoilGrids 250 m (pH, SOC, N, CEC, bulk density, texture) | ISRIC | open_api | national gridded backbone | acquired |
-| `kensoter` | KENSOTER soil and terrain | ISRIC | open_download | legacy soil and terrain | open |
-| `kenya_soil_mirror` | Kenya Soil Survey legacy polygons | Kenya Soil Survey (SODMA mirror) | open_download | national soil classes | open |
-| `afsis_chem` | AfSIS soil chemistry points | AfSIS / ICRAF | open_api | micronutrient enrichment | open |
+| `soilgrids` | SoilGrids 250 m (pH, SOC, N, CEC, bulk density, coarse fragments, texture, organic carbon stock) | ISRIC | open_api | national gridded backbone | acquired |
+| `kensoter` | KENSOTER soil and terrain (1:1M, `KE-SOTER.zip`) | ISRIC | open_download | legacy soil classes | acquired |
+| `kenya_soil_mirror` | Kenya Soil Survey legacy polygons | Kenya Soil Survey (SODMA mirror) | open_download | superseded by KENSOTER | deprecated |
+| `afsis_chem` | AfSIS soil chemistry points | AfSIS / ICRAF | open_api | Africa-wide ML calibration | acquired (optional) |
 | `soilhive_ocp` | SoilHive point clusters | SoilHive / OCP | agreement | measured points (Zn, Fe, P, K) | manual |
 
 ### Layer 3 - Food
@@ -246,17 +272,17 @@ Status legend: **acquired** (in the database and passing checks), **open** (auto
 | --- | --- | --- | --- | --- | --- |
 | `faostat` | FAOSTAT (7 domains, Kenya) | FAO | open_api | production and supply | acquired |
 | `wfp_prices` | WFP market food prices | WFP / HDX | open_api | observed retail prices | acquired |
-| `kfct_2018` | Kenya Food Composition Tables 2018 | FAO / Government of Kenya | open_download | nutrient composition | open |
-| `kilimostat` | KilimoSTAT agriculture statistics | Ministry of Agriculture | open_api | production and area | open |
+| `kfct_2018` | Kenya Food Composition Tables 2018 | FAO / Government of Kenya | open_download (local) | nutrient composition | acquired |
+| `kilimostat` | National Agriculture Production Report 2024 (crop area, production by county / year) | KNBS / MoALD | open_download (local) | production and area | acquired |
 | `wb_rtfp` | Real-Time Food Prices (modeled) | World Bank | registration | modeled prices | manual |
-| `fsd_food` | Kenya Food Systems Dashboard | GAIN / Ministry of Agriculture | dashboard | food-system indicators | manual |
+| `fsd_food` | NIPFN food-security and nutrition dashboard | KNBS / NIPFN | dashboard | contextual reference only | contextual |
 
 ### Layer 4 - Health and nutrition
 
 | Key | Dataset | Publisher | Access | Role | Status |
 | --- | --- | --- | --- | --- | --- |
 | `wb_hnp` | World Bank Health, Nutrition and Population | World Bank | open_api | clean country-year panel | acquired |
-| `kdhs_2022` | Kenya DHS 2022 | KNBS / DHS Program | registration | county anthropometry and anaemia | manual (transform ready) |
+| `kdhs_2022` | Kenya DHS 2022 | KNBS / DHS Program | registration (local) | county child anthropometry (stunting, wasting, underweight) | acquired |
 | `knms_2011` | National Micronutrient Survey 2011 | KNBS / Ministry of Health | agreement | richest biomarkers | manual |
 | `mics_2000` | MICS 2000 | KNBS / UNICEF | registration | historical nutrition | manual |
 | `nipfn` | NIPFN nutrition dashboard | KNBS | dashboard | dashboard accelerator | manual |
@@ -276,13 +302,13 @@ Status legend: **acquired** (in the database and passing checks), **open** (auto
 
 ## Acquisition status
 
-Acquired and validated: COD-AB boundaries (the 47 / 290 spine), SoilGrids (47 counties, 54 coverages, no nulls), FAOSTAT (98,757 Kenya rows, 7 domains, 1961-2025), WFP prices (26,745 rows, 2006-2026, fully county-joined), World Bank HNP (5 indicators), and the Action Plan (10 policy tables).
+Acquired and validated: COD-AB boundaries (the 47 / 290 spine); the census denominators (`kphc_2019_vol1` county population / households / area / density, and `census_ke_ag` agricultural land and farming households by county and sub-county); SoilGrids (47 counties, 55 coverages, no nulls) plus KENSOTER and AfSIS; FAOSTAT (98,757 Kenya rows, 7 domains, 1961-2025); WFP prices (26,745 rows, 2006-2026, fully county-joined); the Kenya Food Composition Tables 2018 (572 foods across four tables); the National Agriculture Production Report 2024 crop area and production by county and year; World Bank HNP (5 indicators); KDHS 2022 county child anthropometry (stunting, wasting, underweight for all 47 counties); and the Action Plan (10 policy tables).
 
-In progress (open, retrieval or URL correction pending): census denominators (`kphc_2019_vol1`, `census_ke_ag`), the legacy soil sources (`kensoter`, `kenya_soil_mirror`, `afsis_chem`), and the open policy and food sources (`kfct_2018`, `kilimostat`, `gfdx`, `aspire`, `asti`).
+In progress (open, retrieval pending): the remaining open policy and food sources (`gfdx`, `aspire`, `asti`). `kenya_soil_mirror` is deprecated (superseded by KENSOTER) and `fsd_food` is a contextual Power BI dashboard with no machine-readable export.
 
-Manual gates: `kdhs_2022` (registration; the `kdhs_county` transform is built and waiting), `knms_2011` and `soilhive_ocp` (agreement), `mics_2000` and `wb_rtfp` (registration), `nipfn`, `fsd_food`, `fortification_refs` and `faolex` (dashboard / portal). See `MANUAL_DATASETS.md` for the per-source steps.
+Manual gates: `knms_2011` and `soilhive_ocp` (agreement), `mics_2000` and `wb_rtfp` (registration), `nipfn`, `fortification_refs` and `faolex` (dashboard / portal). See `MANUAL_DATASETS.md` for the per-source steps.
 
-KDHS 2022 is the priority gate: it carries the county anthropometry that turns the soil-to-nutrition analysis into a real estimate. The four county stunting points in the Action Plan (Kilifi 37, West Pokot 34, Samburu 31, Kisumu 9) are an external check on it.
+KDHS 2022 is the health outcome layer that makes the soil-to-nutrition pathway a real estimate. County child stunting is computed from the children (KR) recode, sample-weighted, and validates against the policy document: Kilifi is 37.4 percent against the Action Plan figure of 37, and the county mean (17.7 percent) matches the national 2022 KDHS figure. The 2022 biomarker module measured height and weight only; unlike the 2014 round it carried no haemoglobin module, so anaemia is not available from this survey and is omitted rather than reported empty.
 
 ---
 
@@ -293,10 +319,10 @@ KDHS 2022 is the priority gate: it carries the county anthropometry that turns t
 | `core.crosswalk_admin` | master county / sub-county join key (codes and normalised names) |
 | `core.source_registry` | flattened registry: every source, publisher, access, licence, role |
 | `provenance` | per-object ledger: layer, source, path, checksum, bytes, status, message, extracted_at |
-| `geography.*` | population, households, area and density denominators |
+| `geography.*` | census county denominators (`census_population_county`) and agricultural land / farming households (`census_agriculture_county`, `census_agriculture_subcounty`) |
 | `soil.*` | SoilGrids zonal means and (when acquired) legacy soil and points |
-| `food.*` | FAOSTAT, observed and modeled prices, food composition |
-| `health.*` | WB HNP panel and (when acquired) KDHS county estimates |
+| `food.*` | FAOSTAT, observed prices, food composition (`kfct_*`), and crop area / production (`napr_crop_county`) |
+| `health.*` | WB HNP panel and KDHS 2022 county child anthropometry (`kdhs_county`) |
 | `policy.*` | Action Plan tables, fortification, social protection, research capacity |
 
 DuckDB is the default engine: no server, native CSV / Parquet / GeoPackage reads, and a spatial extension for the geometry joins. To use PostGIS instead, point the loaders at a libpq connection; the table layout is identical.
@@ -309,14 +335,20 @@ DuckDB is the default engine: no server, native CSV / Parquet / GeoPackage reads
 
 | Output | Contents |
 | --- | --- |
-| `county_analytical_table.csv` | one row per county: 0-30 cm topsoil properties (converted to conventional units) and staple price level and volatility |
+| `county_analytical_table.csv` | one row per county: 0-30 cm topsoil properties (conventional units), staple price level and volatility, census population and agriculture denominators, crop area / production, and derived indicators (maize yield, production per capita, agricultural-land share, farming-household share) |
 | `table1_descriptives.csv` | summary statistics (a publication Table 1) |
 | `soil_typology.csv` | county soil-health zones (k-means, k by silhouette) |
-| `map_*.png` | choropleths: organic carbon, pH, maize price, price volatility, soil zones |
+| `napr_crop_yields.csv` | county x crop area, production and yield (t/ha) |
+| `napr_national_crop_summary.csv` | national crop area, production and yield by crop and year |
+| `kdhs_county_nutrition.csv` | county child stunting, wasting and underweight (KDHS 2022) |
+| `kdhs_vs_actionplan_stunting.csv` | survey stunting against the four Action Plan county figures, with the difference |
+| `map_*.png` | choropleths: organic carbon, pH, maize price and volatility, maize yield, production per capita, agricultural-land share, farming-household share, density, child stunting, soil zones |
 | `soil_price_model.txt` | exploratory soil-price regression (robust standard errors) |
+| `soil_yield_model.txt` | exploratory soil-yield regression (robust standard errors) |
+| `soil_nutrition_model.txt` | exploratory child-stunting regression on soil quality with price and yield controls (robust standard errors) |
 | `METHODS.md` | a short methods note generated alongside the outputs |
 
-SoilGrids mapped units are converted to conventional units (pH, organic carbon in g/kg, CEC in cmol(c)/kg, texture in percent) and the 0-5 / 5-15 / 15-30 cm layers are combined into a thickness-weighted 0-30 cm topsoil value. The soil-price model is framed as associational, not causal: soil quality, market access and prices are jointly determined, so it is reported with robust standard errors. The county nutrition join slot for KDHS is already in place; once that table is built, the soil-to-nutrition pathway becomes the analytical centrepiece.
+SoilGrids mapped units are converted to conventional units (pH, organic carbon in g/kg, CEC in cmol(c)/kg, texture in percent) and the 0-5 / 5-15 / 15-30 cm layers are combined into a thickness-weighted 0-30 cm topsoil value. Census denominators add per-capita and land-use-intensity indicators; NAPR crop tables add county and national yields. With KDHS 2022 in place, the soil-to-nutrition pathway is realized: county child stunting is regressed on topsoil quality with the staple price and maize yield as controls, and the four Action Plan county figures serve as an external check on the survey aggregates. The soil-price, soil-yield and soil-nutrition models are framed as associational, not causal: soil quality, climate, market access, diets and care practices are jointly determined, so each is reported with robust (HC3) standard errors and read as a conditional gradient rather than an effect.
 
 ---
 
@@ -330,6 +362,10 @@ SoilGrids mapped units are converted to conventional units (pH, organic carbon i
 - a provenance summary (counts by status, sources with failures, pending manual gates).
 
 The provenance ledger is cumulative, so a source can appear under historical failures even after it later succeeds; the authoritative signal is the Tables loaded section plus the per-table PASS checks.
+
+Two per-layer diagnostics give a one-screen verdict on the data folders themselves. `check_soil.py` reports, for each soil source, the raw files present (e.g. the SoilGrids GeoTIFF count against the expected 55, whether the KENSOTER zip arrived), the processed zonal table, and the `soil.*` tables and provenance in the database. `check_food.py` does the same for the food layer (KFCT PDF, FAOSTAT zips, WFP prices, the NAPR report, and the resulting `food.*` tables). A third, `check_napr.py`, locates the crop annex tables inside the NAPR PDF (page, table shape, county-row count and crop keyword), which is how a drifted or split annex is diagnosed. All three run read-only and need no rebuild.
+
+The NAPR extractor tolerates page drift in the annex run: each crop is tried at its table-of-contents page shifted by an auto-detected offset, and if that page parses to nothing the extractor scans forward from just past the previous annex until the crop’s county table appears, with a guard so no page is read twice. Recovered annexes are reported in the run log.
 
 ---
 
@@ -354,7 +390,7 @@ Core: `duckdb`, `pandas`, `PyYAML`, `requests`, `geopandas`, `rasterio` / `raste
 
 Optional extractors (only needed for specific sources):
 
-- `pdfplumber` - full-text extraction and verification for the Action Plan.
+- `pdfplumber` - PDF text and table extraction for the Action Plan, census Volume I, KFCT and NAPR extractors.
 - `pyreadstat` - reading the DHS Stata recodes for the `kdhs_county` transform.
 
 Install everything with `pip install -r requirements.txt`.
@@ -363,4 +399,4 @@ Install everything with `pip install -r requirements.txt`.
 
 ## Caveats carried from the bundle
 
-Several sources are mirrors or aggregators (Census.ke, the SODMA soil mirror), so the provenance ledger always stores the original publisher, the mirror used, the extraction date and the checksum. SoilGrids does not ship Zn / Fe / P / K as national rasters, so micronutrients come from the Kenya point datasets. Observed and modeled prices live in separate tables. KDHS and KNMS stay distinct analytical modules and are never silently merged. Where a source document carries an internal inconsistency (for example the Action Plan 2024 budget, whose printed total differs from the sum of its line items), the figure is preserved as published and the discrepancy is flagged rather than silently corrected.
+Several sources are mirrors or aggregators (the census agriculture table via openAFRICA; the now-deprecated SODMA soil mirror), so the provenance ledger always stores the original publisher, the mirror used, the extraction date and the checksum. SoilGrids does not ship Zn / Fe / P / K as national rasters, so micronutrients come from the Kenya point datasets. Observed (WFP) and modeled (World Bank) prices live in separate tables. The NAPR crop figures and the census agriculture figures are kept distinct (one is annual production, the other a one-off census of land and households) and never silently merged. KDHS and KNMS stay distinct analytical modules. The 2022 KDHS biomarker module measured height and weight only, so the survey yields child stunting, wasting and underweight but no anaemia; anaemia would have to come from a survey that measured it (for example the 2014 KDHS or KNMS 2011). Where a source document carries an internal inconsistency (for example the Action Plan 2024 budget, whose printed total differs from the sum of its line items; or the census average-household-size column, published without its decimal point), the figure is preserved as published and the discrepancy is flagged rather than silently corrected.
