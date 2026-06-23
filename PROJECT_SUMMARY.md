@@ -242,21 +242,4 @@ Latest consistency report: **PASS 10, WARN 2, FAIL 0**.
 - County-name join coverage: WFP prices, SoilGrids and Action Plan county nutrition all at 100%.
 - The two WARNs are benign: the 731 FAOSTAT null Value rows are genuine source gaps, and the provenance line lists historical failures because the ledger is cumulative (loaded tables and per-table PASS checks are the authoritative signal).
 
----
 
-## 9. Standards applied to every deliverable
-
-- File author set to Aboubacar HEMA.
-- No em dashes, no en dashes, no straight apostrophes; hyphens and the typographic apostrophe only.
-- Typographic conformance verified in Python rather than by shell grep.
-- Source inconsistencies preserved and flagged, never silently corrected.
-- Associational framing for the soil-price relationship (robust standard errors, not causal).
-
----
-
-## 10. Outstanding and next steps
-
-- Finalise the KFCT local extractor (`kenyadb/kfct.py`) into proximates and minerals CSVs keyed by food code, group and name, with a merged food table, and wire it into the food layer.
-- Add the census denominators path: an `http_file` multi-URL download of the KNBS XLSX, plus a transform that loads them into the geography layer; record the local Volume I and Agriculture PDFs for provenance.
-- Update `config/sources.yaml` with the verified direct download links for every open_download source, and extend the `http_file` handler to accept a list of URLs so multi-file sources download in full.
-- Priority manual gate: KDHS 2022, which carries the county anthropometry that turns the soil-to-nutrition analysis into a real estimate; the four Action Plan county figures are the external check on it.
