@@ -44,6 +44,40 @@ SOILGRIDS = {
 # Topsoil depths and their thicknesses (mm-equivalent weights) for a 0-30 cm mean.
 TOPSOIL = {"0-5cm": 5, "5-15cm": 10, "15-30cm": 15}
 _COVERAGE_RE = re.compile(r"^(?P<prop>[a-z0-9]+)_(?P<depth>\d+-\d+cm)_mean$")
+# Fertility-positive soil properties (higher = better) for the composite soil
+# index; the iSDA micronutrients are folded in when present so the index reflects
+# extractable P, K, Zn and Fe, not only the SoilGrids macro-properties.
+SOIL_INDEX_POS = ["soc", "nitrogen", "cec", "p_isda", "k_isda", "zn_isda", "fe_isda"]
+
+
+def _add_soil_index(t: pd.DataFrame) -> pd.DataFrame:
+    """Composite soil-health index: the z-score average across counties of the
+    fertility-positive soil properties present (SoilGrids carbon, nitrogen and
+    CEC plus the iSDA micronutrients). Higher means more fertile. Descriptive."""
+    present = [c for c in SOIL_INDEX_POS if c in t.columns]
+    if len(present) < 3:
+        return t
+    z = t[present].apply(lambda s: (s - s.mean()) / s.std(ddof=0)
+                         if s.std(ddof=0) else s * 0.0)
+    t = t.copy()
+    t["soil_index"] = z.mean(axis=1)
+    return t
+
+
+def _add_gaps(t: pd.DataFrame) -> pd.DataFrame:
+    """Nutrient gaps relative to the national (cross-county) mean, oriented so a
+    larger value always means a worse position. These are the G terms the Stage 4
+    policy-response model uses. gap_body uses stunting (higher = worse); gap_food
+    and gap_soil are the shortfall of food density and the soil index below the
+    national mean (higher = worse)."""
+    t = t.copy()
+    if "stunting" in t.columns:
+        t["gap_body_stunting"] = t["stunting"] - t["stunting"].mean()
+    if "food_nutrient_density_index" in t.columns:
+        t["gap_food_density"] = t["food_nutrient_density_index"].mean() - t["food_nutrient_density_index"]
+    if "soil_index" in t.columns:
+        t["gap_soil"] = t["soil_index"].mean() - t["soil_index"]
+    return t
 
 
 def load_db(db_path: Path) -> duckdb.DuckDBPyConnection:
@@ -117,6 +151,47 @@ def wfp_price_summary(con, commodity: str = "Maize", pricetype: str = "Retail",
 # --------------------------------------------------------------------------
 # county analytical master table
 # --------------------------------------------------------------------------
+def remote_sensing_county(con) -> pd.DataFrame:
+    """County rainfall / NDVI / drought covariates, if the layer has been built
+    (returns empty when no remote-sensing rasters have been placed yet)."""
+    try:
+        df = con.execute("select * from geography.remote_sensing_county").df()
+    except Exception:  # noqa: BLE001
+        return pd.DataFrame()
+    return df.drop(columns=[c for c in ("county_name", "county_code") if c in df.columns],
+                   errors="ignore")
+
+
+def afsis_county(con) -> pd.DataFrame:
+    """County AfSIS extractable micronutrients (P, K, Zn, Fe and others), if the
+    layer has been built (returns empty when the AfSIS points are not present)."""
+    try:
+        df = con.execute("select * from soil.afsis_county").df()
+    except Exception:  # noqa: BLE001
+        return pd.DataFrame()
+    return df.drop(columns=[c for c in ("county_name",) if c in df.columns], errors="ignore")
+
+
+def isda_county(con) -> pd.DataFrame:
+    """County iSDAsoil gridded nutrients (P, K, Zn, Fe and more) at full 47-county
+    coverage, if the layer has been built. Returns empty when absent."""
+    try:
+        df = con.execute("select * from soil.isda_county").df()
+    except Exception:  # noqa: BLE001
+        return pd.DataFrame()
+    return df.drop(columns=[c for c in ("county_name",) if c in df.columns], errors="ignore")
+
+
+def kdhs_controls_county(con) -> pd.DataFrame:
+    """County dietary diversity (MDD) and food-to-body controls (wealth,
+    maternal education, water and sanitation), if the layer has been built."""
+    try:
+        df = con.execute("select * from health.kdhs_controls_county").df()
+    except Exception:  # noqa: BLE001
+        return pd.DataFrame()
+    return df.drop(columns=[c for c in ("county_name",) if c in df.columns], errors="ignore")
+
+
 def build_county_table(con) -> pd.DataFrame:
     counties = con.execute("""
         select distinct county_code, county_name, county_norm
@@ -125,6 +200,14 @@ def build_county_table(con) -> pd.DataFrame:
     soil = soil_topsoil(con)
     table = counties.merge(soil.drop(columns=["county_name"], errors="ignore"),
                            on="county_norm", how="left")
+    # soil vector extension: AfSIS extractable micronutrients (P, K, Zn, Fe ...)
+    micro = afsis_county(con)
+    if not micro.empty:
+        table = table.merge(micro, on="county_norm", how="left")
+    # soil vector extension: iSDAsoil gridded nutrients at full 47-county coverage
+    isda = isda_county(con)
+    if not isda.empty:
+        table = table.merge(isda, on="county_norm", how="left")
     prices = wfp_price_summary(con)
     if not prices.empty:
         table = table.merge(prices, on="county_norm", how="left")
@@ -139,6 +222,16 @@ def build_county_table(con) -> pd.DataFrame:
     crop = napr_crop_summary(con)
     if not crop.empty:
         table = table.merge(crop, on="county_code", how="left")
+    # food: Food Nutrient Density Index (F) from NAPR production x KFCT composition
+    fnd = food_nutrient_density_county(con)
+    if not fnd.empty:
+        table = table.merge(fnd.drop(columns=[c for c in ("napr_year",) if c in fnd.columns]),
+                            on="county_code", how="left")
+    # food: crop-mix diversity (Shannon), maize share and crop count (NAPR)
+    cd = crop_diversity_county(con)
+    if not cd.empty:
+        ckey = "county_code" if "county_code" in cd.columns else "county_norm"
+        table = table.merge(cd, on=ckey, how="left")
     # Policy layer: the Action Plan names four counties with a stunting figure.
     # Sparse (4 of 47), so it serves as an external check, not a model input.
     ap = policy_county_nutrition(con)
@@ -149,7 +242,31 @@ def build_county_table(con) -> pd.DataFrame:
     kd = kdhs_county_estimates(con)
     if not kd.empty:
         table = table.merge(kd, on="county_code", how="left")
+    # Health layer (second time point): KDHS 2014 anthropometry and anaemia, with
+    # the 2014-to-2022 stunting change. The 2014 round supplies the anaemia the
+    # 2022 round omits, and the lag that the Stage 5 substitute model needs.
+    kd14 = kdhs_2014_estimates(con)
+    if not kd14.empty:
+        table = table.merge(kd14, on="county_code", how="left")
+        if {"stunting", "stunting_2014"} <= set(table.columns):
+            table["stunting_change"] = table["stunting"] - table["stunting_2014"]
+    # Health layer: dietary diversity (MDD) and food-to-body controls (wealth,
+    # maternal education, water and sanitation) from the KDHS children's recode.
+    kdc = kdhs_controls_county(con)
+    if not kdc.empty:
+        table = table.merge(kdc, on="county_code", how="left")
+    # Environment layer: remote-sensing covariates (rainfall, NDVI, drought),
+    # available once the annual rasters are placed and the layer is built.
+    rs = remote_sensing_county(con)
+    if not rs.empty:
+        table = table.merge(rs, on="county_norm", how="left")
+    # policy layer: county fertilizer rollout, expenditure intensity, signal index
+    pol = policy_county_summary(con)
+    if not pol.empty:
+        table = table.merge(pol, on="county_norm", how="left")
     table = _add_derived(table)
+    table = _add_soil_index(table)
+    table = _add_gaps(table)
     return table.sort_values("county_code").reset_index(drop=True)
 
 
@@ -177,6 +294,17 @@ def policy_county_nutrition(con) -> pd.DataFrame:
               .reset_index())
     wide.columns = ["county_code"] + [f"{c.lower()}_actionplan" for c in wide.columns[1:]]
     return wide
+
+
+def policy_county_summary(con) -> pd.DataFrame:
+    """County policy-intensity cross-section: fertilizer-subsidy rollout timing and
+    priority, latest-year agricultural expenditure intensity where present, and the
+    composite Policy Signal Index. Empty if the policy panel is not built."""
+    if not _has_table(con, "policy", "policy_county_summary"):
+        return pd.DataFrame()
+    df = con.execute("select * from policy.policy_county_summary").df()
+    return df.drop(columns=[c for c in ("county_code", "county_name") if c in df.columns],
+                   errors="ignore")
 
 
 def policy_budget_by_transition(con) -> pd.DataFrame:
@@ -243,6 +371,21 @@ def kdhs_county_estimates(con) -> pd.DataFrame:
     return df[keep].drop_duplicates("county_code")
 
 
+def kdhs_2014_estimates(con) -> pd.DataFrame:
+    """County child anthropometry and anaemia from KDHS 2014 (health.kdhs_county_2014),
+    suffixed _2014. The 2014 round carries the haemoglobin biomarker, so child and
+    women anaemia are available here even though the 2022 round omits them. Empty
+    if the 2014 table is not built."""
+    if not _has_table(con, "health", "kdhs_county_2014"):
+        return pd.DataFrame()
+    df = con.execute("select * from health.kdhs_county_2014").df()
+    ren = {c: f"{c}_2014" for c in
+           ("stunting", "wasting", "underweight", "child_anaemia", "women_anaemia")
+           if c in df.columns}
+    keep = ["county_code"] + list(ren)
+    return df[keep].drop_duplicates("county_code").rename(columns=ren)
+
+
 # --------------------------------------------------------------------------
 # food: NAPR crop area and production (kenyadb.napr -> food.napr_crop_county)
 # --------------------------------------------------------------------------
@@ -269,6 +412,41 @@ def napr_crop_summary(con, year: int | None = None) -> pd.DataFrame:
     out = agg.merge(mz, on="county_code", how="left")
     out["napr_year"] = year
     return out
+
+
+def crop_diversity_county(con) -> pd.DataFrame:
+    """County crop-mix controls from NAPR: a Shannon diversity index over crop
+    production shares, the maize share of production, and the crop count. These
+    are the crop-mix controls the Stage 1 specification calls for."""
+    if not _has_table(con, "food", "napr_crop_county"):
+        return pd.DataFrame()
+    df = con.execute("select * from food.napr_crop_county").df()
+    if df.empty or "production_mt" not in df.columns or "crop" not in df.columns:
+        return pd.DataFrame()
+    key = "county_code" if "county_code" in df.columns else "county_norm"
+    if key not in df.columns:
+        return pd.DataFrame()
+    df["production_mt"] = pd.to_numeric(df["production_mt"], errors="coerce")
+    yr = pd.to_numeric(df.get("year"), errors="coerce")
+    if yr is not None and yr.notna().any():
+        df = df[yr == int(yr.max())]
+    d = df[df["production_mt"].notna() & (df["production_mt"] > 0)]
+    if d.empty:
+        return pd.DataFrame()
+    rows = []
+    for cc, g in d.groupby(key):
+        p = g.groupby("crop")["production_mt"].sum()
+        tot = float(p.sum())
+        if tot <= 0:
+            continue
+        sh = p / tot
+        shannon = float(-(sh * np.log(sh)).sum())
+        maize_mask = p.index.to_series().str.contains("maize", case=False, na=False)
+        maize_share = float(p[maize_mask.values].sum() / tot) if maize_mask.any() else 0.0
+        rows.append({key: cc, "crop_diversity_shannon": round(shannon, 3),
+                     "maize_production_share": round(maize_share, 3),
+                     "n_crops_county": int(len(p))})
+    return pd.DataFrame(rows)
 
 
 def napr_crop_yields(con, year: int | None = None) -> pd.DataFrame:
@@ -301,6 +479,176 @@ def national_crop_summary(con) -> pd.DataFrame:
     if not df.empty:
         df["yield_t_ha"] = (df["production_mt"] / df["area_ha"].where(df["area_ha"] > 0)).round(3)
     return df
+
+
+# --------------------------------------------------------------------------
+# food: Food Nutrient Density Index (NAPR production x KFCT composition)
+# --------------------------------------------------------------------------
+# Maps county crop production to per-capita nutrient supply through the food
+# composition tables: supply = production x edible fraction x nutrient content
+# per gram, summed over matched crops, divided by population and days. This is
+# the food nutrient density (F) variable of the empirical strategy. It is a
+# production-based availability proxy, not measured consumption.
+_FNDI_NUTRIENTS = {            # output key -> KFCT per-100g column
+    "energy_kcal":  "energy_kcal",
+    "protein_g":    "protein_g",
+    "iron_mg":      "fe_mg",
+    "zinc_mg":      "zn_mg",
+    "vita_rae_mcg": "vit_a_rae_mcg",
+    "folate_mcg":   "folate_dfe_mcg",
+    "calcium_mg":   "ca_mg",
+}
+_FNDI_PC_NAME = {
+    "energy_kcal": "food_kcal_pc_day", "protein_g": "food_protein_g_pc_day",
+    "iron_mg": "food_iron_mg_pc_day", "zinc_mg": "food_zinc_mg_pc_day",
+    "vita_rae_mcg": "food_vita_rae_pc_day", "folate_mcg": "food_folate_pc_day",
+    "calcium_mg": "food_calcium_mg_pc_day",
+}
+_FNDI_COMPOSITE = ["protein_g", "iron_mg", "zinc_mg", "vita_rae_mcg", "folate_mcg", "calcium_mg"]
+# NAPR crop (normalised) -> (KFCT name tokens any-of, forbidden tokens). norm()
+# removes spaces, so "Sweet Potatoes" -> "sweetpotatoes", "Green Grams" -> "greengrams".
+_CROP_KFCT = {
+    "maize":          (["maize"], ["flour", "green", "baby", "starch"]),
+    "beans":          (["bean"], ["green", "leaf", "flour"]),
+    "irishpotatoes":  (["potato"], ["sweet", "crisp", "chip"]),
+    "potatoes":       (["potato"], ["sweet", "crisp", "chip"]),
+    "sweetpotatoes":  (["sweetpotato"], ["leaf"]),
+    "sorghum":        (["sorghum"], ["flour"]),
+    "millet":         (["millet"], ["flour"]),
+    "fingermillet":   (["millet"], ["flour"]),
+    "pearlmillet":    (["millet"], ["flour"]),
+    "rice":           (["rice"], ["flour"]),
+    "wheat":          (["wheat"], ["flour", "bread", "bran"]),
+    "greengrams":     (["greengram", "mung"], ["flour"]),
+    "cowpeas":        (["cowpea"], ["leaf"]),
+    "pigeonpeas":     (["pigeonpea", "pigeon"], []),
+    "cassava":        (["cassava"], ["flour", "leaf"]),
+    "bananas":        (["banana"], ["juice", "ripe"]),
+    "groundnuts":     (["groundnut", "peanut"], ["butter", "oil"]),
+    "soybeans":       (["soya", "soybean"], ["oil", "sauce"]),
+    "barley":         (["barley"], ["flour"]),
+}
+
+
+def _fndi_nrm(s) -> str:
+    return re.sub(r"[^0-9a-z]+", "", str(s).lower())
+
+
+def _fndi_num(x) -> float:
+    try:
+        return float(x)
+    except (TypeError, ValueError):
+        return np.nan
+
+
+def _match_crop_food(crop_norm: str, foods_norm: dict):
+    """Pick the single best KFCT food for a NAPR crop, preferring raw/whole
+    staples and rejecting processed or non-food forms."""
+    spec = _CROP_KFCT.get(crop_norm)
+    anys, forb = spec if spec else ([crop_norm], [])
+    cands = [i for i, nm in foods_norm.items()
+             if any(a in nm for a in anys) and not any(f in nm for f in forb)]
+    if not cands:
+        return None
+
+    def score(i):
+        nm, s = foods_norm[i], 0
+        for good in ("raw", "dried", "dry", "whole", "grain", "mature", "wholemeal"):
+            if good in nm:
+                s += 2
+        for bad in ("cooked", "boiled", "fried", "roasted", "juice", "leaf", "canned"):
+            if bad in nm:
+                s -= 1
+        return s
+
+    return max(cands, key=score)
+
+
+def _fndi_from_frames(napr: pd.DataFrame, kfct: pd.DataFrame, pop: pd.DataFrame) -> pd.DataFrame:
+    if napr.empty or kfct.empty or "food_name" not in kfct.columns:
+        return pd.DataFrame()
+    napr = napr.copy()
+    yr = pd.to_numeric(napr["year"], errors="coerce")
+    d = napr[yr == int(yr.max())].copy()
+    d["production_mt"] = pd.to_numeric(d["production_mt"], errors="coerce")
+    d = d[d["production_mt"].notna() & (d["production_mt"] > 0)]
+    if d.empty:
+        return pd.DataFrame()
+
+    kf = kfct.copy().reset_index(drop=True)
+    foods_norm = {i: _fndi_nrm(n) for i, n in kf["food_name"].items()}
+    ef = pd.to_numeric(kf.get("edible_factor"), errors="coerce")
+    if ef.notna().any() and ef.median() > 1.5:     # stored as a percentage
+        ef = ef / 100.0
+    kf["_edible"] = ef.fillna(1.0).clip(lower=0.1, upper=1.0)
+    if "vit_a_rae_mcg" in kf.columns and "vit_a_re_mcg" in kf.columns:
+        kf["vit_a_rae_mcg"] = pd.to_numeric(kf["vit_a_rae_mcg"], errors="coerce").fillna(
+            pd.to_numeric(kf["vit_a_re_mcg"], errors="coerce"))
+
+    # match each crop once -> per-gram nutrient content and edible fraction
+    permap = {}
+    for c in d["crop"].dropna().unique():
+        idx = _match_crop_food(_fndi_nrm(c), foods_norm)
+        if idx is None:
+            continue
+        food = kf.loc[idx]
+        per_g = {k: (_fndi_num(food.get(col)) / 100.0) for k, col in _FNDI_NUTRIENTS.items()}
+        per_g = {k: (v if pd.notna(v) else 0.0) for k, v in per_g.items()}
+        permap[c] = (float(food["_edible"]), per_g)
+    if not permap:
+        return pd.DataFrame()
+
+    supply, matched = {}, {}
+    for _, r in d.iterrows():
+        c = r["crop"]
+        if c not in permap:
+            continue
+        edible, per_g = permap[c]
+        grams = float(r["production_mt"]) * 1_000_000.0 * edible
+        acc = supply.setdefault(r["county_code"], {k: 0.0 for k in _FNDI_NUTRIENTS})
+        for k in _FNDI_NUTRIENTS:
+            acc[k] += grams * per_g[k]
+        matched[r["county_code"]] = matched.get(r["county_code"], 0) + 1
+
+    sup = pd.DataFrame.from_dict(supply, orient="index").reset_index(names="county_code")
+    sup["n_crops_matched"] = sup["county_code"].map(matched)
+    p = pop[["county_code", "population_total"]].copy()
+    p["population_total"] = pd.to_numeric(p["population_total"], errors="coerce")
+    sup = sup.merge(p, on="county_code", how="left")
+    denom = (sup["population_total"] * 365.0).where(sup["population_total"] > 0)
+
+    out = pd.DataFrame({"county_code": sup["county_code"],
+                        "n_crops_matched": sup["n_crops_matched"]})
+    for k in _FNDI_NUTRIENTS:
+        out[_FNDI_PC_NAME[k]] = sup[k] / denom
+    # nutrient density per 1000 kcal of food supply (composition, independent of
+    # population): nutrient supply divided by energy supply. This is the "nutrient
+    # density per unit of food supply" the framework asks for, distinct from the
+    # per-capita quantity above.
+    e_supply = sup["energy_kcal"].where(sup["energy_kcal"] > 0)
+    for k in _FNDI_NUTRIENTS:
+        if k == "energy_kcal":
+            continue
+        out[_FNDI_PC_NAME[k].replace("_pc_day", "_per_1000kcal")] = sup[k] / e_supply * 1000.0
+    comp = [_FNDI_PC_NAME[k] for k in _FNDI_COMPOSITE if _FNDI_PC_NAME[k] in out.columns]
+    z = out[comp].apply(lambda s: (s - s.mean()) / s.std(ddof=0) if s.std(ddof=0) else s * 0.0)
+    out["food_nutrient_density_index"] = z.mean(axis=1)
+    out["napr_year"] = int(yr.max())
+    return out
+
+
+def food_nutrient_density_county(con) -> pd.DataFrame:
+    """County per-capita nutrient supply and the composite Food Nutrient Density
+    Index from NAPR production and KFCT composition. Empty if inputs are absent."""
+    if not (_has_table(con, "food", "napr_crop_county")
+            and _has_table(con, "food", "kfct_foods")):
+        return pd.DataFrame()
+    napr = con.execute("select * from food.napr_crop_county").df()
+    kfct = con.execute("select * from food.kfct_foods").df()
+    pop = census_population(con)
+    if pop.empty or "population_total" not in pop.columns:
+        return pd.DataFrame()
+    return _fndi_from_frames(napr, kfct, pop)
 
 
 # --------------------------------------------------------------------------
@@ -370,6 +718,80 @@ def soil_nutrition_model(table: pd.DataFrame, outcome: str = "stunting"):
     return smf.ols(f"{outcome} ~ " + " + ".join(feats), data=d).fit(cov_type="HC3")
 
 
+def _ols_report(table: pd.DataFrame, outcome: str, regressors, min_extra: int = 5):
+    """Fit OLS of outcome on whichever regressors are present, with HC3 robust
+    standard errors. Returns (fitted_model, used_regressors) or (None, [])."""
+    try:
+        import statsmodels.formula.api as smf
+    except Exception:  # noqa: BLE001
+        return None, []
+    if outcome not in table.columns:
+        return None, []
+    used = [r for r in regressors if r in table.columns]
+    if not used:
+        return None, []
+    d = table[[outcome] + used].replace([np.inf, -np.inf], np.nan).dropna()
+    if len(d) < len(used) + min_extra:
+        return None, []
+    model = smf.ols(f"{outcome} ~ " + " + ".join(used), data=d).fit(cov_type="HC3")
+    return model, used
+
+
+def stage1_food_density_model(table: pd.DataFrame):
+    """Stage 1 of the pathway: county food nutrient density on the soil index and
+    land / climate controls. The soil index now carries the iSDA micronutrients,
+    so this is the first specification in which the soil-to-food link uses P, K,
+    Zn and Fe. Associational (HC3 errors); identified between counties because
+    soil is time-invariant. Returns (model, used_regressors)."""
+    return _ols_report(
+        table, "food_nutrient_density_index",
+        ["soil_index", "ag_land_share", "farming_hh_share",
+         "cropland_per_farming_hh_ha", "crop_diversity_shannon",
+         "rain_mm_mean", "drought_freq"])
+
+
+def stage2_nutrition_model(table: pd.DataFrame, outcome: str = "stunting"):
+    """Stage 2 of the pathway: child nutrition on food nutrient density and the
+    soil index, controlling for wealth, maternal education and water and
+    sanitation. This replaces the price-limited model (which ran on 14 counties)
+    and estimates at full county coverage, since the food density index and the
+    KDHS controls exist for all 47 counties. Associational, HC3 errors; read as a
+    conditional gradient, not an effect. Returns (model, used_regressors)."""
+    return _ols_report(
+        table, outcome,
+        ["food_nutrient_density_index", "soil_index", "wealth_factor_mean",
+         "edu_years_mean", "improved_water_share", "improved_sanitation_share",
+         "diarrhea_share", "rain_mm_mean"])
+
+
+def stage4_policy_response_model(table: pd.DataFrame):
+    """Stage 4: does county policy intensity respond to nutrient need, or to
+    agricultural potential? Regress the Policy Signal Index on the body, food and
+    soil nutrient gaps, controlling for maize production potential and population
+    density. Because the fertilizer rollout was maize-belt-first, a signal that
+    loads on potential rather than on the need gaps is itself the policy finding:
+    effort tracked where production could rise, not where nutrient gaps were
+    widest. Associational, HC3 errors. Returns (model, used_regressors)."""
+    return _ols_report(
+        table, "policy_signal_index",
+        ["gap_body_stunting", "gap_food_density", "gap_soil",
+         "maize_production_per_capita_kg", "maize_yield_t_ha", "density"])
+
+
+def stage5_persistence_model(table: pd.DataFrame):
+    """Stage 5 substitute, the closest dynamic the data allows: 2022 stunting on
+    its 2014 level (the lagged outcome) plus the soil index, food nutrient density
+    and body-vector controls. The coefficient on stunting_2014 is the persistence
+    term; the soil and food coefficients are the conditional gradient net of the
+    2014 baseline. A full panel VAR is not feasible (soil is time-invariant and
+    only two body time points exist), so this lagged-outcome model is the honest
+    stand-in. Associational, HC3 errors. Returns (model, used_regressors)."""
+    return _ols_report(
+        table, "stunting",
+        ["stunting_2014", "food_nutrient_density_index", "soil_index",
+         "wealth_factor_mean", "edu_years_mean", "improved_water_share"])
+
+
 def kdhs_vs_actionplan(table: pd.DataFrame) -> pd.DataFrame:
     """Validate the survey aggregates against the four county stunting figures the
     Action Plan names (Kilifi, West Pokot, Samburu, Kisumu): KDHS estimate, Plan
@@ -399,7 +821,8 @@ def soil_typology(table: pd.DataFrame, k_range=range(3, 8), seed: int = 42):
     from sklearn.metrics import silhouette_score
     from sklearn.preprocessing import StandardScaler
 
-    feats = [p for p in SOILGRIDS if p in table.columns]
+    feats = [p for p in list(SOILGRIDS) + ["p_isda", "k_isda", "zn_isda", "fe_isda"]
+             if p in table.columns]
     X = table[feats].dropna()
     if len(X) < max(k_range) + 1:
         return table.assign(soil_zone=np.nan), None, feats

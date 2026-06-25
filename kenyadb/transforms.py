@@ -16,6 +16,7 @@ import re
 from pathlib import Path
 
 import pandas as pd
+import numpy as np
 import yaml
 
 from .crosswalk import COUNTIES, norm
@@ -372,6 +373,200 @@ def soilgrids_zonal(base: Path) -> Path | None:
     return out
 
 
+# --- soil: AfSIS soil-chemistry points -> county micronutrient means ---------
+# SoilGrids supplies macro-properties (SOC, N, pH, CEC, texture) but not the
+# extractable micronutrients central to the soil-food-body pathway. AfSIS wet
+# chemistry provides P, K, Zn, Fe (and others) as georeferenced points, which
+# this transform averages to county level by a point-in-polygon spatial join.
+_AFSIS_TARGETS = {
+    "P":  ["p", "phosphorus", "mehlichp", "m3p", "pppm", "extractablep"],
+    "K":  ["k", "potassium", "mehlichk", "m3k", "kppm"],
+    "Zn": ["zn", "zinc"],
+    "Fe": ["fe", "iron"],
+    "Ca": ["ca", "calcium"],
+    "Mg": ["mg", "magnesium"],
+    "S":  ["s", "sulphur", "sulfur"],
+    "Cu": ["cu", "copper"],
+    "Mn": ["mn", "manganese"],
+    "B":  ["b", "boron"],
+}
+_AFSIS_LAT = ["lat", "latitude", "ycoord", "gpslat", "ylat", "y"]
+_AFSIS_LON = ["lon", "long", "longitude", "xcoord", "gpslon", "xlon", "x"]
+
+
+def _afsis_clean(c) -> str:
+    return re.sub(r"[^0-9a-z]+", "", str(c).lower())
+
+
+def _afsis_coord(cols, aliases):
+    cl = {_afsis_clean(c): c for c in cols}
+    for a in aliases:
+        if a in cl:
+            return cl[a]
+    for cc, orig in cl.items():
+        if any(cc.endswith(a) for a in aliases):
+            return orig
+    return None
+
+
+def afsis_county_chem(base: Path) -> Path | None:
+    """County mean of AfSIS extractable nutrients (P, K, Zn, Fe and others) by a
+    point-in-polygon join to the same county boundaries the soil raster layer
+    uses. Coordinate and nutrient columns are auto-detected so the transform
+    tolerates the differing AfSIS layouts. Skips cleanly without geopandas."""
+    csvs = sorted((base / "data" / "raw" / "afsis_chem").rglob("*.csv"))
+    if not csvs:
+        return None
+    try:
+        import geopandas as gpd  # type: ignore
+        from .crosswalk import find_admin_layers
+    except Exception as exc:  # noqa: BLE001
+        print(f"[transform] afsis_county_chem skipped: {exc} (install geopandas)")
+        return None
+
+    layers = find_admin_layers(base / "data" / "raw")
+    adm = layers.get("adm1") or layers.get("adm2")
+    if not adm:
+        print("[transform] afsis_county_chem: no county boundary layer detected under "
+              "data/raw/cod_ab (need ~47 features)")
+        return None
+    counties = (gpd.read_file(adm["path"], layer=adm["layer"]) if adm["layer"]
+                else gpd.read_file(adm["path"])).to_crs("EPSG:4326")
+    name_col = adm["adm1_name"] or next(
+        (c for c in counties.columns if "name" in c.lower() or "county" in c.lower()), None)
+    if name_col is None:
+        print("[transform] afsis_county_chem: county name column not found")
+        return None
+
+    frames = []
+    for f in csvs:
+        try:
+            frames.append(pd.read_csv(f))
+        except Exception:  # noqa: BLE001
+            continue
+    if not frames:
+        return None
+    pts = pd.concat(frames, ignore_index=True, sort=False)
+
+    latc = _afsis_coord(pts.columns, _AFSIS_LAT)
+    lonc = _afsis_coord(pts.columns, _AFSIS_LON)
+    if not latc or not lonc:
+        print(f"[transform] afsis_county_chem: latitude/longitude columns not found "
+              f"(lat={latc}, lon={lonc}); rename or add coordinate columns")
+        return None
+
+    cl = {_afsis_clean(c): c for c in pts.columns}
+    colmap = {}
+    for canon, aliases in _AFSIS_TARGETS.items():
+        for a in aliases:
+            if a in cl:
+                colmap[canon] = cl[a]
+                break
+    if not colmap:
+        print("[transform] afsis_county_chem: no recognised nutrient columns "
+              "(looked for P, K, Zn, Fe, Ca, Mg, S, Cu, Mn, B)")
+        return None
+
+    keep = pts[[latc, lonc, *colmap.values()]].copy()
+    for canon, src in colmap.items():
+        keep[f"{canon.lower()}_afsis"] = pd.to_numeric(keep[src], errors="coerce")
+    keep[latc] = pd.to_numeric(keep[latc], errors="coerce")
+    keep[lonc] = pd.to_numeric(keep[lonc], errors="coerce")
+    keep = keep.dropna(subset=[latc, lonc])
+    keep = keep[keep[latc].between(-90, 90) & keep[lonc].between(-180, 180)]
+    if keep.empty:
+        print("[transform] afsis_county_chem: no valid coordinates after cleaning")
+        return None
+
+    gpts = gpd.GeoDataFrame(keep, geometry=gpd.points_from_xy(keep[lonc], keep[latc]),
+                            crs="EPSG:4326")
+    joined = gpd.sjoin(gpts, counties[[name_col, "geometry"]], how="inner", predicate="within")
+    if joined.empty:
+        print("[transform] afsis_county_chem: no AfSIS points fell within Kenya county polygons")
+        return None
+
+    nutr = [f"{c.lower()}_afsis" for c in colmap]
+    agg = joined.groupby(name_col)[nutr].mean()
+    cnt = joined.groupby(name_col).size().rename("n_afsis_points")
+    result = agg.join(cnt).reset_index().rename(columns={name_col: "county_name"})
+    result["county_norm"] = result["county_name"].map(norm)
+    result = result[["county_name", "county_norm", "n_afsis_points", *nutr]]
+    out = _out(base, "soil", "afsis_county")
+    result.round(4).to_csv(out, index=False)
+    print(f"[transform] soil.afsis_county ({len(result)} counties, {len(nutr)} nutrients "
+          f"[{', '.join(colmap)}], {int(cnt.sum())} points) -> {out.name}")
+    return out
+
+
+# --- soil: iSDAsoil gridded nutrients -> county means ------------------------
+# iSDAsoil provides continent-wide gridded predictions of extractable P, K, Zn,
+# Fe (and more), which fills the micronutrient gap SoilGrids leaves and the
+# sparse, sentinel-site coverage of the AfSIS points. The Kenya rasters are
+# produced by tools/download_isda_gee.py (back-transformed to natural units and
+# blended to 0-30 cm); this transform averages them to county.
+_ISDA_RENAME = {
+    "phosphorus_extractable": "p_isda", "potassium_extractable": "k_isda",
+    "zinc_extractable": "zn_isda", "iron_extractable": "fe_isda",
+    "calcium_extractable": "ca_isda", "magnesium_extractable": "mg_isda",
+    "sulphur_extractable": "s_isda", "nitrogen_total": "n_isda",
+    "carbon_organic": "soc_isda", "ph": "ph_isda",
+}
+
+
+def _isda_colname(stem: str) -> str:
+    s = stem.lower()
+    if s.startswith("isda_"):
+        s = s[5:]
+    if s in _ISDA_RENAME:
+        return _ISDA_RENAME[s]
+    s = re.sub(r"[^0-9a-z]+", "_", s).strip("_")
+    return s if s.endswith("isda") else s + "_isda"
+
+
+def isda_county(base: Path) -> Path | None:
+    """County means of iSDAsoil gridded nutrients by zonal statistics over the
+    county boundaries. Reads data/raw/isda/*.tif (natural units, 0-30 cm).
+    Skips cleanly without geopandas / rasterstats."""
+    tifs = sorted((base / "data" / "raw" / "isda").glob("*.tif"))
+    if not tifs:
+        return None
+    try:
+        import geopandas as gpd  # type: ignore
+        from rasterstats import zonal_stats  # type: ignore
+        from .crosswalk import find_admin_layers
+    except Exception as exc:  # noqa: BLE001
+        print(f"[transform] soil.isda_county skipped: {exc} (install geopandas/rasterstats)")
+        return None
+
+    layers = find_admin_layers(base / "data" / "raw")
+    adm = layers.get("adm1") or layers.get("adm2")
+    if not adm:
+        print("[transform] soil.isda_county: no county boundary layer detected under data/raw/cod_ab")
+        return None
+    counties = (gpd.read_file(adm["path"], layer=adm["layer"]) if adm["layer"]
+                else gpd.read_file(adm["path"])).to_crs("EPSG:4326")
+    name_col = adm["adm1_name"] or next(
+        (c for c in counties.columns if "name" in c.lower() or "county" in c.lower()), None)
+    if name_col is None:
+        print("[transform] soil.isda_county: county name column not found")
+        return None
+
+    out_df = pd.DataFrame({"county_name": counties[name_col].values})
+    props = []
+    for tif in tifs:
+        col = _isda_colname(tif.stem)
+        out_df[col] = [s["mean"] for s in zonal_stats(counties, str(tif), stats=["mean"])]
+        props.append(col)
+    out_df["county_norm"] = out_df["county_name"].map(norm)
+    lead = ["county_name", "county_norm"]
+    out_df = out_df[lead + [c for c in out_df.columns if c not in lead]]
+    out = _out(base, "soil", "isda_county")
+    out_df.round(4).to_csv(out, index=False)
+    print(f"[transform] soil.isda_county ({len(out_df)} counties, {len(props)} properties "
+          f"[{', '.join(props)}]) -> {out.name}")
+    return out
+
+
 def _present(raw: Path, source: str, patterns: list[str]) -> bool:
     d = raw / source
     if not d.exists():
@@ -398,12 +593,12 @@ _COUNTY_CANDIDATES = ["v024", "shcounty", "scounty", "county", "hv024", "sdistri
 _Z_VALID = 600  # |z*100| plausible bound; DHS flags use >= 9990
 
 
-def _kdhs_files(base: Path):
-    """Return the list of DHS Stata recodes under data/external/kdhs_2022/ or
-    data/raw/kdhs_2022/ (case-insensitive .dta)."""
+def _kdhs_files(base: Path, subdir: str = "kdhs_2022"):
+    """Return the list of DHS Stata recodes under data/external/<subdir>/ or
+    data/raw/<subdir>/ (case-insensitive .dta), searching subfolders."""
     found = []
     for parent in ("external", "raw"):
-        d = base / "data" / parent / "kdhs_2022"
+        d = base / "data" / parent / subdir
         if d.exists():
             found += [p for p in d.rglob("*") if p.suffix.lower() == ".dta"]
     return sorted(set(found))
@@ -434,7 +629,8 @@ def _weighted_prevalence(df, flag_col: str, weight_col: str) -> "pd.Series":
     return (100.0 * num / den).rename(flag_col)
 
 
-def kdhs_county(base: Path, vars: dict | None = None) -> Path | None:
+def kdhs_county(base: Path, vars: dict | None = None, subdir: str = "kdhs_2022",
+                out_name: str = "kdhs_county") -> Path | None:
     """Survey-weighted county estimates from the KDHS 2022 recodes.
 
     Reads the children's recode (KR) for anthropometry (stunting, wasting,
@@ -448,7 +644,7 @@ def kdhs_county(base: Path, vars: dict | None = None) -> Path | None:
     This is the county nutrition core for the soil-to-nutrition analysis; the
     four county stunting points from the Action Plan are an external check on it.
     """
-    files = _kdhs_files(base)
+    files = _kdhs_files(base, subdir)
     if not files:
         return None
     try:
@@ -525,8 +721,9 @@ def kdhs_county(base: Path, vars: dict | None = None) -> Path | None:
               f"({int(n.sum())} records)")
 
     # --- child anaemia fallback: the PR recode (hc57) when KR hw57 is empty --
-    # The 2022 KDHS biomarker module is anthropometry only (no haemoglobin), so
-    # this normally finds nothing; it stays in place for surveys that do measure it.
+    # Neither the 2022 nor the 2014 Kenya DHS measured child haemoglobin (anaemia
+    # was carried by the Malaria Indicator Surveys instead), so this normally finds
+    # nothing here; it stays in place for any round that does measure it.
     if not child_anaemia_done:
         pr, pr_name = load([V["child_anaemia_pr"]], prefer="pr", weight_var=V["weight_hh"])
         if pr is not None:
@@ -555,8 +752,8 @@ def kdhs_county(base: Path, vars: dict | None = None) -> Path | None:
                   f"({int(nw.sum())} tested)")
 
     if not (child_anaemia_done or women_anaemia_done):
-        print("[transform] health.kdhs_county: no haemoglobin/anaemia data present "
-              "(the 2022 KDHS biomarker module is anthropometry only); "
+        print(f"[transform] health.{out_name}: no haemoglobin/anaemia data present "
+              "in these recodes (this round did not include the biomarker module); "
               "reporting stunting, wasting and underweight")
 
     if not parts:
@@ -581,10 +778,278 @@ def kdhs_county(base: Path, vars: dict | None = None) -> Path | None:
     rest = [c for c in out_df.columns if c not in lead + ["county_norm"]]
     out_df = out_df[lead + rest].sort_values("county_name")
 
-    out = _out(base, "health", "kdhs_county")
+    out = _out(base, "health", out_name)
     out_df.to_csv(out, index=False)
     cov = ", ".join(f"{c} {int(out_df[c].notna().sum())}/{len(out_df)}" for c in pct)
-    print(f"[transform] health.kdhs_county ({len(out_df)} counties; coverage: {cov}) -> {out.name}")
+    print(f"[transform] health.{out_name} ({len(out_df)} counties; coverage: {cov}) -> {out.name}")
+    return out
+
+
+# --- health: KDHS 2022 child dietary diversity and food-to-body controls -----
+# Minimum Dietary Diversity (MDD-IYCF, WHO 2021): a child 6-23 months consumed
+# foods from at least five of eight groups in the last 24 hours. The constituent
+# DHS children-recode food variables (coded 1 = yes) map to the groups below; a
+# group counts if any of its present variables is 1. Also extracts the standard
+# food-to-body controls (wealth, maternal education, water and sanitation) that
+# the empirical strategy requires for the food-to-body stage.
+_MDD_GROUPS = {
+    "breastmilk":      ["v404"],                       # currently breastfeeding
+    "grains_roots":    ["v414e", "v414f", "v412a"],    # grains; white roots/tubers
+    "legumes_nuts":    ["v414o"],                       # beans, peas, lentils, nuts
+    "dairy":           ["v411", "v411a", "v414p"],     # milk, formula, cheese/yogurt
+    "flesh_foods":     ["v414h", "v414m", "v414n"],    # meat, fish, organ meats
+    "eggs":            ["v414g"],                       # eggs
+    "vita_fruit_veg":  ["v414i", "v414j", "v414k"],    # vitamin-A rich fruit/veg
+    "other_fruit_veg": ["v414l"],                       # other fruit/veg
+}
+_MDD_FOODVARS = sorted({v for vs in _MDD_GROUPS.values() for v in vs} | {"m4"})
+_CONTROL_VARS = ["v190", "v191", "v106", "v133", "v113", "v116", "v025", "h11", "h33"]
+_AGE_VARS = ["b19", "hw1", "v008", "b3"]
+# Standard DHS / JMP improved classifications (adjustable).
+_IMPROVED_WATER = {11, 12, 13, 14, 21, 31, 41, 51, 71, 72, 91, 92}
+_IMPROVED_SAN = {11, 12, 13, 14, 15, 21, 22, 41}
+
+
+def _weighted_mean(df, col: str, weight_col: str) -> "pd.Series":
+    """Per-county weighted mean of a numeric column over valid rows."""
+    valid = df.loc[df[col].notna(), ["county_norm", weight_col, col]].copy()
+    valid[col] = valid[col].astype(float)
+    num = (valid[weight_col] * valid[col]).groupby(valid["county_norm"]).sum()
+    den = valid[weight_col].groupby(valid["county_norm"]).sum()
+    return (num / den).rename(col)
+
+
+def _child_age_months(df, cols: set):
+    """Child age in months from b19, else hw1, else v008 - b3."""
+    if "b19" in cols:
+        return pd.to_numeric(df["b19"], errors="coerce")
+    if "hw1" in cols:
+        return pd.to_numeric(df["hw1"], errors="coerce")
+    if {"v008", "b3"} <= cols:
+        return pd.to_numeric(df["v008"], errors="coerce") - pd.to_numeric(df["b3"], errors="coerce")
+    return pd.Series(np.nan, index=df.index)
+
+
+def _diet_controls_perchild(df, cols: set):
+    """Add per-child MDD and control columns; return (df, measurable_groups,
+    indicator_names). MDD is set only for children 6-23 months."""
+    # --- MDD-IYCF over eight food groups -----------------------------------
+    measurable = []
+    group_flags = []
+    for gname, gvars in _MDD_GROUPS.items():
+        present = [v for v in gvars if v in cols]
+        if gname == "breastmilk" and "v404" not in cols and "m4" in cols:
+            df["_g_breastmilk"] = (pd.to_numeric(df["m4"], errors="coerce") == 95).astype(float)
+            group_flags.append("_g_breastmilk")
+            measurable.append(gname)
+            continue
+        if not present:
+            continue
+        consumed = None
+        for v in present:
+            yes = (pd.to_numeric(df[v], errors="coerce") == 1)
+            consumed = yes if consumed is None else (consumed | yes)
+        df[f"_g_{gname}"] = consumed.astype(float)
+        group_flags.append(f"_g_{gname}")
+        measurable.append(gname)
+
+    indicators = []
+    if len(measurable) >= 5:   # only meaningful if most groups are observed
+        age = _child_age_months(df, cols)
+        ngroups = df[group_flags].sum(axis=1)
+        in_window = age.between(6, 23)
+        df["mdd"] = ((ngroups >= 5).astype(float)).where(in_window)
+        indicators.append("mdd")
+
+    # --- food-to-body controls --------------------------------------------
+    if "v191" in cols:
+        df["wealth_factor_mean"] = pd.to_numeric(df["v191"], errors="coerce") / 100000.0
+        indicators.append("wealth_factor_mean")
+    if "v190" in cols:
+        q = pd.to_numeric(df["v190"], errors="coerce")
+        df["poorest2_share"] = q.isin([1, 2]).astype(float).where(q.notna())
+        indicators.append("poorest2_share")
+    if "v133" in cols:
+        df["edu_years_mean"] = pd.to_numeric(df["v133"], errors="coerce")
+        indicators.append("edu_years_mean")
+    if "v106" in cols:
+        e = pd.to_numeric(df["v106"], errors="coerce")
+        df["no_education_share"] = (e == 0).astype(float).where(e.notna() & (e < 8))
+        df["secondary_plus_share"] = (e >= 2).astype(float).where(e.notna() & (e < 8))
+        indicators += ["no_education_share", "secondary_plus_share"]
+    if "v113" in cols:
+        w = pd.to_numeric(df["v113"], errors="coerce")
+        df["improved_water_share"] = w.isin(_IMPROVED_WATER).astype(float).where(w.notna() & (w < 96))
+        indicators.append("improved_water_share")
+    if "v116" in cols:
+        s = pd.to_numeric(df["v116"], errors="coerce")
+        df["improved_sanitation_share"] = s.isin(_IMPROVED_SAN).astype(float).where(s.notna() & (s < 96))
+        indicators.append("improved_sanitation_share")
+    if "v025" in cols:
+        u = pd.to_numeric(df["v025"], errors="coerce")
+        df["urban_share"] = (u == 1).astype(float).where(u.notna())
+        indicators.append("urban_share")
+    # --- disease burden and health-programme controls (children) -----------
+    # h11: child had diarrhoea recently (absorption-related control, prompt 6.99);
+    # h33: child received a vitamin A supplement (health/programme proxy, 6.97).
+    if "h11" in cols:
+        di = pd.to_numeric(df["h11"], errors="coerce")
+        df["diarrhea_share"] = di.isin([1, 2]).astype(float).where(di.notna() & (di < 8))
+        indicators.append("diarrhea_share")
+    if "h33" in cols:
+        va = pd.to_numeric(df["h33"], errors="coerce")
+        df["vit_a_supp_share"] = va.isin([1, 2, 3]).astype(float).where(va.notna() & (va != 8))
+        indicators.append("vit_a_supp_share")
+    return df, measurable, indicators
+
+
+def _kdhs_maternal_bmi(base, files, V, county_norms):
+    """County maternal BMI (v445/100), thinness (BMI < 18.5) and overweight
+    (BMI >= 25) shares from the women's (IR) recode, survey-weighted by v005.
+    Returns a frame indexed by county_norm, or None when no IR recode carrying
+    v445 is found. Self-contained and called inside a guard, so any failure
+    leaves the rest of the controls table intact."""
+    try:
+        import pyreadstat
+    except Exception:  # noqa: BLE001
+        return None
+    for f in sorted(files, key=lambda x: 0 if "ir" in str(x).lower() else 1):
+        try:
+            _, meta = pyreadstat.read_dta(str(f), metadataonly=True)
+        except Exception:  # noqa: BLE001
+            continue
+        cols = set(meta.column_names)
+        if "v445" not in cols or "v005" not in cols:
+            continue
+        ccol = _pick_county_col(meta, cols, county_norms)
+        if ccol is None:
+            continue
+        df, meta = pyreadstat.read_dta(str(f), usecols=["v445", "v005", ccol])
+        labels = (meta.variable_value_labels or {}).get(ccol, {})
+        df["county_norm"] = df[ccol].map(labels).map(lambda x: norm(x) if isinstance(x, str) else "")
+        df["w"] = df["v005"] / 1_000_000.0
+        bmi = pd.to_numeric(df["v445"], errors="coerce")
+        valid = bmi < 9000          # 9996/9998/9999 are DHS missing flags
+        df["maternal_bmi"] = (bmi / 100.0).where(valid)
+        df["maternal_thinness_share"] = (bmi < 1850).astype(float).where(valid)
+        df["maternal_overweight_share"] = (bmi >= 2500).astype(float).where(valid)
+        if not df["maternal_bmi"].notna().any():
+            return None
+        g = pd.concat([
+            _weighted_mean(df, "maternal_bmi", "w").rename("maternal_bmi_mean"),
+            _weighted_prevalence(df, "maternal_thinness_share", "w"),
+            _weighted_prevalence(df, "maternal_overweight_share", "w"),
+        ], axis=1)
+        print(f"[transform] health.kdhs_controls_county: maternal BMI from {f.name}")
+        return g
+    return None
+
+
+def kdhs_diet_controls(base: Path, vars: dict | None = None, subdir: str = "kdhs_2022",
+                       out_name: str = "kdhs_controls_county") -> Path | None:
+    """Survey-weighted county minimum dietary diversity (MDD-IYCF) and the
+    food-to-body controls (wealth, maternal education, water and sanitation)
+    from the KDHS 2022 children's recode. Writes health.kdhs_controls_county.
+
+    Skips cleanly (returns None) when the recodes or pyreadstat are absent."""
+    files = _kdhs_files(base, subdir)
+    if not files:
+        return None
+    try:
+        import pyreadstat
+    except ImportError:
+        print("[transform] health.kdhs_controls_county: pyreadstat not installed")
+        return None
+
+    V = {**_KDHS_VARS, **(vars or {})}
+    xwalk = _crosswalk(base)
+    if xwalk is None:
+        print("[transform] health.kdhs_controls_county: crosswalk missing - run the build first")
+        return None
+    county_norms = set(xwalk["county_norm"]) - {""}
+    want = _MDD_FOODVARS + _CONTROL_VARS + _AGE_VARS
+
+    # Find the children's recode: the one carrying the food-diversity variables.
+    ordered = sorted(files, key=lambda f: 0 if "kr" in str(f).lower() else 1)
+    kr = kr_name = present = None
+    for f in ordered:
+        try:
+            _, meta = pyreadstat.read_dta(str(f), metadataonly=True)
+        except Exception:  # noqa: BLE001
+            continue
+        cols = set(meta.column_names)
+        if V["weight"] not in cols:
+            continue
+        food_present = [v for v in _MDD_FOODVARS if v in cols]
+        if len(food_present) < 6:   # not the diet recode
+            continue
+        ccol = _pick_county_col(meta, cols, county_norms)
+        if ccol is None:
+            continue
+        usecols = list(dict.fromkeys(
+            [V["weight"], ccol, *[v for v in want if v in cols]]))
+        df, meta = pyreadstat.read_dta(str(f), usecols=usecols)
+        labels = (meta.variable_value_labels or {}).get(ccol, {})
+        df["county_norm"] = df[ccol].map(labels).map(lambda x: norm(x) if isinstance(x, str) else "")
+        df["w"] = df[V["weight"]] / 1_000_000.0
+        kr, kr_name, present = df, f.name, cols
+        break
+
+    if kr is None:
+        print("[transform] health.kdhs_controls_county: no recode with the dietary "
+              "variables found (expected the children's KR recode)")
+        return None
+
+    kr, measurable, indicators = _diet_controls_perchild(kr, present)
+    if not indicators:
+        print("[transform] health.kdhs_controls_county: no MDD or control variables present")
+        return None
+
+    parts = []
+    if "mdd" in indicators:
+        n6 = (kr.loc[kr["mdd"].notna()].groupby("county_norm").size().rename("n_children_6_23"))
+        parts += [n6, _weighted_prevalence(kr, "mdd", "w")]
+    share_pct = ["poorest2_share", "no_education_share", "secondary_plus_share",
+                 "improved_water_share", "improved_sanitation_share", "urban_share",
+                 "diarrhea_share", "vit_a_supp_share"]
+    for ind in indicators:
+        if ind == "mdd":
+            continue
+        if ind in share_pct:
+            parts.append(_weighted_prevalence(kr, ind, "w"))
+        else:
+            parts.append(_weighted_mean(kr, ind, "w"))
+
+    out_df = pd.concat(parts, axis=1).reset_index()
+    out_df = out_df[out_df["county_norm"].isin(county_norms)]
+    # maternal BMI from the women's recode (body-nutrient vector); guarded so a
+    # failure here never drops the dietary-diversity and control columns above.
+    try:
+        bmi = _kdhs_maternal_bmi(base, files, V, county_norms)
+        if bmi is not None and not bmi.empty:
+            out_df = out_df.merge(bmi.reset_index(), on="county_norm", how="left")
+    except Exception as exc:  # noqa: BLE001
+        print(f"[transform] health.kdhs_controls_county: maternal BMI skipped: {exc}")
+    cmap = (xwalk.drop_duplicates("county_norm")
+            .set_index("county_norm")[["county_code", "county_name"]])
+    out_df = out_df.join(cmap, on="county_norm")
+    round1 = [c for c in ("mdd", *share_pct) if c in out_df.columns]
+    out_df[round1] = out_df[round1].round(1)
+    for c in ("wealth_factor_mean", "edu_years_mean"):
+        if c in out_df.columns:
+            out_df[c] = out_df[c].round(3)
+    for c in ("maternal_bmi_mean", "maternal_thinness_share", "maternal_overweight_share"):
+        if c in out_df.columns:
+            out_df[c] = out_df[c].round(1)
+    lead = [c for c in ("county_code", "county_name") if c in out_df.columns]
+    rest = [c for c in out_df.columns if c not in lead + ["county_norm"]]
+    out_df = out_df[lead + rest].sort_values("county_name")
+
+    out = _out(base, "health", out_name)
+    out_df.to_csv(out, index=False)
+    print(f"[transform] health.{out_name} ({len(out_df)} counties; "
+          f"MDD groups measurable {len(measurable)}/8; indicators: "
+          f"{', '.join(indicators)}) -> {out.name}")
     return out
 
 
@@ -602,6 +1067,8 @@ def run_all(base: Path) -> None:
         ("health.wb_hnp_panel", "wb_hnp", ["*.json"], wb_hnp_panel),
         ("food.faostat_kenya", "faostat", ["*_normalized.zip"], faostat_kenya),
         ("soil.soilgrids_zonal_county", "soilgrids", ["*.tif"], soilgrids_zonal),
+        ("soil.afsis_county", "afsis_chem", ["*.csv"], afsis_county_chem),
+        ("soil.isda_county", "isda", ["*.tif"], isda_county),
     ]
     for label, source, patterns, fn in checks:
         if _present(raw, source, patterns):
@@ -642,6 +1109,24 @@ def run_all(base: Path) -> None:
                       "rows (check recode variables / pyreadstat)")
         except Exception as exc:  # noqa: BLE001
             print(f"[transform] health.kdhs_county: error {type(exc).__name__}: {exc}")
+        try:
+            if kdhs_diet_controls(base) is None:
+                print("[transform] health.kdhs_controls_county: recodes present but "
+                      "produced no rows (check dietary / control variables)")
+        except Exception as exc:  # noqa: BLE001
+            print(f"[transform] health.kdhs_controls_county: error {type(exc).__name__}: {exc}")
+    # KDHS 2014 (phase 72): a second time point. The 2014 biomarker module
+    # carries haemoglobin, so this round also yields child and women anaemia,
+    # which the 2022 round omits, and gives a 2014-to-2022 trend for stunting.
+    if _kdhs_files(base, "kdhs_2014"):
+        try:
+            kdhs_county(base, subdir="kdhs_2014", out_name="kdhs_county_2014")
+        except Exception as exc:  # noqa: BLE001
+            print(f"[transform] health.kdhs_county_2014: error {type(exc).__name__}: {exc}")
+        try:
+            kdhs_diet_controls(base, subdir="kdhs_2014", out_name="kdhs_controls_county_2014")
+        except Exception as exc:  # noqa: BLE001
+            print(f"[transform] health.kdhs_controls_county_2014: error {type(exc).__name__}: {exc}")
     else:
         print("[transform] health.kdhs_county: SKIP - no .dta recodes in "
               "data/external/kdhs_2022/ (manual gate - see MANUAL_DATASETS.md)")

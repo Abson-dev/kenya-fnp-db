@@ -14,6 +14,13 @@ rasterstats>=0.19
 shapely>=2.0
 pyproj>=3.6
 
+# remote sensing (optional): Google Earth Engine access for the CHIRPS rainfall,
+# MODIS NDVI / drought and iSDAsoil micronutrient layers. Needed only to FETCH
+# these rasters with the tools/ GEE scripts; not required once the rasters are on
+# disk and the zonal-stats transforms run. Requires a one-time
+# `earthengine authenticate` and a Cloud project (see tools/README.md).
+earthengine-api>=1.0   # tools/download_remote_sensing_gee.py, tools/download_isda_gee.py
+
 # optional helpers used by individual handlers / transforms
 # rdhs is R-only; KDHS automation happens in R (see MANUAL_DATASETS.md)
 openpyxl>=3.1          # read KNBS / KilimoSTAT spreadsheets
@@ -24,3 +31,4 @@ tabula-py>=2.9         # alternative PDF table extraction (needs Java)
 matplotlib>=3.7
 scikit-learn>=1.3
 statsmodels>=0.14
+pyreadstat>=1.2  # optional: read DHS Stata recodes for the kdhs_county transform

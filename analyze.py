@@ -15,7 +15,9 @@ Outputs (analysis/outputs/):
   kdhs_vs_actionplan_stunting.csv survey stunting vs the four Action Plan figures
   soil_price_model.txt          exploratory price ~ soil regression
   soil_yield_model.txt          exploratory maize-yield ~ soil regression
-  soil_nutrition_model.txt      exploratory stunting ~ soil (+ price, yield) regression
+  soil_nutrition_model.txt      legacy soil-only stunting regression (price-limited)
+  stage1_food_density_model.txt Stage 1: food nutrient density ~ soil index + controls (n up to 47)
+  stage2_nutrition_model.txt    Stage 2: stunting ~ food density + soil index + wealth/education/WASH (n=47)
   map_*.png                     choropleths (soil, prices, yield, land use, density,
                                 stunting, anaemia, zones)
   METHODS.md                    short methods note for the manuscript
@@ -25,7 +27,10 @@ Author: Aboubacar HEMA
 from __future__ import annotations
 
 import argparse
+import os
 from pathlib import Path
+
+os.environ.setdefault("OMP_NUM_THREADS", "1")  # silence the KMeans MKL warning on Windows
 
 from kenyadb import analysis as A
 
@@ -48,6 +53,11 @@ def main() -> None:
     table = A.build_county_table(con)
     table.to_csv(OUT / "county_analytical_table.csv", index=False)
     print(f"  -> {len(table)} counties, {table.shape[1]} columns")
+    if "soil_index" in table.columns:
+        used = [c for c in A.SOIL_INDEX_POS if c in table.columns]
+        micro = [c for c in ("p_isda", "k_isda", "zn_isda", "fe_isda") if c in table.columns]
+        tag = " (incl. iSDA micronutrients)" if micro else ""
+        print(f"  -> soil_index built from {len(used)} properties{tag}: {used}")
 
     print("[analysis] descriptive statistics")
     A.descriptive_stats(table).to_csv(OUT / "table1_descriptives.csv")
@@ -86,6 +96,21 @@ def main() -> None:
               "counties (illustrative external check)")
     elif "stunting_actionplan" not in table.columns:
         print("  -> no policy county nutrition in the database (build the policy layer)")
+    if "policy_signal_index" in table.columns:
+        prio = table.get("fertilizer_priority")
+        if prio is not None:
+            n23 = int((prio >= 1).sum())
+            print(f"  -> policy panel: fertilizer rollout merged ({n23} counties by 2023), "
+                  "Policy Signal Index built")
+        s4, s4u = A.stage4_policy_response_model(table)
+        if s4 is not None:
+            (OUT / "stage4_policy_response_model.txt").write_text(str(s4.summary()), encoding="utf-8")
+            print(f"  -> Stage 4 policy signal on [{', '.join(s4u)}]; n={int(s4.nobs)}, "
+                  f"R2={s4.rsquared:.3f}")
+        else:
+            print("  -> Stage 4 skipped (need the policy signal plus nutrient gaps)")
+    else:
+        print("  -> no policy panel in the database (run: python run_all.py --layer policy)")
 
     print("[analysis] food: crop area, production and yields (NAPR)")
     yields = A.napr_crop_yields(con)
@@ -109,6 +134,16 @@ def main() -> None:
     else:
         print("  -> skipped (need maize yield + soil columns, or statsmodels)")
 
+    print("[analysis] pathway Stage 1: food nutrient density on soil")
+    s1, s1u = A.stage1_food_density_model(table)
+    if s1 is not None:
+        (OUT / "stage1_food_density_model.txt").write_text(str(s1.summary()), encoding="utf-8")
+        print(f"  -> OLS food density on [{', '.join(s1u)}]; n={int(s1.nobs)}, "
+              f"R2={s1.rsquared:.3f}")
+    else:
+        print("  -> skipped (need food_nutrient_density_index + soil_index; "
+              "run the food layer and ensure iSDA/SoilGrids are built)")
+
     print("[analysis] health: KDHS 2022 county nutrition (soil-to-nutrition pathway)")
     nut_cols = [c for c in ("stunting", "wasting", "underweight", "child_anaemia",
                             "women_anaemia") if c in table.columns]
@@ -118,15 +153,37 @@ def main() -> None:
         table[keep].dropna(subset=nut_cols, how="all").to_csv(
             OUT / "kdhs_county_nutrition.csv", index=False)
         print(f"  -> KDHS county nutrition: {', '.join(nut_cols)}")
+        s2, s2u = A.stage2_nutrition_model(table, "stunting")
+        if s2 is not None:
+            (OUT / "stage2_nutrition_model.txt").write_text(str(s2.summary()), encoding="utf-8")
+            print(f"  -> Stage 2 stunting on [{', '.join(s2u)}]; n={int(s2.nobs)}, "
+                  f"R2={s2.rsquared:.3f}")
+        else:
+            print("  -> Stage 2 skipped (need food density + soil index + KDHS controls)")
         nm = A.soil_nutrition_model(table, "stunting")
         if nm is not None:
             (OUT / "soil_nutrition_model.txt").write_text(str(nm.summary()), encoding="utf-8")
-            print(f"  -> OLS stunting on soil (+ price, yield), n={int(nm.nobs)}, "
+            print(f"  -> legacy soil-only model (price-limited), n={int(nm.nobs)}, "
                   f"R2={nm.rsquared:.3f}")
         vac = A.kdhs_vs_actionplan(table)
         if not vac.empty:
             vac.to_csv(OUT / "kdhs_vs_actionplan_stunting.csv", index=False)
             print(f"  -> KDHS vs Action Plan stunting for {len(vac)} named counties")
+        if "stunting_2014" in table.columns:
+            n14 = int(table["stunting_2014"].notna().sum())
+            an = [c for c in ("child_anaemia_2014", "women_anaemia_2014")
+                  if c in table.columns and table[c].notna().any()]
+            print(f"  -> KDHS 2014 merged: stunting_2014 {n14}/47"
+                  + (f"; anaemia from 2014: {', '.join(an)}" if an else ""))
+            if "stunting_change" in table.columns and table["stunting_change"].notna().any():
+                ch = table["stunting_change"].mean()
+                print(f"  -> stunting trend 2014 to 2022: mean change {ch:+.1f} pp "
+                      f"({int((table['stunting_change'] < 0).sum())} counties improved)")
+            s5, s5u = A.stage5_persistence_model(table)
+            if s5 is not None:
+                (OUT / "stage5_persistence_model.txt").write_text(str(s5.summary()), encoding="utf-8")
+                print(f"  -> Stage 5 (lagged outcome) 2022 stunting on [{', '.join(s5u)}]; "
+                      f"n={int(s5.nobs)}, R2={s5.rsquared:.3f}")
     else:
         print("  -> no KDHS county table yet (place the recodes in "
               "data/external/kdhs_2022/ and rebuild)")
@@ -145,9 +202,21 @@ def main() -> None:
                 ("ag_land_share", "Agricultural land as share of county area", "map_ag_land_share.png", "Greens"),
                 ("farming_hh_share", "Farming households as share of all households", "map_farming_hh.png", "Purples"),
                 ("density", "Population density (persons / sq km)", "map_density.png", "PuBu"),
+                ("rain_mm_mean", "Mean annual rainfall (mm), CHIRPS", "map_rainfall.png", "YlGnBu"),
+                ("drought_freq", "Drought frequency (share of years below -1 SD)", "map_drought.png", "OrRd"),
+                ("ndvi_mean", "Mean NDVI (vegetation greenness), MODIS", "map_ndvi.png", "YlGn"),
+                ("ndvi_trend", "NDVI trend (greening +, browning -)", "map_ndvi_trend.png", "RdYlGn"),
                 ("stunting", "Child stunting (%), KDHS 2022", "map_stunting.png", "OrRd"),
                 ("child_anaemia", "Child anaemia (%), KDHS 2022", "map_child_anaemia.png", "Reds"),
+                ("child_anaemia_2014", "Child anaemia (%), KDHS 2014", "map_child_anaemia_2014.png", "Reds"),
+                ("stunting_change", "Stunting change 2014 to 2022 (pp)", "map_stunting_change.png", "RdYlGn_r"),
+                ("soil_index", "Composite soil-health index (z-score)", "map_soil_index.png", "YlGn"),
+                ("zn_isda", "Extractable zinc (iSDA), 0-30 cm", "map_zinc.png", "YlGnBu"),
+                ("food_nutrient_density_index", "Food Nutrient Density Index (z-score)", "map_food_density.png", "BuGn"),
+                ("mdd", "Minimum dietary diversity, 6-23 mo (%)", "map_mdd.png", "PuBuGn"),
                 ("soil_zone", "Soil-health zone", "map_soil_zone.png", "Set2"),
+                ("policy_signal_index", "Policy Signal Index (z-score)", "map_policy_signal.png", "BuPu"),
+                ("fertilizer_priority", "Fertilizer subsidy rollout priority", "map_fertilizer.png", "Greens"),
             ]
             src = typed if "soil_zone" in typed.columns else table
             for col, title, fn, cmap in specs:
@@ -180,7 +249,12 @@ def _write_methods(path: Path, table, meta) -> None:
         "coverages. The 0-5, 5-15 and 15-30 cm layers are combined into a "
         "thickness-weighted 0-30 cm topsoil value and converted from SoilGrids "
         "mapped units to conventional units (for example pH, organic carbon in "
-        "g/kg, cation exchange capacity in cmol(c)/kg).\n\n"
+        "g/kg, cation exchange capacity in cmol(c)/kg). Extractable micronutrients "
+        "(phosphorus, potassium, zinc, iron) are added from iSDAsoil, a continental "
+        "gridded prediction, by the same county zonal-statistics method, and a "
+        "composite soil-health index is formed as the z-score average across "
+        "counties of the fertility-positive properties (organic carbon, nitrogen, "
+        "cation exchange capacity and the iSDA micronutrients).\n\n"
         "## Prices\n\n"
         "Retail staple prices from the World Food Programme are normalised to a "
         "per-kilogram basis, then summarised per county as the median price "
@@ -224,9 +298,18 @@ def _write_methods(path: Path, table, meta) -> None:
         "biomarker questionnaire collected height and weight only; unlike the "
         "2014 round it carried no haemoglobin module, so anaemia is not "
         "available from this survey and is omitted rather than reported empty. "
-        "Child stunting is the outcome for the soil-to-nutrition pathway: it is "
-        "regressed on topsoil quality controlling for the staple price and "
-        "maize yield. The four county stunting figures the Action Plan names "
+        "Child stunting is the outcome for the soil-food-body pathway. Two stages "
+        "are estimated. Stage 1 regresses the county Food Nutrient Density Index, "
+        "built by mapping crop production to nutrients through the Kenya Food "
+        "Composition Tables and expressing it per capita, on the composite "
+        "soil-health index with land and climate controls. Stage 2 regresses child "
+        "stunting on the food nutrient density index and the soil index, "
+        "controlling for household wealth, maternal education and water and "
+        "sanitation from the same survey. Both stages estimate at full county "
+        "coverage, replacing an earlier price-limited model that ran on fewer "
+        "counties. Minimum dietary diversity for children 6 to 23 months is also "
+        "computed from the survey as a complementary diet-quality measure. "
+        "The four county stunting figures the Action Plan names "
         "(Kilifi, West Pokot, Samburu, Kisumu) are compared against the survey "
         "estimates as an external validation; Kilifi at about 37 percent matches "
         "the Action Plan figure closely.\n\n"
@@ -235,7 +318,9 @@ def _write_methods(path: Path, table, meta) -> None:
         "climate, market access, diets and care practices are jointly "
         "determined, so the soil-price, soil-yield and soil-nutrition models "
         "are read as conditional gradients with robust (HC3) standard errors, "
-        "not as causal effects.\n",
+        "not as causal effects. The Stage 1 and Stage 2 pathway models are read "
+        "the same way; and because the soil layer is a single cross-section, soil "
+        "effects are identified between counties rather than within them.\n",
         encoding="utf-8",
     )
 

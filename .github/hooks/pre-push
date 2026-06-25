@@ -1,0 +1,15 @@
+#!/bin/sh
+# Pre-push guard for the Kenya FNP pipeline.
+#
+# It runs the same static checks as CI, so a data leak or a stray em dash is
+# caught on your machine before anything leaves it.
+#
+# Install once, from the repository root:
+#   cp .github/hooks/pre-push .git/hooks/pre-push
+#   chmod +x .git/hooks/pre-push
+
+python .github/scripts/check_repo.py || {
+  echo "pre-push: repository checks failed; push aborted." >&2
+  echo "fix the problems above, or bypass once with: git push --no-verify" >&2
+  exit 1
+}

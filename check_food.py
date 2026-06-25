@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Layer 3 (Food) diagnostic.
+"""Layer 3 (Food) check.
 
-Checks every food source (raw folders, processed CSVs, database tables) and
-prints a per-source verdict so you can see whether the food data are downloaded
-and analysis-ready.
+Verifies FAOSTAT, observed prices, the food composition tables and the NAPR
+crop tables, and that the Food Nutrient Density Index has the inputs it needs.
+Read-only; needs no rebuild.
 
 Run from the project root:  python check_food.py
 """
@@ -11,128 +11,63 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from kenyadb.checks import (CheckResult, connect, count, has_table,
+                            provenance_summary, table_check)
+
 BASE = Path(__file__).resolve().parent
-RAW = BASE / "data" / "raw"
-EXT = BASE / "data" / "external"
-PROC = BASE / "data" / "processed" / "food"
-DB = BASE / "data" / "db" / "kenya_fnp.duckdb"
-
-# source -> (tier, where it lands, description)
-FOOD = {
-    "kfct_2018": ("ESSENTIAL", RAW / "kfct_2018",
-                  "Kenya Food Composition Tables (nutrient backbone)"),
-    "faostat": ("ESSENTIAL", RAW / "faostat",
-                "FAOSTAT national long-run time series"),
-    "wfp_prices": ("ESSENTIAL", RAW / "wfp_prices",
-                   "WFP observed monthly market prices"),
-    "kilimostat": ("ESSENTIAL", RAW / "kilimostat",
-                   "KNBS NAPR 2024: crop area + production by county/year"),
-    "wb_rtfp": ("OPTIONAL", EXT / "wb_rtfp",
-                "World Bank modelled gap-filled prices (manual download)"),
-    "fsd_food": ("CONTEXT", RAW / "fsd_food",
-                 "NIPFN Power BI dashboard (no data export; reference only)"),
-}
-# expected processed CSVs / DB tables per source
-EXPECT_TABLES = {
-    "kfct_2018": ["kfct_foods", "kfct_proximates", "kfct_minerals", "kfct_vitamins"],
-    "faostat": ["faostat_kenya"],
-    "wfp_prices": ["prices_wfp_observed"],
-    "kilimostat": ["napr_crop_county"],
-    "wb_rtfp": ["prices_wb_modeled"],
-    "fsd_food": [],
-}
 
 
-def human(n: float) -> str:
-    for u in ("B", "KB", "MB", "GB"):
-        if n < 1024:
-            return f"{n:.0f}{u}"
-        n /= 1024
-    return f"{n:.1f}TB"
+def run(base: Path = BASE) -> CheckResult:
+    res = CheckResult("Food")
+    con = connect(base)
 
+    # core food tables in the database
+    table_check(res, con, "food", "faostat_kenya", expect=None)
+    prices = table_check(res, con, "food", "prices_wfp_observed", expect=None)
+    napr = table_check(res, con, "food", "napr_crop_county", expect=None)
+    for t in ("kfct_foods", "kfct_proximates", "kfct_minerals", "kfct_vitamins"):
+        table_check(res, con, "food", t, expect=None)
+    # modelled prices are an optional manual source; absence is not a problem
+    if con is not None:
+        if has_table(con, "food", "prices_wb_modeled") and count(con, "food", "prices_wb_modeled") > 0:
+            res.ok("food.prices_wb_modeled", f"{count(con, 'food', 'prices_wb_modeled')} rows")
+        else:
+            res.info("food.prices_wb_modeled", "optional modelled prices not downloaded")
 
-def folder_stats(d: Path):
-    if not d.exists():
-        return [], 0
-    files = [p for p in d.rglob("*") if p.is_file()]
-    return files, sum(p.stat().st_size for p in files)
+    # NAPR crop coverage (expect 9 to 10 crops)
+    if con is not None and napr:
+        crops = con.execute(
+            "select count(distinct crop) from food.napr_crop_county").fetchone()[0]
+        counties = con.execute(
+            "select count(distinct county_norm) from food.napr_crop_county").fetchone()[0]
+        (res.ok if crops >= 9 else res.warn)("NAPR crops", f"{crops} crops across {counties} counties")
+
+    # WFP price county coverage (partial is expected)
+    if con is not None and prices and "county_norm" in [
+            c[0] for c in con.execute(
+                "select * from food.prices_wfp_observed limit 0").description]:
+        pc = con.execute(
+            "select count(distinct county_norm) from food.prices_wfp_observed "
+            "where county_norm is not null").fetchone()[0]
+        res.info("WFP price coverage", f"{pc}/47 counties (partial by design)")
+
+    # FNDI readiness: NAPR crops plus at least one KFCT composition table
+    if con is not None:
+        kfct_ok = any(has_table(con, "food", t) and count(con, "food", t) > 0
+                      for t in ("kfct_proximates", "kfct_minerals", "kfct_vitamins"))
+        if napr and kfct_ok:
+            res.ok("FNDI inputs", "NAPR crops and KFCT composition present")
+        else:
+            res.warn("FNDI inputs", "need both NAPR crop production and a KFCT table")
+
+    provenance_summary(res, con, "food")
+    if con is not None:
+        con.close()
+    return res
 
 
 def main() -> None:
-    print("Kenya FNP - Layer 3 (Food) diagnostic")
-    print("=" * 52)
-
-    for src, (tier, folder, desc) in FOOD.items():
-        files, size = folder_stats(folder)
-        exts = sorted({p.suffix.lower() for p in files if p.suffix})
-        print(f"\n[{src}]  {tier}")
-        print(f"  {desc}")
-        if not files:
-            if tier == "CONTEXT":
-                note = "expected - dashboard, no downloadable data"
-            elif tier == "OPTIONAL":
-                note = "not downloaded (manual / registration source)"
-            else:
-                note = "NOT DOWNLOADED"
-            print(f"  {folder.relative_to(BASE)}/: empty  ({note})")
-            continue
-        print(f"  {folder.relative_to(BASE)}/: {len(files)} files, "
-              f"{human(size)}, types={exts or 'n/a'}")
-        if src == "kilimostat":
-            pdfs = [p for p in files if p.suffix.lower() == ".pdf"]
-            csvs = [p for p in files if p.suffix.lower() in (".csv", ".xlsx")]
-            print(f"  NAPR report PDF: {len(pdfs)}, tabular exports: {len(csvs)} "
-                  f"-> {'PASS' if (pdfs or csvs) else 'FAIL'}")
-
-    # processed CSVs
-    print("\n" + "-" * 52)
-    if PROC.exists():
-        csvs = sorted(p.name for p in PROC.glob("*.csv"))
-        print(f"processed/food/: {len(csvs)} CSVs")
-        for c in csvs:
-            print(f"  {c}")
-    else:
-        print("processed/food/: none yet")
-
-    # database
-    print("-" * 52)
-    if not DB.exists():
-        print(f"database not built yet ({DB})")
-        return
-    try:
-        import duckdb
-    except ImportError:
-        print("duckdb not installed - skipping database checks")
-        return
-    con = duckdb.connect(str(DB), read_only=True)
-    have = {t for (t,) in con.execute(
-        "SELECT table_name FROM information_schema.tables "
-        "WHERE table_schema='food'").fetchall()}
-    print(f"food.* tables in database: {len(have)}")
-    for src, tables in EXPECT_TABLES.items():
-        for t in tables:
-            if t in have:
-                n = con.execute(f'SELECT count(*) FROM food."{t}"').fetchone()[0]
-                print(f"  food.{t}: {n} rows  -> PASS  [{src}]")
-            elif FOOD[src][0] in ("ESSENTIAL",):
-                print(f"  food.{t}: MISSING  -> pending  [{src}]")
-    extra = have - {t for ts in EXPECT_TABLES.values() for t in ts}
-    for t in sorted(extra):
-        n = con.execute(f'SELECT count(*) FROM food."{t}"').fetchone()[0]
-        print(f"  food.{t}: {n} rows  (additional)")
-
-    try:
-        prov = con.execute(
-            "SELECT source_key, status, count(*) FROM provenance "
-            "WHERE layer='food' GROUP BY source_key, status "
-            "ORDER BY source_key, status").fetchall()
-        if prov:
-            print("\nprovenance (food layer):")
-            for sk, st, c in prov:
-                print(f"  {sk:<16} {st:<8} {c}")
-    except Exception:  # noqa: BLE001
-        pass
-    con.close()
+    run().print_report()
 
 
 if __name__ == "__main__":

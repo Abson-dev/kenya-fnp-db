@@ -1,0 +1,64 @@
+name: CI
+
+# Static checks only.
+#
+# The full pipeline needs licensed data that is never committed to this
+# repository (DHS microdata and several gated soil and survey sources), so CI
+# cannot run run_all.py or validate.py end to end. Instead it verifies the
+# things that can be checked from the code alone: that every module compiles,
+# that the source registry parses, that the typography house style holds, and
+# that no data, log or output file has been committed.
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  static-checks:
+    name: Static checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install lightweight check dependencies
+        run: pip install pyyaml
+
+      - name: Repository guards (compile, registry, typography, data-leak)
+        run: python .github/scripts/check_repo.py
+
+  # Optional, heavier smoke test. It installs the full requirements and confirms
+  # the package imports and the run plan resolves. It does NOT download data.
+  # Disabled by default because the geospatial wheels are slow to install; flip
+  # the `if` to true (or remove it) to turn it on.
+  smoke-test:
+    name: Import and dry-run (optional)
+    runs-on: ubuntu-latest
+    if: false
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install requirements
+        run: pip install -r requirements.txt
+
+      - name: Import the package
+        run: python -c "import kenyadb; print('kenyadb imports')"
+
+      - name: Resolve the run plan (no downloads)
+        run: python run_all.py --dry-run

@@ -78,6 +78,31 @@ layers:
   # ---------------------------------------------------------------
   # LAYER 2 - soil nutrient and soil health
   # ---------------------------------------------------------------
+    chirps_rainfall:
+      title: CHIRPS 2.0 annual rainfall (Kenya, county zonal)
+      publisher: UCSB Climate Hazards Group (CHC)
+      access: open_download
+      handler: manual
+      processed_by: kenyadb.remote_sensing
+      base_url: https://data.chc.ucsb.edu/products/CHIRPS-2.0/global_annual/tifs/
+      gee: UCSB-CHG/CHIRPS/DAILY
+      role: county rainfall level, interannual variability, anomaly and drought frequency (controls and instruments)
+      note: place annual rainfall GeoTIFFs (year in the file name) in data/raw/chirps_rainfall/.
+        Direct files are chirps-v2.0.YYYY.tif.gz (gunzip first), or export Kenya-clipped annual
+        rainfall totals from Google Earth Engine. Zonal stats and derived features by kenyadb.remote_sensing.
+
+    modis_ndvi:
+      title: MODIS NDVI (Kenya, county zonal)
+      publisher: NASA LP DAAC
+      access: open_download
+      handler: manual
+      processed_by: kenyadb.remote_sensing
+      gee: MODIS/061/MOD13A2
+      role: county vegetation greenness and trend (land-degradation proxy)
+      note: place annual mean-NDVI GeoTIFFs (year in the file name) in data/raw/modis_ndvi/.
+        Export annual NDVI for Kenya from Google Earth Engine (MOD13A2 or MOD13Q1); integer NDVI
+        scaled by 10000 is auto-rescaled. Drought is derived from the CHIRPS series, not a separate source.
+
   soil:
     soilgrids:
       title: ISRIC SoilGrids 250 m
@@ -141,6 +166,16 @@ layers:
   # ---------------------------------------------------------------
   # LAYER 3 - food composition, availability, prices
   # ---------------------------------------------------------------
+    isda:
+      title: iSDAsoil gridded soil nutrients (Africa, 30 m)
+      publisher: iSDA Africa
+      access: open_download
+      handler: manual
+      processed_by: kenyadb.transforms.isda_county
+      gee: ISDASOIL/Africa/v1
+      role: county extractable P, K, Zn, Fe and more; fills the SoilGrids micronutrient gap at full 47-county coverage
+      note: export Kenya rasters with tools/download_isda_gee.py into data/raw/isda/ (back-transformed to natural units, 0-30 cm). Zonal means by kenyadb.transforms.isda_county.
+
   food:
     kfct_2018:
       title: Kenya Food Composition Tables 2018
@@ -235,6 +270,14 @@ layers:
   # LAYER 4 - body nutrient and health
   # ---------------------------------------------------------------
   health:
+    kdhs_2014:
+      title: Kenya DHS 2014 (phase 72) county anthropometry, anaemia and controls
+      publisher: KNBS and ICF (DHS Program)
+      access: gated_download
+      handler: manual
+      processed_by: kenyadb.transforms (kdhs_county / kdhs_diet_controls, subdir kdhs_2014)
+      role: second time point for body outcomes; child and women anaemia (the 2022 round omits these); 2014-to-2022 stunting trend
+      note: place the DHS 2014 recodes (KExx72DT folders) in data/external/kdhs_2014/. Same extraction code as 2022.
     kdhs_2022:
       title: Kenya Demographic and Health Survey 2022
       publisher: KNBS / DHS Program
@@ -293,6 +336,14 @@ layers:
   # LAYER 5 - food-system, fortification, policy
   # ---------------------------------------------------------------
   policy:
+    policy_panel:
+      title: Kenya county policy-intensity panel (agricultural expenditure and fertilizer subsidy)
+      publisher: Office of the Controller of Budget (CBIRR); MoALD / NCPB / KNTC (NFSP)
+      access: open_download
+      handler: manual
+      processed_by: kenyadb.policy_panel
+      role: county x fiscal-year policy effort (CBIRR agricultural expenditure) and the staggered fertilizer-subsidy rollout; basis for the Policy Signal Index and Stage 4
+      note: place CBIRR agricultural-expenditure CSVs in data/external/cob_expenditure/ (see tools/parse_cob_expenditure.py); fertilizer rollout bundled as a documented seed, override via data/external/fertilizer_subsidy/.
     faolex:
       title: FAOLEX Kenya legal and policy corpus
       publisher: FAO

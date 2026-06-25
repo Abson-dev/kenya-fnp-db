@@ -41,7 +41,7 @@ Pipeline stages: acquire, then extract archives, then build the crosswalk, then 
 
 ```
 kenya_fnp_db/
-  config/sources.yaml        registry: 25 sources across 5 layers
+  config/sources.yaml        registry: 30 sources across 5 layers plus remote sensing
   run_all.py                 main CLI (acquire -> extract -> crosswalk -> transform -> build)
   build_action_plan.py       standalone Action Plan extractor runner
   validate.py                consistency checker (writes validation_report.md)
@@ -172,7 +172,7 @@ Verified result: `action_plan` reads **ok** with the message "local extract: 65 
 
 Survey-weighted county estimates from the KDHS 2022 recodes, ready for when the survey access is granted.
 
-- Reads the children recode (KR) for stunting, wasting, underweight and child anaemia, and the women recode (IR) for women anaemia.
+- Reads the children recode (KR) for stunting, wasting and underweight (2022 and 2014 rounds) and the women recode (IR) for maternal BMI and the diet / household controls. Neither Kenya DHS round measured haemoglobin, so anaemia is absent by design.
 - Weights by **v005 / 1,000,000**; detects the county variable by matching its value labels to the crosswalk.
 - Produces **5** indicators joined to all **47** counties.
 - A real bug was fixed: metadata is read with `read_dta(metadataonly=True)`, not the non-existent `read_file_metadata`.
@@ -181,7 +181,7 @@ Survey-weighted county estimates from the KDHS 2022 recodes, ready for when the 
 
 ### 6e. Detailed GitHub README
 
-A per-folder, per-module and per-dataset README was written: the repository layout, the `kenyadb` package, the 12-handler table, the data tiers, five per-layer dataset tables covering all 25 sources, the CLI flags, the pipeline stages, the database schemas, the analysis layer, validation, provenance and caveats. Typography check: **0** em dashes, **0** en dashes, **0** straight apostrophes.
+A per-folder, per-module and per-dataset README was written: the repository layout, the `kenyadb` package, the 12-handler table, the data tiers, five per-layer dataset tables covering all 30 sources, the CLI flags, the pipeline stages, the database schemas, the analysis layer, validation, provenance and caveats. Typography check: **0** em dashes, **0** en dashes, **0** straight apostrophes.
 
 ### 6f. Analysis updated with the policy layer (`analysis.py`, `analyze.py`)
 

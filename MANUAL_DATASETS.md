@@ -25,9 +25,35 @@ get_datasets(c("KEHR8BFL", "KEPR8BFL", "KEKR8BFL", "KEIR8BFL", "KEMR8BFL"))
 
 4. Place the extracted .DTA / .SAV files in `data/external/kdhs_2022/`.
 
-County estimates: the DHS county fact sheets and the recode files support
-county-level anthropometry and hemoglobin indicators. Use the county fact
-sheets for quick policy figures and the recode files for reproducible estimates.
+County estimates: once the recodes are in place, the `kdhs_county` transform
+runs automatically on the next build. It reads the children’s recode (KR:
+`KEKR8xFL`) for stunting, wasting and underweight, and the women’s recode
+(IR: `KEIR8xFL`) for maternal BMI and the dietary-diversity and household
+controls, computes survey-weighted (v005/1e6) per-county prevalence, picks the
+county variable by matching its value labels to the crosswalk, and writes
+`health.kdhs_county` and `health.kdhs_controls_county`. The anaemia path stays
+in the code but finds nothing, because the 2022 round carried no haemoglobin
+module. Requires `pip install pyreadstat`. If a future recode renames
+variables, override the defaults via the `_KDHS_VARS` map in
+`kenyadb/transforms.py`.
+
+## KDHS 2014 (registration) - data/external/kdhs_2014/
+
+The Kenya DHS 2014 (phase 72) is the second county-representative round and is
+obtained the same way as 2022, through a DHS account and project approval.
+
+1. From your approved DHS project, download the Kenya 2014 Standard DHS recodes
+   (the `KExx72DT` folders for the children, women and household-member files).
+2. Drop the `KExx72DT` folders into `data/external/kdhs_2014/` (the loader
+   searches subfolders, so the folders can be placed as downloaded).
+3. Run `python run_all.py --layer health` (or `--build-only`).
+
+The same parametrized transform produces `health.kdhs_county_2014` and
+`health.kdhs_controls_county_2014`, which give a genuine second time point and
+the 2014 to 2022 stunting trend. Note that, like 2022, the 2014 Kenya round did
+not measure haemoglobin, so it adds no anaemia; Kenyan anaemia was carried only
+by the 2010 and 2015 Malaria Indicator Surveys, which are not
+county-representative and are therefore kept out of the county panel.
 
 ## KNMS 2011 (agreement) - data/external/knms_2011/
 

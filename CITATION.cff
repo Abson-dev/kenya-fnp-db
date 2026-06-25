@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Kenya Soil-Food-Nutrition-Policy database pipeline"
+abstract: >-
+  A configuration-driven, provenance-tracked pipeline that assembles soil,
+  food, body (nutrition) and policy data for the 47 counties of Kenya into a
+  single layered DuckDB database keyed on a master county crosswalk, and
+  estimates the soil-food-body nutrient pathway in five stages. Built to
+  operationalize the framework of J. M. Ulimwengu at IFPRI.
+type: software
+authors:
+  - family-names: HEMA
+    given-names: Aboubacar
+    affiliation: "International Food Policy Research Institute (IFPRI)"
+license: MIT
+date-released: "2026-06-25"
+url: "https://github.com/Abson-dev/kenya_fnp_db"
+repository-code: "https://github.com/Abson-dev/kenya_fnp_db"
+keywords:
+  - Kenya
+  - soil health
+  - food systems
+  - nutrition
+  - child stunting
+  - DuckDB
+  - reproducible research
+  - provenance
