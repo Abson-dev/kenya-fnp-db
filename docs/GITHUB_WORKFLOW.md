@@ -18,6 +18,7 @@ Replace `Abson-dev/kenya_fnp_db` below with your own account and repository name
 8. [Releases and versioning](#8-releases-and-versioning)
 9. [Command cheat-sheet](#9-command-cheat-sheet)
 10. [Troubleshooting](#10-troubleshooting)
+11. [Repairing a repository that already has the wrong files](#11-repairing-a-repository-that-already-has-the-wrong-files)
 
 ---
 
@@ -183,6 +184,13 @@ git push -u origin feature/my-change
 # update a clone
 git checkout main && git pull --rebase origin main
 
+# stop tracking files committed before .gitignore (kept on disk)
+git rm -r --cached logs analysis/outputs kenyadb/__pycache__
+git add -A && python .github/scripts/check_repo.py && git commit -m "Stop tracking build artefacts"
+
+# finish an interrupted merge
+git add -A && python .github/scripts/check_repo.py && git commit -m "Merge and finish cleanup"
+
 # release
 git tag -a v1.1.0 -m "Add the 2014 round and Stage 5" && git push origin v1.1.0
 ```
@@ -202,3 +210,57 @@ git remote set-url origin git@github.com:Abson-dev/kenya_fnp_db.git
 **A file is too large to push.** It is almost certainly a data or output file that should have been ignored. Confirm it is matched by `.gitignore`, remove it from the index with `git rm --cached <path>`, and commit the removal.
 
 **The guard flags a dash you cannot see.** Em (U+2014) and en (U+2013) dashes look like long hyphens. Search and replace them with a plain hyphen; the report names the file so you know where to look.
+
+---
+
+## 11. Repairing a repository that already has the wrong files
+
+This is the common situation where files were committed in an early commit, before `.gitignore` was in place, or where a merge pulled an old commit back in. A `.gitignore` only stops new files from being tracked; it never removes files that git already tracks. So build artefacts, logs and internal documents committed early keep showing up as "modified", and the repository guard keeps failing on them until you stop tracking them. Untracking removes a file from the repository while leaving it on your disk.
+
+### Untracking build artefacts, logs and outputs
+
+From the project root, the `--cached` flag is the important one, it removes the files from git only, not from your disk:
+
+```bash
+git rm -r --cached logs analysis/outputs
+git rm -r --cached kenyadb/__pycache__
+```
+
+Then stage, run the guard, and commit:
+
+```bash
+git add -A
+python .github/scripts/check_repo.py     # must print "All repository checks passed"
+git commit -m "Stop tracking logs, outputs and build artefacts"
+```
+
+The cleanup is durable: the pre-push hook and CI run that same guard, and a later `analyze.py` regenerates `analysis/outputs/` locally where git now ignores it.
+
+### Internal or private documents
+
+If an internal document was committed (for example a framework prompt or a data-bundle brief that belongs to the institution rather than to the public code), untrack it the same way and decide whether it should exist in the repository at all:
+
+```bash
+git rm --cached "docs/Nutrient pathways Prompt.md"
+```
+
+For a public repository, internal documents normally should not be there. Remove them and keep your local copies.
+
+### The history caveat
+
+`git rm --cached` removes a file from the current and future commits, not from the past. If the file was already pushed to a public repository, it stays in the history. When that matters (a private document, or a credential), there are two routes: rewrite the history with `git filter-repo` and force-push, or, as the simpler immediate safeguard, set the repository to private on GitHub (Settings, then General, then the Danger Zone) until the history is clean. Rotate any exposed credential regardless.
+
+### Finishing an interrupted merge
+
+If `git status` reports that the branches have diverged and that you are "still merging" (after a `git pull` that hit conflicts you have since resolved), the order is: stage every resolved file, run the guard, then conclude the merge with a commit and push.
+
+```bash
+git ls-files data/                       # safety: should print nothing but .gitkeep
+git add -A
+python .github/scripts/check_repo.py     # must print "All repository checks passed"
+git commit -m "Merge origin/main and finish the cleanup"
+git push origin main
+```
+
+Do not skip the guard here. A merge is exactly when stray tracked files from an old commit resurface, which is when the data-leak check earns its keep. If the guard reports a data-leak line, untrack the named path with `git rm --cached` (or `git rm -r --cached` for a folder) before committing.
+
