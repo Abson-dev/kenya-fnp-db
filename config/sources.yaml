@@ -270,6 +270,22 @@ layers:
   # LAYER 4 - body nutrient and health
   # ---------------------------------------------------------------
   health:
+    kdhs_gps_2022:
+      title: Kenya DHS 2022 GPS clusters (geocoded)
+      publisher: KNBS and ICF (DHS Program)
+      access: gated_download
+      handler: manual
+      processed_by: kenyadb.dhs_gps (run, subdir kdhs_2022)
+      role: cluster-level soil, rainfall and NDVI for the child-level multilevel model
+      note: place the DHS GPS Datasets shapefile (KEGE81FL) under data/external/kdhs_2022/
+    kdhs_gps_2014:
+      title: Kenya DHS 2014 GPS clusters (geocoded)
+      publisher: KNBS and ICF (DHS Program)
+      access: gated_download
+      handler: manual
+      processed_by: kenyadb.dhs_gps (run, subdir kdhs_2014)
+      role: cluster-level covariates for the 2014 round
+      note: place the DHS GPS Datasets shapefile (KEGE71FL) under data/external/kdhs_2014/
     kdhs_2014:
       title: Kenya DHS 2014 (phase 72) county anthropometry, anaemia and controls
       publisher: KNBS and ICF (DHS Program)

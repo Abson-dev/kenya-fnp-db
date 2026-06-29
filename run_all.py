@@ -25,7 +25,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from kenyadb import action_plan, census, crosswalk, kfct, napr, pipeline, policy_panel, remote_sensing, transforms
+from kenyadb import action_plan, census, crosswalk, dhs_gps, kfct, napr, pipeline, policy_panel, remote_sensing, transforms
 from kenyadb import build_db as builder
 from kenyadb.utils import extract
 
@@ -75,6 +75,10 @@ def main() -> None:
         if args.layer is None or "geography" in args.layer:
             census.run(BASE)
             remote_sensing.run(BASE)
+        if args.layer is None or "health" in args.layer:
+            # DHS GPS clusters (skips cleanly when the GPS shapefiles are absent)
+            dhs_gps.run(BASE, "kdhs_2022", "kdhs_gps_clusters", "2022", prov=prov)
+            dhs_gps.run(BASE, "kdhs_2014", "kdhs_gps_clusters_2014", "2014", prov=prov)
         if args.layer is None or "food" in args.layer:
             kfct.run(BASE)
             napr.run(BASE)

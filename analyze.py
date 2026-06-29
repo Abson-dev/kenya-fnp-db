@@ -18,6 +18,15 @@ Outputs (analysis/outputs/):
   soil_nutrition_model.txt      legacy soil-only stunting regression (price-limited)
   stage1_food_density_model.txt Stage 1: food nutrient density ~ soil index + controls (n up to 47)
   stage2_nutrition_model.txt    Stage 2: stunting ~ food density + soil index + wealth/education/WASH (n=47)
+  robustness_summary.md         robustness battery (prompt Section 6), all checks in one note
+  robustness_*.csv              alternative outcomes, soil-index variants, no-soil
+                                counterfactual, subsamples, Moran's I
+  refinement_spatial_summary.md iron-led soil refinement and spatial Stage 1 diagnostics
+  refined_soil_models.csv       Stage 1 / diet / Stage 2 with iron and a PCA index
+  spatial_residuals.csv         Moran's I on the Stage 1 and Stage 2 residuals
+  slx_stage1.csv                spatially-lagged-X Stage 1 coefficients
+  multilevel_summary.md         child-level HAZ multilevel model (DHS clusters, county random effects)
+  multilevel_coefficients.csv   fixed effects across rounds (iron and composite soil)
   map_*.png                     choropleths (soil, prices, yield, land use, density,
                                 stunting, anaemia, zones)
   METHODS.md                    short methods note for the manuscript
@@ -187,6 +196,82 @@ def main() -> None:
     else:
         print("  -> no KDHS county table yet (place the recodes in "
               "data/external/kdhs_2022/ and rebuild)")
+
+    # robustness and sensitivity battery (prompt Section 6)
+    print("[analysis] robustness battery")
+    try:
+        from kenyadb import robustness as R
+        rb = R.run(con, BASE, OUT)
+        alt = rb.get("alternative_outcomes")
+        if alt is not None and not alt.empty:
+            print(f"  -> alternative outcomes: {len(alt)} body indicators re-estimated "
+                  f"({', '.join(alt['outcome'].tolist())})")
+        ns = rb.get("no_soil_counterfactual")
+        if ns is not None and not ns.empty:
+            delta = ns.loc[ns['model'].str.startswith('soil contribution'), 'r2']
+            if not delta.empty:
+                print(f"  -> no-soil counterfactual: soil adds {float(delta.iloc[0]):+.3f} to Stage 1 R2")
+        sub = rb.get("subsample_analysis")
+        if sub is not None and not sub.empty:
+            print(f"  -> subsample analysis: {sub['split'].nunique()} splits, "
+                  f"{len(sub)} subsamples estimated")
+        sp = rb.get("spatial_autocorrelation")
+        if sp is not None and not sp.empty:
+            sig = sp[sp['perm_p'] < 0.05]
+            print(f"  -> spatial autocorrelation: Moran's I for {len(sp)} variables"
+                  + (f"; {len(sig)} significant at 5% ({', '.join(sig['variable'])})" if not sig.empty else ""))
+        elif sp is not None:
+            print("  -> spatial autocorrelation skipped (geopandas or boundaries unavailable)")
+        print("  -> robustness_summary.md and robustness_*.csv written")
+    except Exception as exc:  # noqa: BLE001
+        print(f"  -> robustness battery skipped: {type(exc).__name__}: {exc}")
+
+    # refined soil specification and spatial diagnostics
+    print("[analysis] soil refinement and spatial diagnostics")
+    try:
+        from kenyadb import spatial_models as SP
+        sp = SP.run(con, BASE, OUT)
+        ref = sp.get("refined_soil_models")
+        if ref is not None and not ref.empty:
+            iron = ref[(ref["soil_term"] == "fe_isda") & (ref["outcome"] == "food density")]
+            if not iron.empty:
+                r = iron.iloc[0]
+                print(f"  -> soil refinement: iron on food density b={r['b_soil']}, "
+                      f"p={r['p_soil']}, R2={r['r2']} (composite is null)")
+        resid = sp.get("spatial_residuals")
+        if resid is not None and not resid.empty:
+            flags = resid[resid["perm_p"] < 0.05]
+            print("  -> residual Moran's I computed for "
+                  f"{len(resid)} models"
+                  + (f"; {len(flags)} show residual clustering" if not flags.empty
+                     else "; no significant residual clustering"))
+        info = sp.get("slx_info") or {}
+        if info:
+            print(f"  -> SLX Stage 1: n={info.get('n')}, R2={info.get('r2')}, "
+                  f"residual Moran's I={info.get('resid_morans_i')}")
+        print("  -> refinement_spatial_summary.md and refined/spatial CSVs written")
+    except Exception as exc:  # noqa: BLE001
+        print(f"  -> refinement and spatial diagnostics skipped: {type(exc).__name__}: {exc}")
+
+    # child-level multilevel model on the DHS GPS clusters
+    print("[analysis] child-level multilevel model")
+    try:
+        from kenyadb import multilevel as ML
+        ml = ML.run(BASE, OUT)
+        coef = ml.get("coefficients")
+        if coef is not None and not coef.empty:
+            iron = coef[(coef["term"] == "fe_isda") & (coef["round"] == "2022")]
+            if not iron.empty:
+                r = iron.iloc[0]
+                print(f"  -> 2022 HAZ on cluster iron: b={r['coef']} per SD, p={r['p']}, "
+                      f"n={r['n']} children in {r['n_counties']} counties")
+            for s in ml.get("summaries", []):
+                print(f"     {s}")
+            print("  -> multilevel_summary.md and multilevel_coefficients.csv written")
+        else:
+            print("  -> no multilevel fit (cluster tables or recodes not in place)")
+    except Exception as exc:  # noqa: BLE001
+        print(f"  -> multilevel model skipped: {type(exc).__name__}: {exc}")
 
     if not args.no_maps:
         print("[analysis] maps")

@@ -53,6 +53,14 @@ def run(base: Path = BASE) -> CheckResult:
     # national HNP panel
     table_check(res, con, "health", "wb_hnp_panel", expect=None, essential=False)
 
+    # DHS GPS clusters (optional; for the child-level multilevel model)
+    for tbl, label in (("kdhs_gps_clusters", "2022"), ("kdhs_gps_clusters_2014", "2014")):
+        if con is not None and has_table(con, "health", tbl):
+            from kenyadb.checks import count as _count
+            res.ok(f"DHS GPS clusters {label}", f"{_count(con, 'health', tbl)} geocoded clusters")
+        else:
+            res.info(f"DHS GPS clusters {label}", "not built (optional; place the GPS shapefile)")
+
     provenance_summary(res, con, "health")
     if con is not None:
         con.close()

@@ -44,7 +44,7 @@ kenya_fnp_db/
   build_census.py            standalone runner for the census extractors
   build_kfct.py              standalone runner for the food-composition extractor
   build_napr.py              standalone runner for the crop area / production extractor
-  validate.py                read-only consistency checker (writes validation_report.md)
+  validate.py                read-only consistency checker (writes data/processed/validation_report.md)
   check_all.py               global health check: runs every per-layer check and rolls up
   check_geography.py         Layer 1 check: crosswalk, census denominators, remote sensing
   check_soil.py              Layer 2 check: SoilGrids, iSDA, AfSIS and the soil-index inputs
@@ -174,7 +174,7 @@ python run_all.py                  # full run: open fetched, gated flagged
 python run_all.py --build-only     # rebuild the database from whatever is on disk
 python run_all.py --no-transform   # build without re-running the transforms
 
-python validate.py                 # consistency report -> validation_report.md
+python validate.py                 # consistency report -> data/processed/validation_report.md
 python analyze.py                  # starter analysis -> analysis/outputs/
 python build_action_plan.py        # extract the Action Plan PDF on its own
 ```
@@ -358,7 +358,7 @@ SoilGrids mapped units are converted to conventional units and the 0-5 / 5-15 / 
 
 ## Validation
 
-`validate.py` runs a read-only consistency check and writes `validation_report.md`:
+`validate.py` runs a read-only consistency check and writes `data/processed/validation_report.md`:
 
 - crosswalk integrity (47 counties, 290 sub-counties, no duplicate keys),
 - county-name join coverage per table,
