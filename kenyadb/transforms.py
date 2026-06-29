@@ -35,7 +35,15 @@ def _crosswalk(base: Path) -> pd.DataFrame | None:
 
 # --- generic ingester for manual / gated drops ------------------------------
 # Sources owned by a dedicated transform (skip here to avoid duplicate tables).
-_DEDICATED = {"wb_rtfp", "wfp_prices", "kdhs_2022"}
+_DEDICATED = {
+    "wb_rtfp",
+    "wfp_prices",
+    "kdhs_2022",
+    "kdhs_2014",
+    "cob_expenditure",
+    "fertilizer_subsidy",
+    "action_plan",
+}
 
 
 def _attach_county(df: pd.DataFrame, xwalk: pd.DataFrame | None) -> pd.DataFrame:
@@ -1128,8 +1136,8 @@ def run_all(base: Path) -> None:
         except Exception as exc:  # noqa: BLE001
             print(f"[transform] health.kdhs_controls_county_2014: error {type(exc).__name__}: {exc}")
     else:
-        print("[transform] health.kdhs_county: SKIP - no .dta recodes in "
-              "data/external/kdhs_2022/ (manual gate - see MANUAL_DATASETS.md)")
+        print("[transform] health.kdhs_county_2014: SKIP - no .dta recodes in "
+              "data/external/kdhs_2014/ (manual gate - see MANUAL_DATASETS.md)")
 
     # generic ingestion of any other manual / gated drops
     ingest_external(base)
